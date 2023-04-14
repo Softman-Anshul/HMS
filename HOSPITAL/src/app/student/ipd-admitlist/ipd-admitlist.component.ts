@@ -59,13 +59,16 @@ export class IPDADMITLISTComponent implements OnInit {
   this.hoverUhID = students.uhID;
  }
   newreg() {
-    const dialogRef = this.dialog.open(IPDRegComponent, {
-      height:'650px', width: '1500px',
-      data: {OPD:undefined},
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    this.router.navigate(['homepage/ipdreg']);
+
+    // const dialogRef = this.dialog.open(IPDRegComponent, {
+    //   height:'650px', width: '1500px',
+    //   data: {OPD:undefined},
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    // });
 }
 edit(dcmntNo:any,opdDate:any) {
   let id = dcmntNo;

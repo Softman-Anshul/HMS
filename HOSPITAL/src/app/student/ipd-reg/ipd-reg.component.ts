@@ -35,16 +35,18 @@ export class IPDRegComponent implements OnInit {
   day=0;
   ptype = "General"
   type = "OPD";
+  isOpd = true;
 
   constructor(private _studentservice:StudentsService,
     private router: Router,
-    public dialogRef: MatDialogRef<IPDRegComponent>,
     private routes : ActivatedRoute,
-     @Inject(MAT_DIALOG_DATA) public data: {OPD:OPD,OPD2:OPD,OPD3:OPD },
     ) {
-     this.dcmntNo = data.OPD
-     this.opdDate = data.OPD2
-     this.dcmntType = data.OPD3
+    
+      let data = routes.snapshot.data
+
+      this.dcmntNo = data["OPD"]
+      this.opdDate = data["OPD2"]
+      this.dcmntType = data["OPD3"]
 
      }
 
@@ -268,9 +270,6 @@ export class IPDRegComponent implements OnInit {
      this.OPD1.agey = "Years"
    }
    }
-   onNoClick(): void {
-     this.dialogRef.close();
-   }
    onSubmit(){
      if(this.validation()){
              const routerParams = this.routes.snapshot.params;
@@ -284,7 +283,6 @@ export class IPDRegComponent implements OnInit {
               .subscribe(data => {
                if(this.Deposit.advanceReceived == 0){
                 alert("Thanks....Admit Patient")
-                this.onNoClick();
                 window.location.reload();
                }
                else
@@ -297,10 +295,8 @@ export class IPDRegComponent implements OnInit {
                   let dcmntno = this.OPD1.dcmntNo;
                   let uhid = this.OPD1.uhID;
                   this.router.navigate(['ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
-                  this.dialogRef.close();
                 }
                 else{
-                  this.onNoClick();
                   window.location.reload();
                   }
                 }

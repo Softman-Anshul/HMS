@@ -99,6 +99,7 @@ import { DisccertificateDEATHComponent } from './disccertificate-death/disccerti
 import { DisccertificateREFFERComponent } from './disccertificate-reffer/disccertificate-reffer.component';
 import { FILEAdmittricketComponent } from './file-admittricket/file-admittricket.component';
 import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-consent-form.component';
+import { IPDRegComponent } from './ipd-reg/ipd-reg.component';
 
 const routes: Routes = [
     // RECIPTS 
@@ -219,6 +220,7 @@ const routes: Routes = [
 
 
             {path: 'ipdlist',component:IPDADMITLISTComponent}, 
+            {path: 'ipdreg',component:IPDRegComponent}, 
             {path: 'ipddischarge',component:IPDDISCHARGEComponent}, 
             {path: 'roomshifting',component:IPDRoomshiftingComponent}, 
             {path: 'ipdpaymentmode/:id/:dt/:yrs',component:IPDPaymentmodechangeComponent},
