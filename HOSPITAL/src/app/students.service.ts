@@ -794,6 +794,7 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
    return this.http.post(this.cdn + '/Hospital/Upload_Image.php',req)
  }
   getUsername() {
+    return "admin"
     var cookies = document.cookie.split(";");
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i];

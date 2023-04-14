@@ -105,6 +105,43 @@ body::-webkit-scrollbar {
     }
 
 
-
+    .user-box {
+        position: relative;
+        width: 16vw;
+      }
+      
+      .user-box input {
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+      
+      .user-box input:focus ~ label,
+      .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
 
 
