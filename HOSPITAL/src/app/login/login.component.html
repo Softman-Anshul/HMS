@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>SOFTMAN</title>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form action="#">
+				 <div [formGroup] = "addForm" > 
+				<div >
+					<img src="assets\softman.jpg" style="width:120px;" id="icon" alt="User Icon" />
+				</div>
+				<div [formGroup] = "loginForm">
+				<div class="input-group">
+					<input style="width:195px; height: 40px; " type="text" id="userid" class="form-control form-control-sm"  formControlName="userid"  placeholder="Login">
+				  </div>
+				  <div class="input-group">
+					<input style="width:195px; height: 40px; " type="password" id="password" class="form-control form-control-sm"  formControlName="password"  placeholder="PASSWORD">
+				</div>   
+				
+        <button style="margin-left:5px; width: 120px;" class="btn btn-primary" (click)="onSubmit(this.loginForm.get('userid')?.value,this.loginForm.get('password')?.value)" >Login</button>
+				</div>
+				 </div>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>SOFTMAN SOFTWARE SYSTEM</h1>
+					<p>SOFTMAN are the pioneers in software development in healthcare domain SOFTMAN are specialized for Clinic, Hospital,Nusing Homes,Multi Speciality & Super Speciality Hospital</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<div >
+        <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" >Control Setting</a>
+                </div>
+              </nav>
+        <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+                        <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Add User</h2>
+                                <p class="card-text">Create New User </p>
+                                <button class="btn btn-primary" (click)="adduser()" *ngIf="showadduser">NEW</button>
+                        </div>
+                </div>    
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">User Permission</h2>
+                                <p class="card-text">User permission setting  </p>
+                                <button class="btn btn-primary" (click)="userpermission()" *ngIf="showuserpermission" >NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Key Updata</h2>
+                                <p class="card-text">Enter the Valid key provide by vendor</p>
+                                <button class="btn btn-primary" *ngIf="showkey" (click)="keyupdate()">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Profile Change</h2>
+                                <p class="card-text">Change Pathology address and email </p>
+                                <button class="btn btn-primary" (click)="profilechange()" *ngIf="showprofile">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Control Setup</h2>
+                                <p class="card-text">Control Setting as per Hospital</p>
+                                <button class="btn btn-primary" *ngIf="showsetup" (click)="setup()">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Patient Information Change</h2>
+                                <p class="card-text">Enter the Valid key provide by vendor</p>
+                                <button class="btn btn-primary" *ngIf="showpatient" (click)="patientchange()">NEW</button>
+                        </div>
+                </div>   
+
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Backup</h2>
+                                <p class="card-text">Backup your Database</p>
+                                <button class="btn btn-info" *ngIf="showbackup" (click)="backupdatabase()">NEW</button>
+                        </div>
+
+                </div>    
+
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Current Password Change</h2>
+                                <input style="font-size:small; margin-left:15px; width:120px ;" type="password" [(ngModel)]=pass >
+                                <button style="margin-left:10px ;" class="btn btn-info"  (click)="passwordchange(pass)">Change</button>
+                        </div>
+
+                </div>    
+        </div>
+
+

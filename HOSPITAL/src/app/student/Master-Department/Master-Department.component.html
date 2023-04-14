@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div>
+        <h2 >Department Master</h2>
+        <form [formGroup]="addForm" novalidate class="form" id="form">
+                <!-- <input  class="item" type="text" *ngIf="showMeedit"  value="0" class ="item" readonly="true" formControlName="caseID" > -->
+                <div class="input-group">
+                        <span class="input-group-addon">Department</span>
+                        <input  class="item" type="text" class="form-control" formControlName="caseType" >
+                </div>  
+                <div style="margin-top: 1vw;">
+                <button style="font-size: small; right:10vw; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                <button style="font-size: small; right:10vw; " type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+                <!-- CSS only -->
+                </div>
+                <table style="margin-top: 1vw;" class="table table-bordered table-striped table-condensed cf">
+                        <thead class="cf" style="color:white; font-family: Arial, Helvetica, sans-serif;">
+                                <tr>
+                                        <th >ID</th>
+                                        <th >Department</th>
+                                        <th >Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let students of consulant">
+                                        <td>{{students.caseID}}</td>
+                                        <td>{{students.caseType}}</td>
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                <button class="btn"><i class="fa fa-edit"  (click)="editer(students)" (click)="tooletageedit()" ></i></button>
+                                                <button class="btn"><i class="fa fa-trash" (click)="deleter(students)"></i></button>
+                                        </div>
+                                        <!-- <td> <a><button class="btn btn-success btn-xs none external" (click)="editer(students)" (click)="tooletageedit()" >EDIT </button> </a> </td>
+                                                <td> <a><button class="btn btn-danger" (click)="deleter(students)">Delete </button> </a> </td> -->
+                                </tr>
+                        </tbody>
+                </table>
+        </form>
+</div>    

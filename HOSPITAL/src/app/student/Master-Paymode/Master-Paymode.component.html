@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div>
+        <h2 >Payment Mode</h2>
+        <form [formGroup]="addForm" novalidate class="form">
+                <!-- <input *ngIf="showMeedit"  style="background-color: lightblue; " value="0" type="text" readonly="true" formControlName="payid" > -->
+                <div [ngClass]="Mobile ? 'columnGroup' : 'rowGroup'">
+                        <div class="input-group">
+                                <span class="input-group-addon">Payment Mode</span>
+                                <input style="width: 120px;" class="form-control"  type="text" formControlName="paymode" >
+                        </div>
+                </div>
+                <button style="margin-top:1vw ; font-size: small; right:10vw; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                <button style="margin-top:1vw ; font-size: small; right:10vw; " type="submit" class="btn btn-success" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()">EDIT</button>
+                <!-- CSS only -->
+                <table class="table" style="margin-top: 1vh;" >
+                        <thead>
+                                <th >PayID</th>
+                                <th>Payment Mode</th>
+                                <th>Action</th>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let group of group">
+                                        <td>{{group.payid}}</td>
+                                        <td>{{group.paymode}}</td>
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                <td> <a><button class="btn"><i class="fa fa-edit" type="button" (click)="editer(group)" (click)="tooletageedit()" ></i> </button> </a> </td>
+                                                <td> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(group)"></i> </button> </a> </td>
+                                        </div>
+                                </tr>
+                        </tbody>
+                </table>
+        </form>
+</div>
+    

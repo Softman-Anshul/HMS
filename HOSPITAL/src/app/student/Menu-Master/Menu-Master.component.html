@@ -1,0 +1,116 @@
+<div >
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Masters</a>
+    </div>
+  </nav>
+  <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Consultant Master</h2>
+        <p class="card-text">New /Edit /Delete New Consultant for OPD and IPD</p>
+        <button class="btn btn-primary" (click)="onSubmitconsultant()" *ngIf="ShowConsultant">NEW</button>
+      </div>
+    </div>
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Referral Master</h2>
+        <p class="card-text">New /Edit /Delete Refby Consultant for OPD and IPD</p>
+        <button class="btn btn-primary" (click)="onSubmitrconsultant()" *ngIf="ShowrConsultant">NEW</button>
+      </div>
+    </div>
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Department Master</h2>
+      <p class="card-text">Consultant Department for OPD/IPD...etc</p>
+      <button class="btn btn-primary" (click)="onSubmitd()" *ngIf="ShowDepartment">NEW</button>
+    </div>
+  </div>
+  <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Payment Mode</h2>
+      <p class="card-text">Payment Mode for various type payment like CASH/Bank/UPI etc.  </p>
+      <button class="btn btn-primary" (click)="onSubmitpaymode()" *ngIf="Showpayment">NEW</button>
+    </div>
+  </div>    
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Outside Lab Master</h2>
+      <p class="card-text">Create New Outside Lab </p>
+      <button class="btn btn-primary" (click)="onSubmitLAB()" *ngIf="ShowOutsideLab">NEW</button>
+    </div>
+  </div>
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">City Master</h2>
+      <p class="card-text">Your can create New City and use in time of booking </p>
+      <button class="btn btn-primary" (click)="onSubmitCity()" *ngIf="ShowCity">NEW</button>
+    </div>
+  </div>
+        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+                <div class="cardbody">
+                  <h2 class="card-title">Bill Charges Master</h2>
+                  <p class="card-text">Create New Test</p>
+                  <button class="btn btn-primary" (click)="onSubmitcharges()" *ngIf="ShowCharges">NEW</button>
+                </div>
+        </div>
+        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+          <div class="cardbody">
+            <h2 class="card-title">Test Rate Change</h2>
+            <p class="card-text">Pathology Test Rate Change</p>
+            <button class="btn btn-primary" (click)="onSubmittestrate()" *ngIf="Showtestrate">NEW</button>
+          </div>
+  </div>
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Frequency Master</h2>
+        <p class="card-text">Maintaine Operator Shift timing</p>
+        <button class="btn btn-info" (click)="onSubmitshift()" *ngIf="Showshift">NEW</button>
+      </div>
+    </div>
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Medicine Master</h2>
+        <p class="card-text">Information of Insurance Panel details</p>
+        <button class="btn btn-info" (click)="onSubmitpanel()" *ngIf="ShowPanel">NEW</button>
+      </div>
+    </div>
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Shift Master</h2>
+        <p class="card-text">Create Shift Timeing for Shift Wise Reports</p>
+        <button class="btn btn-info" (click)="shift()" >NEW</button>
+      </div>
+    </div>
+
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Ward Master</h2>
+        <p class="card-text">Create New Ward for IPD Patient</p>
+        <button class="btn btn-primary" (click)="onSubmitWard()" *ngIf="Showward">NEW</button>
+      </div>
+    </div>
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Discharge Card Heading</h2>
+        <p class="card-text">Create Heading for Discharge Card</p>
+        <button class="btn btn-primary" (click)="disheading()" *ngIf="Showward">NEW</button>
+      </div>
+    </div>
+
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Discharge Card Template</h2>
+        <p class="card-text">Create Template for Discharge Card</p>
+        <button class="btn btn-primary" (click)="distemplate()" *ngIf="Showward">NEW</button>
+      </div>
+    </div>
+    
+
+  </div>
+</div>

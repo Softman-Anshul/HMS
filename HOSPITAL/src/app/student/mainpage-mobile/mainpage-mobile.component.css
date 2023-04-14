@@ -1,0 +1,12 @@
+#mainBody{
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 80vw;
+}
+
+.card{
+    padding-top: 7vh;
+    margin: 1vw;
+    width: 38vw;
+}

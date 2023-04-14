@@ -1,0 +1,30 @@
+.card-group{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.rowCardGroup{
+    flex-direction:  row;
+}
+
+.columnCardGroup{
+    flex-direction:  column;
+    overflow-y: auto;
+    height: 70vh;
+}
+
+.columnCard{
+    width: 80vw !important;
+    margin-bottom: 3vw;
+}
+
+.card1{
+    width: 35vw;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+}
+
+.cardbody{
+    padding: 2vw;
+}

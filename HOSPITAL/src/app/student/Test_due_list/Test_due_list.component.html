@@ -1,0 +1,53 @@
+<div class="row"  style="margin-top: 2vh;">
+    <div class="col" >
+           <h2>IPD Test Due Payment Details</h2>
+           <div style="display:flex ;">
+           <div style=" background-color: darkslategrey; width: 100px; margin-right: 10px;">
+           <label style="font-size:medium; color: white">File No</label>
+            <input style="font-size:medium; color: white; background-color: darkslategrey;  width: 50px" disabled="true" [(ngModel)]=Deposit.dcmntNo >
+          </div>
+          <div style=" background-color: darkslategrey; width: 100px; margin-right: 10px;">
+            <label style="font-size:medium; color: white; ">UHID</label>
+            <input style="font-size:medium; color: white; background-color: darkslategrey; width: 50%;" disabled="true" [(ngModel)]=Deposit.uhID  >
+          </div>
+          <div>
+            <!-- <label style="font-size:medium; ">Patient Name</label>
+            <input style="font-size:medium; width: 50%;" disabled="true" [(ngModel)]=Deposit.PntName > -->
+          </div>
+</div>
+          <br><br>
+<table class="table table-stripped;" style="padding-bottom:0px ;">
+    <thead>
+        <th >Sno</th>
+        <th >Recno</th>
+        <th >Date</th>
+        <th >RecTime</th>
+        <th >BillAmt</th>
+        <th >DueAmt</th>
+        <th >Type</th>
+
+</thead>
+<tbody>
+  <tr *ngFor="let report of Details let i=index;" style="text-align:center;">
+    <!-- <td><input name="options" ng-control="options" type="checkbox" [value]="report" [(ngModel)]=selected></td> -->
+    <td> {{i + 1}}</td>
+    <td>{{report.vchrNo}}</td>
+    <td>{{report.vchrDate}}</td>
+    <td>{{report.vchrTime}}</td>
+    <td>{{report.billamt}}</td>
+    <td>{{report.balamt}}</td>
+    <td>{{report.Reporttype}}</td>
+</tr>
+</tbody>
+<td ></td>
+        <td ></td>
+        <td ></td>
+        <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+        <td style="text-align: center ;  font-weight: bold;" >{{totalrecamt}}</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totalrefund}}</td>
+</table>
+            <br><br>
+            <button  style="margin-left: 10px; background-color: rgb(3, 94, 140) !important;" class="btn btn-success btn-rounded" (click)="onprint()">Print</button>
+            <button  style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onClick()">Discard</button>
+</div>
+</div>

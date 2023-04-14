@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<body >
+    
+<div class="row" > 
+    <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
+        <app-report-PageHeading></app-report-PageHeading>
+    <div class = "col" >
+        <div style="text-align: center;">
+        <label style="font-size:medium; " type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; " readonly="true" [(ngModel)]=dcmntNo >
+            <b><label style="width: 370px;">PATIENT REFERRED CERTIFICATE</label></b>
+            <label style="font-size:medium; margin-left:40px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;border:none ;color: black; background-color: white; "[(ngModel)]=OPD.uhID >
+        </div>
+        <br>
+            <label style="font-size:medium;  margin-left:60px;" type="dcmntno"  ></label>
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left:15px; width:50px ; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntn >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:small; width:310px ;color: black; background-color: white; "[(ngModel)]=OPD.pntName readonly="true"  >
+
+            <label style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  margin-left:30px;" type="dcmntno"  >Age </label>
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left: 10px; width:40px ;color: black; background-color: white; "[(ngModel)]=OPD.pntAgeYrs readonly="true" >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small;  width:60px ;color: black; background-color: white; "[(ngModel)]=OPD.pntSex readonly="true" >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:60px ; color: black; background-color: white;" [(ngModel)]=OPD.agey readonly="true">
+
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
+            <u><input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left:15px; width:50px ; color: black; background-color: white; " [(ngModel)]=OPD.pntg readonly="true"  >
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:520px ; color:black; background-color: white; " [(ngModel)]=OPD.pntGrdn readonly="true"></u>
+
+            
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">Address</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:370px ; margin-left:20px; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntAdrs1 >
+
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">City</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:150px ; margin-left:5px;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntCity >
+
+            <br><br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">की गभ्भीर हालत के बारे में डाक्टर साहब ने बता दिया है और दूसरे 
+                अस्पताल की राय दी है । हम अपने मरीज को डाक्टर साहब की राय अनुसार दूसरे अस्पताल में ले जा रहें हैं । 
+                छुट्रटी के दौरान या बाद में हमारे मरीज के साथ कोई अनहोनी धटना होती है ए तो इसकी सारी जिम्मेदारी हमारी स्वंय की होगी । 
+                डाक्टर एवं स्टाफ की कोई जिम्मेदारी नही होगी ।  </label>
+            <br><br>
+            <b><label   style="font-size:medium; margin-left:20px;" for="condoctor">Date</label>
+            <label   style="font-size:medium; margin-left:415px;" for="condoctor">Signature /Stemp</label></b>
+        </div>
+    </div>
+</div>
+</body>

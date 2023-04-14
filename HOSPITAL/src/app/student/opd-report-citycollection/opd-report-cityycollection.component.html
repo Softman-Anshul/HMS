@@ -1,0 +1,44 @@
+<body>
+    <app-report-PageHeading></app-report-PageHeading>
+    
+        <h4 style="margin-left: 20px; height: 10px;" >City Wise OPD Collection from {{fromdt}} To {{todt}} </h4>
+        <h3 style="margin-left: 20px; font-weight: bold; text-align: center; ">{{pcity}} </h3>
+  
+        <table class="table table-bordered border-primary" style="margin-left:10px ;width: 96%; font-size:smaller; ">
+      <thead >
+          <th >SID</th>
+          <th >RegNo</th>
+          <th >UHID</th>
+          <th >Date</th>
+          <th >Patient</th>
+          <th >Bill Amt</th>
+          <th >Disc</th>
+          <th >Refund</th>
+          <th >Net Amt</th>
+          <th style="padding-right:20px ;">Paymode</th>
+      </thead>
+      <tbody >
+        <tr *ngFor="let students of OPD let i=index" >
+          <td style="width:30px;">{{i+1}}</td>
+          <td style="width:30px;" >{{students.dcmntNo}}</td>
+          <td style="width:50px;" >{{students.uhID}}</td>
+          <td style="width:80px ;">{{students.opdDate | date :'dd/MM/yyyy' }}</td>
+          <td style="width:120px;">{{students.pntName}}</td>
+          <td style="width:40px;text-align: center ;">{{students.amt}}</td>
+          <td style="width:40px; text-align: center ;">{{students.discount}}</td>
+          <td style="width:40px; text-align: center ;">{{students.refund}}</td>
+          <td style="width:40px; text-align: center ;">{{students.srvcTax}}</td>
+          <td style="width:40px; ">{{students.paymode}}</td>
+      </tr>
+  </tbody>
+  <td ></td>
+          <td ></td>
+          <td ></td>
+          <td ></td>
+          <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+          <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
+          <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
+          <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
+          <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
+  </table>
+  </body>

@@ -1,0 +1,68 @@
+<body>
+ 
+    <app-report-PageHeading></app-report-PageHeading>
+  
+        <h4 style="margin-left: 20px; font-weight: bold;">Daily Activity Report from {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}}
+        <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> --> </h4> 
+        
+        <table class="table table-bordered border-primary" style="margin-left:10px ; width: 96%; font-size:smaller;" >
+            <thead >
+                <!-- <th style="text-align: center ;">SID</th> -->
+                <th style="text-align: center ;">Date</th>
+                <th style="text-align: center ;">UHID</th>
+                <th style="text-align: center ;">Patient</th>
+                <th style="text-align: center ;">Consultant</th>
+                <th style="text-align: center ;">Total</th>
+                <th style="text-align: center ;">Disc</th>
+                <th style="text-align: center ;">Refund</th>
+                <th style="text-align: center ;">Bal Amt</th>
+                <th style="text-align: center ;">Rec Amt</th>
+                <th style="text-align: center ; padding-right:20px ;">Paymode</th>
+                <th style="text-align: center ; padding-right:20px ;">Narration</th>
+                <th style="text-align: center ; padding-right:20px ;">Uname</th>
+            </thead>
+        
+            <tbody >
+                <ng-container *ngFor="let heading of headingMap | keyvalue">
+                    <tr>
+                        <td  colspan="12" style="text-align: center;"><b>{{heading.key}}</b></td>
+                    </tr>
+                   
+                    <ng-container  *ngFor="let students of Students let i=index" >
+                <ng-container *ngIf="students.Reporttype == heading.key " >
+                <tr>
+                <!-- <td style="width:30px;">{{i + 1}}</td> -->
+                <td style="width:80px ;">{{students.vchrDate | date :'dd/MM/yyyy' }}</td>
+                <td style="width:50px; " >{{students.uhID}}</td>
+                <td style="width:120px;">{{students.PntName}}</td>
+                <td style="width:140px ; ;">{{students.condoctor}}</td>
+                <td style="width:40px; text-align: center ;">{{students.grandTotal}}</td>
+                <td style="width:40px; text-align: center ;">{{students.discountAmt}}</td>
+                <td style="width:40px; text-align: center ;">{{students.refund}}</td>
+                <td style="width:40px; text-align: center ;">{{students.balamt}}</td>
+                <td style="width:40px; text-align: center ;">{{students.recamt}}</td>
+                <td style="width:60px; text-align: center ; ">{{students.paymode}}</td>
+                <td style="width:60px; text-align: center ; ">{{students.narration}}</td>
+                <td style="width:40px; text-align: center ; ">{{students.uname}}</td>
+
+            </tr>
+        </ng-container>
+        <td ></td>
+                    </ng-container>
+                    <tr>
+                        <td colspan="12" style="font-weight: bold;">{{headwiseTotal.get(heading.key)}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+
+                <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalbal}}</td>
+                <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
+        </table>
+    </body>

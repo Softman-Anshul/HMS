@@ -1,0 +1,168 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<h2>Consultant Master </h2>
+<div class="page-content">
+<form [formGroup]="addForm" novalidate class="form" id="form" >
+        <div class="row">
+                <div class ="col-sm-5">
+                        <div class="input-group">
+                                <span class="input-group-addon" style="width:70px;">Depart</span>
+                                <select style="width:240px;" type="text" class="form-control" formControlName="department">
+                                <option *ngFor="let dept of department">
+                                        {{dept.caseType}}
+                                </option> 
+                                </select>
+                                <button style="font-size: small; width:55px ; " type="submit" class="btn btn-info" *ngIf="showMesave" (click)="depart()">ADD</button>
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Gender</span>
+                                <select style="width:295px ;"  class="form-control" formControlName="dctSex">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                </select>
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon"style="width:70px;">Doctor</span>
+                                <input  type="text" style="width: 295px;" class="form-control" formControlName="dctName" list="dep" />
+                                <datalist id="dep" >
+                                <option *ngFor="let dept of consulant">
+                                {{dept.dctName}}
+                                </option> 
+                                </datalist>
+                        </div>
+                        <input  hidden="true" type="text" style="width: 225px;" class="form-control" formControlName="dctName1" placeholder="doctor old name" />
+
+                        <div class="input-group">
+                                <span class="input-group-addon" style="width:70px;">Mobile</span>
+                                <input style="width:110px;" type="text" [maxLength]="10" class="form-control form-control-sm"  formControlName="dctMobile">
+                                <span class="input-group-addon">Print</span>
+                                <select style="width:60px;"  type="text" class="form-control form-control-sm"  formControlName="mobileprint" >
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                                </select>
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon" style="width:70px;" >Email</span>                                         
+                                <input style="width:295px;" type="text" class="form-control"  formControlName="dctEmail" >
+                        </div>
+                </div>
+                <div class ="col-sm-3">
+                        <div class="input-group">
+                                <span class="input-group-addon">Degree</span>
+                                <input style="width:180px;" type="text" class="form-control " formControlName="digree">
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Degree</span>
+                                <input style="width:180px;" type="text" class="form-control" formControlName="digree1" >
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Degree</span>
+                                <input style="width:180px; " type="text" class="form-control" formControlName="digree2" >
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Degree</span>
+                                <input style="width:180px; " type="text" class="form-control"  formControlName="digree3" >
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Degree</span>
+                                <input style="width:180px;" type="text" class="form-control"  formControlName="dctSplzn" >
+                        </div>
+                </div>
+                <div class ="col-sm-2">
+                        <div class="input-group">
+                                <span class="input-group-addon">Room </span>
+                                <input style="width:90px;" type="text" class="form-control"  formControlName="roomno" >
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Oncall</span>
+                                <select style="width:90px;" type="text" class="form-control" formControlName="oncall" >
+                                <option value="Parmanent">Parmanent</option>
+                                <option value="Oncall">Oncall</option>
+                                </select>
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">E-Pres </span>
+                                <select style="width:90px; " type="text" class="form-control form-control-sm" formControlName="epres" >
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                                </select>
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">VDays</span>
+                                <input style="width:90px; " type="text" class="form-control form-control-sm" formControlName="validday">
+                        </div>
+                </div>
+                <div class ="col-sm-1">
+                        <div class="input-group">
+                                <span class="input-group-addon" style="width:70px;">OPD</span>
+                                <input style="width:80px; " type="text" class="form-control form-control-sm"  formControlName="opdcharges">
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon"style="width:70px;">Emer</span>
+                                <input style="width:75px; " type="text" class="form-control form-control-sm" formControlName="Emergency">
+                        </div>  
+                        <div class="input-group">
+                                <span class="input-group-addon"style="width:70px;">Ptype</span>
+                                <select style="width:75px; " type="text" class="form-control form-control-sm" formControlName="Parcha" >
+                                <option value="LH">LH</option>
+                                <option value="S">Slip</option>
+                                </select>
+                        </div>
+                </div>  
+
+                        <div class="input-group">
+                                <button style="font-size: small; width:75px ; margin-top:1vw ; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                                <button style="font-size: small; width:75px ; margin-top:1vw ;" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+                        </div>
+        </div>
+
+                                <!-- CSS only -->
+        <table style="margin-top:1vw ;" class="table table-bordered table-striped table-condensed cf">
+                <thead class="cf" style="color:white; font-family: Arial, Helvetica, sans-serif;">
+                        <tr>
+                        <th >Name</th>
+                        <th >Degree</th>
+                        <th >Degree1</th>
+                        <th >Degree2</th>
+                        <th >Degree3</th>
+                        <th >Degree4</th>
+                        <th >Room</th>
+                        <th >Mobile</th>
+                        <th >OnCall</th>
+                        <th >Depart</th>
+                        <th >Opd</th>
+                        <th >Emer</th>
+                        <th >VDay</th>
+                        <th >Par</th>
+                        <th >Action</th>
+
+                </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let students of consulant">
+                        <td>{{students.dctName}}</td>
+                        <td>{{students.digree}}</td>
+                        <td>{{students.digree1}}</td>
+                        <td>{{students.digree2}}</td>
+                        <td>{{students.digree3}}</td>
+                        <td>{{students.dctSplzn}}</td>
+                        <td>{{students.roomno}}</td>
+                        <td>{{students.dctMobile}}</td>
+                        <td>{{students.oncall}}</td>
+                        <td>{{students.department}}</td>
+                        <td>{{students.opdcharges}}</td>
+                        <td>{{students.Emergency}}</td>
+                        <td>{{students.validday}}</td>
+                        <td>{{students.Parcha}}</td>
+                        
+                        <div class="btn-group" role="group" >
+                                <td *ngIf="edit"><a><button class="btn"><i class="fa fa-edit" type="button" (click)="tooletageedit()"  (click)="editer(students.dctID)"></i> </button> </a> </td>
+                                <td *ngIf="delete"> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(students)"></i> </button> </a> </td>
+                        </div>
+                </tr>
+        </tbody>
+</table>
+</form>
+</div>
+

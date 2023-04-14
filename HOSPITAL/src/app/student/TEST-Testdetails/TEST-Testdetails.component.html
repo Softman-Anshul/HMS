@@ -1,0 +1,28 @@
+<div class="row" >
+    <div class="col" >
+           <h2>Test Details</h2>
+           <label style="font-size:medium;" type="vchrNo"  >RegNo</label>
+            <input style="font-size:small; margin-left:10px; width:50px ;" readonly="true" [(ngModel)]=Students.vchrNo  type="vchrNo"  >
+            <label style="font-size:medium; margin-left:10px ; " for="recamt">Received Date</label>
+            <input style="font-size:small; margin-left:5px; width:90px ;" [(ngModel)]=Students.vchrDate readonly="true"  type="vchrDate" >
+<br><br>
+<table class="table table-stripped;" style="padding-bottom:0px ;">
+    <thead>
+        <th >TestName</th>
+        <th >Qty</th>
+        <th >Rate</th>
+</thead>
+<tbody>
+  <tr *ngFor="let report of testreport ">
+    <td>{{report.itmName}}</td>
+    <td>{{report.itmQty}}</td>
+    <td>{{report.itmChrgs}}</td>
+
+</tr>
+</tbody>
+</table>
+            <br><br>
+
+            <button  style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+</div>
+</div>

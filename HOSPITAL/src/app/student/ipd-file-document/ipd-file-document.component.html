@@ -1,0 +1,35 @@
+<h2>File Document Print</h2>
+<div class="row" >
+        <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+        <input style="font-size:small; color: white; background-color: darkslategrey;  width:390px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+        
+        <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+        <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+        <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+</div>
+<div class="row" style="margin-left: 10px;">
+        <button  style="margin-top: 2vh;  width: 170px !important;" class="btn btn-success" (click)="admitticket()" >Patient Admit Ticket</button>
+        <button style="margin-top: 2vh; margin-left: 40px;  width: 170px !important;" class="btn btn-danger btn-rounded">Vital</button>
+        <button style="margin-top: 2vh; margin-left: 40px;  width: 170px !important;" class="btn btn-danger btn-rounded">BHT</button>
+
+        <button style="margin-top: 2vh; width: 170px !important;" class="btn btn-danger btn-rounded" (click)="genconsent()">General Consent</button>
+        <button style="margin-top: 2vh; margin-left: 40px;  width: 170px !important;" class="btn btn-danger btn-rounded">Daily Treatment Chart</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Diabetes Monitoring Log</button>
+
+        <button style="margin-top: 2vh; margin-top: 2vh; width: 170px !important;" class="btn btn-danger btn-rounded">Blood Transfussion Consent</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Medication Sheet</button>
+        <button style="margin-top: 2vh;  margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">RBS Scale Chart</button>
+
+        <button style="margin-top: 2vh; width: 170px !important;" class="btn btn-danger btn-rounded">Case Sheet</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Pyament Sheet</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Clinical Notes</button>
+
+        <button style="margin-top: 2vh; width: 170px !important;" class="btn btn-danger btn-rounded">Treatment Chart</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">IN Take/Out Take</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Hourly Flow Chart</button>
+
+        <button style="margin-top: 2vh; width: 170px !important;" class="btn btn-danger btn-rounded">Nurses Daily Records</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Intensive Monitoring Log</button>
+        <button style="margin-top: 2vh; margin-left: 40px; width: 170px !important;" class="btn btn-danger btn-rounded">Progress Notes</button>
+
+</div>

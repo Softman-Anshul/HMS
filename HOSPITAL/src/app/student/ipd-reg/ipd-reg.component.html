@@ -1,0 +1,256 @@
+<div class ="row">
+    <div class ="col">
+      <h2 >IPD Registration</h2>
+    </div>
+    <div class ="col-sm-2">
+      <h3 style=" float: right;  ">UserId/F.Y.</h3>
+    </div>
+      <div class ="col-sm-2">
+      <input style="margin-left:5px; width:65px ;text-align: center; float: right;  " disabled="true" type="text" [(ngModel)]=OPD1.Years>
+      <input style="margin-left:5px; width:65px ; text-align: center;float: right; " disabled="true" type="text" [(ngModel)]=OPD1.uname >
+  
+    </div>
+  </div>
+  <div class = "row">
+    <!-- row 1 -->
+    <div class = "col-5">
+      <input  style="font-size:small; margin-left:5px; width:90px ;" class="form-control" placeholder="by UHID" type="search" [(ngModel)]=search/>  
+      <button  style="font-size:medium; margin-left:5px; " class="btn btn-success" (click)="searchquery()" >Search</button>
+  </div>
+    <div class = "col-6">
+      <label  for="dcmntno">IPD No</label>
+      <input style="font-size:small; margin-left: 5px; width:70px ;height:22px;" disabled="true" type="text" [(ngModel)]=OPD1.dcmntNo >
+      <label style="margin-left:5px;" for="uhID">UHID</label>
+     <input style="margin-left:5px; width:65px ;" disabled="true" type="text" [(ngModel)]=OPD1.uhID >
+     <label  style="margin-left: 5px;" for="vchrDate">Date</label>
+     <input style="font-size:small; margin-left:5px; width:90px ;height:22px;" type="date" [(ngModel)]=OPD1.opdDate >
+     <label style="font-size:medium; margin-left:5px;" for="opdTime">Time</label>
+     <input style="font-size:small; margin-left:5px; width:65px ; height:22px; " disabled="true" [(ngModel)]=OPD1.opdTime >
+     
+    </div>
+    </div>
+  
+  <div class ="row" style="margin-top:1vw ;">
+      <!-- row 2 -->
+    <div class = "col-md-4">
+      <!-- row 1 col-->
+      <label  for="pntMobile">Mobile</label>
+      <input  style="width:260px;" class="form-control" [maxLength]="10" [(ngModel)]=OPD1.pntMobile >
+    </div>
+    <div class = "col-md-1" >
+      <!-- row 2 -->
+      <label  for="pntn">Title</label>
+      <select style="width:70px ;" class="form-control"  (change)="populate()" [(ngModel)]=OPD1.pntn>
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Mst">Mst</option>
+        <option value="Baby">Baby</option>
+        <option value="B/o">B/o</option>
+        <option value="B/o">Dr</option>
+      </select>
+    </div>
+    <div class = "col" >
+      <!-- row 3 -->
+      <label for="PntName">Patient Name</label>
+      <input style="width:200px ;" class="form-control" type="text" [(ngModel)]=OPD1.pntName >
+    </div>
+    <div class = "col-sm-1">
+      <!-- row 5 -->
+      <label>Type</label>
+      <select style="width:85px ;" class="form-control" [(ngModel)]=OPD1.PntType  >
+        <option value="General">General</option>
+        <option value="Package">Package</option>
+        <option value="TPA">TPA</option>
+        <option value="Ayushman">Ayushman</option>
+      </select>
+    </div>
+    <div class = "col-sm-1">
+      <label style="margin-left:30px ;">Age</label>
+      <input style="margin-left:30px ; width:50px ;" class="form-control" type="text" [(ngModel)]=OPD1.pntAgeYrs >
+    </div>
+    <div class = "col-sm-1">
+      <!-- row 4 -->
+      <label>Years</label>
+      <select style="width:85px ;" class="form-control" [(ngModel)]=OPD1.agey >
+        <option value="Years">Years</option>
+        <option value="Months">Months</option>
+        <option value="Days">Days</option>
+        <option value="Hrs">Hrs</option>
+      </select>
+    </div>
+    <div class = "col-sm-1">
+      <!-- row 5 -->
+      <label>Gender</label>
+      <select style="width:85px ;" class="form-control" [(ngModel)]=OPD1.pntSex >
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    
+  </div>
+  <div class ="row" style="margin-top:2vw ;">
+      <!-- row 3 -->
+    <div class = "col-md-1">
+      <label for="pntg">Title</label>
+      <select style="width:70px ;" class="form-control" [(ngModel)]=OPD1.pntg>
+        <option value="S/o">S/o</option>
+        <option value="W/o">W/o</option>
+        <option value="D/o">D/o</option>
+        <option value="C/o">C/o</option>
+      </select>
+     
+    </div>
+    <div class = "col-sm-3">
+      <label for="pntGrdn" >Guardian</label>
+      <input style="width:190px ;" class="form-control" type="text" [(ngModel)]=OPD1.pntGrdn >
+    </div>
+    <div class = "col">
+      <label for="pntAdrs1">Address</label>
+      <input  style="width:230px ; " class="form-control" type="text" [(ngModel)]=OPD1.pntAdrs1 >
+      
+    </div>
+    <div class = "col">
+      <label  >Department </label>
+      <select style="width:280px ; " class="form-control" (change)="selectdepartment()" [(ngModel)]=OPD1.caseType>
+        <option>--Select--</option>
+        <option *ngFor="let students of department">
+          {{students.caseType}}
+        </option> 
+      </select> 
+    </div>
+  </div>
+  <div class ="row">
+      <!-- row 4 -->
+  <div class = "col">
+    <label style="margin-top:2vw ;" >RefConsultant </label>
+    <select style="width:270px ; " class="form-control" [(ngModel)]=OPD1.rfrdBy>
+      <option>--Select--</option>
+      <option *ngFor="let rstudents of rconsulant">
+        {{rstudents.dctName}}
+      </option> 
+    </select> 
+  </div>
+  <div class ="col">
+    <label style="margin-top:2vw ;"  for="pntcity">City</label>
+      <select style="width:230px ;" class="form-control" [(ngModel)]=OPD1.pntCity>
+        <option *ngFor="let city of Cityname">
+          {{city.citynam}}
+        </option> 
+      </select>
+  </div>
+
+  <div class ="col">
+    <label  style="margin-top:2vw ;">Consultant </label>
+    <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.dctrVisited >
+      <option>--Select--</option>    
+      <option *ngFor="let students of consulant" value="{{students.dctName}}">
+        {{students.dctName}}
+      </option> 
+    </select> 
+  </div>
+
+</div>
+  <div class ="row">
+      <!-- row 5 -->
+    <div class = "col">
+      <label style="margin-top:2vw ;" for="aadhar">Aadhar</label>
+      <input style="width:280px ; " class="form-control" type="text" [(ngModel)]=OPD1.aadhar >
+      
+    </div>
+    <div class ="col">
+     <label style="margin-top:2vw ;" >Occupation</label>
+      <select style="width:230px ;" class="form-control" [(ngModel)]=OPD1.occupation>
+        <option value="Service">Service</option>
+        <option value="Student">Student</option>
+        <option value="Housewife">Housewife</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Business">Business</option>
+      </select>
+    </div>
+
+      <div class ="col">
+        <label  style="margin-top:2vw ;">WardName </label>
+        <select style="width:280px ;" class="form-control" (change)="selectWard()" [(ngModel)]=Ward1.category >
+          <option>--Select--</option>    
+          <option *ngFor="let room of Ward" >
+            {{room.category}}
+          </option> 
+        </select> 
+    </div>
+
+</div>
+    <div class ="row">
+        <!-- row 6 -->
+      <div class = "col">
+        <label style="margin-top:2vw ;" >PatientType</label>
+        <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.surgical>
+          <option value="Medical">Medical</option>
+          <option value="Surgical">Surgical</option>
+        </select>
+        <label style="margin-top:2vw ;" >BloodGroup</label>
+        <select style="width:280px ;" class="form-control" [(ngModel)]=OPD1.BloodGroup>
+          <option value="A">A</option>
+          <option value="A+">A+</option>
+          <option value="B">B</option>
+          <option value="B+">B+</option>
+          <option value="O">O</option>
+          <option value="O+">O+</option>
+        </select>
+        
+      </div>
+      <div class ="col">
+             <label style="margin-top:2vw ;" for="aadhar">Diagnosis</label>
+        <input style="width:230px ; " class="form-control" type="text" [(ngModel)]=OPD1.Dignosis >
+        <label style="margin-top:2vw ;">PaymentMode</label>
+        <select  style="width:280px ;" class="form-control"  [(ngModel)]=Deposit.paymode>
+          <option *ngFor="let pay of group">
+            {{pay.paymode}}
+          </option> 
+        </select> 
+        <!-- <label style="margin-top:2vw ;" for="aadhar">Email</label>
+        <input style="width:230px ; " class="form-control" type="text" [(ngModel)]=OPD1.email > -->
+        
+      </div>
+      <div class ="col">
+    <div>      
+        <label  style="margin-top:2vw ;">RoomNo </label>
+    <label  style=" margin-left:35px ; ">Bed NO</label>
+    <label  style="margin-left:50px ; ">Deposit</label>
+</div>
+    <select style="width:80px ;" [(ngModel)]=Ward1.roomNo >
+      <option *ngFor="let room of room"  >
+        {{room.roomNo}}
+      </option> 
+    </select> 
+    <input hidden = "true" type="text"  [(ngModel)]=Ward1.ipdno >
+    <input  hidden = "true" type="text"  [(ngModel)]=Ward1.uhid >
+    <input  hidden = "true" type="text"  [(ngModel)]=Ward1.cdt >
+
+    <select style="width:80px ; margin-left:5px ;"   [(ngModel)]=Ward1.Bedno>
+      <option *ngFor="let bed of room " >
+        {{bed.Bedno}}
+      </option> 
+    </select> 
+
+    <input  hidden = "true" style="width:20px" type="text"  [(ngModel)]=Deposit.recno >
+    <input  hidden = "true" type="text"  [(ngModel)]=Deposit.rectime >
+    <input  hidden = "true" type="text"  [(ngModel)]=Deposit.uhID >
+    <input  hidden = "true" type="text"  [(ngModel)]=Deposit.ipdNo >
+    <input  hidden = "true" type="text"  [(ngModel)]=Deposit.ipdDate >
+    <input  style="width:90px ;margin-left:25px ; " type="text"  [(ngModel)]=Deposit.advanceReceived >
+    
+
+    <div>
+        <label style="margin-top:2vw ;" for="aadhar">Narration</label>
+        <input style="width:280px ; " class="form-control" type="text" [(ngModel)]=Deposit.narration >
+        <button style="margin-top:3.5vw ; margin-left:70px ; width:120px ;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+        
+        </div>
+      
+      </div>
+      </div>
+  
+  <!-- row end -->
+  
+  

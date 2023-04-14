@@ -1,0 +1,15 @@
+.table,td {
+    border: 1px solid;
+    font-size:small;
+}
+.input-group-addon {
+  width : 20%; /*adjust as needed*/
+}
+  tr:hover {background-color: coral;}
+ 
+  th{
+    border: 1px solid;
+    height:30px ;
+    background-color:black;
+    color:white;
+  }

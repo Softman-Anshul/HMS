@@ -1,0 +1,86 @@
+<!-- CSS only -->
+<div class="col-12 text-right" >
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill2()">Bill Print</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill3()">Bill Print(Advance)</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill4()">Bill Print(Full)</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="paymentdetails()">Payment Details</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="certificate()" >Certificate</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="MLC()"   >MLC</button>
+
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="sticker()" >Sticker</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >TPA / Ayushman</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >Discharge Card</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >File Document</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >Full Payment</button>
+
+</div>
+<div class="input-group">
+    <select type="text" style=" font-size:small; margin-left:2px; width:90px ;"  [(ngModel)]=Choice>
+      <option value="ALL">ALL</option>
+      <option value="File No">File No</option>
+      <option value="Patient">Patient</option>
+      <option value="Gender">Gender</option>
+      <option value="Consultant">Consultant</option>
+      <option value="Department">Department</option>
+      <option value="Dues">Dues</option>
+      <option value="Type">Type</option>
+    </select>
+    <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt1 >
+    <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt2 >
+    <input  style="font-size:small; margin-left:5px;" type="search" class="form-control rounded" (keyup)="searchdirect()" [(ngModel)]=search />
+    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" (click)="searchquery()">Search</button>
+  </div>
+<div>
+<table  class="table table-bordered table-striped ">
+    <thead  style="color:white; font-family: Arial, Helvetica, sans-serif;" >
+      <tr>
+        <th ></th>
+        <th >SN.</th>
+        <th >BillNo</th>
+        <th >FileNo</th>
+        <th >UHID</th>
+        <th >Title</th>
+        <th >Patient</th>
+        <th >AdmitDt</th>
+        <th >ATime</th>
+        <th >DiscDt</th>
+        <th >DTime</th>
+        <th >pstatus</th>
+        <th >Incharge</th>
+        <th >Refby</th>
+        <th >BillAmt</th>
+        <th >DueAmt</th>
+        <th >Ptype</th>
+        <th >Years</th>
+        <th >FOC</th>
+        <th >AdjustAmt</th>
+        <th >Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let students of OPD let i=index;" style="text-align:center;" >
+      <td><input name="options" ng-control="options" type="radio" [value]="students"  [(ngModel)]=selected></td>
+      <td> {{i + 1}}</td>
+      <td>{{students.vchrNo}}</td>
+      <td>{{students.dcmntNo}}</td>
+      <td>{{students.uhID}}</td>
+      <td >{{students.pntn}}</td>
+      <td>{{students.pntName}}</td>
+      <td>{{students.opdDate}}</td>
+      <td>{{students.opdTime}}</td>
+      <td>{{students.Statusdate}}</td>
+      <td>{{students.distime}}</td>
+      <td>{{students.Status}}</td>
+      <td>{{students.dctrVisited}}</td>
+      <td>{{students.rfrdBy}}</td>
+      <td>{{students.grandTotal}}</td>
+      <td><a style="font-size:medium; cursor: pointer; color: blue;" (click) ="Dueamt(students)" >{{students.paydue}}</a></td>
+      <td>{{students.PntType}}</td>
+      <td >{{students.Years}}</td>
+      <td >{{students.foc}}</td>
+      <td>{{students.satelment}}</td>
+      <div class="btn-group" role="group" >
+      <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" ></i> </button></a></td>
+      </div>
+    </tr>
+</table>
+</div>

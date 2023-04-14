@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <h2 >New Ward </h2>
+        <form class="form">
+                    
+            <div class="row" class="col-12 text-right" >
+    <div >
+            <!-- <input style="font-size:small;margin-bottom:1vw;width:60px; background-color: lightblue; " *ngIf="showMeedit"  value="0" type="text" readonly="true" [(ngModel)]="editCity.cityid" name="cityid" > -->
+            <div class="row-5" class="input-group" >
+            <span class="input-group-addon">Ward Name</span>
+            <input  style="width: 170px;" class="form-control"  [(ngModel)]="Ward.category" name="category" >
+
+
+            <span style="width: 90px;" class="input-group-addon">Floor</span>
+            <select style="width:170px ;" class="form-control" [(ngModel)]="Ward.Floor" name="Floor">
+                <option value="Basement">Basement</option>
+                <option value="Ground Floor">Ground Floor</option>
+                <option value="Ist Floor">Ist Floor</option>
+                <option value="IInd Floor">IInd Floor</option>
+                <option value="IIInd Floor">IIInd Floor</option>
+                <option value="IVth Floor">IVth Floor</option>
+                <option value="Vth Floor">Vth Floor</option>
+                <option value="Six Floor">Six Floor</option>
+                <option value="Seven Floor">Seven Floor</option>
+                <option value="Eight Floor">Eight Floor</option>
+                <option value="Nine Floor">Nine Floor</option>
+                <option value="Ten Floor">Ten Floor</option>
+              </select>
+            </div>
+
+            <div class = "col-5"  class="input-group">
+            <span style="width: 98px;" class="input-group-addon">RoomNo</span>
+            <input  style="width: 170px;" class="form-control"  [(ngModel)]="Ward.roomNo" name="roomNo" >
+ 
+             <span style="width: 90px;" class="input-group-addon"># of Bed</span>
+            <input  style="width: 170px;" class="form-control" (change) = "bedtype()" [(ngModel)]="Ward.Bedno"  name="Bedno">
+            </div>
+            <div class = "col-5"  class="input-group">
+                <span style="width: 100px;" class="input-group-addon">Bed Type</span>
+                <select style="width:70px ;" class="form-control" [(ngModel)]="Ward.bed"  name="bed">
+                    <option value="M">M</option>
+                    <option value="S">S</option>
+                  </select>
+            </div>           
+
+    </div>
+            </div>
+    <div style="margin-top:1vw ;">
+            <button style="font-size:small;" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+    </div>
+    </form> 

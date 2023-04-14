@@ -1,0 +1,13 @@
+<h2>आपका SOFTWARE - {{sdt | date:'EEEE, MMMM d, y'}} को बंद हो जायेगा </h2>
+<h2>for Renew Call +91-9997576627</h2>
+
+<div [formGroup] = "loginForm">
+   
+    <div class="input-group">
+<span style="width: 98px;" class="input-group-addon">ABDEFGHHP</span>
+<input style="width:165px; " type="text" class="form-control form-control-sm" id="caution"  formControlName="caution"  placeholder="type here">
+</div>
+<br>
+<button style="margin-left:95px; width: 120px;" class="btn btn-primary" (click)="onSubmit(this.loginForm.get('caution')?.value)" >Login</button>
+<br>
+</div>

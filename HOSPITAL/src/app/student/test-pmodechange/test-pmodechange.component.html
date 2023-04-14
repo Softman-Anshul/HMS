@@ -1,0 +1,44 @@
+<div class="row" >
+    <div class="col" id="printsection">
+           <h2>Payment Mode Change</h2>
+           <label style="font-size:medium; margin-left:15px; " for="refund">Payment Mode</label>
+              <select style="margin-left:20px; width:170px ; " [(ngModel)]=Students.paymode>
+                <option *ngFor="let group of paymode">
+                {{group.paymode}}
+                </option> 
+              </select> 
+           <br>
+           <label style="font-size:medium; margin-left:15px;" for="recamt">Received Amount</label>
+           <input style="font-size:small; margin-left:5px; width:50px ;" [(ngModel)]=Students.recamt readonly="true"  type="recamt" >
+           <label style="font-size:medium; margin-left:10px;" for="recamt">Received Date</label>
+           <input style="font-size:small; margin-left:25px; width:90px ;" [(ngModel)]=Students.vchrDate readonly="true"  type="vchrDate" >
+
+          
+           <br><br><br><br>
+           <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=Students.pntn type="pntn"  >
+           <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=Students.PntName type="pntName"  >
+           
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=Students.pntage type="pntage" >
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=Students.pntsex type="pntsex" >
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=Students.pntyears type="pntyears">
+
+          
+           <br>
+           <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >RegNo</label>
+           <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=Students.vchrNo  type="dcmntno"  >
+           <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+           <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=Students.uhID type="uhID" >
+           <br>
+           <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
+           <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=Students.pntg type="pntg"  >
+           <input   style="font-size:small; width:250px ; " disabled="true"  [(ngModel)]=Students.Pntgname type="Pntgname" >
+
+           <br>
+           <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+           <input  style="font-size:small; margin-left:5px; width:305px ; " disabled="true" [(ngModel)]=Students.condoctor  >
+           <br><br><br><br>
+
+            <button class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+</div>

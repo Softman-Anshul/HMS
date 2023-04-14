@@ -1,0 +1,58 @@
+<div class="row" >
+    <div class="col" >
+           <h2>IPD Payment Details</h2>
+           <div style="display:flex">
+           <div style=" background-color: darkslategrey; width: 100px; margin-right: 10px;">
+           <label style="font-size:medium; color: white; ">File No</label>
+            <input style="font-size:medium; color: white;background-color: darkslategrey; width: 50%;" disabled="true" [(ngModel)]=Deposit.ipdNo  type="dcmntno"  >
+          </div>
+          <div style=" background-color: darkslategrey; width: 100px; margin-right: 10px;">
+            <label style="font-size:medium; color: white; ">UHID</label>
+            <input style="font-size:medium; color: white; background-color: darkslategrey; width: 50%;" disabled="true" [(ngModel)]=Deposit.uhID type="uhID" >
+          </div>
+</div>
+          <br><br>
+<table class="table table-stripped;" style="padding-bottom:0px ;">
+    <thead>
+        <th ></th>
+        <th >Sno</th>
+        <th >RecNo</th>
+        <th >Date</th>
+        <th >RecTime</th>
+        <th >RecAmt</th>
+        <th >Refund</th>
+        <th >Paymode</th>
+        <th >User</th>
+        <th >Years</th>
+
+</thead>
+<tbody>
+  <tr *ngFor="let report of Details let i=index;" style="text-align:center;">
+    <td><input name="options" ng-control="options" type="radio" [value]="report" [(ngModel)]=selected></td>
+    <td> {{i + 1}}</td>
+    <td>{{report.recno}}</td>
+    <td>{{report.ipdDate}}</td>
+    <td>{{report.rectime}}</td>
+    <td>{{report.advanceReceived}}</td>
+    <td>{{report.Refundpayment}}</td>
+    <td>{{report.paymode}}</td>
+    <td>{{report.uname}}</td>
+    <td>{{report.Years}}</td>
+
+</tr>
+</tbody>
+<td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+        <td style="text-align: center ;  font-weight: bold;" >{{totalrecamt}}</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totalrefund}}</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totalnetamt}}</td>
+</table>
+            <br><br>
+            <button  style="margin-left: 10px; background-color: rgb(3, 94, 140) !important;" class="btn btn-success btn-rounded" (click)="onprint()">Receipt Print</button>
+            <button  style="margin-left: 10px;background-color: rgb(3, 94, 140) !important;" class="btn btn-success btn-rounded" (click)="onpaymode()">Paymode Change</button>
+            <button  style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onClick()">Discard</button>
+</div>
+</div>

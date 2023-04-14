@@ -1,0 +1,14 @@
+<h2 >Control Setup General</h2>
+<div class="page-content">
+        <div class="row">
+                <div class ="col-sm-4">
+                                <span >Top City</span>
+                                <select style="width:230px ;" class="form-control" [(ngModel)]=search>
+                                    <option *ngFor="let city of Cityname">
+                                      {{city.citynam}}
+                                    </option> 
+                                  </select>
+                                <button style="font-size: small; width:55px ; " (click)="submit()" type="submit" class="btn btn-primary" >OK</button>
+                </div>
+        </div>
+</div>

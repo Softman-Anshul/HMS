@@ -1,0 +1,84 @@
+<h2>Room Shifting</h2>
+<div class="row" >
+    
+    <div class = "col-5">
+        <label  style="margin-top:1vw ;">WardName </label>
+        <select style="width:280px ;" class="form-control" (change)="selectWard()" [(ngModel)]=Ward1.category >
+          <option>--Select--</option>    
+          <option *ngFor="let room of Ward" >
+            {{room.category}}
+          </option> 
+        </select> 
+<div>
+        <label  style="margin-top:2vw ;">RoomNo </label>
+        <label  style=" margin-left:35px ; ">Bed NO</label>
+    </div>
+    <div>
+        <select style="width:60px ;" [(ngModel)]=Ward1.roomNo >
+            <option *ngFor="let room of room"  >
+              {{room.roomNo}}
+            </option> 
+          </select> 
+
+          <select style="width:60px ; margin-left: 30px;"   [(ngModel)]=Ward1.Bedno>
+            <option *ngFor="let bed of room " >
+              {{bed.Bedno}}
+            </option> 
+          </select> 
+        </div>
+
+          <div style="margin-top: 20px;">
+          <button  class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+
+    </div>
+
+    <div class = "col" style="margin-top:1vw;">
+            <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+            <input style="font-size:small; color: white; background-color: darkslategrey;  width:200px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+            
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+
+            <br>
+            <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=OPD.dcmntNo  type="dcmntno"  >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=OPD.uhID type="uhID" >
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=Ward1.cdt >
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
+            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=OPD.pntg type="pntg"  >
+            <input   style="font-size:small; width:250px ; " disabled="true"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
+
+            <br>
+            <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+            <input  style="font-size:small; margin-left:5px; width:305px ; " disabled="true" [(ngModel)]=OPD.dctrVisited type="dctrVisited" >
+            <br>
+            <table style="margin-top: 1vw;" class="table table-bordered table-striped">
+                <thead   >
+                    <th >SN.</th>
+                    <th >Ward</th>
+                    <th >RoomNo</th>
+                    <th >BedNo</th>
+                    <th >Admit Date</th>
+                    <th >Shift Date</th>
+                    <th >Remark</th>
+                </thead>
+                <tr *ngFor="let wrd of roomshift let i=index;" style="text-align:center;">
+                    <td> {{i + 1}}</td>
+                    <td>{{wrd.rCat}}</td>
+                    <td>{{wrd.roomNo}}</td>
+                    <td >{{wrd.bedno}}</td>
+                    <td >{{wrd.startDate}}</td>
+                    <td >{{wrd.endDate}}</td>
+                    <td >{{wrd.remark}}</td>
+
+
+                </tr>
+            </table>
+            
+        </div>
+</div>

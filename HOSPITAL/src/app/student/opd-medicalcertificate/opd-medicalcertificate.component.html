@@ -1,0 +1,70 @@
+<div class="row" >
+    <div class="col" id="printsection">
+           <h2>Medical Certifcate</h2>
+          
+           <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+           <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+           
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+           <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+
+           <br>
+           <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+           <input style="font-size:small; margin-left:65px; width:75px ;" disabled="true" [(ngModel)]=OPD.uhID type="uhID" >
+
+           <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+           <input  style="font-size:small; margin-left:5px; width:280px ; " disabled="true" [(ngModel)]=OPD.dctrVisited type="dctrVisited" >
+           <br>
+           <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >Cerficate No</label>
+          <input style="font-size:small; margin-left:10px; width:75px ; " disabled="true" [(ngModel)]=cer1.recno  type="text"  >
+
+          <label style="margin-left: 15px; font-size:medium; " for="recamt">Certificate Date</label>
+          <input style="font-size:small; margin-left:15px; width:90px ;" [(ngModel)]=cer1.issuedt type="date" >
+          <br><br>           
+          <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >Diagnosis</label>
+          <input style="font-size:small; margin-left:15px; width:455px ; "  [(ngModel)]=cer1.dignos  >
+         <br>
+         <label style="margin-left: 15px; font-size:medium; " for="recamt">FromDate</label>
+         <input style="font-size:small; margin-left:15px; width:90px ;" [(ngModel)]=cer1.fromdt type="date" >
+
+         <label style="margin-left: 15px; font-size:medium; " for="recamt">To Date</label>
+         <input style="font-size:small; margin-left:15px; width:90px ;" [(ngModel)]=cer1.todt type="text" >
+         <br>
+         <label style="margin-left: 15px; font-size:medium; " for="recamt">Duty Date</label>
+         <input style="font-size:small; margin-left:15px; width:90px ;" [(ngModel)]=cer1.dutyfrom type="date" >
+
+          <br><br>   <br><br>   
+            <button  class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+        <table class="table" style="margin-top: 1vw;" >
+          <thead>
+          
+              <th>CerID</th>
+              <th>CerDt</th>
+              <th>FromDt</th>
+              <th>ToDt</th>
+              <th>Diagnosis</th>
+              <th>User</th>
+              <th>Years</th>
+              <th>Action</th>
+          </thead>
+          <tbody>
+                       <tr *ngFor="let item of cer">
+                        <td>{{item.recno}}</td>
+                        <td>{{item.issuedt }}</td>
+                        <td>{{item.fromdt }}</td>
+                        <td>{{item.todt}}</td>
+                        <td>{{item.dignos}}</td>
+                        <td>{{item.uname}}</td>
+                        <td>{{item.years}}</td>
+
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <td> <a><button class="btn"><i class="fa fa-print" type="button" (click)="print(item.recno,item.issuedt)" ></i> </button> </a> </td>
+                        <td> <a><button class="btn"><i class="fa fa-trash" type="button"(click)="deleter(item.recno,item.issuedt)"></i> </button> </a> </td>
+                      </div>
+                      </tr>
+          </tbody>
+  </table>
+</div>

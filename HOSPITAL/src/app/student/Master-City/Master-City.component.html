@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div>
+        <h2 >City Master</h2>
+            <form class="form">
+                    
+                    <div class="row" class="col-12 text-right" >
+            <div >
+                    <!-- <input style="font-size:small;margin-bottom:1vw;width:60px; background-color: lightblue; " *ngIf="showMeedit"  value="0" type="text" readonly="true" [(ngModel)]="editCity.cityid" name="cityid" > -->
+                    <div class="input-group">
+                        <span class="input-group-addon">City Name</span>
+                    <input style="width:150px ;" class="form-control" [(ngModel)]="editCity.citynam" name="cityname"  >
+                    </div>
+            </div>
+                    </div>
+            <div style="margin-top:1vw ;">
+                    <button style="font-size:small;" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                    <button style="font-size:small;" class="btn btn-success btn-rounded" *ngIf="showMeedit"  (click)="onSubmitedit()">EDIT</button>
+            </div>
+            </form> 
+          
+            <table class="table" style="margin-top: 1vw;" >
+                    <thead>
+                    
+                        <th>ID</th>
+                        <th>City Name</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                                 <tr *ngFor="let item of city">
+                                  <td>{{item.cityid}}</td>
+                                  <td>{{item.citynam}}</td>
+       
+                                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                  <td> <a><button class="btn"><i class="fa fa-edit" type="button" (click)="editer(item)" (click)="tooletageedit()" ></i> </button> </a> </td>
+                                  <td> <a><button class="btn"><i class="fa fa-trash" type="button"(click)="deleter(item.cityid)"></i> </button> </a> </td>
+                                </div>
+                                </tr>
+                    </tbody>
+            </table>
+      
+            </div>         
+        

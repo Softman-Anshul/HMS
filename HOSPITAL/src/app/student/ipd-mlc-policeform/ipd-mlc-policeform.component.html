@@ -1,0 +1,50 @@
+<body>
+    <div class = "col" style="text-align:right">
+        <button  (click)="printComponent()">Print</button>
+      </div>
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <app-report-PageHeading></app-report-PageHeading>
+    <br>
+        <h2 style="margin-left: 20px; height: 10px; text-align: center;" >POLICE FORM </h2>
+<div style="margin-left: 50px;">
+    <p>सेवा में</p>
+    <p>थाना अध्यक्ष</p>
+    <p>थाना  {{thana}}</p>
+    <p>बरेली उ.प्र.</p>
+</div>
+<div style="margin-left: 120px;margin-top: 8vh;">
+    <p>महोदय,</p>
+</div>
+<div style="margin-left: 150px;margin-top: 2vh;">
+    <p>सेवा में निवेदन  है कि___<b>{{pntn}}__{{name}}</b>_______________________________________आयु__{{age}}__{{yrs}}__{{sex}}</p>
+    <p>पुत्र/पुत्री/पत्नी___{{pntg}}__{{father}}__पता___{{add}}__{{city}}</p>
+    <p>अस्पताल में  तारीख___{{admitdt}}___{{admittime}}______<b>{{dr}}______</b>के देखभाल में भर्ती हुई/हुए  है</p>
+    <p>यह निम्न रोग /अवस्था में आया आयी | जला हुआ / दुर्घटना / बेहोशी की हालत में  / गोली लगी  नुकीले हथियार से घायल इत्यादि </p>
+    <textarea  style="font-size:small; width:750px; hight:30px;" ></textarea>
+    <br>
+    <label   style="font-size:medium; margin-top: 5vh; " for="condoctor">भर्ती करने वाले का नाम </label>
+    <input  style="font-size:small; margin-left:12px; border-top: none;border-left: none;border-right: none; width:580px ; " [(ngModel)]=MLC.PBRBY>
+    <br>
+    <label   style="font-size:medium; ">पता </label>
+    <input  style="font-size:small; margin-left:12px; border-top: none;border-left: none;border-right: none; width:380px ; " [(ngModel)]=MLC.bradd>
+    <label   style="font-size:medium; " >जिला / थाना </label>
+    <input  style="font-size:small; margin-left:12px; border-top: none;border-left: none;border-right: none; width:230px ; " [(ngModel)]=MLC.brcity>
+    <br><br><br>
+    <label   style="font-size:medium; " >मजिस्ट्रेट का साक्ष्य करवाने (Dying Deciaration )  रिकार्ड कराने का प्रबन्घ करें । साक्ष्य की आवश्यकता है । और रोगी साक्ष्य</label>
+    <label>  देने  को इच्छुक हैं / हालत में है । रोगी का साक्ष्य रिकार्ड करवाने की आवश्यकता नही है । </label>
+    <br><br><br>
+    <label>रोगी के बाये हाथ के </label>
+    <label style="margin-left: 410px;">भर्ती करने वाले चिकित्साधिकारी</label>
+    <br>
+    <label>दिनांक </label>
+    <label style="margin-left: 550px;">नाम</label>
+
+     
+
+</div>
+
+  </body>

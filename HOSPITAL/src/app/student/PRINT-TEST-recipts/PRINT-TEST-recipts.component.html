@@ -1,0 +1,122 @@
+<body>
+  <div class = "col" style="text-align:right">
+    <button  (click)="printComponent()">Print</button>
+  </div>
+
+  <div class="row" >
+    <div class="col" id="printsection" style="margin-top: 5vw; margin-left: 30px;">
+      <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
+    </div>
+    <div class = "col">
+      <h3 style="margin-top: 5vw; height: 4px;">{{company}}</h3>
+      <h4 style="height: 4px;">{{add}}</h4>
+      <h4 style="height: 4px;">{{city}}</h4>
+      <h4 >{{phone}}</h4>
+    </div>
+  </div>
+
+  <div class ="row" style="margin-left: 30px;">
+    <div class="disclaimer signature-field">
+      <h2 style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">TEST RECEIPT</h2>
+    </div>
+  </div>
+
+  <div class ="row">
+    <div class ="col-sm-6" style="margin-left: 30px;">
+      <div>
+        <label style="font-size:medium; margin-left:15px; ">Name</label>
+        <input style="margin-left:58px; width:50px; border:none ;color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.pntn type="pntn"  >
+        <input style="margin-left:5px; width:210px; border:none ;color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.PntName >
+      </div>
+
+      <div>
+        <label style="font-size:medium; margin-left:15px;" >Age/Gender</label>
+        <input style="font-size:small; margin-left:15px; width:45px ; border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.pntage  >
+        <input style="font-size:small; margin-left:15px; width:60px ;border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.pntsex  >
+        <input style="font-size:small; margin-left:5px; width:60px ; border:none ; color: black; background-color: white; " disabled ="true"  [(ngModel)]=Students.pntyears >
+      </div>
+
+      <div>
+        <label  style="font-size:medium; margin-left:15px;">Guardian</label>
+        <input   style="font-size:small; margin-left:35px; width:50px ; border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.pntg   >
+        <input   style="font-size:small; margin-left:15px; width:150px ; border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.Pntgname >
+      </div>
+
+      <div>
+        <label   style="font-size:medium; margin-left:15px;" >City</label>
+        <input  style="font-size:small; margin-left:70px; width:250px ; border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.pntcity >
+      </div>
+
+      <div>
+        <label   style="font-size:medium; margin-left:15px;" >Phone</label>
+        <input  style="font-size:small; margin-left:50px; width:250px ; border:none ; color: black; background-color: white;" disabled ="true" [(ngModel)]=Students.pntmobile >
+        <label   style=" font-weight: bold; font-size:medium; margin-left:15px;" >Consultant</label>
+        <input  style="font-weight: bold; margin-left:20px; width:200px ; border:none ; color: black; background-color: white;" disabled ="true" [(ngModel)]=Students.condoctor  >
+      </div>
+    </div>
+
+    <div class = "col-4">
+      <div>
+        <label style="font-size:medium; margin-left:35px; ">Receipt No</label>
+        <input style="font-size:small; margin-left:25px; width:50px ;  border:none ; color: black; background-color: white;" disabled ="true" [(ngModel)]=Students.vchrNo >
+      </div>
+
+      <div>
+        <label style="font-size:medium; margin-left:35px;" for="recamt">Date</label>
+        <input style="font-size:small; margin-left:70px; width:95px ; border:none ; color: black; background-color: white;" disabled ="true" [(ngModel)]=Students.vchrDate type ="date" >
+      </div>
+
+      <div>
+        <label style="font-size:medium; margin-left:35px;" for="recamt">Time</label>
+        <input style="font-size:small; margin-left:40px; width:85px ; border:none ; color: black; background-color: white;" disabled ="true" [(ngModel)]=Students.vchrTime >
+      </div>
+
+      <div>
+        <label style="font-size:medium; margin-left:35px;" for="recamt">UHID</label>
+        <input style="font-size:small; margin-left:65px; width:85px ; border:none ; color: black; background-color: white; " disabled ="true" [(ngModel)]=Students.uhID type="opdTime" >
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="disclaimer signature-field"></div>
+    <table class="table table-bordered border-primary" style="margin-left:30px ; width: 93%; font-size:smaller; ">
+      <thead>
+        <th >TestName</th>
+        <th >Qty</th>
+        <th >Rate</th>
+        <th >Total</th>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let report of testreport ">
+          <td>{{report.itmName}}</td>
+          <td>{{report.itmQty}}</td>
+          <td>{{report.itmChrgs}}</td>
+          <td>{{report.totalAmt}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <label style="margin-left:530px ;"  >TOTAL</label>
+  <input style="font-size:small; margin-left:40px; width:70px ;" [(ngModel)]=Students.grandTotal readonly="true">
+  <label style="margin-left:530px ;"  >Discount</label>
+  <input style="font-size:x-small; width:20px ; "  [(ngModel)]=Students.disper readonly="true"   >
+  <input style="font-size:small; margin-left:5px; width:70px ;"  [(ngModel)]=Students.discountAmt readonly="true" >
+  <label style="margin-left:530px ;"  >Refund</label>
+  <input style="font-size:small; margin-left:37px; width:70px ;" [(ngModel)]=Students.refund readonly="true" >
+  <label style="margin-left:530px ;"  >Bal Amt</label>
+  <input style="font-size:small; margin-left:32px; width:70px ;" [(ngModel)]=Students.balamt readonly="true" >
+  <label style="margin-left:530px ;"  >Paid Amt</label>
+  <input style="font-size:small; margin-left:30px; width:70px ;" [(ngModel)]=Students.recamt readonly="true" >
+
+  <div class="disclaimer signature-field">
+    <p style="margin-left:600px ; margin-top: 5vh; " >( Signature )</p>
+    <input style="font-size:small; margin-left:610px ; border: none; width:70px ;" [(ngModel)]=Students.uname readonly="true">
+  </div>
+
+
+
+</body>

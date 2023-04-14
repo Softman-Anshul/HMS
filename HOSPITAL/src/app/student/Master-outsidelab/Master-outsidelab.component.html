@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div>
+  <h2 >Outside Lab</h2>
+  <form class="form">
+    <div class = "row">
+      <div class ="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon">Lab Name</span>
+          <input style="width:180px ;" type="text" class="form-control" [(ngModel)]="labnam.labname" name="labname">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" >Area</span>
+          <input style="width:215px ;" type="text" class="form-control" [(ngModel)]="labnam.area" name="area">
+        </div>
+      </div>
+      <div class ="col">
+        <div class="input-group">
+          <span class="input-group-addon">Collection Boy</span>
+          <input style="width:155px ;" type="text" class="form-control" [(ngModel)]="labnam.cboy" name="cboy">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Mobile</span>
+          <input style="width:202px ;" type="text" class="form-control" [(ngModel)]="labnam.mobile" name="mobile">
+        </div>
+      </div>
+    </div>
+    <button style="font-size:small; margin-top:1vw ;" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+    <button style="font-size:small; margin-top:1vw ;" class="btn btn-success btn-rounded" *ngIf="showMeedit"  (click)="onSubmitedit()">EDIT</button>
+    <table class="table" style="margin-top:1vw ;" >
+      <thead>
+        <th>Name</th>
+        <th>Area</th>
+        <th>C-boy</th>
+        <th>Mobile</th>
+        <th>LabType</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of labname">
+          <td>{{item.labname}}</td>
+          <td>{{item.area}}</td>
+          <td>{{item.cboy}}</td>
+          <td>{{item.mobile}}</td>
+          <td>{{item.labtype}}</td>
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <td> <a><button class="btn"><i class="fa fa-edit" type="button" (click)="editer(item.labid)" (click)="tooletageedit()" ></i> </button> </a> </td>
+            <td> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(item.labid)"></i> </button> </a> </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </form> 
+</div>         

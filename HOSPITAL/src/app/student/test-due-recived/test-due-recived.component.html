@@ -1,0 +1,67 @@
+<h2>Test Due Payment Received</h2>
+<div class="row" >
+    <div class = "col">
+        <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=Students.pntn   >
+        <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=Students.PntName  >
+            
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=Students.pntage  >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=Students.pntsex  >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=Students.pntyears > 
+
+            <br>
+            <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=Students.dcmntNo >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=Students.uhID type="uhID" >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">VchrNo</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=Students.vchrNo type="uhID" >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">VchrDate</label>
+            <input style="font-size:small; margin-left:5px; width:95px ;" disabled="true" [(ngModel)]=Students.vchrDate type="Date" >
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
+            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=Students.pntg   >
+            <input   style="font-size:small; width:250px ; " disabled="true"  [(ngModel)]=Students.Pntgname  >
+
+            <br>
+            <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+            <input   style="font-size:small; margin-left:5px; width:250px ; " disabled="true"  [(ngModel)]=Students.condoctor  >
+            <br><br><br><br>
+        </div>
+    
+        <div class="row">
+            <div>
+                <label style="font-size:medium; " type="dcmntno"  >Bill Amt</label>
+                <input style="font-size:small; margin-left:30px; width:110px ; " disabled="true" [(ngModel)]=Students.billamt  >
+            </div>
+
+                    <div>
+                        <label style="font-size:medium; " type="dcmntno"  >Payment</label>
+                        <input style="font-size:small; margin-left:30px; width:110px ; "  [(ngModel)]=Students.recamt (keyup)="discount()" >
+                    </div>
+        
+
+                    <div>
+                        <label style="font-size:medium;" type="dcmntno"  >Discount</label>
+                        <input style="font-size:small; margin-left:30px; width:110px ; " [(ngModel)]=Students.discountAmt >
+                    </div>
+
+                    <div>
+                        <label style="font-size:medium; " type="dcmntno"  >PMode</label>
+                        <select  style="margin-left: 45px; width:110px ;" [(ngModel)]=Students.paymode>
+                            <option *ngFor="let pay of group">
+                              {{pay.paymode}}
+                            </option> 
+                          </select> 
+                    </div>
+
+                    <div>
+                        <label style="font-size:medium; " type="dcmntno"  >Narration</label>
+                        <input style="font-size:small; margin-left:30px; width:210px ; " [(ngModel)]=Students.narration  >
+                    </div>
+
+        </div>
+
+</div>
+<br>
+<button  class="btn btn-success" (click)="onsave()">SAVE</button>
+<button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>

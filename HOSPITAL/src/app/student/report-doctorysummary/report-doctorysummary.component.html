@@ -1,0 +1,33 @@
+<body>
+    <app-report-PageHeading></app-report-PageHeading>
+      
+      <h4 style="margin-left: 20px;">Payment RefConsultant Summary from {{vrdt1 | date :'dd/MM/yyyy'}} To {{vrdt2 | date :'dd/MM/yyyy'}}</h4> 
+       
+
+  <table class="table table-bordered border-primary" >
+    <thead >
+        <th style="padding-left:90px ;">Consultant</th>
+        <th style="text-align: center ;">Bill Amt</th>
+        <th style="text-align: center ;">Disc</th>
+        <th style="text-align: center ;">Refund</th>
+        <th style="text-align: center ;">Net Amt</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let students of Students " >
+        <td style="width:90px ; padding-left:70px ; ">{{students.condoctor}}</td>
+        <td style="width:40px;text-align: center ;">{{students.grandTotal}}</td>
+        <td style="width:40px;text-align: center ;">{{students.discountAmt}}</td>
+        <td style="width:40px;text-align: center ;">{{students.refund}}</td>
+        <td style="width:40px;text-align: center ;">{{students.recamt}}</td>
+    </tr>
+</tbody>
+
+<td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+<td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
+<td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
+<td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
+<td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
+
+</table>
+
+</body>

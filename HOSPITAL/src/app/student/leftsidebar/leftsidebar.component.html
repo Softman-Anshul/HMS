@@ -1,0 +1,9 @@
+<ul style="background-color: steelblue;" class="sidebar-ul" >
+    <li *ngFor="let sidebar of SideBars"  class="pl-3 mt-3">
+        <a [routerLink]="sidebar.url" class="sidebar-a">
+            <i class={{sidebar.icon}}></i>
+            <span class="menu-text">
+                {{sidebar.sidebartext}}
+            </span></a>
+    </li>
+  </ul>

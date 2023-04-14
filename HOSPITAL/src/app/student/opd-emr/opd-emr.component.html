@@ -1,0 +1,178 @@
+<h2>EMR</h2>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div class="row" >
+     <div class="col" >
+              <label style="font-size:medium; margin-left:15px;" for="vchrNo">RegNo</label>
+              <input style="font-size:small; margin-left:5px; width:70px ;height:22px; background-color:lightblue; " readonly="true" type="text" [(ngModel)]=Students.vchrNo >
+             <label style="font-size:medium; margin-left:25px;" for="vchrDate">Date</label>
+             <input style="font-size:small; margin-left:5px; width:100px ;height:22px;" readonly="true" type="date" [(ngModel)]=Students.vchrDate >
+             <label style="font-size:medium; margin-left:15px;" for="vchrTime">RegTime</label>
+             <input style="font-size:small; margin-left:5px; width:70px ; height:22px; background-color:lightblue; " readonly="true" type="vchrTime" [(ngModel)]=Students.vchrTime >
+            
+            <label style="margin-left:5px;" for="uhID">UHID</label>
+            <input style="margin-left:10px; width:55px ;" readonly="true" type="text" [(ngModel)]=Students.uhID >
+            <label style="margin-left:15px;">Todays Sno (SID)</label>
+            <input style="margin-left:2px; width:35px ;" readonly="true" type="text" [(ngModel)]=Students.Sno >
+            <br>
+     </div>
+</div>
+    <div class ="row" >
+              <div class = "col-sm-3" >
+              <!-- row 1 col-->
+              <div class="input-group">
+              <span class="input-group-addon">Title</span>
+                <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntn>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Master">Master</option>
+                  <option value="Baby">Baby</option>
+                  <option value="B/o">B/o</option>
+                </select>
+              </div>
+              </div>
+              <div class = "col-sm-3" >
+              <!-- row 2 -->
+              <div class="input-group">
+              <span class="input-group-addon">Patient</span>
+                <input style="width:150px ;" class="form-control" type="text" maxlength="50" [(ngModel)]=Students.PntName >
+              </div>
+            </div>
+    
+              <div class = "col-sm-2">
+              <!-- row 3 -->
+              <div class="input-group">
+                  <span class="input-group-addon">Age</span>
+                    <input style="width:80px ;" class="form-control" type="text" maxlength="3"  [(ngModel)]=Students.pntage >
+                  </div>
+              </div>
+    
+              <div class = "col-md-2">
+                <!-- row 4 -->
+                <div class="input-group">
+                  <span class="input-group-addon">Years</span>
+                <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntyears >
+                  <option value="Years">Years</option>
+                  <option value="Months">Months</option>
+                  <option value="Days">Days</option>
+                  <option value="Hrs">Hrs</option>
+               </select>
+              </div>
+              </div>
+    
+              <div class = "col-sm-2">
+                            <!-- row 5 -->
+                            <div class="input-group">
+                              <span class="input-group-addon">Gender</span>
+                            <select style="width:75px ;" class="form-control" [(ngModel)]=Students.pntsex >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              </div>
+        </div>
+              <!-- row end -->
+        <div class ="row">
+                <div class = "col-sm-3">
+                <!-- row 2 col1-->
+                <div class="input-group">
+                  <span class="input-group-addon">Title</span>
+                      <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntg>
+                    <option value="S/o">S/o</option>
+                    <option value="W/o">W/o</option>
+                    <option value="D/o">D/o</option>
+                    <option value="C/o">C/o</option>
+               </select>
+                </div>
+               <div class="input-group">
+                <span class="input-group-addon">Email</span>
+             <input style="width:180px ;" class="form-control" type="text" maxlength="100" [(ngModel)]=Students.email >
+               </div>
+    
+               <div class="input-group">
+                <span class="input-group-addon">City</span>
+               <select style="width:190px ;" class="form-control" [(ngModel)]=Students.pntcity>
+                <option>--Select--</option>
+                  <option *ngFor="let city of Cityname">
+                   {{city.citynam}}
+                  </option> 
+           </select>
+                </div>
+                </div>
+    
+                <div class = "col-sm-5">
+                <!-- row 2 -->
+                <div class="input-group">
+                  <span class="input-group-addon">Guardian</span>
+                             <input style="width:310px ;" class="form-control" maxlength="50" type="text" [(ngModel)]=Students.Pntgname >
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Mobile</span>
+                 <input  style="width:325px;" class="form-control" [maxLength]="10"  [(ngModel)]=Students.pntmobile >
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Outside Lab</span>
+    <select style="width:295px;" class="form-control"  [(ngModel)]=Students.labto>
+     <option *ngFor="let lab of Labname">
+     {{lab.labname}}
+     </option> 
+    </select>
+                </div>
+    
+                </div>
+                <div class = "col-md-3">
+                <!-- row 3 -->
+                <div class="input-group">
+                  <span class="input-group-addon">Address</span>
+                  <input  style="width:255px ; " class="form-control" maxlength="50" type="text" [(ngModel)]=Students.pntadd >
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Ref Consultant</span>
+                  <select style="width:215px ; " class="form-control" [(ngModel)]=Students.condoctor>
+                    <option>--Select--</option>
+                    <option *ngFor="let students of consulant">
+                    {{students.dctName}}
+                    </option> 
+                  </select> 
+                </div>
+
+                <div hidden ="true" class="input-group">
+                  <span class="input-group-addon">type</span>
+                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.dcmntType >
+                </div>
+    
+                <div hidden ="true" class="input-group">
+                  <span class="input-group-addon">Reporttype</span>
+                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.Reporttype >
+                </div>
+    
+                <div hidden ="true" class="input-group">
+                  <span class="input-group-addon">username</span>
+                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.uname >
+                </div>
+                
+                <div hidden="true" class="input-group">
+                  <span class="input-group-addon">Collected By</span>
+    <select style="width:230px ; " class="form-control" [(ngModel)]=Students.doctype>
+    <option value="Self">Self</option>
+     <option *ngFor="let lab of Labname">
+            {{lab.cboy}}
+           </option> 
+    </select>
+                </div>
+                
+    
+                </div>
+
+                <div hidden ="true" class="input-group">
+                  <span class="input-group-addon">username</span>
+                 <input  style="width:325px;" class="form-control" [(ngModel)]=test.uname >
+                </div>
+
+                <div class = "col">
+                              <!-- row 4 -->
+                 <input  style="width:450px ;" [hidden]="true" type="text" [(ngModel)]=Students.sampletype >
+    
+                </div>
+    </div>

@@ -1,0 +1,35 @@
+<body>
+    <app-report-PageHeading></app-report-PageHeading>
+      
+      <h4 style="margin-left: 20px;">OPD Patient Register from {{fromdt}} To {{todt}}</h4> 
+
+  <table class="table table-bordered border-primary" style="margin-left:10px ;width: 96%;  font-size:smaller; ">
+    <thead >
+        <td style="text-align: center;">SNO</td>
+        <th style="text-align: center ;">Title</th>
+        <th style="text-align: center ;">Patient</th>
+        <th style="text-align: center ;">Age</th>
+        <th style="text-align: center ;">Yrs</th>
+        <th style="text-align: center ;">Sex</th>
+        <th style="text-align: center ;">Title</th>
+        <th style="text-align: center ;">Guardian</th>
+        <th style="text-align: center ;">Address</th>
+        <th style="text-align: center ;">Mobile</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let students of Students let i=index" >
+        <td style="width: 20px;">{{i+1}}</td>        
+        <td style="width:30px;">{{students.pntn}}</td>
+        <td style="width:100px;" >{{students.PntName}}</td>
+        <td style="width:30px ;">{{students.pntage}}</td>
+        <td style="width:30px;">{{students.pntyears}}</td>
+        <td style="width:30px ;">{{students.pntsex}}</td>
+        <td style="width:30px;" >{{students.pntg}}</td>
+        <td style="width:100px;">{{students.Pntgname}}</td>
+        <td style="width:140px;">{{students.pntadd}}</td>
+        <td style="width:80px;">{{students.pntmobile}}</td>
+    </tr>
+</tbody>
+</table>
+
+</body>

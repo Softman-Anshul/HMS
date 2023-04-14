@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<body >
+<div class="row" > 
+    <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
+    <div class = "col" >
+        <div style="text-align: center;">
+        <label style="font-size:medium; " type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; " readonly="true" [(ngModel)]=dcmntNo >
+            <b><label style="width: 400px;">EMERGENCY ADMISSION CERTIFICATE</label></b>
+            <label style="font-size:medium; margin-left:40px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;border:none ;color: black; background-color: white; "[(ngModel)]=OPD.uhID >
+        </div>
+            <br>
+            <label style="font-size:medium;  margin-left:60px;" type="dcmntno"  >This is certify that </label>
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left:15px; width:50px ; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntn >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:small; width:190px ;color: black; background-color: white; "[(ngModel)]=OPD.pntName readonly="true"  >
+
+            <label style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  margin-left:30px;" type="dcmntno"  >Age </label>
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left: 10px; width:40px ;color: black; background-color: white; "[(ngModel)]=OPD.pntAgeYrs readonly="true" >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small;  width:60px ;color: black; background-color: white; "[(ngModel)]=OPD.pntSex readonly="true" >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:60px ; color: black; background-color: white;" [(ngModel)]=OPD.agey readonly="true">
+
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
+            <u><input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left:15px; width:50px ; color: black; background-color: white; " [(ngModel)]=OPD.pntg readonly="true"  >
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:520px ; color:black; background-color: white; " [(ngModel)]=OPD.pntGrdn readonly="true"></u>
+
+            
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">Address</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:570px ; margin-left:20px; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntAdrs1 >
+
+            
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">City</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:350px ; margin-left:45px;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntCity >
+
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">Mobile</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:145px ; margin-left:15px;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntMobile >
+            <br>
+            <label  style="font-size:medium; margin-left:20px;" for="pntg">admitted in our Hospital in</label>
+            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:150px ; margin-left:10px;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.occupation >
+
+            <label style="font-size:medium; margin-left:10px;" >on Admited Date</label>
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; margin-left:15px; width:85px ;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.opdDate type="Date" >
+            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:small; width:65px ;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.opdTime >
+            <br>
+            <label   style="font-size:medium; margin-left:20px;" for="condoctor">The Provisional Diagnosis</label>
+            <input  style="font-size:small; margin-left:5px; width:470px ; border-top: none; border-right: none; border-left: none; border-bottom:1cap; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.Dignosis >
+            <br><br><br><br>
+            <b><label   style="font-size:medium; margin-left:20px;" for="condoctor">Date</label>
+            <label   style="font-size:medium; margin-left:415px;" for="condoctor">Signature /Stemp</label></b>
+        </div>
+    </div>
+</div>
+</body>

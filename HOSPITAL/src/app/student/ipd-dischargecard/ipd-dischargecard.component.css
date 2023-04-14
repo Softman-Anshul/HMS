@@ -1,0 +1,27 @@
+:root {
+    font: 400 2ch/1.25 Consolas;
+  }
+  
+  body {
+    font-size: 2ch
+  }
+  
+  #editor {
+    height: 100px;
+    width: 375px;
+    margin: 10px auto 0;
+  }
+  
+  fieldset {
+    margin: 2px auto 15px;
+    /* width: 375px; */
+  }
+  .the-fieldset {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+}
+  button {
+    width: 5ex;
+    text-align: center;
+    padding: 1px 3px;
+  }

@@ -1,0 +1,149 @@
+<div >
+  <h2 class="card-title">OPD Reports</h2>
+  <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Day Collection</h2>
+        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+        <button style="font-size:small; margin-left:20px;" (click) = "daycollection(vrdt1,vrdt1)" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+    
+    <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Date Wise Collection</h2>
+        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
+        <button style="font-size:small; margin-left:20px;" (click) = "Datecollection(vrdt1,vrdt2)" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Daywise Collection Summary</h2>
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+        <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+        <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "daysummary(vrdt1,vrdt2)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">                  
+        <h2 class="card-title">Monthly Collection Summary</h2>
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+        <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+        <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "monthsummary(vrdt1,vrdt2)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Consultant Wise Colleciton</h2>
+        <select style="width:265px ; " class="form-control" [(ngModel)]=doctor>
+          <option>--Select--</option>
+          <option *ngFor="let students of consulant">
+          {{students.dctName}}
+          </option> 
+        </select> 
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+        <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+        <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "doctorreport(vrdt1,vrdt2,doctor)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Consultant Collection Summary</h2>
+        <input style="font-size:small; margin-left:5px; width:120px ; margin-top: 3vw; " type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "doctorsummary(vrdt1,vrdt2)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Referral Wise Colleciton</h2>
+        <select style="width:265px ; " class="form-control" [(ngModel)]=doctor>
+          <option>--Select--</option>
+          <option *ngFor="let students of consulant">
+          {{students.dctName}}
+          </option> 
+        </select> 
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+        <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+        <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "rdoctorreport(vrdt1,vrdt2,doctor)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Referral Collection Summary</h2>
+        <input style="font-size:small; margin-left:5px; width:120px ; margin-top: 3vw; " type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "rdoctorsummary(vrdt1,vrdt2)">OK</button>
+      </div>
+    </div>
+
+    
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">City Wise Colleciton </h2>
+        <select style="width:265px ; " class="form-control" [(ngModel)]=pcity>
+          <option>--Select--</option>
+          <option *ngFor="let city of City">
+          {{city.citynam}}
+          </option> 
+        </select> 
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "city(vrdt1,vrdt2,pcity)">OK</button>
+          <button style="font-size:small; margin-left:10px;" class="btn btn-primary" (click) = "citysummary(vrdt1,vrdt2)">Summary</button>
+      </div>
+    </div>
+    
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Patient Register</h2>
+        <input style="font-size:small; margin-left:5px; width:120px ; margin-top: 3vw;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "patientregister(vrdt1,vrdt2)">OK</button>
+      </div>
+    </div>
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">User Wise Collection</h2>
+        <select style="width:265px ; " class="form-control" [(ngModel)]=puname>
+          <option>--Select--</option>
+          <option *ngFor="let user of User">
+          {{user.stuserid}}
+          </option> 
+        </select> 
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "usercollection(vrdt1,vrdt2,puname)">OK</button>
+      </div>
+    </div>
+
+
+    <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+      <div class="cardbody">
+        <h2 class="card-title">Paymode Wise Collection</h2>
+        <select style="width:265px ; " class="form-control" [(ngModel)]=paymode>
+          <option value="CASH">CASH</option>
+          <option value="BANK">BANK</option>
+          <option value="UPI">UPI</option>
+          <option value="Paytem">Paytem</option>
+        </select>
+        <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "paymodecollection(vrdt1,vrdt2,paymode)">OK</button>
+      </div>
+    </div>
+  
+   
+
+
+ 
+</div>

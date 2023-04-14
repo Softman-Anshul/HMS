@@ -1,0 +1,30 @@
+<div class="ipd-tool-tip" [ngStyle]="{'position': 'fixed', 'z-index': '10000', 'height': '10px' ,'left': x + 'px', 'top': y + 'px'}">
+    <table  class="table table-bordered table-striped " style="padding-left: 0%; background-color: rgb(200, 230, 120);" >
+        <thead  style="color:white; font-family: Arial, Helvetica, sans-serif;background: rgb(16, 26, 16) !important;">
+          <tr>
+            <th >Voucher Number</th>
+            <th >Voucher Date</th>
+            <th >Bill Amount</th>
+            <th >Due Amount</th>
+            <th >Report Type</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let students of OPD let i=index;"  class="CellWithComment"  style="text-align:center;"  >
+          <td>{{students.vchrNo}}</td>
+          <td>{{students.vchrDate}}</td>
+          <td>{{students.billamt}}</td>
+          <td>{{students.balamt}}</td>
+          <td>{{students.Reporttype}}</td>
+        </tr>
+        <tr style="text-align:center;">
+            <td>Total</td>
+            <td></td>
+            <td><b>{{totalBillAmount}}</b></td>
+            <td><b>{{totalBalAmount}}</b></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

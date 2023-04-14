@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <h2 >Add/ Delete Ward </h2>
+        <form class="form">
+                    
+            <div class="row" class="col-12 text-right" >
+    <div >
+            <!-- <input style="font-size:small;margin-bottom:1vw;width:60px; background-color: lightblue; " *ngIf="showMeedit"  value="0" type="text" readonly="true" [(ngModel)]="editCity.cityid" name="cityid" > -->
+            <div class="row-5" class="input-group" >
+            <span class="input-group-addon">Ward Name</span>
+            <input disabled="true" style="width: 170px;" class="form-control"  [(ngModel)]="Ward.category" name="category" >
+
+
+            <span style="width: 90px;" class="input-group-addon">Floor</span>
+            <input disabled="true" style="width: 170px;"  class="form-control" [(ngModel)]="Ward.Floor" name="Floor" >
+            </div>
+            <div class = "col-5"  class="input-group">
+            <span style="width: 98px;" class="input-group-addon">RoomNo</span>
+            <input  style="width: 170px;" class="form-control"  [(ngModel)]="Ward.roomNo" name="roomNo" >
+ 
+             <span style="width: 90px;" class="input-group-addon"># of Bed</span>
+            <input  style="width: 170px;" class="form-control" [(ngModel)]="Ward.Bedno"  name="Bedno">
+
+            <input hidden="true" style="width: 170px;" class="form-control" [(ngModel)]="Ward.bed"  name="bed">
+            </div>
+
+    </div>
+            </div>
+    <div style="margin-top:1vw ;">
+            <button style="font-size:small;" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+    </div>
+    </form> 
+
+        <table class="table" style="margin-top: 1vw;" >
+            <thead>
+                <th>Sno</th>
+                <th>RoomName</th>
+                <th>RoomNo</th>
+                <th>Floor</th>
+                <th>Bed</th>
+                <th>FileNo</th>
+                <th>Bedtype</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                         <tr *ngFor="let item of Ward1 let i=index;">
+                            <td>{{i+1}}</td>
+                            <td>{{item.category}}</td>
+                          <td>{{item.roomNo}}</td>
+                          <td>{{item.Floor}}</td>
+                           <td>{{item.Bedno}}</td>
+                           <td>{{item.ipdno}}</td>
+                           <td>{{item.bed}}</td>
+                          <div class="btn-group" role="group" >
+                          <td> <a><button class="btn"><i class="fa fa-trash" type="button"(click)="deleter(item.roomNo,item.Bedno,item.ipdno)"></i> </button> </a> </td>
+                          </div>
+                        </tr>
+                    </tbody>
+                   
+    </table>

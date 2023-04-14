@@ -1,0 +1,62 @@
+<body>
+<H2>ACCOUNT DAILY EXPENSES</H2>
+
+<div class="row">
+<div class="col-2">
+<label for="pntg">PAID BY</label>
+    <select style="width:150px ;" class="form-control" >
+      <option value="S/o">S/o</option>
+      <option value="W/o">W/o</option>
+      <option value="D/o">D/o</option>
+      <option value="C/o">C/o</option>
+    </select>
+</div>
+<div class="col-2">
+    <label for="pntg">PAID TO</label>
+    <select style="width:150px ;" class="form-control" >
+      <option value="S/o">S/o</option>
+      <option value="W/o">W/o</option>
+      <option value="D/o">D/o</option>
+      <option value="C/o">C/o</option>
+    </select>
+</div>
+
+<div class="col-2">
+    <label for="pntg">GROUP</label>
+    <select style="width:150px ;" class="form-control" >
+      <option value="S/o">S/o</option>
+      <option value="W/o">W/o</option>
+      <option value="D/o">D/o</option>
+      <option value="C/o">C/o</option>
+    </select>
+</div>
+
+<div class="col-2">
+    <label for="pntg">LEDGER</label>
+    <select style="width:150px ;" class="form-control" >
+      <option value="S/o">S/o</option>
+      <option value="W/o">W/o</option>
+      <option value="D/o">D/o</option>
+      <option value="C/o">C/o</option>
+    </select>
+</div>
+<div class="col-1">
+    <label for="PntName">QTY</label>
+    <input style="width:60px ;" class="form-control" type="text">
+     <!-- [(ngModel)]=OPD1.pntName > -->
+</div>
+<div class="col-1">
+    <label for="PntName">AMOUNT</label>
+    <input style="width:90px ;" class="form-control" type="text"  >
+</div>
+</div>
+
+<div class="row">
+    <label for="PntName">NARRATION</label>
+    <input style="margin-left: 10px;; width:490px ;" class="form-control" type="text"  >
+
+    <button style="font-size:small; margin-left:10px ;width: 80px; " type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+
+</div>
+
+</body>

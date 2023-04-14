@@ -1,0 +1,72 @@
+<h2>IPD Payment Received</h2>
+<div class="row" >
+  <div class="col-4" id="printsection">
+
+  <label style="font-size:medium; " >P.Type</label>
+        <select  style="margin-left: 35px; width:90px ;"  [(ngModel)]=Deposit.reason>
+          <option value="Payment">Payment</option>
+          <option value="Refund">Refund</option>
+        </select> 
+  </div>
+
+  <div class="col-4" id="printsection">
+    <label   style="font-size:medium;" for="condoctor">Deposit</label>
+    <input  style="font-size:small; margin-left:25px; width:90px ; " disabled="true" [(ngModel)]=totalnetamt >
+    </div>
+  
+</div>
+
+<div class="row" >
+    <div class="col-4" id="printsection">
+           <label style="font-size:medium; " for="refund">Received</label>
+           <input style="font-size:small; margin-left:20px; width:90px ;" [(ngModel)]=Deposit.advanceReceived  type="text" >
+
+           <label style="font-size:medium; " >Date</label>
+           <input style="font-size:small; margin-left:50px; width:90px ;" [(ngModel)]=Deposit.ipdDate disabled="true"  type="Date" >
+
+    </div>
+    <div class = "col-5">
+        <label style="font-size:medium; " >P.Mode</label>
+        <select  style="margin-left: 35px; width:120px ;" [(ngModel)]=Deposit.paymode>
+          <option *ngFor="let pay of group">
+            {{pay.paymode}}
+          </option> 
+        </select> 
+
+        <label style="font-size:medium; " for="refund">Narration</label>
+        <input style="font-size:small; margin-left:20px; width:120px ;" [(ngModel)]=Deposit.narration  type="text" >
+
+
+    </div>
+    <div class = "col">
+            <br><br><br><br>
+            <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+            <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+            
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+
+            <br>
+            <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=Deposit.ipdNo  type="dcmntno"  >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=Deposit.uhID type="uhID" >
+
+            <label style="font-size:medium; margin-left:5px; " >RecNo</label>
+            <input style="font-size:small; margin-left:5px; width:70px ;" readonly = "true" [(ngModel)]=Deposit.recno  type="text" >
+        
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
+            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=OPD.pntg type="pntg"  >
+            <input   style="font-size:small; width:250px ; " disabled="true"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
+
+            <br>
+            <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+            <input  style="font-size:small; margin-left:5px; width:305px ; " disabled="true" [(ngModel)]=OPD.dctrVisited type="dctrVisited" >
+            <br><br><br><br>
+
+            <button  class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+</div>

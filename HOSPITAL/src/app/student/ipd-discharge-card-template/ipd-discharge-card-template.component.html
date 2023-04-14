@@ -1,0 +1,123 @@
+<body>
+    <meta charset='utf-8'>
+<h2>DISCHARGE CARD TEMPLATE</h2>
+
+<label  style="font-size:medium; " >TEMPLATE Name</label>
+<input type="text" style="margin-left: 40px; width: 225px;" (change)="selectTemp($event)" [(ngModel)]=discard.tempname  id="ItemName" list="dep" />
+  <datalist id="dep" >
+    <option *ngFor="let temp of distempheading" >
+      {{temp.tempname}}
+    </option> 
+  </datalist>
+
+<!-- <input   style="margin-left: 40px; font-size:small; width:250px ;" [(ngModel)]=discard.tempname > -->
+<input   style="margin-left: 90px; font-size:small; width:50px ;" [(ngModel)]=discard.tempno >
+
+<br>
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+  <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.one >
+  <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  <br>
+  </fieldset>
+  <fieldset id="editor-one"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.one">
+  </fieldset>
+  <br>
+  </div>
+
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+    <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.two >
+    <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  </fieldset>
+  <fieldset id="editor-two"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.two">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+    <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.three >
+    <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  </fieldset>
+  <fieldset id="editor-three"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.three">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+    <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.four >
+    <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  </fieldset>
+  <fieldset id="editor-four"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.four">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+    <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.five >
+    <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  </fieldset>
+  <fieldset id="editor-five"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.five">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="display: flex;">
+  <fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+    <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.six>
+    <div>
+  <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+  <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+  <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+  </div>
+  </fieldset>
+  <fieldset id="editor-six"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.six">
+  </fieldset>
+  <br>
+  </div>
+  
+<div style="display: flex;">
+<fieldset style="display: flex; flex-direction: column; margin-top: 20px; width: 157px;">
+  <input  style="font-size:medium; width:160px ; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.seven><div>
+<button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i> </button>
+<button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b></button>
+<button class="fontStyle" onclick="document.execCommand( 'underline',false,null);" title='Underline Highlighted Text'><u>U</u></button>
+</div>
+</fieldset>
+<fieldset id="editor-seven"  style="margin-left: 10px; width: 725px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.seven">
+</fieldset>
+<br>
+</div>
+
+
+<br><br>
+<button  style="width: 70px;" class="btn btn-success" (click)="onsave()">SAVE</button>
+<button  style="width: 70px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+
+</body>
+

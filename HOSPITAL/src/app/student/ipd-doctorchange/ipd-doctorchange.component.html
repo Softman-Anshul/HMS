@@ -1,0 +1,52 @@
+<div class="row" >
+    <div class="col" id="printsection">
+           <h2>IPD Consultant Change </h2>
+            <label  style="font-size:medium; margin-left:15px;" for="department">Department</label>
+            <select style="margin-left:25px ; font-size:small;width:315px;height:30px  ;"  (change)="selectdepartment()" [(ngModel)]=OPD.caseType  >
+            <!-- <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.dctrVisited (change)="consultantChange($event)"> -->
+                <option></option>
+                <option *ngFor="let dep of department">
+                  {{dep.caseType}}
+                </option> 
+              </select> 
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="dctrVisited">Consultant</label>
+            <select style="margin-left:30px ; font-size:small;width:315px;height:30px  ;" (change)="consultantChange($event)" [(ngModel)]=OPD.dctrVisited  >
+            <!-- <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.dctrVisited (change)="consultantChange($event)"> -->
+                <option></option>
+                <option *ngFor="let students of consulant">
+                  {{students.dctName}}
+                </option> 
+              </select> 
+          
+            <br><br>
+
+            <br><br><br><br>
+            <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+            <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+            
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+ 
+           
+            <br>
+            <label style="font-size:medium; margin-left:15px;" type="dcmntno"  >File No</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=OPD.dcmntNo  type="dcmntno"  >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=OPD.uhID type="uhID" >
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
+            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=OPD.pntg type="pntg"  >
+            <input   style="font-size:small; width:250px ; " disabled="true"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
+ 
+            <br>
+            <label   style="font-size:medium; margin-left:15px;" for="condoctor">Consultant</label>
+            <input  style="font-size:small; margin-left:5px; width:305px ; " disabled="true" [(ngModel)]=doctor  >
+            <br><br><br><br>
+
+            <button class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+        
+</div>

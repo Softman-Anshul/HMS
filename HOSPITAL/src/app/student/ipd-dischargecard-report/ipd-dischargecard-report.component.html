@@ -1,0 +1,132 @@
+<body>
+  <div class = "col" style="text-align:right">
+    <button  (click)="printComponent()">Print</button>
+  </div>
+    <meta charset='utf-8'>
+    <app-report-PageHeading></app-report-PageHeading>
+    <h2 style="text-align: center; height: 10px;" >DISCHARGE CARD</h2>
+    <br>
+            <input style="font-size:small; color: white; background-color: darkslategrey; margin-left: 30px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+            <input style="font-size:small; color: white; background-color: darkslategrey;  width:520px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
+            
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
+
+            <br>
+            <label  style="font-size:medium; margin-left:40px;" for="pntg">Guardian</label>
+            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=OPD.pntg type="pntg"  >
+            <input   style="font-size:small; width:200px ; " disabled="true"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
+
+            <label  style="font-size:medium; margin-left:125px;" >DisCard No</label>
+            <input   style="font-size:small; width:90px ; margin-left:15px;" disabled="true"  [(ngModel)]=discard.cardno >
+
+            <br>
+            <label  style="font-size:medium; margin-left:40px;" for="pntg">Address</label>
+            <input   style="font-size:small; width:250px ; margin-left:25px;" disabled="true"  [(ngModel)]=OPD.pntAdrs1 >
+
+            <label  style="font-size:medium; margin-left:125px;" >DisCard Date</label>
+            <input   style="font-size:small; width:90px ; margin-left:5px;" disabled="true"  [(ngModel)]=discard.carddate type ="date" >
+
+            <br>
+            <label  style="font-size:medium; margin-left:40px;" for="pntg">City</label>
+            <input   style="font-size:small; width:250px ; margin-left:55px;" disabled="true"  [(ngModel)]=OPD.pntCity >
+
+            <label  style="font-size:medium; margin-left:130px;" >File No</label>
+            <input   style="font-size:small; width:90px ; margin-left:45px;" disabled="true"  [(ngModel)]=discard.ipdno >
+
+            <br>
+            <label  style="font-size:medium; margin-left:40px;" for="pntg">Mobile</label>
+            <input   style="font-size:small; width:250px ; margin-left:35px;" disabled="true"  [(ngModel)]=OPD.pntMobile >
+
+            <label  style="font-size:medium; margin-left:130px;" >UHID</label>
+            <input   style="font-size:small; width:90px ; margin-left:55px;" disabled="true"  [(ngModel)]=discard.uhid >
+            <br>
+            <label   style="font-size:medium; margin-left:40px;" >Admit Date</label>
+            <input  style="font-size:small; margin-left:35px; width:170px ; " disabled="true" [(ngModel)]=OPD.opdDate type ="date"  >
+         
+              <label   style="font-size:medium; margin-left:180px;" for="condoctor">Ward</label>
+              <input  style="font-size:small; margin-left:55px; width:170px ; " disabled="true" [(ngModel)]=OPD.category  >
+              <br>
+              <label   style="font-size:medium; margin-left:40px;" for="condoctor">Discharge Date</label>
+              <input  style="font-size:small; margin-left:5px; width:170px ; " disabled="true" [(ngModel)]=OPD.expiryDate  >
+
+              <label   style="font-size:medium; margin-left:180px;" for="condoctor">Room/Bed</label>
+              <input  style="font-size:small; margin-left:20px; width:70px ; " disabled="true" [(ngModel)]=OPD.roomNo >
+              <input  style="font-size:small; margin-left:5px; width:70px ; " disabled="true" [(ngModel)]=OPD.Bedno >
+
+              <br>
+              <label   style="font-size:medium; margin-left:40px;" for="condoctor">Operation Date</label>
+              <input  style="font-size:small; margin-left:8px; width:170px ; " disabled="true" [(ngModel)]=discard.opdrationdt  type ="date" >
+
+<br><br>
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+  <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.one >
+  </fieldset>
+  <fieldset id="editor-one"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.one">
+  </fieldset>
+  <br>
+  </div>
+
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.two >
+  </fieldset>
+  <fieldset id="editor-two"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.two">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.three >
+  </fieldset>
+  <fieldset id="editor-three"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.three">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.four >
+  </fieldset>
+  <fieldset id="editor-four"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.four">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.five >
+  </fieldset>
+  <fieldset id="editor-five"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.five">
+  </fieldset>
+  <br>
+  </div>
+
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium;  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.six>
+  </fieldset>
+  <fieldset id="editor-six"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.six">
+  </fieldset>
+  <br>
+  </div>
+  
+<div style="margin-left: 40px; display: flex;">
+  <fieldset style="display: flex; flex-direction: column; padding-top: 10px; padding-left:2px; width: 157px; border: 1px solid black;">
+    <input  style="background:white;border:0;font-size:medium; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'; " disabled="true" [(ngModel)]=disheading1.seven>
+</fieldset>
+<fieldset id="editor-seven"  style="margin-left: 10px; width: 555px; padding : 10px; border: 1px solid black;" contenteditable="true" [innerHTML]="discard.seven">
+</fieldset>
+<br>
+</div>
+
+<br><br><br><br>
+<input  style="font-size:small; margin-left:40px; width:250px ; " disabled="true" [(ngModel)]=OPD.dctrVisited >
+<br><br>
+</body>
+

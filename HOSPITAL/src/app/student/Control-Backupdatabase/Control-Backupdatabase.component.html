@@ -1,0 +1,13 @@
+<h2>Backup Database</h2>
+<label  for="dcmntno">Backup Path</label>
+<label for="input-folder-1">Upload File From Folder</label>
+<div class="file-loading">
+    <input id="input-folder-1" type="file" webkitdirectory>
+</div>
+<script>
+$(document).ready(function() {
+    $("#input-folder-1").fileinput({
+        browseLabel: 'Select Folder...'
+    });
+});
+</script>

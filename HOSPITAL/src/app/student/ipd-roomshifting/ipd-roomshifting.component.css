@@ -1,0 +1,44 @@
+.btn-right
+{
+    float: right;
+}
+
+  /* button {
+    background-color: rgb(3, 94, 140) !important;
+    border: none;
+    color: white;
+    padding: 4px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    width: 150px !important;
+  } */
+  table {
+    border-collapse: collapse;
+}
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: rgb(33, 37, 41);
+}
+  .table-bordered {
+    border: 1px solid rgb(222, 226, 230);
+}
+  thead > tr > th {
+    border-bottom-width: 2px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 600;
+    height: 35px;
+    background: rgb(3, 94, 140) !important;
+    vertical-align: middle !important;
+}
+td {
+  font-size: 11px;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}

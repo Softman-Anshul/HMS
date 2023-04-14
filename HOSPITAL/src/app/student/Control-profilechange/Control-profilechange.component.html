@@ -1,0 +1,34 @@
+<div >
+        <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" >Hospital Profile Change</a>
+                </div>
+              </nav>
+            <form class="form">
+                    
+                    <div class="row" class="col-12 text-right" >
+                   <div >
+                    <label style="font-size:medium; margin-left:15px;">SubTitle</label>
+                    <input style="font-size:small; margin-left:15px; width:450px ;" [(ngModel)]="company.Comp_Short_nam" name="Comp_Short_nam">
+                    <br><br>
+                    <label style="font-size:medium; margin-left:15px;">Address</label>
+                    <input style="font-size:small; margin-left:15px; width:450px ;" [(ngModel)]="company.Comp_add"  name="comp_add">
+                    <br>
+                    <input style="font-size:small; margin-left:90px; width:450px ;" [(ngModel)]="company.Comp_add1" name="comp_add1">
+                    <br>
+                    <label style="font-size:medium; margin-left:15px;">City</label>
+                    <input style="font-size:small; margin-left:50px; width:450px ;" [(ngModel)]="company.Comp_city" name="comp_city">
+                    <br>
+                    <label style="font-size:medium; margin-left:15px;">Helpline</label>
+                    <input style="font-size:small; margin-left:20px; width:450px ;" [(ngModel)]="company.Comp_Phon" name="Comp_Phon">
+                    <br>
+                    <label style="font-size:medium; margin-left:15px;">Email</label>
+                    <input style="font-size:small; margin-left:40px; width:450px ;" [(ngModel)]="company.email" name="email">
+                    <br><br><br>
+                    <button style="font-size:small; margin-left:95px;" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+                    <button style="font-size:small; margin-left:5px;" class="btn btn-danger btn-rounded" (click)="onDiscard()">Discard</button>
+                    <br><br><br>
+             
+            </div>
+            </div>
+            </form> 

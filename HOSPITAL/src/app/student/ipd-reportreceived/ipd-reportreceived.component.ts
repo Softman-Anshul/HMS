@@ -1,0 +1,63 @@
+import { Component, Inject, OnInit } from '@angular/core';
+import { StudentsService } from '../../students.service';
+import {Router, Params, ActivatedRoute} from '@angular/router';
+import {OPD} from '../../students';
+
+@Component({
+  selector: 'app-ipd-reportreceived',
+  templateUrl: './ipd-reportreceived.component.html',
+  styleUrls: ['./ipd-reportreceived.component.css']
+})
+export class IpdReportreceivedComponent implements OnInit {
+  OPD = new OPD();
+  ward = new OPD();
+  uname = '';
+  dcmntNo=0;
+  dt="";
+
+  constructor(private _studentservice:StudentsService,
+    private routes : ActivatedRoute,
+    private Router :Router, 
+   
+   ) {
+   
+    }
+
+  ngOnInit(): void {
+       
+     //call username 
+ this.uname = this._studentservice.getUsername();
+ if(this.uname == '')
+ {
+   this.Router.navigate(['']);
+ }
+ const routerParams = this.routes.snapshot.params;
+ let dcmntNo = routerParams["dcmntNo"];
+ let dt = routerParams["dt"];
+ let uhID = routerParams["uhID"];
+
+ this.dcmntNo = dcmntNo;
+ //patient information
+ this._studentservice.getipdreg(dcmntNo,dt)
+ .subscribe((data:any) => {
+  this.OPD = data[0];
+  });
+
+  //Ward information
+  this._studentservice.getwardbyipdno(dcmntNo,uhID)
+  .subscribe((data:any) => {
+   this.ward = data[0];
+   });
+    
+   //call company for f.years
+   this._studentservice.getCompany()
+   .subscribe((data:any) => {
+   this.OPD.Years = data[0].years;
+  });
+  
+
+}
+printComponent() {
+  window.print();
+}
+}

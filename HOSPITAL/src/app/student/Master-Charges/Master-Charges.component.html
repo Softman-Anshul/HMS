@@ -1,0 +1,77 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<h2  >Chagres Master</h2>
+<div style="margin-left:15px;" class="input-group">
+    <span  class="input-group-addon">Search</span>
+    <input  style="font-size:small; margin-left:5px; width: 750px;" type="search" (keyup)="searchdirect()" [(ngModel)]=search />
+</div>
+<br>
+<form [formGroup]="addForm" novalidate class="form" id="form" style="margin-left:1vw;">
+    <div class="row">
+        <div class ="col-sm-6">
+            <div class="input-group">
+                 <span style="width: 115px;" class="input-group-addon">Department</span>
+                 <input  type="text" style="width: 180px;" class="form-control" name="type" formControlName="type" list="dep" />
+                 <datalist id="dep" >
+                 <option *ngFor="let dept of Testmaster">
+                 {{dept.type}}
+                 </option> 
+                 </datalist>
+            </div>
+            
+            <div class="input-group">
+                <span class="input-group-addon">Charges Name</span>
+                <input style="width:180px ;" class="form-control"  formControlName="chrgsName" name="chrgsName" list="charge">
+                <datalist id="charge" >
+                    <option *ngFor="let chrgs of Testmaster">
+                    {{chrgs.chrgsName}}
+                    </option> 
+                    </datalist>
+            </div>
+
+        </div>
+        <div class ="col-sm-6">
+            <div class="input-group">
+                 <span class="input-group-addon">OPD Amt</span>
+                 <input style="width:180px ;" class="form-control"  formControlName= "chrgAmt" name="chrgAmt">
+             </div>
+             <div class="input-group">
+                <span class="input-group-addon">IPD.. Amt</span>
+                  <input style="width:180px ;" class="form-control" formControlName= "ipdchargs" name="ipdchargs">
+             </div>
+             
+        </div>
+    </div>
+
+            <button style="margin-top: 1vw; font-size: small; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()" >SAVE</button>
+            <button style="margin-top: 1vw; font-size: small; " type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+            
+           
+        <input hidden="true" style="width:180px ;" class="form-control"  formControlName="itmName" name="itmNam">
+        <input hidden="true" style="width:180px ;" class="form-control"  formControlName="itmtype"  name="itmtype">
+            <div class="table-responsive">
+                <table class="table" style="margin-top: 1vh; font-size:small;" >
+                    <thead>
+                        <th >Sno</th>
+                        <th >TestName</th>
+                        <th >OPD Amt</th>
+                        <th >Department</th>
+                        <th >Action</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let students of Testmaster">
+                            <td>{{students.sNo}}</td>
+                            <td>{{students.chrgsName}}</td>
+                            <td>{{students.chrgAmt}}</td>
+                            <td>{{students.type}}</td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <td ><a><button class="btn"><i class="fa fa-edit" type="button" (click)="tooletageedit()"  (click)="editer(students.sNo)" ></i> </button> </a> </td>
+                                <td > <a><button class="btn"><i class="fa fa-trash"  (click)="deleter(students)"></i>  </button> </a> </td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
