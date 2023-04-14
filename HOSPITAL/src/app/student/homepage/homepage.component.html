@@ -18,17 +18,15 @@
      
     </div>
     
-    <div class="row hdr-row" style="min-height: 85vh; width: 100vw;">     
-        <div class="row" style="display: flex;">
-        <div class="sidebar">
-          <div class="bg-white">
-            <app-leftsidebar></app-leftsidebar>
+    <div class="row hdr-row" style="max-height: 85vh; width: 100vw;">     
+        <div class="row" style="height: 100%;">
+          <div class="sidebar" style="height: 82vh;">
+            <app-leftsidebar style="height: 100%;"></app-leftsidebar>
+          </div>
+          <div id="main" *ngIf="!isMobile" style="padding-left: 3vw;padding-top: 3vh;padding-bottom: 0;height: 82vh;">
+            <router-outlet></router-outlet>
           </div>
         </div>
-        <div id="main" *ngIf="!isMobile" style="padding: 3vw;padding-bottom: 0;">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
     </div>
    
 

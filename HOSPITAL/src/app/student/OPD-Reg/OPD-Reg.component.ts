@@ -29,18 +29,19 @@ export class OpdregComponent implements OnInit {
   uname = '';
   day=0;
   ptype = "OPD"
+  isOpd = true;
 
   constructor(private _studentservice:StudentsService,
     private router: Router,
-    public dialogRef: MatDialogRef<OpdregComponent>,
     private routes : ActivatedRoute,
-     @Inject(MAT_DIALOG_DATA) public data: {OPD:OPD,OPD2:OPD },
     ) {
-     this.dcmntNo = data.OPD
-     this.opdDate = data.OPD2
+    let data = routes.snapshot.data
+     this.dcmntNo = data['OPD']
+     this.opdDate = data['OPD2']
      }
 
   ngOnInit(): void {
+    this.typeChange();
  //call username 
  this.uname = this._studentservice.getUsername();
  if(this.uname == '')
@@ -227,9 +228,6 @@ populate(){
     this.OPD1.agey = "Years"
   }
   }
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
   onSubmit(){
        if(this.validation()){
       const routerParams = this.routes.snapshot.params;
@@ -240,10 +238,8 @@ populate(){
               let id = this.OPD1.dcmntNo;
               let opdDate = this.OPD1.opdDate;
               this.router.navigate(['opdreceipt/' + id,opdDate]);
-              this.dialogRef.close();
             }
             else{
-              this.onNoClick();
               window.location.reload();
               }
             });
@@ -292,6 +288,13 @@ populate(){
       this.OPD1.dcmntType = "OPD";
     }   
     return true
+  }
+
+  typeChange(){
+    this.OPD1.dcmntType = "Emergency";
+    if(this.isOpd){
+      this.OPD1.dcmntType = "OPD";
+    }
   }
   
 }

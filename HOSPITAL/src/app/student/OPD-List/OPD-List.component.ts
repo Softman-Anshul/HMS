@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OpdregComponent } from '../OPD-Reg/OPD-Reg.component';
 import {MatDialog} from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
 import { Router } from '@angular/router';
@@ -208,13 +207,15 @@ totalrecamt=0;
   }
 }
   newreg() {
-      const dialogRef = this.dialog.open(OpdregComponent, {
-        height:'650px', width: '1500px',
-        data: {OPD:undefined},
-      });
+
+      this.router.navigate(['homepage/opdreg']);
+      // const dialogRef = this.dialog.open(OpdregComponent, {
+      //   height:'650px', width: '1500px',
+      //   data: {OPD:undefined},
+      // });
   
-      dialogRef.afterClosed().subscribe(result => {
-      });
+      // dialogRef.afterClosed().subscribe(result => {
+      // });
   }
   EMR(dcmntNo:any,opdDate:any){
     // let id1 = dcmntNo;
@@ -265,12 +266,14 @@ totalrecamt=0;
   onEdit(dcmntNo:any,opdDate:any): void {
     if(opdDate == new Date().toISOString().split('T')[0])
     {
-    const dialogRef = this.dialog.open(OpdregComponent, {
-      height:'650px', width: '1500px',
-      data: {OPD:dcmntNo,OPD2:opdDate},
-    });
-    dialogRef.afterClosed().subscribe(result => {
-    });
+      this.router.navigate(['homepage/opdreg', {OPD:dcmntNo,OPD2:opdDate}]);
+
+    // const dialogRef = this.dialog.open(OpdregComponent, {
+    //   height:'650px', width: '1500px',
+    //   data: {OPD:dcmntNo,OPD2:opdDate},
+    // });
+    // dialogRef.afterClosed().subscribe(result => {
+    // });
   }
   else
   {
@@ -280,12 +283,14 @@ totalrecamt=0;
     }
     else
     {
-      const dialogRef = this.dialog.open(OpdregComponent, {
-        height:'650px', width: '1500px',
-        data: {OPD:dcmntNo,OPD2:opdDate},
-      });
-      dialogRef.afterClosed().subscribe(result => {
-      });
+      this.router.navigate(['homepage/opdreg', {OPD:dcmntNo,OPD2:opdDate}]);
+
+      // const dialogRef = this.dialog.open(OpdregComponent, {
+      //   height:'650px', width: '1500px',
+      //   data: {OPD:dcmntNo,OPD2:opdDate},
+      // });
+      // dialogRef.afterClosed().subscribe(result => {
+      // });
     }
   }
 } 
