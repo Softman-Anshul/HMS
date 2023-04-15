@@ -1,287 +1,296 @@
-<h2>Test Booking</h2>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<div class="row" >
-  <div class="col-4">
-    <div class="input-group">
-        <select style="width:75px ;" class="form-control" (change)="patienttypevalidation()" [(ngModel)]=Students.dcmntType>
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+  <div>
+    <div class ="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+      <div class ="col">
+        <p style="font-size: 18px;">Test Booking</p>
+      </div>
+    </div>
+    <div>
+    <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
+      <div class="user-box col-2"  >
+        <input type="search" name="" required="" [(ngModel)]=search>
+        <label>by UHID</label>
+      </div>
+      <div class = "col-1" >
+        <button class="btn btn-primary" (click)="searchquery()" style="width: 5vw; margin-top: 1vh;">Search</button>
+      </div>
+      <div class="col-7" style="margin-left: 13vw;">
+        <div class = "row" >
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.vchrNo>
+          <label>RegNo</label>
+        </div>
+        <div class="user-box-small">
+          <input type="date" name="" required="" disabled="true" [(ngModel)]=Students.vchrDate>
+          <label>Date</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.vchrTime>
+          <label>Time</label>
+        </div>
+        <ng-container>
+          <div class="user-box-small">
+            <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.uhID>
+            <label>UHID</label>
+          </div>
+        </ng-container>
+        <ng-container>
+          <div class="user-box-small">
+            <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.dcmntNo>
+            <label>IPD No</label>
+          </div>
+        </ng-container>
+        <ng-container>
+          <div class="user-box-small">
+            <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.Sno>
+            <label>SID</label>
+          </div>
+        </ng-container>
+      </div>
+      </div>
+    </div>
+  
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+      <div class="user-box-small"  >
+        <select (change)="patienttypevalidation()" [(ngModel)]=Students.dcmntType onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
           <option value="Direct">Direct</option>
           <option value="OPD">OPD</option>
           <option value="IPD">IPD</option>
         </select>
+        <label>Type</label>
       </div>
-</div>
-     <div class="col-5" >
-      <input  style="font-size:small; width:90px ;" placeholder="by UHID" type="search" class="rounded" [(ngModel)]=search/>  
-      <button  style="font-size:medium; margin-left:5px; padding-top:2px;padding-bottom:2px ;" class="btn btn-success" (click)="searchquery()" >Search</button>
-     </div>
-        <div class="col-9" >
-              <label style="font-size:medium;" for="vchrNo">RegNo</label>
-              <input style="font-size:small; margin-left:5px; width:70px ;height:22px; background-color:lightblue; " readonly="true" type="text" [(ngModel)]=Students.vchrNo >
-             <label style="font-size:medium; margin-left:5px;" for="vchrDate">Date</label>
-             <input style="font-size:small; margin-left:5px; width:100px ;height:22px;"  type="date" [(ngModel)]=Students.vchrDate >
-             <label style="font-size:medium; margin-left:5px;" for="vchrTime">RegTime</label>
-             <input style="font-size:small; margin-left:5px; width:60px ; height:22px; background-color:lightblue; " readonly="true" type="vchrTime" [(ngModel)]=Students.vchrTime >
-              
-            <label style="margin-left:5px;" for="uhID">UHID</label>
-            <input style="width:55px ;" readonly="true" type="text" [(ngModel)]=Students.uhID >
-            <label style="margin-left:5px;" for="uhID">IPDNO</label>
-            <input style="width:25px ;" readonly="true" type="text" [(ngModel)]=Students.dcmntNo >
-            <label style="margin-left:5px;">(SID)</label>
-            <input style="margin-left:2px; width:35px ;" readonly="true" type="text" [(ngModel)]=Students.Sno >
-        </div>
-            <div class ="row" style="margin-top: 2vh;">
-              <div class = "col-sm-3" >
-              <!-- row 1 col-->
-              <div class="input-group">
-              <span class="input-group-addon">Title</span>
-                <select style="width:85px ;" class="form-control" (change)="populate()" [(ngModel)]=Students.pntn>
-                  <option value="Mr">Mr</option>
-                  <option value="Mrs">Mrs</option>
-                  <option value="Miss">Miss</option>
-                  <option value="Master">Master</option>
-                  <option value="Baby">Baby</option>
-                  <option value="B/o">B/o</option>
-                </select>
-              </div>
-              </div>
-              <div class = "col-sm-3" >
-              <!-- row 2 -->
-              <div class="input-group">
-              <span class="input-group-addon">Patient</span>
-                <input style="width:150px ;" class="form-control" type="text" maxlength="50" [(ngModel)]=Students.PntName >
-              </div>
-            </div>
+      
+      <div class="user-box-small"  >
+        <select (change)="populate()" [(ngModel)]=Students.pntn onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+          <option value="Master">Master</option>
+          <option value="Baby">Baby</option>
+          <option value="B/o">B/o</option>
+        </select>
+        <label>Title</label>
+      </div>
     
-              <div class = "col-sm-2">
-              <!-- row 3 -->
-              <div class="input-group">
-                  <span class="input-group-addon">Age</span>
-                    <input style="width:80px ;" class="form-control" type="text" maxlength="3"  [(ngModel)]=Students.pntage >
-                  </div>
-              </div>
+      <div class="user-box-big" style="margin-right: 1vw;">
+        <input type="text" name="" required="" maxlength="50" [(ngModel)]=Students.PntName >
+        <label>Patient</label>
+      </div>
+
+      <div class="user-box-small"  >
+        <input type="text" name="" required="" maxlength="3"  [(ngModel)]=Students.pntage >
+        <label>Age</label>
+      </div>
     
-              <div class = "col-md-2">
-                <!-- row 4 -->
-                <div class="input-group">
-                  <span class="input-group-addon">Years</span>
-                <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntyears >
-                  <option value="Years">Years</option>
-                  <option value="Months">Months</option>
-                  <option value="Days">Days</option>
-                  <option value="Hrs">Hrs</option>
-               </select>
-              </div>
-              </div>
+      <div class="user-box-small"  >
+        <select [(ngModel)]=Students.pntyears onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option value="Years">Years</option>
+          <option value="Months">Months</option>
+          <option value="Days">Days</option>
+          <option value="Hrs">Hrs</option>
+        </select>
+        <label>Years</label>
+      </div>
+
+      <div class="user-box-small"  >
+        <select [(ngModel)]=Students.pntsex onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <label>Gender</label>
+      </div>
+
+      <div class="user-box-small"  >
+        <select [(ngModel)]=Students.pntg onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option value="S/o">S/o</option>
+          <option value="W/o">W/o</option>
+          <option value="D/o">D/o</option>
+          <option value="C/o">C/o</option>
+        </select>
+        <label>Title</label>
+      </div>
     
-              <div class = "col-sm-2">
-                            <!-- row 5 -->
-                            <div class="input-group">
-                              <span class="input-group-addon">Gender</span>
-                            <select style="width:75px ;" class="form-control" [(ngModel)]=Students.pntsex >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-              </div>
-              </div>
-              <!-- row end -->
-              <div class ="row">
-                <div class = "col-sm-3">
-                <!-- row 2 col1-->
-                <div class="input-group">
-                  <span class="input-group-addon">Title</span>
-                      <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntg>
-                    <option value="S/o">S/o</option>
-                    <option value="W/o">W/o</option>
-                    <option value="D/o">D/o</option>
-                    <option value="C/o">C/o</option>
-               </select>
-                </div>
-               <div class="input-group">
-                <span class="input-group-addon">Email</span>
-             <input style="width:180px ;" class="form-control" type="text" maxlength="100" [(ngModel)]=Students.email >
-               </div>
-    
-               <div class="input-group">
-                <span class="input-group-addon">City</span>
-               <select style="width:190px ;" class="form-control" [(ngModel)]=Students.pntcity>
-                <option>--Select--</option>
-                  <option *ngFor="let city of Cityname">
-                   {{city.citynam}}
-                  </option> 
-           </select>
-                </div>
-                </div>
-    
-                <div class = "col-sm-5">
-                <!-- row 2 -->
-                <div class="input-group">
-                  <span class="input-group-addon">Guardian</span>
-                             <input style="width:310px ;" class="form-control" maxlength="50" type="text" [(ngModel)]=Students.Pntgname >
-                </div>
-                <div class="input-group">
-                  <span class="input-group-addon">Mobile</span>
-                 <input  style="width:325px;" class="form-control" [maxLength]="10"  [(ngModel)]=Students.pntmobile >
-                </div>
-                <div class="input-group">
-                  <span class="input-group-addon">Outside Lab</span>
-    <select style="width:295px;" class="form-control"  [(ngModel)]=Students.labto>
-     <option *ngFor="let lab of Labname">
-     {{lab.labname}}
-     </option> 
-    </select>
-                </div>
-    
-                </div>
-                <div class = "col-md-3">
-                <!-- row 3 -->
-                <div class="input-group">
-                  <span class="input-group-addon">Address</span>
-                  <input  style="width:255px ; " class="form-control" maxlength="50" type="text" [(ngModel)]=Students.pntadd >
-                </div>
-                <div class="input-group">
-                  <span class="input-group-addon">Ref Consultant</span>
-                  <select style="width:215px ; " class="form-control" [(ngModel)]=Students.condoctor>
-                    <option>--Select--</option>
-                    <option *ngFor="let students of consulant">
-                    {{students.dctName}}
-                    </option> 
-                  </select> 
-                </div>
+      <div class="user-box"  >
+        <input  maxlength="50" type="text" [(ngModel)]=Students.Pntgname style="width: 10vw;">
+        <label>Guardian</label>
+      </div>
 
-                <div hidden ="true" class="input-group">
-                  <span class="input-group-addon">type</span>
-                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.dcmntType >
-                </div>
-    
-                <div hidden ="true" class="input-group">
-                  <span class="input-group-addon">Reporttype</span>
-                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.Reporttype >
-                </div>
-    
-                <div hidden ="true" class="input-group">
-                  <span class="input-group-addon">username</span>
-                 <input  style="width:325px;" class="form-control" [(ngModel)]=Students.uname >
-                </div>
-                
-                <div hidden="true" class="input-group">
-                  <span class="input-group-addon">Collected By</span>
-    <select style="width:230px ; " class="form-control" [(ngModel)]=Students.doctype>
-    <option value="Self">Self</option>
-     <option *ngFor="let lab of Labname">
-            {{lab.cboy}}
-           </option> 
-    </select>
-                </div>
-                
-    
-                </div>
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+      <div class="user-box"  >
+        <input  type="text" maxlength="100" [(ngModel)]=Students.email >
+        <label>Email</label>
+      </div>
 
-                <div hidden ="true" class="input-group">
-                  <span class="input-group-addon">username</span>
-                 <input  style="width:325px;" class="form-control" [(ngModel)]=test.uname >
-                </div>
+      <div class="user-box"  >
+        <select [(ngModel)]=Students.pntcity onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let city of Cityname">
+            {{city.citynam}}
+          </option> 
+        </select>
+        <label>City</label>
+      </div>
 
-                <div class = "col">
-                              <!-- row 4 -->
-                 <input  style="width:450px ;" [hidden]="true" type="text" [(ngModel)]=Students.sampletype >
-    
-                </div>
-                </div>
+      <div class="user-box"  >
+        <input  type="text" maxlength="10" [(ngModel)]=Students.pntmobile >
+        <label>Mobile</label>
+      </div>
 
-                <div class="col" >
-            <input  style="width:450px ;" [hidden]="true" type="text" [(ngModel)]=Students.Reporttype >
+      <div class="user-box-small"  >
+        <select [(ngModel)]=Students.labto onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let lab of Labname">
+            {{lab.labname}}
+          </option>
+        </select>
+        <label>Outside Lab</label>
+      </div>
 
-        <label for="itmName">TestName</label>
-        <label style="margin-left:150px; " for="itmQty">Qty</label>
-        <label style="margin-left:40px ;" for="itmChrgs">Rate</label>
-        <label style="margin-left:30px ;"  for="totalAmt">Amount</label>
+      <div class="user-box"  >
+        <input  type="text" maxlength="50" [(ngModel)]=Students.pntadd >
+        <label>Address</label>
+      </div>
 
-        <br>
-        <input  type="text" style="width: 225px;" [(ngModel)]=test.itmName (change)="selectTest($event)" id="ItemName" list="dep" />
-          <datalist id="dep" >
-              <option *ngFor="let test of testmaster" >
-               {{test.chrgsName}}
-              </option> 
-            </datalist>
-       
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.itmQty (change)="getAmount()">
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.itmChrgs (change)="getAmount()">
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.totalAmt >
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.chtype >
-        <button type="button" style="margin-left:10px; padding:2px;padding-right:20px ; " class="btn btn-info" (click)="addItem()">Add</button>
-        <br>
-        <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler" >
-            <thead>
-            <tr>
-              <th >Sno</th>
-                <th>TestName</th>
-                <th>Qty</th>
-                <th>Rate</th>
-                <th>Amount</th>
-                <th>Type</th>
-              </tr>
-            </thead> 
-          <tbody>
-              <tr *ngFor="let item of Students.tests let i=index;">
-                <td> {{i + 1}}</td>
-                <td>{{item.itmName}}</td>
-                <td >{{item.itmQty}}</td>
-                <td >{{item.itmChrgs}}</td>
-                <td>{{item.totalAmt}}</td>
-                <td>{{item.chtype}}</td>
-                <td><a><button  style="margin-left:10px; padding:0px;padding-right:0px ; " class="btn btn-danger" (click)="delete(item.itmName)">X</button> </a></td>
-            </tr>
-          </tbody>
+      <div class="user-box-big"  >
+        <select [(ngModel)]=Students.condoctor onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let students of consulant">
+            {{students.dctName}}
+          </option> 
+        </select>
+        <label>Ref Consultant</label>
+      </div>
 
-        </table>
-            <div >
-              <label >Paid Amount</label>
-              <input style="margin-left:55px ; width:110px; background-color:lightblue;" type="text" [(ngModel)]=Students.recamt (change)="getPaidAmount()" >
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+      <div class="user-box-big"  >
+        <select [(ngModel)]=test.itmName (change)="selectTest($event)" id="ItemName" onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let test of testmaster" >
+            {{test.chrgsName}}
+          </option> 
+        </select>
+        <label>Test Name</label>
+      </div>
 
-              <label  style="margin-left:385px ;" for="grandtotal">Total Amount</label>
-              <input style="margin-left:30px ; width:90px; background-color:lightblue;" type="text" [(ngModel)]=Students.grandTotal (keyup)="getNetAmount()" >
-    
-            </div>
-            
-            <div>
-              <label >Balance Amount</label>
-              <input style="margin-left:32px ; width:110px; background-color:lightblue;" type="text" [(ngModel)]=Students.balamt  >
+      <div class="user-box-small"  >
+        <input  type="text" [(ngModel)]=test.itmQty (change)="getAmount()" >
+        <label>Qty</label>
+      </div>
 
-              <label style="margin-left:387px ;" for="discount">Discount</label>
-              <input style="margin-left:15px ; width:40px ; " type="text" [(ngModel)]=Students.disper (keyup)="getdisper()">
-              <input style="margin-left:2px ; width:90px ; " type="text" [(ngModel)]=Students.discountAmt (change)="getNetAmount()" (keyup)="getdiscAmount()" >
-            </div>
-            
-            <div>
-              <label >Paymode</label>
-              <select style="margin-left:18px; width:170px ; " [(ngModel)]=Students.paymode>
-                <option *ngFor="let group of group">
-                {{group.paymode}}
-                </option> 
-              </select>
+      <div class="user-box-small"  >
+        <input  type="text" [(ngModel)]=test.itmChrgs (change)="getAmount()" >
+        <label>Rate</label>
+      </div>
 
-              <label style="margin-left:385px ;" >Discount by</label>
-              <select type="text" style="margin-left:2px; width:40px ;" [(ngModel)]=Students.discountby>
-                <option value="D">D</option>
-                <option value="L">L</option>
-              </select>
-              <input style="margin-left:2px ; width:85px ; " type="text" [(ngModel)]=Students.disresion>
-            </div>
+      <div class="user-box-small"  >
+        <input  type="text" [(ngModel)]=test.totalAmt >
+        <label>Amount</label>
+      </div>
 
-            <div>
-          <label  for="narration">Narration</label>
-          <input style="margin-left:20px ; width:170px;" [(ngModel)]=Students.narration type="text">
+      <div class="user-box-small"  >
+        <input  type="text" [(ngModel)]=test.chtype >
+      </div>
+      
+      <button type="button" style="width:6vw;" class="btn btn-info" (click)="addItem()">Add</button>
 
-          <label style="margin-left:385px ;">Net Amount</label>
-          <input style="margin-left:40px ; width:90px ; background-color:lightblue;" [readonly]="true" type="text" [(ngModel)]=Students.billamt  >
-        </div>
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+      <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler" style="width: 95%;" >
+      <thead>
+      <tr>
+        <th >Sno</th>
+          <th>TestName</th>
+          <th>Qty</th>
+          <th>Rate</th>
+          <th>Amount</th>
+          <th>Type</th>
+        </tr>
+      </thead> 
+    <tbody>
+        <tr *ngFor="let item of Students.tests let i=index;">
+          <td> {{i + 1}}</td>
+          <td>{{item.itmName}}</td>
+          <td >{{item.itmQty}}</td>
+          <td >{{item.itmChrgs}}</td>
+          <td>{{item.totalAmt}}</td>
+          <td>{{item.chtype}}</td>
+          <td><a><button  style="margin-left:10px; padding:0px;padding-right:0px ; " class="btn btn-danger" (click)="delete(item.itmName)">X</button> </a></td>
+      </tr>
+    </tbody>
 
-          <div>
-          <button  type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
-        </div>>
+      </table>
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.recamt (change)="getPaidAmount()" >
+        <label>Paid Amount</label>
+      </div>
+
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.balamt >
+        <label>Balance Amount</label>
+      </div>
+
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.grandTotal (keyup)="getNetAmount()"  >
+        <label>Total Amount</label>
+      </div>
+
+      <div class="user-box-small"  >
+        <input  type="text" [(ngModel)]=Students.disper (keyup)="getdisper()"  >
+        <label>Discount %</label>
+      </div>
+      <div class="user-box-small"  >
+        <input  type="text"  [(ngModel)]=Students.discountAmt (change)="getNetAmount()" (keyup)="getdiscAmount()"  >
+        <label>Discount</label>
+      </div>
+
+      <div class="user-box-small"  >
+        <select [(ngModel)]=Students.discountby onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option value="D">D</option>
+          <option value="L">L</option>
+        </select>
+        <label>Discount by</label>
+      </div>
+
+      <div class="user-box"  >
+        <input  type="text"  [(ngModel)]=Students.disresion >
+      </div>
+
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
+
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.billamt >
+        <label>Net Amount</label>
+      </div>
+
+      <div class="user-box"  >
+        <select [(ngModel)]=Students.paymode onchange=" this.dataset.chosen = this.value; " >
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let group of group">
+            {{group.paymode}}
+          </option> 
+        </select>
+        <label>Paymode</label>
+      </div>
+
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.narration >
+        <label>Narration</label>
+      </div>
+
+      <button style="width: 6vw;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
 
     </div>
   </div>
-
+</div>
