@@ -42,3 +42,70 @@
     padding: 5vw;
     margin-top: 2vh;
 }
+
+#profileImage {
+    margin-top: 2vh;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    background: #035e8c;
+    font-size: 4vh;
+    color: white;
+    text-align: center;
+    line-height: 3vh;
+    padding-top: 1vh;
+    padding-left: 1.25vh;
+  }
+
+  #profileImageReverse {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    background: #035e8c;
+    font-size: 4vh;
+    color: white;
+    text-align: center;
+    line-height: 3vh;
+    padding-top: 1vh;
+  }
+
+  .dropbtn {
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    /* min-width: 160px; */
+    width: 25vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  /* .dropdown-content:hover .dropdown-content {display: block;} */
+
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

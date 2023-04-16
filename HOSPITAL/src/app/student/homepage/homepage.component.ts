@@ -40,7 +40,8 @@ SideBars : sidebar[] = [];
   declare comp_add1:string;
   declare comp_city:string;
   declare Years:string;
-  
+  initials = '';
+
   isMobile = false;
   uname = ''
   declare permission : JSON
@@ -67,6 +68,8 @@ SideBars : sidebar[] = [];
       this.router.navigate(['']);
     }
 
+    this.initials = this.uname.charAt(0).toUpperCase();
+
     
     //call permission
     this._studentservice.getuserpermission(this.uname)
@@ -85,4 +88,20 @@ SideBars : sidebar[] = [];
     this.router.navigate(['/homepage/main']);
   }
 
+  toggleProfile(){
+      let profile = document.getElementById("dropdown");
+      if(profile != null){
+        let display =  window.getComputedStyle(profile).display;
+        if(display == "none"){
+          profile.style.display =  "block";
+        } else {
+          profile.style.display =  "none";
+        }
+      }
+  }
+
+  logout(){
+    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    this.router.navigate([""]);
+  }
 }
