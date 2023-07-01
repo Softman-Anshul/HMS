@@ -42,11 +42,11 @@ export class LeftsidebarComponent implements OnInit {
    
     this._studentservice.getuserpermission(this.uname)
     .subscribe(data => {
-      this.permission = data
+      this._studentservice.permission = data
       for(let i=0;i<this.ListOfSideBar.length;i++){
-        if(JSON.parse(JSON.stringify(this.permission))['Menu'][this.ListOfSideBar[i].sidebartext]['inst'] == 'Y'){
-          this.SideBars.push(this.ListOfSideBar[i]);
-        }
+        if(JSON.parse(JSON.stringify(this._studentservice.permission))['Menu'][this.ListOfSideBar[i].sidebartext]['inst'] == 'Y'){
+        this.SideBars.push(this.ListOfSideBar[i]);
+      }
       };
     });
   }

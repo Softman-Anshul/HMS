@@ -102,7 +102,6 @@ export class LoginComponent implements OnInit {
                   {
                     var audio = new Audio('http://silversoft.softmansystem.com/sound/welcome.mp3');
                     audio.play();
-                    
                     document.cookie = "uname=" + userid +"";
                     this.Router.navigate(['homepage/main']);
                   }       

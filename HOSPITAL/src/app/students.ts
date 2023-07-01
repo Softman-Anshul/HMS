@@ -506,7 +506,9 @@ submenu="";
 inst="";
 edt="";
 del="";
-
+instcheck = true;
+edtcheck = true;
+delcheck = true;
 }
 export class sidebar {
     sidebartext: string = "";

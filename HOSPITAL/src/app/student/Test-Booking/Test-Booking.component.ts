@@ -303,13 +303,12 @@ export class NewBookingComponent implements OnInit {
     this.index = event.target.value;
     for(let i = 0; i < this.testmaster.length;i++){
       if(this.testmaster[i].chrgsName == event.target.value){
-          this.index = i;
+        this.index = i;
+        this.test.itmChrgs = this.testmaster[this.index].chrgAmt
+        this.Students.sampletype = this.Students.sampletype + "," + this.testmaster[this.index].testcode;
+        this.test.chtype = this.testmaster[this.index].type; 
+        this.Students.Reporttype = this.testmaster[this.index].type;
       }
-    
-    this.test.itmChrgs = this.testmaster[this.index].chrgAmt
-    this.Students.sampletype = this.Students.sampletype + "," + this.testmaster[this.index].testcode;
-    this.test.chtype = this.testmaster[this.index].type; 
-    this.Students.Reporttype = this.testmaster[this.index].type;
     }
     this.getAmount();
   }

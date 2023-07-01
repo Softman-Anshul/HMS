@@ -22,7 +22,6 @@ export class AddStudentComponent implements OnInit {
   DefaultCity = "Bareilly";
   uname = ''
   Years = '';
-  declare permission : JSON
   declare insert : boolean
   declare edit : boolean
   declare delete : boolean
@@ -48,6 +47,29 @@ export class AddStudentComponent implements OnInit {
       this.Years = data[0].years;
     });
 
+    //call username 
+    this.uname = this._studentservice.getUsername();
+
+    //call permission
+    if(this._studentservice.permission != undefined){
+      if(!this._studentservice.checkPermission("Master","Consultant Master","inst")){
+        this.router.navigate([''])
+      } 
+     } else {
+      this._studentservice.getuserpermission(this.uname) 
+      .subscribe(data => {
+        this._studentservice.permission = data
+        if(!this._studentservice.checkPermission("Master","Consultant Master","inst") || !this._studentservice.checkPermission("Menu","Master","inst")){
+          this.router.navigate(['/homepage/main'])
+          alert("Permission Denied")
+        } 
+        this.insert = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
+        this.edit = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
+        this.delete = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
+      });
+     }
+
+
     this._studentservice.gettableconsultant()
     .subscribe((data:consulant[]) => {
       this.consulant = data;
@@ -63,6 +85,7 @@ export class AddStudentComponent implements OnInit {
       {
         this.router.navigate(['']);
       }
+  
       this.Mobile = this._studentservice.isMob()
       this.addForm = this.formBuilder.group({
         dctID:['', Validators.required],
@@ -95,17 +118,7 @@ export class AddStudentComponent implements OnInit {
         Parcha:['', Validators.required],
         dctName1:['', Validators.required],
       });
-
-     //call username 
-     this.uname = this._studentservice.getUsername();
-     //call permission
-     this._studentservice.getuserpermission(this.uname)
-     .subscribe(data => {
-      this.permission = data
-      this.insert = JSON.parse(JSON.stringify(this.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
-      this.edit = JSON.parse(JSON.stringify(this.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
-      this.delete = JSON.parse(JSON.stringify(this.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
-    });
+     
   }
   onSubmit(){
     this._studentservice.createstudent(this.addForm.value)

@@ -26,6 +26,8 @@ import { discardtemp } from './students';
   providedIn: 'root'
 })
 export class StudentsService {
+
+  permission: JSON | undefined;
  
 constructor(private http: HttpClient) {}
 
@@ -35,6 +37,8 @@ constructor(private http: HttpClient) {}
 //cdn = "http://localhost"
 //cdn = "http://192.168.29.196"
 
+
+  
 getCompany()
   {
     return this.http.get<company[]> (this.cdn + '/Hospital/Company.php');
@@ -844,5 +848,11 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
       return this.toWords.convert(num);
   }
 
-  }
+  checkPermission(mainmenu:string,submenu:string,operation:string) {
 
+    if(JSON.parse(JSON.stringify(this.permission))[mainmenu][submenu][operation] == 'Y'){
+      return true;
+    }
+    return false
+  }
+}

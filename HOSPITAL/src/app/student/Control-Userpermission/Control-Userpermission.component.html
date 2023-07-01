@@ -2,7 +2,7 @@
     <h1>User Permission</h1>
     <input style="width: 820px;"  type="search" class="form-control rounded"  placeholder="Search on Discription" (keyup)="searchquery()"  />
     <button style="width:70px; margin-left:10px;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
-    <select style="width: 120px; margin-left:10px;" type="text"  [(ngModel)]="selectedUser" (change)="userChange()">
+    <select style="width: 120px; margin-left:2px; margin-top: 10px;" type="text"  [(ngModel)]="selectedUser" (change)="userChange()">
       <option *ngFor="let users of login1" >
        {{users.stuserid}}
       </option> 
@@ -21,9 +21,9 @@
                   <tr *ngFor="let user of userpermission">
                     <td>{{user.mainmenu}}</td>
                     <td>{{user.submenu}}</td>
-                    <td><input name="inst" ng-control="inst" type="checkbox" [(ngModel)]="user.inst" [attr.disabled]="user.inst=='X'?true:null"   ></td>
-                    <td><input name="edt" ng-control="edt" type="checkbox" [(ngModel)]="user.edt" [attr.disabled]="user.edt=='X'?true:null"></td>
-                    <td><input name="del" ng-control="del" type="checkbox" [(ngModel)]="user.del" [attr.disabled]="user.del=='X'?true:null" ></td>
+                    <td><input name="inst" type="checkbox" [(ngModel)]="user.inst" ></td>
+                    <td><input name="edt" type="checkbox" [(ngModel)]="user.edt" ></td>
+                    <td><input name="del" type="checkbox" [(ngModel)]="user.del" ></td>
                   </tr>
       </tbody>
     </table>

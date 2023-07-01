@@ -105,6 +105,10 @@ else {
 });
     })
 }
+this.OPD1.pntn = "Mr"
+this.OPD1.paymode = "CASH"
+this.OPD1.PntType = "General"
+this.populate()
 }
 searchquery(){
    //call date 
@@ -175,8 +179,12 @@ consultantChange(event:any){
   for(let i=0;i<this.consulant.length;i++){
     if(this.consulant[i].dctName == doc){
       let expiry =new Date(this.OPD1.opdDate);
-        this.OPD1.amt = this.consulant[i].opdcharges
-        this.OPD1.srvcTax = this.consulant[i].opdcharges
+      this.OPD1.amt = this.consulant[i].opdcharges
+      this.OPD1.srvcTax = this.consulant[i].opdcharges
+      if(!this.isOpd) {
+        this.OPD1.amt = this.consulant[i].Emergency
+        this.OPD1.srvcTax = this.consulant[i].Emergency
+      }
       this.day = this.consulant[i].validday-1
       expiry.setDate(expiry.getDate()+ this.day);
      this.OPD1.expiryDate = expiry.toISOString().split('T')[0];
@@ -294,6 +302,9 @@ populate(){
     this.OPD1.dcmntType = "Emergency";
     if(this.isOpd){
       this.OPD1.dcmntType = "OPD";
+    }
+    if(this.OPD1.dctrVisited != ""){
+      this.consultantChange(null)
     }
   }
   
