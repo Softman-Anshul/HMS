@@ -747,7 +747,7 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
    }
 
    ///City 
-   gettableCity()
+    gettableCity()
    {
     return this.http.get<City[]> (this.cdn + '/Hospital/City_list.php');
    }

@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   onSubmit(userid: any,password: any):void{
       //0M515-31069-0501T-81996-25T2R
 
-  if(this.company == "RADHIKA SUPER SPECIALITY & ADVANCE TRAUMA CENTRE")
+  if(this.company == "KRISHNA HOSPITAL")
   {
           var dd = this.key.charAt(0) + this.key.charAt(7);
           var MM = this.key.charAt(12) + this.key.charAt(21);
@@ -102,6 +102,7 @@ export class LoginComponent implements OnInit {
                   {
                     var audio = new Audio('http://silversoft.softmansystem.com/sound/welcome.mp3');
                     audio.play();
+                    
                     document.cookie = "uname=" + userid +"";
                     this.Router.navigate(['homepage/main']);
                   }       

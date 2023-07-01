@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import {Router} from '@angular/router';
-import { City } from '../../students';
+import { City, Cityname } from '../../students';
 
 @Component({
   selector: 'app-mastercity',
@@ -13,7 +13,7 @@ uname = '';
   constructor(private _studentservice:StudentsService,
     private Router: Router,) { }
 
-    declare city : City[];
+    declare cityname : Cityname[];
     editCity  = new City();
     
     showMeedit:boolean=false
@@ -29,9 +29,9 @@ uname = '';
    }
 
    this.Mobile = this._studentservice.isMob()
-    this._studentservice.gettableCity()
-    .subscribe((data:City[]) => {
-    this.city = data;
+    this._studentservice.gettablecityname()
+    .subscribe((data:Cityname[]) => {
+    this.cityname = data;
     });
   }
   onSubmit(){

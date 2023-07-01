@@ -128,9 +128,18 @@
     <label>Guardian</label>
   </div>
 
-  <div class="user-box-big"  >
+  <div class="user-box-big1"  >
     <input type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1 >
     <label>Address</label>
+  </div>
+  
+  <div class="user-box"  >
+    <select [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; " >
+            <option *ngFor="let city of Cityname">
+        {{city.citynam}}
+      </option> 
+    </select>
+    <label>City</label>
   </div>
 
 </div>
@@ -193,17 +202,7 @@
     <label>RefConsultant</label>
   </div>
 
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let city of Cityname">
-        {{city.citynam}}
-      </option> 
-    </select>
-    <label>City</label>
-  </div>
-
-  <div class="user-box"  >
+    <div class="user-box"  >
     <input type="text" name="" required="" [(ngModel)]=OPD1.amt >
     <label>Amt</label>
   </div>

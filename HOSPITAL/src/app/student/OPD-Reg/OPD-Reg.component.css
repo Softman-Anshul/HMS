@@ -166,7 +166,6 @@ body::-webkit-scrollbar {
         max-width: 6vw;
         margin-right: 1vw;
       }
-
       .user-box-small input {
         max-width: 6vw;
         padding: 8px 0;
@@ -253,6 +252,48 @@ body::-webkit-scrollbar {
         font-size: 12px;
       }
       .user-box-big input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+
+      .user-box-big1 {
+        width: 30vw;
+        position: relative;
+        margin-right: 1vw;
+      }
+
+      .user-box-big1 input {
+        width: 30vw;
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box-big1 label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+
+
+      .user-box-big1 input:focus ~ label,
+      .user-box-big1 input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box-big1 input:disabled ~ label {
         top: -20px;
         left: 0;
         color: #000000;

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import {Router,ActivatedRoute} from '@angular/router';
-import {Cityname} from '../../students';
+import {City} from '../../students';
 import {consulant} from '../../students';
 import { Students,OPD,department } from '../../students';
 import { group,company } from '../../students';
@@ -13,7 +13,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./OPD-Reg.component.css']
 })
 export class OpdregComponent implements OnInit {
-  declare Cityname :Cityname[];
+  declare Cityname :City[];
   declare company :company[];
   declare consulant : consulant[];
   declare rconsulant : consulant[];
@@ -75,8 +75,8 @@ export class OpdregComponent implements OnInit {
   this.rconsulant = data;
 });
      //call City
-     this._studentservice.gettablecityname()
-     .subscribe((data:Cityname[]) => {
+     this._studentservice.gettableCity()
+     .subscribe((data:City[]) => {
      this.Cityname = data;
      });
      if(this.dcmntNo == undefined){
