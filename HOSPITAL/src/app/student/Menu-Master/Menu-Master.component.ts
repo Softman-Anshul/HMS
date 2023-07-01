@@ -124,4 +124,13 @@ export class EdittStudentComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
       });
     }
+
+    gotoTestGroupMaster(){
+      this.router.navigate(['homepage/testggroup']);
+    }
+
+    gotoTestMaster(){
+      this.router.navigate(['homepage/test']);
+    }
+
 }

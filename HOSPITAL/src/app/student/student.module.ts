@@ -77,6 +77,8 @@ import { DisccertificateLAMAComponent } from './disccertificate-lama/disccertifi
 import { DisccertificateREFFERComponent } from './disccertificate-reffer/disccertificate-reffer.component';
 import { FILEAdmittricketComponent } from './file-admittricket/file-admittricket.component';
 import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-consent-form.component';
+import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
+import { MasterTestComponent } from './master-test/master-test.component';
 
 @NgModule({
   declarations: [
@@ -149,6 +151,8 @@ import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-co
     DisccertificateREFFERComponent,
     FILEAdmittricketComponent,
     FILEGenConsentFormComponent,
+    MasterTestGroupComponent,
+    MasterTestComponent,
 
   ],
   imports: [

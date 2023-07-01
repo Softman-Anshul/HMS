@@ -100,6 +100,8 @@ import { DisccertificateREFFERComponent } from './disccertificate-reffer/disccer
 import { FILEAdmittricketComponent } from './file-admittricket/file-admittricket.component';
 import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-consent-form.component';
 import { IPDRegComponent } from './ipd-reg/ipd-reg.component';
+import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
+import { MasterTestComponent } from './master-test/master-test.component';
 
 const routes: Routes = [
     // RECIPTS 
@@ -248,6 +250,8 @@ const routes: Routes = [
 
                 {path: 'mis-master',component:MisMasterComponent},  
                 {path: 'Account',component:MenuAccountComponent},
+                {path: "testggroup",component:MasterTestGroupComponent},
+                {path: "test",component:MasterTestComponent}
         ]
     }
 ];

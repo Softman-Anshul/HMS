@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpParams} from '@angular/common/http'; 
-import {billdetails, billheading, IPDPAYMENT, login1, Test, testmasterd, Ward} from './students';
+import {billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, testmasterd, Ward} from './students';
 import {Students} from './students';
 import {consulant } from './students';
 import {department } from './students';
@@ -797,6 +797,23 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
  {
    return this.http.post(this.cdn + '/Hospital/Upload_Image.php',req)
  }
+
+ addTestGroup(req:testgroup)
+  {
+    return this.http.post(this.cdn + '/Hospital/Group_insert.php',req,{responseType: 'text'});
+  }
+
+  deleteTestGroup(id:number)
+  {
+    return this.http.get<any> (this.cdn + '/Hospital/Group_delete.php?id=' + id);
+  }
+
+  getAllTestGroups()
+  {
+    return this.http.get<testgroup[]> (this.cdn + '/Hospital/Group_list.php');
+  }
+
+
   getUsername() {
     var cookies = document.cookie.split(";");
     for (var i = 0; i < cookies.length; i++) {

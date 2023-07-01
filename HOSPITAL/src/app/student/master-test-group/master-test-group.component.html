@@ -1,0 +1,48 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+    <div class ="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+        <div class ="col">
+            <p style="font-size: 18px;">Test Group Master</p>
+        </div>
+    </div>
+
+    <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
+        <div class="user-box col-2"  >
+            <input type="text" name="" required="" [(ngModel)]=testGroup.sno >
+            <label>S. No.</label>
+        </div>
+        <div class="user-box col-2"  >
+            <input type="text" name="" required="" [(ngModel)]=testGroup.dep_name>
+            <label>Department</label>
+        </div>
+        <div class="user-box" >
+            <input type="text" name="" required=""  style="width: 14vw;" [(ngModel)]=testGroup.group_name>
+            <label>Group</label>
+        </div>
+        <div class = "col-1" style="margin-left: 4vw;">
+            <button class="btn btn-primary" style="width: 5vw; margin-top: 1vh;" (click)="addTestGroup()">Add</button>
+        </div>
+      
+    </div>    
+
+    <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
+        <table class="table table-bordered table-striped table-condensed cf">
+            <thead  class="cf" style="color:white; font-family: Arial, Helvetica, sans-serif; background-color: #0d6efd;" >
+              <tr>
+                <th >S No</th>
+                <th >Department</th>
+                <th >Group</th>
+                <th >Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let group of testGroups let i=index " >
+                <td >{{group.sno}}</td>
+                <td >{{group.dep_name}}</td>
+                <td>{{group.group_name}}</td>
+                <td ><a><i class="fa fa-trash" aria-hidden="true" (click)="delete(group)"></i></a> </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

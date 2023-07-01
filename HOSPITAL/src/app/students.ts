@@ -516,4 +516,18 @@ export class sidebar {
     icon: string = "";
 }
 
+export class testgroup {
+    group_id: number = 0;
+    sno: string = "";
+    dep_name: string = "";
+    group_name: string = "";
+}
 
+export class test {
+    testid : number = 0;
+    price : number = 0;
+    test_code: string = "";
+    test_name: string = "";
+    value_type: string = "";
+    test_group: string = "";
+}
