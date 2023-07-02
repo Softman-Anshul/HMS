@@ -145,6 +145,8 @@ populate(){
         this._studentservice.ipd_update(this.OPD1)
           .subscribe(data => {
           alert("Thanks....Update Patient")
+          this.dialogRef.close();
+          window.location.reload();
            });
     }
   }
@@ -193,5 +195,8 @@ populate(){
     return true
   }
   
+  selectdepartment(){}
+
+  consultantChange(event:any){}
 }
 

@@ -114,12 +114,15 @@ searchquery(){
    //call date 
   this._studentservice.getuhidsearch(this.search)
   .subscribe((data:OPD[]) => {
+    console.log(data)
     this.OPD1 = data[0];
     this.selectdepartment()
     this.OPD1.opdDate = new Date().toISOString().split('T')[0];
     this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",  minute: "numeric"});
     if(this.OPD1.dcmntType = 'OPD')
     {
+      console.log(this.OPD1.expiryDate)
+      console.log(this.OPD1.opdDate)
     if(this.OPD1.expiryDate > this.OPD1.opdDate)     
       {
        this.OPD1.amt = 0;
@@ -174,6 +177,9 @@ selectdepartment(){
 }
 
 consultantChange(event:any){
+  if( this.OPD1.nature == "Follow") {
+    return
+  }
   let doc = this.OPD1.dctrVisited
   if(event != null){
     doc = event.target.value
