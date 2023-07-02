@@ -1,0 +1,18 @@
+<h1>Test Wordcode</h1>
+<label >Wrod Code</label>
+<select type="text" style="margin-left:2px; width:90px ;" id="ItemName">
+    <option>--Select--</option>
+      <option  >
+        <option *ngFor="let test of Wordname " >
+            {{test.Wordcode}}
+      </option> 
+</select>    
+<br>
+<br>
+<table class="table">
+    <thead>
+          <th>List of WordName</th>
+
+    </thead>
+</table>
+<button  style="margin-left:10px; " class="btn btn-success" >SAVE</button>

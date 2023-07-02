@@ -65,6 +65,7 @@ import { OpdMedicalcertificateComponent } from './student/opd-medicalcertificate
 import { IPDDischargeCardTemplateComponent } from './student/ipd-discharge-card-template/ipd-discharge-card-template.component';
 import { MenuAccountComponent } from './student/menu-account/menu-account.component';
 import { IPDDisccertificateComponent } from './student/ipd-disccertificate/ipd-disccertificate.component';
+import { PatholgoyreportComponent } from './student/patholgoyreport/patholgoyreport.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +127,7 @@ import { IPDDisccertificateComponent } from './student/ipd-disccertificate/ipd-d
     IPDDischargeCardTemplateComponent,
     MenuAccountComponent,
     IPDDisccertificateComponent,
+    PatholgoyreportComponent,
 
 
     ],

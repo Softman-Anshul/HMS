@@ -1,0 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<form>
+<div class="wrapper fadeInDown">
+  <div  id="formContent">
+    <div [formGroup] = "addForm"  style="margin-top: 40px"> 
+      <input style="margin-left:30px;" type="text" readonly="true" formControlName="Comp_nam" placeholder="Compnay Name">
+        <!-- Icon -->
+      </div>
+      <form>
+    <div class="fadeIn first">
+        
+        <br>
+      <img src="assets\softman.jpg" style="width:80px;" id="icon" alt="User Icon" />
+    </div>
+    <!-- Login Form -->
+ 
+        <div [formGroup] = "loginForm"  style="margin-top: 40px"> 
+      <input type="text" id="userid" class="fadeIn second" formControlName="userid"  placeholder="Login">
+      <input type="password" id="password" class="fadeIn third" formControlName="password"  placeholder="Password">
+      <br><br><br><br>
+      <button style="margin-left:20px; width: 120px;" class="btn btn-primary" (click)="onSubmit(this.loginForm.get('userid')?.value,this.loginForm.get('password')?.value)" >Login</button>
+  </div>
+  <br><br><br><br>
+    </form>
+  </div>
+</div>
+
+  </form>

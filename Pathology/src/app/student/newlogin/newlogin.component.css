@@ -1,0 +1,43 @@
+.btn, .btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.marg{
+  margin-left:20px;
+}
+.table,td {
+border: 1px solid;
+}
+
+tr:hover {background-color:cornflowerblue;}
+
+th{
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid;
+  height:30px ;
+  background-color: rgb(3, 94, 140) !important;
+  color:floralwhite;
+  text-align: center;
+}
+
+.item{
+  margin-bottom:2vw;
+}
+
+#textbox{
+  /* margin-right: 1vw; */
+  margin-bottom: 2vh;
+}
+
+input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

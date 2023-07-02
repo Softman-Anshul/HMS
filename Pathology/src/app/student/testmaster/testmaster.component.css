@@ -1,0 +1,54 @@
+tr:hover {background-color:grey;}
+
+  .rowGroup{
+    flex-direction:  row;
+    justify-content: space-between;
+  }
+  
+  .columnGroup{
+    flex-direction:  column;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+  
+  .columnItem{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rowItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+  }
+
+  .desktopInput{
+    width: 52%;
+  }
+
+  .desktopCode{
+    margin-bottom: 3vh;
+  }
+
+  .right{
+    flex-direction: row-reverse;
+  }
+
+  .bottom{
+    margin-bottom: 1vh;
+  }
+
+  .left{
+    margin-left: 4vw;
+  }
+
+  .rowCardGroup{
+    flex-direction:  row;
+}
+
+.columnCardGroup{
+    flex-direction:  column;
+    overflow-y: auto;
+    height: 70vh;
+}

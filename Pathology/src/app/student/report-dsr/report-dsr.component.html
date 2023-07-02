@@ -1,0 +1,58 @@
+<body>
+    <app-report-PageHeading></app-report-PageHeading>
+      
+      <h4 style="margin-left: 20px;">DSR Reports from {{fromdt}} To {{todt}}</h4> 
+       
+
+
+  <table class="table table-bordered border-primary" style="margin-left:10px ; font-size:smaller; ">
+    <thead >
+        <th style="text-align: center ;">SID</th>
+        <th style="text-align: center ;">RID</th>
+        <th style="text-align: center ;">Date</th>
+        <th style="text-align: center ;">Time</th>
+        <th style="text-align: center ;">Patient</th>
+        <th style="text-align: center ;">Age</th>
+        <th style="text-align: center ;">Yrs</th>
+        <th style="text-align: center ;">Gender</th>
+        <th style="text-align: center ;">Ref by</th>
+        <th style="text-align: center ;">Bill Amt</th>
+        <th style="text-align: center ;">Disc</th>
+        <th style="text-align: center ;">Refund</th>
+        <th style="text-align: center ;">Net Amt</th>
+        <th style="text-align: center ; padding-right:20px ;">Paymode</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let students of Students let i=index " >
+        <td style="width:30px;">{{i + 1}}</td>
+        <td style="width:30px;" >{{students.vchrNo}}</td>
+        <td style="width:80px ;">{{students.vchrDate | date :'dd/MM/yyyy' }}</td>
+        <td style="width:60px;" >{{students.vchrTime}}</td>
+        <td style="width:100px;">{{students.PntName}}</td>
+        <td style="width:30px ;">{{students.pntage}}</td>
+        <td style="width:30px ;">{{students.pntyears}}</td>
+        <td style="width:30px ;">{{students.pntsex}}</td>
+        <td style="width:30px ;">{{students.condoctor}}</td>
+        <td style="width:40px;text-align: center ;">{{students.grandTotal}}</td>
+        <td style="width:40px;text-align: center ;">{{students.discountAmt}}</td>
+        <td style="width:40px;text-align: center ;">{{students.refund}}</td>
+        <td style="width:40px;text-align: center ;">{{students.recamt}}</td>
+        <td style="width:40px; ">{{students.paymode}}</td>
+    </tr>
+</tbody>
+<td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+        <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
+        <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
+        <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
+</table>
+
+</body>

@@ -1,0 +1,74 @@
+<!-- CSS only -->
+<h2>Pathology Result</h2>
+<div class="col-12 text-right" style="padding:1vw;">
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" >Delete Result</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" >Send Report</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="testdetails()" >Details</button>
+    <br/> <br/> 
+  <div class="input-group">
+    <select type="text" style=" font-size:small; margin-left:2px; width:90px ;"[(ngModel)]=Choice>
+      <option value="ALL">ALL</option>
+      <option value="Name">Name</option>
+      <option value="Age">Age</option>
+      <option value="Gender">Gender</option>
+      <option value="Phone">Phone</option>
+      <option value="Consultant">Consultant</option>
+      <option value="OutsideLab">OutsideLab</option>
+      <option value="UHID">UHID</option>
+      <option value="Dues">Dues</option>
+      <option value="Delete">Delete</option>
+    </select>
+    <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1 >
+    <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt2 >
+    <input  style="font-size:small; margin-left:5px;" type="search" class="form-control rounded" (keyup)="directquery()" [(ngModel)]=search />
+    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" (click)="searchquery()">Search</button>
+  </div>
+  <br/>
+  <table class="table">
+    <thead class="thead-dark" style="color:white; font-family: Arial, Helvetica, sans-serif;">
+      <tr>
+          <th></th>
+          <th scope="col" style="width:40px;text-align: center ; ">RNo</th>
+          <th scope="col" style="width:50px;text-align: center ; ">UHID</th>
+          <th scope="col" style="width:50px;text-align: center ; ">Date</th>
+          <th scope="col" style="width:30px;text-align: center ; ">Title</th>
+          <th scope="col" style="width:120px;text-align: center ; ">Patient</th>
+          <th scope="col" style="width:50px;text-align: center ; ">Mobile</th>
+          <th scope="col" style="width:90px;text-align: center ; ">Consultant</th>
+          <th scope="col" style="width:70px;text-align: center ; ">Print</th>
+          <th scope="col" style="width:70px;text-align: center ; ">BillAmt</th>
+          <th scope="col" style="width:70px;text-align: center ; ">DiscAmt</th>
+          <th scope="col" style="width:70px;text-align: center ; ">Refund</th>
+          <th scope="col" style="width:70px;text-align: center ; ">Balamt</th>
+          <th scope="col" style="width:70px;text-align: center ; ">RecAmt</th>
+          <th scope="col" style="width:70px;text-align: center ; ">Action</th>
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let students of Students " >
+          <td><input name="options" ng-control="options" type="radio" [value]="students" [(ngModel)]=selected ></td>
+          <td>{{students.vchrNo}}</td>
+          <td>{{students.uhID}}</td>
+          <td style="width:110px ;">{{students.vchrDate}}</td>
+          <td>{{students.pntn}}</td>
+          <td>{{students.PntName}}</td>
+          <td>{{students.pntmobile}}</td>
+          <td style="width:110px ;">{{students.condoctor}}</td>
+          <td>{{students.prnyes}}</td>
+          <td>{{students.grandTotal}}</td>
+          <td>{{students.discountAmt}}</td>
+          <td>{{students.refund}}</td>
+          <td>{{students.balamt}} {{students.duerec}}</td>
+          <td>{{students.recamt}}</td>
+  
+          <div class="btn-group" role="group" >
+          <td > <a><button class="btn"><i class="fa fa-edit" type="button" ></i> </button></a> </td>
+          <td > <a><button class="btn"><i class="fa-solid fa-print"></i></button> </a> </td>
+          </div>
+        </tr>
+      </tbody>
+      </table>
+      
+  
+      

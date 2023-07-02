@@ -1,0 +1,13 @@
+.table,td {
+    border: 1px solid;
+    font-size:small;
+}
+
+  tr:hover {background-color: coral;}
+ 
+  th{
+    border: 1px solid;
+    height:30px ;
+    background-color:black;
+    color:white;
+  }

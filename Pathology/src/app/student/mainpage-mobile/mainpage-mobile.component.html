@@ -1,0 +1,9 @@
+<div id="mainBody">
+  <div class="card" *ngFor="let sidebar of SideBars" (click)="route(sidebar)">
+    <i class={{sidebar.icon}} style="padding-left: 15vw;"></i>
+    <div class="card-body">
+      <p class="card-text text-center">{{sidebar.sidebartext}}</p>
+    </div>
+  </div>
+</div>
+

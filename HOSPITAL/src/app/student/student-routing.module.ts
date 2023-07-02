@@ -102,6 +102,7 @@ import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-co
 import { IPDRegComponent } from './ipd-reg/ipd-reg.component';
 import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
 import { MasterTestComponent } from './master-test/master-test.component';
+import { PatholgoyreportComponent } from './patholgoyreport/patholgoyreport.component';
 
 const routes: Routes = [
     // RECIPTS 
@@ -235,7 +236,7 @@ const routes: Routes = [
                 {path: 'Test-reportmaster',component:MasterReportComponent},
                 {path: 'Ward',component:MasterWardComponent},
             
-             
+            {path: 'Pathology',component:PatholgoyreportComponent},
 
             {path: 'ipddischarge',component:IPDDISCHARGEComponent},
 

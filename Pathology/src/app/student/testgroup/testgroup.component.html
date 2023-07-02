@@ -1,0 +1,57 @@
+
+<div >
+        <h2 >Test Group Master</h2>
+        <form [formGroup]="addForm" novalidate class="form">
+                <!-- <input *ngIf="showMeedit"  style="background-color: lightblue; " value="0" type="text" readonly="true" formControlName="group_id" > -->
+                <div class="row">
+                        <div class ="col-md-3">
+                                <div class="input-group">
+                                        <span class="input-group-addon">Department</span>
+                                        <select name="dep_name" class="form-control" type="text"  formControlName="dep_name" >
+                                                <option value="Pathology">Pathology</option>
+                                                <option value="Radiology">Radiology</option>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class ="col-md-3">
+                                <div class="input-group">
+                                        <span class="input-group-addon">Group</span>
+                                        <input  type="text" class="form-control" formControlName="group_name" >
+                                </div>
+                        </div>
+                        <div class ="col-md-3">
+                                <div class="input-group">
+                                        <span class="input-group-addon">Sno</span>
+                                        <input style="width:70px ;" type="text" class="form-control" formControlName="sno" >
+                                </div>
+                        </div>
+                </div> 
+                <div style="margin-top:1vw ;">
+                        <button style="font-size: small;" type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                        <button style="font-size: small;" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()">EDIT</button>
+                </div>
+                <!-- CSS only -->
+                <table class="table"  >
+                        <thead >
+                                <th >ID</th>
+                                <th >Department</th>
+                                <th >Group</th>
+                                <th >Sno</th>
+                                <th >Active</th>
+                        </thead>
+                        <tbody >
+                                <tr *ngFor="let group of group">
+                                        <td>{{group.group_id}}</td>
+                                        <td>{{group.dep_name}}</td>
+                                        <td>{{group.group_name}}</td>
+                                        <td>{{group.sno}}</td>
+                                        <div class="btn-group" role="group" >
+                                                <td> <a><button class="btn"><i class="fa fa-edit" (click)="editer(group)" (click)="tooletageedit()" ></i>  </button> </a> </td>
+                                                <td> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(group)"></i>  </button> </a> </td>
+                                        </div>
+                                </tr>
+                        </tbody>
+                </table>
+        </form>
+</div>
+    

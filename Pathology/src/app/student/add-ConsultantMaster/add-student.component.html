@@ -1,0 +1,88 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<h2>Ref Consultant Master</h2>
+        <div class="page-content">
+                <form [formGroup]="addForm" novalidate class="form" id="form" style="margin-left:1vw;">
+                        <div class="row">
+                                <div class ="col-sm-4">
+                                        <div class="input-group">
+                                                <span class="input-group-addon">Consultant</span>
+                                                <input  type="text" style="width: 225px;" class="form-control" formControlName="dctName" list="dep" />
+                                                <datalist id="dep" >
+                                                <option *ngFor="let dept of consulant">
+                                                {{dept.dctName}}
+                                                </option> 
+                                                </datalist>
+                                        </div>
+                                        <div class="input-group">
+                                                <span class="input-group-addon">Gender</span>
+                                                <select style="width:180px ;"  class="form-control" [(ngModel)]="DefaultValue" formControlName="dctSex">
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                </select>
+                                        </div>
+                                </div>
+                                <div class ="col-sm-4">
+                                        <div class="input-group">
+                                                <span class="input-group-addon">Degree</span>
+                                                <input style="width:180px;" type="text" class="form-control " maxlength="70" formControlName="digree">
+                                        </div>
+                                        <div class="input-group">
+                                                <span class="input-group-addon">Address</span>
+                                                <input style="width:180px;" type="text" class="form-control"  maxlength="50"formControlName="dctAdrs1" >
+                                        </div>
+                                </div>
+                                <div class="col">
+                                        <div class="input-group">
+                                        <span class="input-group-addon">Mobile</span>
+                                        <input style="width:180px;" type="text" class="form-control form-control-sm" maxlength="10" (keypress)="mobilenumber($event)" formControlName="dctMobile">
+                                        </div>
+                                        <div class="input-group">
+                                                <span class="input-group-addon">Email</span>                                         
+                                                <input style="width:187px;" type="text" class="form-control" maxlength="90" formControlName="dctEmail" >
+                                        </div>
+                                </div>
+                                
+                        </div>
+
+                        <div class="row" >
+                                        <div class="input-group" style="margin-top:1vw ;">
+                                        <button style="margin-left:15px ; font-size: small; width:55px ; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                                        <button style="margin-left:15px ; font-size: small; width:55px ; " type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+                                        </div>
+                                        </div>
+                                      
+
+                                <!-- CSS only -->
+                                <table style="margin-top:1vw ;" class="table table-bordered table-striped table-condensed cf">
+                                        <thead class="cf" style="color:white; font-family: Arial, Helvetica, sans-serif;">
+                                                <tr>
+                                                        <th >Name</th>
+                                                        <th >Gender</th>
+                                                        <th >Degree</th>
+                                                        <th >Address</th>
+                                                        <th >Mobile</th>
+                                                        <th >Email</th>
+                                                        <th >Action</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr *ngFor="let students of consulant">
+                                                        <td>{{students.dctName}}</td>
+                                                        <td>{{students.dctSex}}</td>
+                                                        <td>{{students.digree}}</td>
+                                                        <td>{{students.dctAdrs1}}</td>
+                                                        <td>{{students.dctMobile}}</td>
+                                                        <td>{{students.dctEmail}}</td>
+
+                                                        <div class="btn-group" role="group" >
+                                                        <td *ngIf="edit"><a><button class="btn"><i class="fa fa-edit" type="button" (click)="tooletageedit()"  (click)="editer(students.dctID)"></i> </button> </a> </td>
+                                                        <td *ngIf="delete"> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(students)"></i> </button> </a> </td>
+                                                        </div>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                </form>
+        </div>
+

@@ -1,0 +1,61 @@
+<div >
+        <h2 class="card-title">Control Setting</h2>
+        <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+                <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Test Rate Setting</h2>
+                                <p class="card-text">You can change testrate without test open (Direct)</p>
+                                <button class="btn btn-primary"(click)="testratechange()" *ngIf="showtestrate">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Profile Change</h2>
+                                <p class="card-text">Change Pathology address and email </p>
+                                <button class="btn btn-primary" (click)="profilechange()" *ngIf="showprofile">NEW</button>
+                        </div>
+                </div>    
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">User Permission</h2>
+                                <p class="card-text">User permission setting  </p>
+                                <button class="btn btn-primary" (click)="userpermission()" *ngIf="showuserpermission" >NEW</button>
+                        </div>
+                </div>
+               
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Key Update</h2>
+                                <p class="card-text">Software Validation Key</p>
+                                <button class="btn btn-primary" (click)="keyupdate()" *ngIf="showkey" >NEW</button>
+                        </div>
+                </div>
+
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Control Setting</h2>
+                                <p class="card-text">Report and Prting Setiing</p>
+                                <button class="btn btn-primary" *ngIf="showprinting">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Backup Database</h2>
+                                <p class="card-text">Backup uptodate from starting</p>
+                                <button class="btn btn-primary" *ngIf="showprinting">NEW</button>
+                        </div>
+                </div>
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Signature Setting</h2>
+                                <p class="card-text">Backup Database</p>
+                                <button class="btn btn-primary" *ngIf="showprinting">LEFT</button>
+                                <button class="btn btn-primary" *ngIf="showprinting">MID</button>
+                                <button class="btn btn-primary" *ngIf="showprinting">RIGHT</button>
+                                <button class="btn btn-primary" *ngIf="showprinting">ALL</button>
+                                <button class="btn btn-primary" *ngIf="showprinting">NO</button>
+                        </div>
+                </div>
+        </div>
+
+

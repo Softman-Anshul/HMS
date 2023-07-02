@@ -1,0 +1,17 @@
+body {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    width: 21cm;
+    height: 29.7cm; 
+  }
+  .items-group {
+    border-style: solid;
+    border-color: black;
+    border-width: 1pt 1pt 1pt 1pt;
+    border-radius: 5pt;
+    padding: 3pt 3pt 3pt 3pt;
+    margin: 9pt 0 9pt 0;
+  }

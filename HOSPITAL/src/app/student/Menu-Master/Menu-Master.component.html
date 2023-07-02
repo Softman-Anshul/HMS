@@ -1,14 +1,14 @@
 <div >
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" >Masters</a>
+      <a class="navbar-brand" >MASTER</a>
     </div>
   </nav>
   <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
     <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
       <div class="cardbody">
         <h2 class="card-title">Consultant Master</h2>
-        <p class="card-text">New /Edit /Delete New Consultant for OPD and IPD</p>
+        <p class="card-text">(New /Edit /Delete) Consultant for OPD and IPD</p>
         <button class="btn btn-primary" (click)="onSubmitconsultant()" *ngIf="ShowConsultant">NEW</button>
       </div>
     </div>
@@ -29,28 +29,28 @@
   <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
     <div class="cardbody">
       <h2 class="card-title">Payment Mode</h2>
-      <p class="card-text">Payment Mode for various type payment like CASH/Bank/UPI etc.  </p>
+      <p class="card-text">Payment Mode for various type payment like CASH/BANK/UPI etc.  </p>
       <button class="btn btn-primary" (click)="onSubmitpaymode()" *ngIf="Showpayment">NEW</button>
     </div>
   </div>    
   <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
     <div class="cardbody">
-      <h2 class="card-title">Outside Lab Master</h2>
-      <p class="card-text">Create New Outside Lab </p>
+      <h2 class="card-title">Outside Lab</h2>
+      <p class="card-text">(New /Edit /Delete) Outside lab which Labs not in Hospital for Pathology and Radiolody</p>
       <button class="btn btn-primary" (click)="onSubmitLAB()" *ngIf="ShowOutsideLab">NEW</button>
     </div>
   </div>
   <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
     <div class="cardbody">
       <h2 class="card-title">City Master</h2>
-      <p class="card-text">Your can create New City and use in time of booking </p>
+      <p class="card-text">(New /Edit /Delete) City for OPD/IPD...etc</p>
       <button class="btn btn-primary" (click)="onSubmitCity()" *ngIf="ShowCity">NEW</button>
     </div>
   </div>
         <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
                 <div class="cardbody">
                   <h2 class="card-title">Bill Charges Master</h2>
-                  <p class="card-text">Create New Test</p>
+                  <p class="card-text">(New /Edit /Delete) Test for Billing</p>
                   <button class="btn btn-primary" (click)="onSubmitcharges()" *ngIf="ShowCharges">NEW</button>
                 </div>
         </div>
@@ -81,7 +81,7 @@
     <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
       <div class="cardbody">
         <h2 class="card-title">Shift Master</h2>
-        <p class="card-text">Create Shift Timeing for Shift Wise Reports</p>
+        <p class="card-text">Reports for Shift Wise Operator</p>
         <button class="btn btn-info" (click)="shift()" >NEW</button>
       </div>
     </div>
@@ -90,7 +90,7 @@
     <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
       <div class="cardbody">
         <h2 class="card-title">Ward Master</h2>
-        <p class="card-text">Create New Ward for IPD Patient</p>
+        <p class="card-text">(New /Edit /Delete) Rooms/Beds for IPD</p>
         <button class="btn btn-primary" (click)="onSubmitWard()" *ngIf="Showward">NEW</button>
       </div>
     </div>
@@ -114,7 +114,7 @@
     <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
       <div class="cardbody">
         <h2 class="card-title">Test Group Master</h2>
-        <p class="card-text">Add / Delete / Update / Get Test Group(s)</p>
+        <p class="card-text">(New /Edit /Delete) for Test Group(s)</p>
         <button class="btn btn-primary" (click)="gotoTestGroupMaster()" >NEW</button>
       </div>
     </div>
@@ -122,7 +122,7 @@
     <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
       <div class="cardbody">
         <h2 class="card-title">Test Master</h2>
-        <p class="card-text">Add / Delete / Update / Get Test(s)</p>
+        <p class="card-text">(New /Edit /Delete) for Test for Pathology and Radiolody</p>
         <button class="btn btn-primary" (click)="gotoTestMaster()" >NEW</button>
       </div>
     </div>

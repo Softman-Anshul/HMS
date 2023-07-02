@@ -15,18 +15,18 @@ address1 = '';
 city = '';
 ListOfSideBar = [
   { sidebartext: "Master", url : "/homepage/edit","icon":"fas fa-user-doctor"},
-  { sidebartext: "Dashboard", url : "/homepage/dashboard","icon":"fa fa-tachometer"},
-  { sidebartext: "OPD", url : "/homepage/opdlist","icon":"fa fa-stethoscope"},
-  { sidebartext: "OPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
-  { sidebartext: "TEST", url : "/homepage/list","icon":"fa fa-text-width"},
-  { sidebartext: "TEST Reports", url : "/homepage/Test-reportmaster","icon":"fa fa-print"},
-  { sidebartext: "IPD Admit", url : "/homepage/ipdlist","icon":"fa fa-stethoscope"},
-  { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench"},
-  { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
-  { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
-  { sidebartext: "ACCOUNT", url : "/homepage/Account","icon":"fa fa-life-ring"},
-  { sidebartext: "Controls", url : "control","icon":"fa fa-wrench"},
-
+    { sidebartext: "Dashboard", url : "/homepage/dashboard","icon":"fa fa-tachometer"},
+    { sidebartext: "OPD", url : "/homepage/opdlist","icon":"fa fa-stethoscope"},
+    { sidebartext: "OPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
+    { sidebartext: "TEST", url : "/homepage/list","icon":"fa fa-text-width"},
+    { sidebartext: "TEST Reports", url : "/homepage/Test-reportmaster","icon":"fa fa-print"},
+    { sidebartext: "IPD Admit", url : "/homepage/ipdlist","icon":"fa fa-stethoscope"},
+    { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench" },
+    { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
+    { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
+    { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
+    { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
+    { sidebartext: "Controls", url : "control","icon":"fa fa-wrench",} 
 ];
 SideBars : sidebar[] = [];
 

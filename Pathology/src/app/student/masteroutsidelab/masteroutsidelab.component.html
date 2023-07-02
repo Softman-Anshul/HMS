@@ -1,0 +1,65 @@
+<div >
+    <h2 >Outside Lab</h2>
+            <form class="form">
+                <!-- <input style="font-size:small; margin-left:90px; width:60px; background-color: lightblue; " *ngIf="showMeedit"  value="0" type="text" readonly="true" [(ngModel)]="labnam.labid" name="labid" > -->
+                    
+               <div class ="row">
+                <div class ="col-sm-4">
+                    <div class="input-group">
+                    <span class="input-group-addon">LabName</span>
+                    <input style="width:200px; height:40px ;" type="text" class="form-control" [(ngModel)]="labnam.labname" name="labname">
+                </div>
+                </div>
+                <div class ="col-sm-4">
+                    <div class="input-group">
+                    <span class="input-group-addon">Area</span>
+                    <input style="width:200px; height:40px ;" type="text" class="form-control" [(ngModel)]="labnam.area" name="area">
+                </div>
+                </div>
+                <div class ="col-sm-4">
+                    <div class="input-group">
+                    <span class="input-group-addon">C-Boy</span>
+                    <input style="width:200px; height:40px ;" type="text" class="form-control" [(ngModel)]="labnam.cboy" name="cboy">
+                </div>
+                </div>
+                <div class ="col-sm-4">
+                    <div class="input-group">
+                    <span class="input-group-addon">Mobile</span>
+                    <input style="width:220px; height:40px ;" type="text" class="form-control" (keypress)="mobilenumber($event)" [(ngModel)]="labnam.mobile" name="mobile">
+                </div>
+                </div>
+               </div>
+                <button style="font-size:small; margin-top:1vw ;" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                <button style="font-size:small; margin-top:1vw ;" class="btn btn-success btn-rounded" *ngIf="showMeedit"  (click)="onSubmitedit()">EDIT</button>
+             
+            </form> 
+          
+            <table class="table" style="margin-top:2vw ;" >
+                    <thead >
+                    
+                        <th>Lab Name</th>
+                        <th>Area</th>
+                        <th>Collection boy</th>
+                        <th>Mobile</th>
+                        <th>LabType</th>
+                        <th>Action</th>
+
+                    </thead>
+                    <tbody>
+                                 <tr *ngFor="let item of labname">
+                                  <td>{{item.labname}}</td>
+                                  <td>{{item.area}}</td>
+                                  <td>{{item.cboy}}</td>
+                                  <td>{{item.mobile}}</td>
+                                  <td>{{item.labtype}}</td>
+
+                                  <div class="btn-group" role="group" >
+                                  <td> <a><button  class="btn"><i class="fa fa-edit" (click)="editer(item.labid)" (click)="tooletageedit()" ></i> </button> </a> </td>
+                                  <td> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(item.labid)"></i> </button> </a> </td>
+                                  </div>
+                                </tr>
+                    </tbody>
+            </table>
+      
+            </div>         
+        

@@ -1,0 +1,46 @@
+<div >
+    <h2 >City Master</h2>
+            <form class="form">
+                    
+                    <div class="row"  >
+            <div class = "col">
+                    <!-- <input style="font-size:small;margin-bottom:1vw;width:60px; background-color: lightblue; " *ngIf="showMeedit"  value="0" type="text" readonly="true" [(ngModel)]="editCity.cityid" name="cityid" > -->
+                    <div class="input-group">
+                        <span class="input-group-addon">City</span>
+                    <input style="width:200px; height:40px ;" type="text" class="form-control" [(ngModel)]="editCity.citynam" name="cityname" list="lcity">
+                    <datalist id="lcity" >
+                        <option *ngFor="let lcity of city">
+                        {{lcity.citynam}}
+                        </option> 
+                        </datalist>
+                    </div>
+                    <button style="font-size:small; margin-top:1vw ;" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                    <button style="font-size:small; margin-top:1vw ;" class="btn btn-success btn-rounded" *ngIf="showMeedit"  (click)="onSubmitedit()">EDIT</button>
+             
+            </div>
+            
+            </div>
+            </form> 
+          
+            <table class="table" style="margin-top: 1vh;  " >
+                    <thead>
+                    
+                        <th>City ID</th>
+                        <th>City Name</th>
+                        <th>Action</th>
+    
+                    </thead>
+                    <tbody style="text-align: center ; ">
+                                 <tr *ngFor="let item of city">
+                                  <td>{{item.cityid}}</td>
+                                  <td>{{item.citynam}}</td>
+                                  <div class="btn-group" role="group" >
+                                  <td> <a><button class="btn"><i class="fa fa-edit" (click)="editer(item)" (click)="tooletageedit()" ></i>  </button> </a> </td>
+                                  <td> <a><button class="btn"><i class="fa fa-trash" (click)="deleter(item.cityid)"></i>  </button> </a> </td>
+                                  </div>
+                                </tr>
+                    </tbody>
+            </table>
+      
+            </div>         
+        

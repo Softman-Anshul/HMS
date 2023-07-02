@@ -1,0 +1,227 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div class="row">
+  <div class="col" >
+    <h2 >Test Master</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4" >
+    <div class="input-group">
+      <span class="input-group-addon">TestID</span>
+      <input style="width:115px ;"  class="form-control" readonly="true" [(ngModel)]=testmaster.Testid >
+    </div>       
+  </div>   
+  <div class = "col-sm-4" >
+    <div class="input-group">
+      <span  class="input-group-addon">Price</span>
+      <input style="width:70px ;" class="form-control" type="text" [(ngModel)]=testmaster.Price >
+    </div>
+  </div>
+  <div class = "col-sm-4" >
+    <div class="input-group">
+      <span  class="input-group-addon">Search</span>
+      <input type="search" class="form-control" placeholder="Search by TestName" aria-label="Search" aria-describedby="search-addon" />
+    </div>
+  </div>
+
+</div>
+<div class="row">
+    <div class = "col-sm-4" >
+      <div class="input-group">
+        <span  class="input-group-addon">Test Code</span>
+        <input style="width:90px ;" class="form-control" type="text" [(ngModel)]=testmaster.Testcode list="tcode" (ngModelChange)="populateTest()" />
+        <datalist id="tcode" >
+          <option *ngFor="let tcode of testcode">
+          {{tcode.Testcode}}
+          </option> 
+          </datalist>
+      </div>
+    </div>
+
+
+    <div class = "col-sm-4" >
+      <div class="input-group">
+        <span  class="input-group-addon">Test Name</span>
+        <input style="width:170px ;" class="form-control" type="text" [(ngModel)]=testmaster.TestName >
+      </div>
+    </div>
+    <div class = "col-sm-4" >
+      <div class="input-group">
+        <span  class="input-group-addon">TGroup</span>
+    <select  class="form-control"  (change)="populate()" [(ngModel)]=groupname>
+      <option *ngFor="let grp of group"  >
+        {{grp}}
+      </option> 
+    </select>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class = "col-sm-4" >
+      <div class="input-group">
+        <span  class="input-group-addon">Value Type</span>
+        <select  style="width:85px ; " type="text" class="form-control" (change) ="onchange()" [(ngModel)]=testmasterd.Remark >
+          <option value="N">N</option>
+          <option value="P">P</option>
+        </select>
+      </div>
+    </div>
+    <div class = "col-sm-4" >
+      <div class="input-group">
+        <span  class="input-group-addon">Test Group</span>
+        <input style="width:170px ;" [formControl]="myControl" class="form-control" type="text" [(ngModel)]=testmaster.testgroup [matAutocomplete]="auto" >
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <div class ="row">
+  <h2>Test Details</h2>
+    </div>
+    <div class ="row">
+                <div class="col-sm-2" >
+                  <div class="input-group">
+                    <span class="input-group-addon">Sno</span>
+                    <input style="width:60px ;"  class="form-control" [(ngModel)]=testmasterd.testorder >
+                  </div>   
+                </div>
+                <div class="col-sm-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">TestSubName</span>
+                    <input style="width:200px ;"  class="form-control" [(ngModel)]=testmasterd.TestsubName >
+                  </div>       
+                </div>   
+                <div class="col-sm-2" >
+                  <div class="input-group">
+                    <span class="input-group-addon">....WCode</span>
+                    <select type="text" class="form-control" style="width:75px ;" [(ngModel)]=testmasterd.Wordcode>
+                      <option>--Select--</option>
+                        <option *ngFor="let test of Wordname " >
+                          {{test.Wordcode}}
+                        </option> 
+                      </select>  
+                    </div>       
+                </div>   
+    </div>
+    <div class ="row">
+  <div class="col-sm-2" >
+  <div class="input-group">
+    <span class="input-group-addon">Unit</span>
+    <input style="width:60px ;"  class="form-control" [(ngModel)]=testmasterd.SubUnit >
+  </div>       
+</div>
+<div class="col-sm-3" >
+  <div class="input-group">
+    <span class="input-group-addon">Normal Value</span>
+    <input style="width:60px ;"  class="form-control" [(ngModel)]=testmasterd.normalvalue >
+  </div>       
+</div>
+<div class="col-sm-2" >
+  <div class="input-group">
+    <span class="input-group-addon">Male</span>
+    <input style="width:60px ;"  class="form-control" [(ngModel)]=testmasterd.male >
+  </div>       
+</div>
+<div class="col-sm-2" >
+  <div class="input-group">
+    <span class="input-group-addon">Female</span>
+    <input style="width:90px ;"  class="form-control" [(ngModel)]=testmasterd.female >
+  </div>       
+</div>
+    </div>   
+    <div class ="row">
+  <div class="col-sm-2" >
+  <div class="input-group">
+      <span class="input-group-addon">SG</span>
+      <select style="width:55px; " class="form-control" (change)="openDialogI()" [(ngModel)]=testmaster.subgroup>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>      
+  </div>       
+<div class="col-sm-3" >
+  <div class="input-group">
+    <span class="input-group-addon">Inter</span>
+    <select style="width:55px; " class="form-control" (change)="openDialogI()" [(ngModel)]=testmasterd.Ipet>
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select>
+  </div>       
+</div>
+<div class="col-sm-2" >
+  <div class="input-group">
+    <span class="input-group-addon">Comt</span>
+    <select style="width:60px; " class="form-control" (change)="openDialogC()" [(ngModel)]=testmasterd.comt>
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select>
+  </div>       
+</div>
+<div class="col-sm-2" >
+  <div class="input-group">
+    <button style="width:70px ;" type="submit" class="btn btn-primary" (click)="addItem()" >Add</button>
+  </div>       
+</div>
+    </div>
+    <div class="row">
+  <div class="col-sm-10">
+  <table class="table">
+    <thead>
+      <th>Sno</th>
+      <th>SubtestName</th>
+      <th>Unit</th>
+      <th>Normal</th>
+      <th>Male</th>
+      <th>Female</th>
+      <th>Wocde</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of testmaster.tests">
+        <td>{{item.testorder}}</td>
+        <td>{{item.TestsubName}}</td>
+        <td>{{item.SubUnit}}</td>
+        <td>{{item.normalvalue}}</td>
+        <td>{{item.male}}</td>
+        <td>{{item.female}}</td>
+        <td>{{item.Wordcode}}</td>
+        <td><a><button  style="margin-left:10px; padding:0px;padding-right:0px ; " class="btn btn-danger" (click)="delete(item.testorder)" >X</button> </a></td>
+      </tbody>
+    </table>
+    <button  type="submit" class="btn btn-success" style="margin-bottom: 1vh;" (click)="onSubmit()">SAVE</button>
+
+  </div>
+    </div>
+  </div>
+    <div class = "col-sm-4" >
+      <table class="table">
+        <thead>
+          <th style="width:30px ;" >Code</th>
+          <th style="width:90px ;">Test Details</th>
+          <th style="width:30px ;">Action</th>
+        </thead> 
+        <tbody>
+          <tr  *ngFor="let test of testname">
+            <td >{{test.Testcode}}</td>
+            <td >{{test.TestName}}</td>
+            <div class="btn-group" role="group" >
+              <td ><a (click)="edit(test)" ><button class="btn"><i class="fa fa-edit" type="button"></i> </button> </a> </td>
+            </div>
+      
+          </tr>
+        </tbody>
+      </table>
+      </div>  
+</div>
+<!-- <div class="col">
+  
+                    <button style="margin-left:35px; padding-top:0%; padding-bottom:0% ; " type="submit" class="btn btn-primary" (click)="openDialogI()" >Interpretation</button>
+                    <button style="margin-left:5px; padding-top:0%; padding-bottom:0% ; " type="submit" class="btn btn-primary" (click)="openDialogC()">Comments</button>
+                  </div>  -->
+

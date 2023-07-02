@@ -1,0 +1,29 @@
+<h1>Test Master Profile</h1>
+<div class="input-group">
+    <input  type="text" style="width: 425px;" class="form-control" [(ngModel)]="testName" (change)="selectTest($event)" list="dep" />
+    <datalist id="dep" >
+        <option *ngFor="let test of testmasterd " >
+        {{test.TestName}}
+    </option> 
+    </datalist>
+
+<button  style="margin-left:10px; " class="btn btn-success" (click)="additem()" >ADD</button>
+</div>
+<input  style=" width:70px ;" class="form-control" type="text" [(ngModel)]=testcode>
+<!-- <input  style=" width:70px ;" class="form-control" type="text" [(ngModel)]="testcode"> -->
+<br>
+<table class="table">
+    <thead>
+        <th>Tcode</th>
+          <th>TName</th>
+          <th>Tid</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let report of this.testreport; ">
+            <td>{{report.Testscode}}</td>
+            <td>{{report.TestsubName}}</td>
+            <td>{{report.testid}}</td>
+       </tr>
+        
+</table>
+<button  style="margin-left:10px; " class="btn btn-success" (click)="onSAVE()"  >SAVE</button>

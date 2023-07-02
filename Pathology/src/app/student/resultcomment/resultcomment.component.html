@@ -1,0 +1,25 @@
+<body>
+    <div class="row" >
+        <div class="col" >
+               <h2>Comments Details</h2>
+        </div>
+        <div class="col" >
+               <button style="margin-left:450px ;" (click)="onNoClick()">x</button>
+            </div>
+        
+         <div class="container">
+            <app-editor text="{{testreport.comments}}" (newItemEvent)="save($event)"></app-editor>
+        </div>               
+    </div>
+    </body>
+
+
+
+
+
+
+
+
+
+
+

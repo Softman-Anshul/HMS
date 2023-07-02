@@ -1,0 +1,53 @@
+<label style="font-size:medium; margin-left:15px;" for="vchrno">RegNo</label>
+<input [(ngModel)]=bill.regNo style="font-size:small; margin-left:5px; width:70px ; " type="vchrno" >
+
+
+<br><br><br><br><br>
+<label for="itmName">TestName</label>
+        <label style="margin-left:100px; " for="itmqty">Qty</label>
+        <label style="margin-left:40px ;" for="itmChrgs">Rate</label>
+        <label style="margin-left:30px ;"  for="totalamt">Amount</label>
+
+        <br>
+        <select class="form-group" type="text" style="margin-left:2px; width:150px ;" [(ngModel)]=test.TestName >
+            <option value="CBC">CBC</option>
+            <option value="TLC">TLC</option>
+            <option value="DLC">DLC</option>
+            <option value="KFT">KFT</option>
+            <option value="LFT">LFT</option>
+            <option value="SGPT">SGPT</option>
+            <option value="SGOT">SGOT</option>
+
+          </select>
+        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.Qty (change)="getAmount()">
+        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.Rate (change)="getAmount()">
+        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=test.Amount >
+        <button type="button" style="margin-left:10px; padding:2px;padding-right:20px ; " class="btn btn-info" (click)="addItem()">Add</button>
+        <br>
+        <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler" >
+            <thead>
+            <tr>
+                <th>TestName</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead> 
+          <tbody>
+              <tr *ngFor="let item of bill.tests">
+                <td>{{item.TestName}}</td>
+                <td >{{item.Qty}}</td>
+                <td >{{item.Rate}}</td>
+                <td>{{item.Amount}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+        <label style="font-size:medium; margin-left:15px;" for="totalamt" >Totalamt</label>
+        <input style="font-size:small; margin-left:5px; width:70px ; " type="vchrno" [(ngModel)]=bill.Totalamt (change)="getNetAmount()">
+        <label style="font-size:medium; margin-left:15px;" for="disamt">Discount</label>
+        <input style="font-size:small; margin-left:5px; width:70px ; " type="vchrno" [(ngModel)]=bill.Discount (change)="getNetAmount()">
+        <label style="font-size:medium; margin-left:15px;" for="netamt">Netamt</label>
+        <input style="font-size:small; margin-left:5px; width:70px ; " type="netamt" [(ngModel)]=bill.Netamt >
+        <button type="button" style="margin-left:10px; padding:2px;padding-right:20px ; " class="btn btn-info" (click)="submit()">Submit</button>
+        

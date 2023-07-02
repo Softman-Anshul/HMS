@@ -1,0 +1,272 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div  class="row" >
+  <nav class="navbar navbar-dark" style="background-color:#563d7c; padding-left:10px ; padding-top:1px ;padding-bottom: 1px; ">
+    <input style="font-size:medium; width:100px ; padding-left:5px ; " class="form-control" type="search" placeholder="by UHID" [(ngModel)]=search>
+    <button style="font-size:medium; margin-left:5px; padding-top:2px;padding-bottom:2px ;" class="btn btn-success" (click)="searchquery()" >Search</button>
+    <label style="font-size:medium; margin-left:15px;color: white; " for="vchrNo">RegNo</label>
+    <input style="font-size:small; margin-left:5px; width:70px ;height:22px; background-color:white; " readonly="true" type="text" [(ngModel)]=Students.vchrNo >
+             <label style="font-size:medium; margin-left:25px; color: white;" for="vchrDate">Date</label>
+             <input style="font-size:small; margin-left:5px; width:100px ;height:22px; background-color:white;"  type="date" [(ngModel)]=Students.vchrDate >
+             <label style="font-size:medium; margin-left:15px; color: white;" for="vchrTime">RegTime</label>
+             <input style="font-size:small; margin-left:5px; width:70px ; height:22px; background-color:white;" readonly="true" type="vchrTime" [(ngModel)]=Students.vchrTime >
+             <label style="font-size:medium; margin-left:15px; color: white;" for="uhID">UHID</label>
+             <input style="font-size:small; margin-left:5px; width:70px ; height:22px; background-color:white;" readonly="true" type="text" [(ngModel)]=Students.uhID >
+             <label style="font-size:medium; margin-left:5px; color: white;" for="Sno">SID</label>
+             <input style="margin-left:5px; width:40px ; height:22px; background-color:white;" readonly="true" type="text" [(ngModel)]=Students.Sno >
+            </nav>
+          </div>
+
+          <div class ="row" >
+          <div class = "col-sm-3" >
+          <!-- row 1 col-->
+          <div class="input-group">
+          <span class="input-group-addon">Title</span>
+            <select style="width:85px ;" class="form-control" (change)="populate()" [(ngModel)]=Students.pntn>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Master">Master</option>
+              <option value="Baby">Baby</option>
+              <option value="B/o">B/o</option>
+            </select>
+          </div>
+          </div>
+          <div class = "col-sm-3" >
+          <!-- row 2 -->
+          <div class="input-group">
+          <span class="input-group-addon">Patient</span>
+            <input style="width:150px ;" class="form-control" type="text" maxlength="50" [(ngModel)]=Students.PntName >
+          </div>
+        </div>
+
+          <div class = "col-sm-2">
+          <!-- row 3 -->
+          <div class="input-group">
+              <span class="input-group-addon">Age</span>
+                <input style="width:80px ;" class="form-control" type="text" maxlength="3" (keypress)="agenumber($event)" [(ngModel)]=Students.pntage >
+              </div>
+          </div>
+
+          <div class = "col-md-2">
+            <!-- row 4 -->
+            <div class="input-group">
+              <span class="input-group-addon">Years</span>
+            <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntyears >
+              <option value="Years">Years</option>
+              <option value="Months">Months</option>
+              <option value="Days">Days</option>
+              <option value="Hrs">Hrs</option>
+           </select>
+          </div>
+          </div>
+
+          <div class = "col-sm-2">
+                        <!-- row 5 -->
+                        <div class="input-group">
+                          <span class="input-group-addon">Gender</span>
+                        <select style="width:75px ;" class="form-control" [(ngModel)]=Students.pntsex >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          </div>
+          </div>
+          <!-- row end -->
+          <div class ="row">
+            <div class = "col-sm-3">
+            <!-- row 2 col1-->
+            <div class="input-group">
+              <span class="input-group-addon">Title</span>
+                  <select style="width:85px ;" class="form-control" [(ngModel)]=Students.pntg>
+                <option value="S/o">S/o</option>
+                <option value="W/o">W/o</option>
+                <option value="D/o">D/o</option>
+                <option value="C/o">C/o</option>
+           </select>
+            </div>
+           <div class="input-group">
+            <span class="input-group-addon">Email</span>
+         <input style="width:180px ;" class="form-control" type="text" maxlength="100" [(ngModel)]=Students.email >
+           </div>
+
+           <div class="input-group">
+            <span class="input-group-addon">City</span>
+           <select style="width:190px ;" class="form-control" [(ngModel)]=Students.pntcity>
+            <option>--Select--</option>
+              <option *ngFor="let city of Cityname">
+               {{city.citynam}}
+              </option> 
+       </select>
+            </div>
+            </div>
+
+            <div class = "col-sm-5">
+            <!-- row 2 -->
+            <div class="input-group">
+              <span class="input-group-addon">Guardian</span>
+                         <input style="width:310px ;" class="form-control" maxlength="50" type="text" [(ngModel)]=Students.Pntgname >
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Mobile</span>
+             <input  style="width:325px;" class="form-control" [maxLength]="10" (keypress)="mobilenumber($event)" [(ngModel)]=Students.pntmobile >
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">Outside Lab</span>
+<select style="width:295px;" class="form-control"  [(ngModel)]=Students.labto>
+ <option *ngFor="let lab of Labname">
+ {{lab.labname}}
+ </option> 
+</select>
+            </div>
+
+            </div>
+            <div class = "col-md-3">
+            <!-- row 3 -->
+            <div class="input-group">
+              <span class="input-group-addon">Address</span>
+              <input  type="text" style="width: 225px;" class="form-control" [(ngModel)]=Students.pntadd list="add" />
+              <datalist id="add" >
+              <option *ngFor="let dept of address">
+              {{dept.pntadd}}
+              </option> 
+              </datalist>
+      </div>
+            
+           <div class="input-group">
+              <span class="input-group-addon">Ref Consultant</span>
+              <select style="width:215px ; " class="form-control" [(ngModel)]=Students.condoctor>
+                <option>--Select--</option>
+                <option *ngFor="let students of consulant">
+                {{students.dctName}}
+                </option> 
+              </select> 
+            </div>
+
+            <div hidden ="true" class="input-group">
+              <span class="input-group-addon">type</span>
+             <input  style="width:325px;" class="form-control" [(ngModel)]=Students.dcmntType >
+            </div>
+
+            <div hidden ="true" class="input-group">
+              <span class="input-group-addon">Reporttype</span>
+             <input  style="width:325px;" class="form-control" [(ngModel)]=Students.Reporttype >
+            </div>
+
+            <div hidden ="true" class="input-group">
+              <span class="input-group-addon">username</span>
+             <input  style="width:325px;" class="form-control" [(ngModel)]=Students.uname >
+            </div>
+
+            <div hidden ="true" class="input-group">
+              <span class="input-group-addon">Collected By</span>
+              <select style="width:230px ; " class="form-control" [(ngModel)]=Students.doctype>
+               <option value="Self">Self</option>
+                <option *ngFor="let lab of Labname">
+                {{lab.cboy}}
+                </option> 
+                </select>
+            </div>
+
+            </div>
+            <div class = "col">
+                          <!-- row 4 -->
+             <input  style="width:450px ;" [hidden]="true" type="text" [(ngModel)]=Students.sampletype >
+
+            </div>
+            </div>
+            <!-- row end -->
+
+            <div hidden ="true" class="input-group">
+              <span class="input-group-addon">username</span>
+             <input  style="width:325px;" class="form-control" [(ngModel)]=test.uname >
+            </div>
+
+        <div class="col" style="margin-top:1vw ;" >
+        <label for="itmName">TestName</label>
+        <label style="margin-left:420px; " for="itmQty">Qty</label>
+        <label style="margin-left:55px ;" for="itmChrgs">Rate</label>
+        <label style="margin-left:50px ;"  for="totalAmt">Amount</label>
+
+        <br>
+        <div class = "row">
+        <div class ="col">
+        <select style=" width:450px ;" class="form-control"  [(ngModel)]=test.itmName (change)="selectTest($event)" id="ItemName">
+              <option>--Select--</option>
+                <option *ngFor="let test of testmaster  let i = index" value="{{i}}" >
+                 {{test.TestName}}
+                </option> 
+         </select>        
+        </div>
+        <div class ="col-sm-1">
+        <input  style=" width:70px ;" class="form-control" type="number" [(ngModel)]=test.itmQty (change)="getAmount()">
+        </div>
+        <div class ="col-sm-1">
+        <input style=" width:70px ;" class="form-control" type="text" [(ngModel)]=test.itmChrgs (change)="getAmount()">
+        </div>
+        <div class ="col-sm-1">
+        <input  style=" width:80px ;" class="form-control" type="text" [(ngModel)]=test.totalAmt >
+        </div>
+        <div class ="col">
+        <button type="button" style="margin-left:10px; padding:2px;padding-right:20px ; " class="btn btn-info" (click)="addItem()">Add</button>
+        </div>
+        </div>
+
+        <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler" >
+            <thead>
+            <tr>
+              <th >Sno</th>
+                <th>TestName</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead> 
+          <tbody>
+              <tr *ngFor="let item of Students.tests let i=index;">
+                <td> {{i + 1}}</td>
+                <td>{{item.itmName}}</td>
+                <td >{{item.itmQty}}</td>
+                <td >{{item.itmChrgs}}</td>
+                <td>{{item.totalAmt}}</td>
+                <td><a><button  style="margin-left:10px; padding:0px;padding-right:0px ; " class="btn btn-danger" (click)="delete(item.itmName)">X</button> </a></td>
+            </tr>
+          </tbody>
+
+        </table>
+            <div >
+              <label for="paymode">Paymode</label>
+          <select type="text" style="margin-left:2px; width:80px ;" [(ngModel)]=Students.paymode>
+            <option value="CASH">CASH</option>
+            <option value="BANK">BANK</option>
+            <option value="UPI">UPI</option>
+            <option value="Paytem">Paytem</option>
+          </select>
+          <label  style="margin-left:585px ;" for="grandtotal">Total Amount</label>
+          <input style="margin-left:35px ; width:90px; background-color:lightblue;" readonly="true" type="text" [(ngModel)]=Students.grandTotal (change)="getNetAmount()" >
+
+          <br>
+          <label  for="narration">Narration</label>
+          <input style="margin-left:5px ; width:180px;" [(ngModel)]=Students.narration type="text">
+
+          <label style="margin-left:485px ;" for="discount">Discount</label>
+          <input style="margin-left:20px ; width:40px ; " (keypress)="mobilenumber($event)" type="text" [(ngModel)]=Students.disper (ngModelChange)="getNetAmountByPercent()" >
+          <input style="margin-left:2px ; width:90px ; " (keypress)="mobilenumber($event)" type="text" [(ngModel)]=Students.discountAmt (ngModelChange)="getNetAmount()" >
+          <br>
+          
+          <label style="margin-left:730px ;" for="discountby">Discount by</label>
+          <select type="text" style="margin-left:2px; width:40px ;" [(ngModel)]=Students.discountby>
+            <option value="D">D</option>
+            <option value="L">L</option>
+          </select>
+          <input style="margin-left:2px ; width:90px ; " type="text" [(ngModel)]=Students.disresion>
+          <br>
+          <button  type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+          <label style="margin-left:670px ;" for="billamt">Net Amount</label>
+          <input style="margin-left:45px ; width:90px ; background-color:lightblue;" [readonly]="true" type="text" [(ngModel)]=Students.billamt  >
+          <input style="margin-left:0px ; width:0px ; background-color:lightblue;" [readonly]="true" type="text" [(ngModel)]=Students.recamt  >
+        </div>
+         
+    </div>
+

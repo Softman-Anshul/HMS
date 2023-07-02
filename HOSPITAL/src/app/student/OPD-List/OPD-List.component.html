@@ -1,4 +1,5 @@
 <!-- CSS only -->
+<h2>OPD STATUS</h2>
 <div class="col-12 text-right" style="padding:1vw;">
     <button style="margin-right: 1%; " class="btn btn-primary " *ngIf = "registration" (click)="newreg()">Add Registration</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showrecipts"  (click)="openDialogreceipts()" >Receipts</button>
@@ -67,7 +68,7 @@
               <button class="btn btn-primary btn-rounded" (click)="admitpatient(students.dcmntNo,students.opdDate)" >Admit</button>
             <!-- <td *ngIf = "editregistration"> <a><button  class="btn"><i class="fa fa-edit" type="button"(click)="onEdit(students.uhID,students.opdDate)"></i> </button></a></td> -->
             <td *ngIf = "delregistration"><a><button class="btn"><i class="fa fa-trash" type="button" (click)="delete(students)"  ></i> </button></a></td>
-            <button class="btn btn-primary btn-rounded" (click)="EMR(students.dcmntNo,students.opdDate)" >OPD</button>
+            <!-- <button class="btn btn-primary btn-rounded" (click)="EMR(students.dcmntNo,students.opdDate)" >OPD</button> -->
             </div>
           </tr>
         </tbody>

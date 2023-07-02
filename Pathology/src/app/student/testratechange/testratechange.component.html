@@ -1,0 +1,21 @@
+<div class="row" >
+    <h1>Test Rate Change</h1>
+    <input style="width: 820px;"  type="search" class="form-control rounded"  placeholder="Search on TestName,Testcode" [(ngModel)]=search (keyup)="searchquery()"  />
+    <button style="width:70px; margin-left:10px;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+    <table class="table table-bordered" ng-app="myapp2" ng-controlier="Mycontroler2" >
+      <thead>
+      <tr>
+        <th style="width:50px ;">Test Details</th>
+          <th style="width:250px ;"></th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr  *ngFor="let test of testname">
+          <div style=" font-size:small; height: 50px; font-size:0.8em ; overflow:hidden;">
+            <td><input  style="font-size:small;width:90px ; " readonly="true" [(ngModel)]=test.Testcode type="Code" ></td>
+            <td><input  style="font-size:small; margin-left:10px; width:450px ; " readonly="true" [(ngModel)]=test.TestName type="Name" ></td>
+            <td><input  style="font-size:small; margin-left:130px; width:50px ; " [(ngModel)]=test.Price type="Price" ></td>
+        </div>
+      </tbody>
+  </table>
+  </div>

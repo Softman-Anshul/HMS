@@ -1,0 +1,27 @@
+.btn-right
+{
+    float: right;
+}
+button {
+  background-color:rgb(3, 94, 140) !important;
+  border: none;
+  color: white;
+  padding: 4px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+  .table,td {
+    border: 1px solid;
+    font-size:small;
+}
+
+  tr:hover {background-color:darkgray;}
+ 
+  th{
+    border: 1px solid;
+    height:30px ;
+    background-color:rgb(3, 94, 140) !important;
+    color:white;
+  }

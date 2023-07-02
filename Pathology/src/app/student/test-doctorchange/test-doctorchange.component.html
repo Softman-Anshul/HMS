@@ -1,0 +1,45 @@
+<div class="row" >
+    <div class="col" id="printsection">
+           <h2>Consultant Change</h2>
+           <label style="font-size:medium; margin-left:15px; " for="refund">Consultant</label>
+              <select style="margin-left:10px; width:210px ; " [(ngModel)]=Students.condoctor>
+                <option *ngFor="let doc of consulant">
+                {{doc.dctName}}
+                </option> 
+              </select> 
+              <br>
+           <label style="font-size:medium; margin-left:15px;" for="refund">Refund Amount</label>
+           <input style="font-size:small; margin-left:5px; width:50px ;" readonly="true" [(ngModel)]=Students.refund  type="refund" >
+           <label style="font-size:medium; margin-left:20px;" for="recamt">Received Date</label>
+           <input style="font-size:small; margin-left:25px; width:90px ;" [(ngModel)]=Students.vchrDate readonly="true"  type="vchrDate" >
+
+          
+            <br><br><br><br>
+            <label style="font-size:medium; margin-left:15px;" type="vchrNo"  >RegNo</label>
+            <input style="font-size:small; margin-left:53px; width:50px ; background-color:lightblue;" readonly="true" [(ngModel)]=Students.vchrNo  type="vchrNo"  >
+            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:5px; width:75px ;" [(ngModel)]=Students.uhID readonly="true" type="uhID" >
+
+<br>
+            <label style="font-size:medium; margin-left:15px;" for="pntn">Name</label>
+            <input style="font-size:small; margin-left:58px; width:50px ; " [(ngModel)]=Students.pntn readonly="true" type="pntn"  >
+            <input style="font-size:small; margin-left:15px; width:250px ; " [(ngModel)]=Students.PntName readonly="true" type="PntName"  >
+            <br>
+            <input style="font-size:small; margin-left:180px; width:30px ;" [(ngModel)]=Students.pntage readonly="true" type="pntage" >
+            <input style="font-size:small; margin-left:15px; width:40px ; " [(ngModel)]=Students.pntsex readonly="true" type="pntsex" >
+            <input style="font-size:small; margin-left:5px; width:40px ; " [(ngModel)]=Students.pntyears readonly="true" type="pntyears">
+
+            <br>
+            <label  style="font-size:medium; margin-left:15px;" for="pntg">S/o,W/o,C/o</label>
+            <input   style="font-size:small; margin-left:15px; width:50px ;  " [(ngModel)]=Students.pntg readonly="true" type="pntg"  >
+            <input   style="font-size:small; margin-left:15px; width:250px ; " [(ngModel)]=Students.Pntgname readonly="true" type="Pntgname" >
+
+            <br>
+            <label   style="font-size:medium; margin-left:15px;" for="condoctor">Refby</label>
+            <input  style="font-size:small; margin-left:130px; width:250px ; " [(ngModel)]=Students.condoctor readonly="true" type="condoctor" >
+            <br><br><br><br>
+
+            <button style="margin-left: 150px;" class="btn btn-success" (click)="onsave()">SAVE</button>
+            <button  style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+        </div>
+</div>

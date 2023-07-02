@@ -23,11 +23,12 @@ export class MainpageMobileComponent implements OnInit {
     { sidebartext: "TEST", url : "/homepage/list","icon":"fa fa-text-width"},
     { sidebartext: "TEST Reports", url : "/homepage/Test-reportmaster","icon":"fa fa-print"},
     { sidebartext: "IPD Admit", url : "/homepage/ipdlist","icon":"fa fa-stethoscope"},
-    { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench"},
+    { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench" },
     { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
     { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
-    { sidebartext: "ACCOUNT", url : "/homepage/Account","icon":"fa fa-life-ring"},
-    { sidebartext: "Controls", url : "control","icon":"fa fa-wrench"},
+    { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
+    { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
+    { sidebartext: "Controls", url : "control","icon":"fa fa-wrench",} 
 
   ];
   SideBars : sidebar[] = [];

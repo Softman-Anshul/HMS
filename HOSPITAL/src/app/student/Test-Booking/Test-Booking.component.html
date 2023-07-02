@@ -14,14 +14,14 @@
       <div class = "col-1" >
         <button class="btn btn-primary" (click)="searchquery()" style="width: 6vw; margin-top: 1vh;">Search</button>
       </div>
-      <div class="col-7" style="margin-left: 13vw;">
+      <div class="col-7" style="margin-left: 8vw;">
         <div class = "row" >
         <div class="user-box-small">
           <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.vchrNo>
           <label>RegNo</label>
         </div>
         <div class="user-box-small">
-          <input type="date" name="" required="" disabled="true" [(ngModel)]=Students.vchrDate>
+          <input style="width: 6vw;" type="date" name="" required="" disabled="true" [(ngModel)]=Students.vchrDate>
           <label>Date</label>
         </div>
         <div class="user-box-small">
@@ -41,7 +41,7 @@
           </div>
         </ng-container>
         <ng-container>
-          <div class="user-box-small">
+          <div  class="user-box-small">
             <input type="text" name="" required="" disabled="true" [(ngModel)]=Students.Sno>
             <label>SID</label>
           </div>
@@ -123,9 +123,19 @@
 
     </div>
     <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
-      <div class="user-box"  >
+      <!-- <div class="user-box"  >
         <input  type="text" maxlength="100" [(ngModel)]=Students.email >
         <label>Email</label>
+      </div> -->
+
+       <div class="user-box"  >
+        <input  type="text" maxlength="10" [(ngModel)]=Students.pntmobile >
+        <label>Mobile</label>
+      </div>
+
+      <div style="margin-left: 1vw;" class="user-box-big"  >
+        <input  type="text" maxlength="150" [(ngModel)]=Students.pntadd >
+        <label>Address</label>
       </div>
 
       <div class="user-box"  >
@@ -138,12 +148,7 @@
         <label>City</label>
       </div>
 
-      <div class="user-box"  >
-        <input  type="text" maxlength="10" [(ngModel)]=Students.pntmobile >
-        <label>Mobile</label>
-      </div>
-
-      <div class="user-box-small"  >
+      <div style="margin-left: 1vw;" class="user-box"  >
         <select [(ngModel)]=Students.labto onchange=" this.dataset.chosen = this.value; " >
           <option value="" disabled selected>Select</option>
           <option *ngFor="let lab of Labname">
@@ -151,14 +156,9 @@
           </option>
         </select>
         <label>Outside Lab</label>
-      </div>
-
-      <div class="user-box"  >
-        <input  type="text" maxlength="50" [(ngModel)]=Students.pntadd >
-        <label>Address</label>
-      </div>
-
-      <div class="user-box-big"  >
+      </div> 
+      
+      <div style="margin-left: 1vw;" class="user-box-big"  >
         <select [(ngModel)]=Students.condoctor onchange=" this.dataset.chosen = this.value; " >
           <option value="" disabled selected>Select</option>
           <option *ngFor="let students of consulant">
@@ -191,12 +191,12 @@
       </div>
 
       <div class="user-box-small"  >
-        <input  type="text" [(ngModel)]=test.totalAmt >
+        <input  type="text" disabled="true" [(ngModel)]=test.totalAmt >
         <label>Amount</label>
       </div>
 
       <div class="user-box-small"  >
-        <input  type="text" [(ngModel)]=test.chtype >
+        <input  type="text" disabled="true" [(ngModel)]=test.chtype >
       </div>
       
       <button type="button" style="width:6vw;" class="btn btn-info" (click)="addItem()">Add</button>
@@ -234,17 +234,17 @@
         <label>Paid Amount</label>
       </div>
 
-      <div class="user-box"  >
+      <div style="margin-left: 1vw;" class="user-box"  >
         <input  type="text" [(ngModel)]=Students.balamt >
         <label>Balance Amount</label>
       </div>
 
-      <div class="user-box"  >
+      <div style="margin-left: 1vw;" class="user-box"  >
         <input  type="text" [(ngModel)]=Students.grandTotal (keyup)="getNetAmount()"  >
         <label>Total Amount</label>
       </div>
 
-      <div class="user-box-small"  >
+      <div style="margin-left: 1vw;" class="user-box-small"  >
         <input  type="text" [(ngModel)]=Students.disper (keyup)="getdisper()"  >
         <label>Discount %</label>
       </div>
@@ -252,6 +252,14 @@
         <input  type="text"  [(ngModel)]=Students.discountAmt (change)="getNetAmount()" (keyup)="getdiscAmount()"  >
         <label>Discount</label>
       </div>
+
+      <div class="user-box"  >
+        <input  type="text" [(ngModel)]=Students.billamt >
+        <label>Net Amount</label>
+      </div>
+
+    </div>
+    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
 
       <div class="user-box-small"  >
         <select [(ngModel)]=Students.discountby onchange=" this.dataset.chosen = this.value; " >
@@ -262,19 +270,12 @@
         <label>Discount by</label>
       </div>
 
-      <div class="user-box"  >
+      <div  class="user-box"  >
         <input  type="text"  [(ngModel)]=Students.disresion >
       </div>
 
-    </div>
-    <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
-
-      <div class="user-box"  >
-        <input  type="text" [(ngModel)]=Students.billamt >
-        <label>Net Amount</label>
-      </div>
-
-      <div class="user-box"  >
+      
+      <div style="margin-left: 1vw;" class="user-box"  >
         <select [(ngModel)]=Students.paymode onchange=" this.dataset.chosen = this.value; " >
           <option value="" disabled selected>Select</option>
           <option *ngFor="let group of group">
@@ -284,12 +285,12 @@
         <label>Paymode</label>
       </div>
 
-      <div class="user-box"  >
+      <div style="margin-left: 1vw;" class="user-box"  >
         <input  type="text" [(ngModel)]=Students.narration >
         <label>Narration</label>
       </div>
 
-      <button style="width: 6vw;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+      <button style="width: 6vw;margin-left: 12vw;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
 
     </div>
   </div>

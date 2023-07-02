@@ -1,0 +1,49 @@
+<div >
+<h2 >Department Master</h2>
+<form [formGroup]="addForm" novalidate class="form" id="form">
+        <div class ="row">
+                <div class ="col">
+                        <!-- <input  style="width:200px; height:40px ;" type="text" class="form-control" *ngIf="showMeedit"  value="0" class ="item" readonly="true" formControlName="dep_id" > -->
+                        <div class="input-group">
+                        <span class="input-group-addon">Type</span>
+                        <input  style="width:215px;" type="text" class="form-control" formControlName="labtype" >
+                        </div>
+                </div>
+                <div class="col">
+                        <div class="input-group">
+                        <span class="input-group-addon">Department</span>
+                        <select style="width:170px;" type="text" class="form-control"  formControlName="depnam" >
+                        <option value="Pathology">Pathology</option>
+                        <option value="Radiology">Radiology</option>
+                        </select>
+                        </div>
+                </div>
+                </div>  
+                <button style="font-size: small; right:10vw;margin-top:1vw ; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
+                <button style="font-size: small; right:10vw; margin-top:1vw ; " type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+        <!-- CSS only -->
+        <table class="table" style="margin-top: 3vh;" >
+                <thead >
+                
+                    <th >Department ID</th>
+                    <th >Department Type</th>
+                    <th >Department Name</th>
+                    <th >Action</th>
+
+                </thead>
+                <tbody>
+                            <tr *ngFor="let students of department">
+                              <td>{{students.depid}}</td>
+                              <td>{{students.labtype}}</td>
+                              <td>{{students.depnam}}</td>
+                              <div class="btn-group" role="group" >
+                              <button class="btn"><i class="fa fa-edit" (click)="editer(students)" (click)="tooletageedit()" ></i>  </button>
+                              <button class="btn"><i class="fa fa-trash" (click)="deleter(students)"></i>  </button>
+                            </div>
+                            </tr>
+                </tbody>
+                </table>
+        </form>
+       
+</div>
+    

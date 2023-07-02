@@ -1,0 +1,116 @@
+<!-- CSS only -->
+<div style="padding:1vw;">
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="newbooking()" *ngIf="shownewbooking">New Booking</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPage()" *ngIf="Receiptsbooking">Receipts</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPageb()" *ngIf="Billingbooking">Billing</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialog()" *ngIf="Refundbooking">Refund</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="testdetails()" >Details</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="dreports()" *ngIf="DeleteReport">Delete Report</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialogpay()" *ngIf="paymode">Paymode</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialogdoctor()" *ngIf="doctor">Refby Change</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialogoutsource()" *ngIf="otherlab">Move OS</button>
+  <button style="margin-right: 1%;" class="btn btn-info btn-rounded" (click)="dreports()" *ngIf="DeleteReport">Dispatch</button>
+  <br/> <br/> 
+<div class ="row">
+  <div class ="col-sm-2">  
+<div class="input-group">
+  <select style=" font-size:small; width:90px ;height:30px ;"[(ngModel)]=Choice>
+    <option value="ALL">ALL</option>
+    <option value="Name">Name</option>
+    <option value="Age">Age</option>
+    <option value="Gender">Gender</option>
+    <option value="Phone">Phone</option>
+    <option value="Consultant">Consultant</option>
+    <option value="OutsideLab">OutsideLab</option>
+    <option value="UHID">UHID</option>
+    <option value="Not Print">Not Print</option>
+    <option value="Delete">Delete</option>
+  </select>
+</div>
+  </div>
+  <div class ="col-sm-3">  
+    <div class="input-group">
+  <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+  <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
+    </div>
+  </div>
+  <div class ="col-sm-6">  
+    <div class="input-group">
+  <button  style="font-size:small; margin-left:10px ; " class="btn btn-success" (click)="searchquery()">Search</button>
+  <input  style="font-size:small; width:250px; height:30px ; " type="Text" class="form-control rounded" [(ngModel)]=search  />
+</div>
+  </div>
+</div>
+<br/>
+<table class="table" id="table">
+    <thead style="text-align: center ; ">
+        <th></th>
+        <th style="width:50px;">SNo</th>
+        <th style="width:40px;">RID</th>
+        <th style="width:50px;">UHID</th>
+        <th style="width:50px;">Date</th>
+        <th style="width:70px;">Time</th>
+        <th style="width:30px;">Title</th>
+        <th style="width:120px;">Patient</th>
+        <th style="width:30px;">Age</th>
+        <th style="width:50px;">Years</th>
+        <th style="width:50px;">Gender</th>
+        <th style="width:90px;">Ref by</th>
+        <th style="width:70px;">Bill Amt</th>
+        <th style="width:70px;">Disc Amt</th>
+        <th style="width:70px;">Refund</th>
+        <th style="width:70px;">Net Amt</th>
+        <th style="width:70px;">Pmode</th>
+        <th style="width:70px;">Lab ID</th>
+        <th style="width:70px;">Print Y/N</th>
+        <th style="width:70px;">Report</th>
+        <th style="width:70px;">Action</th>
+
+    </thead>
+    <tbody style="text-align: center ; ">
+      <tr *ngFor="let students of Students let i=index" >
+        <td><input name="options" ng-control="options" type="radio" [value]="students" [(ngModel)]=selected  ></td>
+        <td>{{i + 1}}</td>
+        <td>{{students.vchrNo}}</td>
+        <td>{{students.uhID}}</td>
+        <td style="width:110px ;">{{students.vchrDate}}</td>
+        <td>{{students.vchrTime}}</td>
+        <td>{{students.pntn}}</td>
+        <td>{{students.PntName}}</td>
+        <td>{{students.pntage}}</td>
+        <td>{{students.pntyears}}</td>
+        <td>{{students.pntsex}}</td>
+        <td style="width:110px ;">{{students.condoctor}}</td>
+        <td>{{students.grandTotal}}</td>
+        <td>{{students.discountAmt}}</td>
+        <td>{{students.refund}}</td>
+        <td>{{students.recamt}}</td>
+        <td>{{students.paymode}}</td>
+        <td>{{students.labto}}</td>
+        <td>{{students.prnyes}}</td>
+       
+        <td *ngIf="reportbooking"> <a><button style="width:50px;font-size: small;padding-left:10%; " class="btn btn-primary btn-rounded" (click)="result(students.vchrNo)" >Result</button></a></td>
+
+        <div class="btn-group" role="group" >
+          <td *ngIf="editbooking"> <a><button class="btn"><i class="fa fa-edit" type="button" (click)="onEdit(students)"  ></i> </button></a> </td>
+          <td *ngIf="deletebooking"> <a><button class="btn"><i class="fa fa-trash" type="button" (click)="delete(students)"  ></i> </button> </a> </td>
+          </div>
+      </tr>
+    </tbody>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td style="text-align: center ; ">TOTAL</td>
+    <td style="text-align: center ; ">{{totalgamt}}  </td>
+    <td style="text-align: center ; ">{{totaldamt}}  </td>
+    <td style="text-align: center ; ">{{totalramt}}  </td>
+    <td style="text-align: center ; ">{{totalnamt}}  </td>
+  </table>

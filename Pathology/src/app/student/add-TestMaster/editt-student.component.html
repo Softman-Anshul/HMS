@@ -1,0 +1,40 @@
+<div >
+  <h2 class="card-title">Test Master</h2>
+  <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+  <!-- <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Department Master</h2>
+      <p class="card-text">You can Use Department like Pathology,Xray,USG...etc</p>
+      <button class="btn btn-primary" (click)="onSubmitd()" *ngIf="ShowDepartment">NEW</button>
+    </div>
+  </div> -->
+  <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Group Master</h2>
+      <p class="card-text">Create Profile/Haematology,Biochemistry etc.  </p>
+      <button class="btn btn-primary" (click)="onSubmitg()" *ngIf="ShowGroup">NEW</button>
+    </div>
+  </div>    
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">Outside Lab Master</h2>
+      <p class="card-text">Create New Outside Lab </p>
+      <button class="btn btn-primary" (click)="onSubmitLAB()" *ngIf="ShowOutsideLab">NEW</button>
+    </div>
+  </div>
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+    <div class="cardbody">
+      <h2 class="card-title">City Master</h2>
+      <p class="card-text">Your can create New City and use in time of booking </p>
+      <button class="btn btn-primary" (click)="onSubmitCity()" *ngIf="ShowCity">NEW</button>
+    </div>
+  </div>
+        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+                <div class="cardbody">
+                  <h2 class="card-title">Test Master</h2>
+                  <p class="card-text">Create New Test</p>
+                  <button class="btn btn-primary" (click)="onSubmittest()" *ngIf="ShowTest">NEW</button>
+                </div>
+        </div>
+</div>
+</div>

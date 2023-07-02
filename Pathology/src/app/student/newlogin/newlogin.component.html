@@ -1,0 +1,67 @@
+<div >
+    <h2 >Add New User</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+            <div class="row">
+                <div class = "col">
+                        <div class="input-group">
+                                <span class="input-group-addon">User ID</span>
+                        <input style="width:110px ;" class="form-control" type="text" maxlength="5" formControlName="stuserid" >
+                       
+                        </div>
+                </div>
+                <div class = "col">
+                        <div class="input-group">
+                                <span class="input-group-addon">User Name</span>
+                        <input style="width:110px ;" class="form-control" type="text" maxlength="20" formControlName="stusername" >
+                        </div>
+                </div>
+
+                <div class = "col">
+                        <div class="input-group">
+                                <span class="input-group-addon" >Password</span>
+                                    <input style="width:120px ;" class="form-control" maxlength="10" type="password" formControlName="stpassword" >
+                                    <div class="form-check form-check-inline">
+                                    <input style="margin-left: 2px;" mdbCheckbox class="form-check-input" type="checkbox" value="option1" />
+                                    <label class="form-check-label" >Show Password</label>
+                                    </div>
+                        </div>
+                </div>
+                <div class = "col">
+                        <div class="input-group">
+                                <span class="input-group-addon">Department</span>
+                                <select style="width:95px ;" class="form-control" formControlName="department" >
+                                        <option value="Pathology">Pathology</option>
+                                        <option value="Radiology">Radiology</option>
+                                      </select>
+                        </div>
+                </div>
+        </div>
+            <button style="margin-top:1vw ;" type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()" >SAVE</button>
+            <button style="margin-top:1vw ;" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()">EDIT</button>
+            <br><br>
+
+    <!-- CSS only -->
+            <table class="table" >
+                <thead >
+                
+                    <th style="align-items: center;">User ID</th>
+                    <th>User Name</th>
+                    <th>Department</th>
+                    <th >Action</th>
+            </thead>
+                    <tbody style="text-align: center ; ">
+                            <tr *ngFor="let User of login1">
+                              <td>{{User.stuserid}}</td>
+                              <td>{{User.stusername}}</td>
+                              <td>{{User.department}}</td>
+
+                              <div class="btn-group" role="group" >
+                              <td *ngIf="edit"><button class="btn"><i class="fa fa-edit" (click)="editer(User)"  ></i> </button></td>
+                              <td *ngIf="delete"><button class="btn"><i class="fa fa-trash" (click)="deleter(User)" ></i> </button></td>
+                              </div>
+                            </tr>
+                          </tbody>
+                </table>
+    </form>
+    </div>
+    

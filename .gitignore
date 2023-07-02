@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 HOSPITAL/node_modules/
+Pathology/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files

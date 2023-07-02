@@ -1,0 +1,26 @@
+<div >
+    <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" >Hospital Key Update</a>
+            </div>
+          </nav>
+        <form class="form">
+                <div class="row" class="col-12 " >
+                    <label style="font-size:medium; margin-left:15px;">Valid Date >>  {{vdate | date:'dd-MM-yyyy'}}</label>
+                    <br><br>
+                    <div [formGroup] = "loginForm">
+                        <label style="font-size:medium; margin-left:15px;">Password</label>
+                        <input style="font-size:small; margin-left:15px; width:50px ;" type="password" formControlName="password"  >
+                        <button style="font-size:small; margin-left:5px;" class="btn btn-success" (click)="tooletageedit(this.loginForm.get('password')?.value)">Show</button>
+
+                    </div>
+                    <br><br>
+               <div >
+                <input style="font-size:small; margin-left:15px; width:450px ;" *ngIf="showMesave"  [(ngModel)]="company.Comp_key" name="Comp_key">
+                <br><br><br>
+                <button style="font-size:small; margin-left:95px;" class="btn btn-success" *ngIf="showMesave"  (click)="onSubmit()">SAVE</button>
+                <br><br><br>
+         
+        </div>
+        </div>
+        </form> 

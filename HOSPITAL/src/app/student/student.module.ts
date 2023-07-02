@@ -153,6 +153,7 @@ import { MasterTestComponent } from './master-test/master-test.component';
     FILEGenConsentFormComponent,
     MasterTestGroupComponent,
     MasterTestComponent,
+    
 
   ],
   imports: [

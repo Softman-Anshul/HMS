@@ -1,0 +1,89 @@
+<body>
+<div class="row" style="margin-top:5vw ;">
+  <div class="row no-gutters items-group" style="width:750px; " >
+    <div class="col">
+            <label style="font-size:medium; " for="pntn">Patient Name</label>
+            <input style="font-size:small; margin-left:8px; border:0; width:30px ; "  type="pntn" readonly="true" [(ngModel)]=Students.pntn >
+            <input style="font-size:small; border:0; width:150px ; " type="PntName" readonly="true" [(ngModel)]=Students.PntName >
+
+            <label style="font-size:medium; margin-left:170px;" for="uhID">Patient UHID</label>
+            <input style="font-size:small; margin-left:60px;border:0; width:90px ;  " type="uhID" readonly="true" [(ngModel)]=Students.uhID>
+            <br>
+            <label style="font-size:medium;" for="pntage">Age /Gender</label>
+            <input style="font-size:small; margin-left:15px; border:0; width:20px ;" type="pntage" readonly="true" [(ngModel)]=Students.pntage >
+            <input style="font-size:small; margin-left:5px; border:0; width:50px ; " type="pntsex" readonly="true" [(ngModel)]=Students.pntsex>
+            <input style="font-size:small; margin-left:5px; border:0; width:50px ; " type="pntyears" readonly="true" [(ngModel)]=Students.pntyears>
+            <label style="font-size:medium; margin-left:220px;" type="vchrNo"  >Test Registration No</label>
+            <input style="font-size:small; margin-left:10px; border:0; width:90px ; " readonly="true" [(ngModel)]=Students.vchrNo type="vchrNo"  >
+
+            <br>
+            <label style="font-size:medium;" for="pntg">S/o,W/o,C/o</label>
+            <input style="font-size:small; margin-left:15px; border:0; width:42px ;  " type="pntg" readonly="true" [(ngModel)]=Students.pntg >
+            <input style="font-size:small; margin-left:5px; border:0; width:150px ; " type="Pntgname" readonly="true" [(ngModel)]=Students.Pntgname>
+            <label style="font-size:medium; margin-left:140px;" for="vchrDate">Test Registration Date</label>
+            <input style="font-size:small; margin-left:5px; border:0; width:90px ; " readonly="true" [(ngModel)]=Students.vchrDate  type="Date"  >
+
+            <br>
+            <label style="font-size:medium; " for="pntmobile">Mobile</label>
+            <input style="font-size:small; margin-left:55px;border:0; width:215px ; " type="pntmobile" readonly="true" [(ngModel)]=Students.pntmobile>
+            <label style="font-size:medium; margin-left:140px;" for="vchrDate">Test Print Date</label>
+            <input style="font-size:small; margin-left:60px; border:0; width:90px ;" readonly="true" [(ngModel)]=Students.vchrDate  type="Date"  >
+
+             <br>
+            <label style="font-size:medium; " for="condoctor">Refby</label>
+            <input style="font-size:small; margin-left:65px; border:0; width:215px ; " type="condoctor" readonly="true" [(ngModel)]=Students.condoctor>
+            <label style="font-size:medium; margin-left:140px;" for="Labid">Lab Register ID</label>
+            <input style="font-size:small; margin-left:55px;border:0; width:90px ; " type="labid" [(ngModel)]=Students.labid >
+
+            <br><br>
+          </div>
+</div>
+            <div class="row no-gutters items-group" style="width:750px; height:80% ;" >
+        <table class="table table-stripped; " >
+            <thead>
+            <th class="signature-field" >INVESTIGATIONS</th>
+            <th  class="signature-field" >OBSERVED VALUE</th>
+            <th class="signature-field" >UNIT</th>
+            <th class="signature-field" >REFERENCE RANGE</th>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let grp of this.groups;">
+            <tr >
+              <td></td>
+              <td style="padding-left: 20px;font-weight: bold;">{{grp.group_name}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <ng-container *ngFor="let report of this.testreport; let i = index" >
+              <ng-container *ngIf="report.testgroup == grp.group_name && report.labid == 0">
+                <tr [attr.data-index]="i" [ngStyle]="{'font-weight': this.testreport[i].Heading == 'MH' ? '500' : (this.testreport[i].Heading == 'SH' && this.testreport[i].subgroup.toLowerCase() == 'yes') ? '400' : 'normal' }">
+              <td [ngStyle]="{'padding-left': this.testreport[i].Heading == 'SH' ? '30px' : this.testreport[i].Heading == 'EH' ? '60px' : '0.5rem'}">{{report.testname}}</td>
+              <ng-container *ngIf="report.Ipet != 'Y';">
+                  <td>{{report.value}}</td>
+                  <td>{{report.subunit}}</td>
+                  <td>{{report.normalvalue}}</td>
+              </ng-container>        
+              <ng-container *ngIf="report.Ipet == 'Y';">
+                <td [attr.colspan]="3"><div id="editor"><angular-editor [config]="config" id="{{report.TestsubName}}1" [placeholder]="''" [(ngModel)]="report.interpet" ></angular-editor></div></td>
+              </ng-container>        
+            </tr>
+            <tr *ngIf="report.comt == 'Y'">
+              <td  [attr.colspan]="4"><div id="editor"><angular-editor [config]="config" id="{{report.TestsubName}}2" [placeholder]="''" [(ngModel)]="report.comments"></angular-editor></div></td>
+            </tr>
+          </ng-container>
+            
+          </ng-container>
+          </ng-container>
+            
+      </tbody>
+      </table>
+            <br>
+            <div class="disclaimer signature-field">
+            </div>
+            <p style="padding-left:290px ;">---------- End of Report ----------</p>
+            <br><br>
+            <br>
+            <br>
+</div>
+</div>
+</body>

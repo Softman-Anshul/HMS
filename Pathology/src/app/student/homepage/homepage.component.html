@@ -1,0 +1,51 @@
+<div class="container-fluid" id="back"  *ngIf="!isMobile" >
+    <div class="row hdr-row">     
+      <div id="topBar">
+        <div class="col-10" style="display: flex;">
+          <img src="./../../../assets/Pinkpathlogo.jpg" style="border-radius:9%; margin-left:15px ; width:15vw; height: 8vh;">
+          <h2 class="hdr-text" style="color:rgb(189, 222, 224); margin-left: 5vw;">{{company}}</h2>
+          <mat-icon  style="font-size:250%; margin-left:15vw; color:rgb(189, 222, 224); width:50px; height:50px ; " fontIcon="exit_to_app" (click)="logout()"></mat-icon>
+
+       </div>
+        <div class="col-1">
+          <mat-icon  style="font-size:250%; color:rgb(189, 222, 224); width:90px; height:50px ; " fontIcon="home" (click)="onsumit()"></mat-icon>
+        </div>
+        <div class="col">
+          <img src="./../../../assets/softman.jpg" style="border-radius:9%; margin-left:5px ; width:6vw; height: 10vh;">
+
+        </div>
+      </div>
+    </div>
+    <div class="row hdr-row" style="min-height: 85vh; width: 100vw;">     
+        <div class="row" style="display: flex;">
+        <div class="sidebar">
+          <div class="bg-white">
+            <app-leftsidebar></app-leftsidebar>
+          </div>
+        </div>
+        <div id="main" *ngIf="!isMobile" style="padding: 3vw;padding-bottom: 0;">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+</div>
+<div id="mainMob" id="back" *ngIf="isMobile">
+  <mat-toolbar class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">{{company}}</h1>
+  </mat-toolbar>
+    <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav [mode]="'over'"
+                 [fixedInViewport]="true" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="sidebar.url" (click)="snav.toggle()" *ngFor="let sidebar of SideBars">{{sidebar.sidebartext}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+<div id="mainBody">
+  <router-outlet></router-outlet>
+</div>
+</div>

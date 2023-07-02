@@ -11,9 +11,7 @@ import { TestPmodechangeComponent } from '../test-pmodechange/test-pmodechange.c
 import { TestDueRecivedComponent } from '../test-due-recived/test-due-recived.component';
 
 
-export interface DialogData {
-  Vno: string;
-}
+export interface DialogData {Vno: string;}
 
 @Component({
   selector: 'app-list-student',
