@@ -143,6 +143,8 @@ searchquery(){
     this.OPD1.dctrPrscrptn = "NA";
     this.OPD1.isOldPnt = "N"
     this.OPD1.dcmntType = 'OPD';
+    this.OPD1.PntType = "General";
+    this.OPD1.paymode = "CASH";
 
        //call maxvchrno
 this._studentservice.opdgetmaxvchrno()

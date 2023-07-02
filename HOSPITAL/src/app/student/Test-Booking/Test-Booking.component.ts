@@ -119,11 +119,12 @@ export class NewBookingComponent implements OnInit {
      .subscribe((data:any) => {
       this.Students.uhID = data;
       });
-  //call todays Sno
-  this._studentservice.getmaxtodayssno(this.Students.vchrDate)
-  .subscribe((data:any) => {
-   this.Students.Sno = data;
-   });
+  
+      //call todays Sno
+    this._studentservice.getmaxtodayssno(this.Students.vchrDate)
+      .subscribe((data:any) => {
+      this.Students.Sno = data;
+    });
 
 
      //call date 
@@ -218,7 +219,7 @@ export class NewBookingComponent implements OnInit {
       this.Students = data[0]
 
      this._studentservice.getbookingdetails(routerParams["id"],routerParams["dt"])
-     .subscribe((data:any) => {
+     .subscribe((data:Test[]) => {
       this.Students.tests = data
      })
 
@@ -314,7 +315,7 @@ export class NewBookingComponent implements OnInit {
   }
   public addItem(): void{
   this.Students.tests.push(this.test)
-  this.Students.grandTotal = (this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
+  this.Students.grandTotal = (+this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
   this.Students.balamt = 0;
   this.test.itmName = this.testmaster[this.index].chrgsName
   this.getNetAmount()
