@@ -68,6 +68,8 @@
               <button class="btn btn-primary btn-rounded" (click)="admitpatient(students.dcmntNo,students.opdDate)" >Admit</button>
             <!-- <td *ngIf = "editregistration"> <a><button  class="btn"><i class="fa fa-edit" type="button"(click)="onEdit(students.uhID,students.opdDate)"></i> </button></a></td> -->
             <td *ngIf = "delregistration"><a><button class="btn"><i class="fa fa-trash" type="button" (click)="delete(students)"  ></i> </button></a></td>
+            <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students)"></i> </button></a></td>
+
             <!-- <button class="btn btn-primary btn-rounded" (click)="EMR(students.dcmntNo,students.opdDate)" >OPD</button> -->
             </div>
           </tr>

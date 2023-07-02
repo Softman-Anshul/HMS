@@ -102,7 +102,7 @@ export class IpdRegEditComponent implements OnInit {
       this.OPD1.dcmntType = "IPD";
       this.OPD1.dctrVisited = data[0].dctrVisited;
       this.OPD1.caseType = data[0].caseType;
-
+      this.selectdepartment();
      });
      
 
@@ -195,8 +195,15 @@ populate(){
     return true
   }
   
-  selectdepartment(){}
+  selectdepartment(){
+       //call Consultant
+   this._studentservice.getopdconsultant(this.OPD1.caseType)
+   .subscribe((data:any) => {
+   this.consulant = data;
+   
+  });
 
-  consultantChange(event:any){}
+  }
+
 }
 

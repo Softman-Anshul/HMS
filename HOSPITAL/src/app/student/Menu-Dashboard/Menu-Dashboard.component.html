@@ -1,100 +1,38 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col">
+                <p style="font-size: 18px;">Dashboard</p>
+            </div>
+            <div class="user-box col-2"  >
+                <input type="date" name="" required="" [(ngModel)]="from" (change)="getOpdDetails()">
+                <label>From</label>
+              </div>
+              <div class="user-box col-2"  >
+                <input type="date" name="" required="" [(ngModel)]="to" (change)="getOpdDetails()">
+                <label>To</label>
+              </div>
+        </div>
 
-<div >
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" >DASHBOARD</a>
-        </div>
-      </nav>
-<div class="container">
-    <div class="row my-3">
-        <div class="col-md-4">
-            <div  class="card text-center h-100 card-info">
-                <div class="card-block">
-                    <h2 class="card-title">TODAY's OPD STATUS</h2>
-                    <h2><i class="fa fa-stethoscope fa-3x"></i></h2>
-                </div>
-                <div class="row p-2 no-gutters rounded">
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-left-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; ">{{this.opdcount}}</h3>
-                            <span style="color:black; font-size:x-large; " class="small text-uppercase">Count</span>
-                        </div>
-                    </div>
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; ">Rs. {{this.opdtotal}}</h3>
-                            <span style="color:black; font-size:x-large; " class="small text-uppercase">Income</span>
-                        </div>
-                    </div>
+        <div class="row" style="margin-top: 2vh;">
+            <div class="col">
+                <div>
+                    <canvas baseChart class="chart" [data]="countBarChartData" [options]="barChartOptions"
+                        [type]="barChartType" height="80vh">
+                    </canvas>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-center h-100 card-info">
-                <div class="card-block">
-                    <h2 class="card-title">TODAY's IPD STATUS</h2>
-                    <h2><i class="fa fa-stethoscope fa-3x"></i></h2>
-                </div>
-                <div class="row p-2 no-gutters rounded">
-                    <div class="col-6 rounded" >
-                        <div class="card card-block text-info rounded-0 border-left-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; ">{{this.ipdcounta}}</h3>
-                            <span style="color:black; font-size:x-large; " class="small text-uppercase">Admit</span>
-                        </div>
-                    </div>
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; ">{{this.ipdcountd}}</h3>
-                            <span style="color:black; font-size:x-large; " class="small text-uppercase">Discharge</span>
-                        </div>
-                    </div>
+
+        <div class="row" style="margin-top: 5vh;">
+            <div class="col">
+                <div>
+                    <canvas baseChart class="chart" [data]="incomeBarChartData" [options]="barChartOptions"
+                        [type]="barChartType" height="80vh">
+                    </canvas>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-center h-100 card-info">
-                <div class="card-block">
-                    <h2 class="card-title" >TODAY's TEST STATUS</h2>
-                    <h2><i class="fa fa-flask fa-3x"></i></h2>
-                </div>
-                <div class="row p-2 no-gutters rounded">
-                    <div class="col-6 rounded">
-                        <div  class="card card-block text-info rounded-0 border-left-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; "  >{{this.testcount}}</h3>
-                            <span class="small text-uppercase" style="color:black; font-size:x-large; ">Count</span>
-                        </div>
-                    </div>
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3 style="color:black; font-size:large; ">Rs. {{this.testtotal}}</h3>
-                            <span class="small text-uppercase" style="color:black; font-size:x-large; ">Income</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--<div class="col-md-4">
-            <div class="card text-center h-100 card-info">
-                <div class="card-block">
-                    <h2 class="card-title">TODAY's IPD STATUS</h2>
-                    <h2><i class="fa fa-bed fa-3x"></i></h2>
-                </div>
-                 <div class="row p-2 no-gutters rounded">
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-left-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3>35</h3>
-                            <span class="small text-uppercase">Admit Patient</span>
-                        </div>
-                    </div>
-                    <div class="col-6 rounded">
-                        <div class="card card-block text-info rounded-0 border-right-0 border-top-0 border-bottom-0">
-                            <h3>10</h3>
-                            <span class="small text-uppercase">Discharge</span>
-                        </div>
-                    </div> 
-                </div> 
-            </div>
-        </div>-->
+
     </div>
-</div>
 </div>

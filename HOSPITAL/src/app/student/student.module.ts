@@ -79,6 +79,8 @@ import { FILEAdmittricketComponent } from './file-admittricket/file-admittricket
 import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-consent-form.component';
 import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
 import { MasterTestComponent } from './master-test/master-test.component';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -153,7 +155,6 @@ import { MasterTestComponent } from './master-test/master-test.component';
     FILEGenConsentFormComponent,
     MasterTestGroupComponent,
     MasterTestComponent,
-    
 
   ],
   imports: [
@@ -165,7 +166,11 @@ import { MasterTestComponent } from './master-test/master-test.component';
     MatDialogModule,
     MatIconModule,
     NgxEditorModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    NgChartsModule,
   ],
+  providers: [
+    { provide: NgChartsConfiguration, useValue: { generateColors: false }}
+  ]
 })
 export class StudentModule { }

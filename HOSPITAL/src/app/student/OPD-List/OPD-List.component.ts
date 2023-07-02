@@ -122,7 +122,7 @@ totalrecamt=0;
     {
     var result = confirm("Want to delete?");
      if (result==true) {
-    this._studentservice.deleteopd(students.dcmntNo,students.opdDate)
+    this._studentservice.deleteopd(students.dcmntNo,students.opdDate,students.dcmntType)
     .subscribe(data => {
       this.OPD = this.OPD.filter(u => u !== students); 
         }) 
@@ -138,9 +138,10 @@ totalrecamt=0;
     {
       var result = confirm("Want to delete?");
      if (result==true) {
-    this._studentservice.deleteopd(students.dcmntNo,students.opdDate)
+    this._studentservice.deleteopd(students.dcmntNo,students.opdDate,students.dcmntType)
     .subscribe(data => {
       this.OPD = this.OPD.filter(u => u !== students); 
+      window.location.reload();
         }) 
         }
     }
@@ -311,4 +312,14 @@ Medicalcerficate(){
   dialogRef.afterClosed().subscribe(result => {
   });
 }
+
+edit(students : OPD) {
+  console.log(students)
+  let id = students.dcmntNo;
+  let dt = students.opdDate;
+  let type = students.dcmntType;
+  let ty =  "edit";
+  this.router.navigate(['/homepage/opdreg/' , {id: id, dt: dt,ty:ty,type:type}]);
+} 
+
 }

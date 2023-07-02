@@ -22,6 +22,7 @@ import { IPDDisccertificateComponent } from '../ipd-disccertificate/ipd-disccert
   templateUrl: './ipd-admitlist.component.html',
   styleUrls: ['./ipd-admitlist.component.css']
 })
+
 export class IPDADMITLISTComponent implements OnInit {
   Choice="ALL";
   declare vrdt1:string;

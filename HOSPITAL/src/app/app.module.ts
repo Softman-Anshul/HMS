@@ -66,6 +66,7 @@ import { IPDDischargeCardTemplateComponent } from './student/ipd-discharge-card-
 import { MenuAccountComponent } from './student/menu-account/menu-account.component';
 import { IPDDisccertificateComponent } from './student/ipd-disccertificate/ipd-disccertificate.component';
 import { PatholgoyreportComponent } from './student/patholgoyreport/patholgoyreport.component';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -139,7 +140,7 @@ import { PatholgoyreportComponent } from './student/patholgoyreport/patholgoyrep
    StudentModule,
    BrowserAnimationsModule,
    FormsModule,
-   
+   NgChartsModule
    
     ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],

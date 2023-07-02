@@ -1,21 +1,21 @@
 <div class="container-fluid" id="back"  *ngIf="!isMobile" >
     <div class="row hdr-row">     
-        <div class="col-1" style="margin-left: 60px; display: flex;">
-          <img src="./../../../assets/softman.jpg" style="margin-left:2px ; width:8vw; border-radius: 5px 5px 5px 5px; height: 12vh;"> 
+       <div class="col-8">
+        <img src="./../../../assets/banner.png" style="margin-left:1vw; margin-top: 1vh; border-radius: 5px 5px 5px 5px; height: 14vh; width: 100%;">
        </div>
-       <div class="col-7">
-        <h2 class="hdr-text" style="color:rgb(3, 94, 140) !important;  margin-left: 6vw;">{{company}}</h2>
-       </div>
+       <div class="col-1" style="display: flex; padding-right: 0;">
+        <img src="./../../../assets/softman.jpg" style="margin-left:2px ; margin-top: 1vh; width:8vw; border-radius: 5px 5px 5px 5px; height: 12vh;"> 
+     </div>
 
-        <div class="col-2">
-          <img src="./../../../assets/silversoft.jpg" style="margin-left:10px ; width:14vw; border-radius: 5px 5px 5px 5px; height: 10vh;">
+        <div class="col-2" style="padding: 0;">
+          <img src="./../../../assets/silversoft.jpg" style="margin-left:0px ; margin-top: 1vh; width:14vw; border-radius: 5px 5px 5px 5px; height: 10vh;">
           <h4 style="margin-left:18px ;"> User - {{uname}}  F.Y. - {{Years}} </h4>
         </div>
 
-        <div class="col">
-          <div class="row">
-            <mat-icon [inline]="true" style="padding-left:0;height:10vh;padding-top: 3vh; font-size:7vh;color:rgb(3, 94, 140) !important; width:60px; " fontIcon="home" (click)="onsumit()"></mat-icon>
-            <mat-icon [inline]="true" style="padding-left:0;height:10vh;padding-top: 3vh; font-size:7vh;color:rgb(3, 94, 140) !important; width:60px; " fontIcon="exit_to_app" (click)="logout()"></mat-icon>
+        <div class="col-1">
+          <div class="row" style="height: 100%; margin: 0;padding: 0;">
+            <mat-icon style="padding-left:0vw;height:8vh;padding-top: 3vh; font-size:4vh;color:rgb(3, 94, 140) !important; width:2vw; " fontIcon="home" (click)="onsumit()"></mat-icon>
+            <mat-icon style="padding-left:0;height:8vh;padding-top: 3vh; font-size:4vh;color:rgb(3, 94, 140) !important; width:2vw; " fontIcon="exit_to_app" (click)="logout()"></mat-icon>
             
             <!-- <div id="profileImage" class="dropdown" (click)="toggleProfile()">
               <p class="dropbtn unselectable">

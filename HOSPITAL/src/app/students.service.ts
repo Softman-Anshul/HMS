@@ -198,13 +198,13 @@ getopd(vrdt1:any)
    {
        return this.http.post(this.cdn + '/Hospital/pntinfo_update.php',OPD1,{responseType: 'text'});
    }
-   deleteopd(dcmntNo:string,opdDate:string)
+   deleteopd(dcmntNo:string,opdDate:string,type:string)
    {
-     return this.http.delete<group[]> (this.cdn + '/Hospital/pntinfo_delete.php?dcmntNo=' + dcmntNo + '&opdDate=' + opdDate);
+     return this.http.delete<group[]> (this.cdn + '/Hospital/pntinfo_delete.php?dcmntNo=' + dcmntNo + '&opdDate=' + opdDate + '&type=' + type);
    }
-   getopdreg(id:any,opdDate:any)
+   getopdreg(id:any,opdDate:any,type:any)
    {
-    return this.http.get<OPD> (this.cdn + '/Hospital/Getopdreg.php?id=' + id + '&opdDate=' + opdDate);
+    return this.http.get<OPD> (this.cdn + '/Hospital/Getopdreg.php?id=' + id + '&opdDate=' + opdDate + '&type=' + type);
    }
    getipdreg(id:any,opdDate:any)
    {
@@ -811,6 +811,26 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
   getAllTestGroups()
   {
     return this.http.get<testgroup[]> (this.cdn + '/Hospital/Group_list.php');
+  }
+
+  getOpdDetails(from:string,to:string)
+  {
+    return this.http.get<any> (this.cdn + '/Hospital/opdDashBoard.php?from=' + from + "&to=" + to);
+  }
+
+  getIpdDetails(from:string,to:string)
+  {
+    return this.http.get<any> (this.cdn + '/Hospital/ipdDashBoard.php?from=' + from + "&to=" + to);
+  }
+
+  getEmrDetails(from:string,to:string)
+  {
+    return this.http.get<any> (this.cdn + '/Hospital/emrDashBoard.php?from=' + from + "&to=" + to);
+  }
+
+  getTestsDetails(from:string,to:string)
+  {
+    return this.http.get<any> (this.cdn + '/Hospital/testDashBoard.php?from=' + from + "&to=" + to);
   }
 
 
