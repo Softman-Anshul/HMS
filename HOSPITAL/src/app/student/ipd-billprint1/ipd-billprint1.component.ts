@@ -86,4 +86,7 @@ export class IPDBillprint1Component implements OnInit {
   printComponent() {
     window.print();
   }
+  Ipdlist(){
+    this.Router.navigate(['homepage/ipdlist/']);
+  }
 }

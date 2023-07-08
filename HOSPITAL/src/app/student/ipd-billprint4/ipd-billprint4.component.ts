@@ -101,4 +101,7 @@ this._studentservice.getipdpaymentdetails(dcmntNo,uhID)
 printComponent() {
 window.print();
 }
+Ipdlist(){
+  this.Router.navigate(['homepage/ipdlist/']);
+}
 }

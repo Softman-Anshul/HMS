@@ -82,4 +82,7 @@ for(let i=0;i<this.heads.tests.length;i++){
 printComponent() {
 window.print();
 }
+Ipdlist(){
+  this.Router.navigate(['homepage/ipdlist/']);
+}
 }
