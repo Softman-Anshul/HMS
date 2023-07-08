@@ -152,6 +152,7 @@ constructor(private _studentservice:StudentsService,
   printPage() {
       this.router.navigate(['receipts/' + this.selected.vchrNo]);
   }
+  
   result(vchrNo:any):void{
     let id = vchrNo;
     this.router.navigate(['homepage/result/' + id]);

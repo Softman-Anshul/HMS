@@ -140,7 +140,6 @@
 
       <div class="user-box"  >
         <select [(ngModel)]=Students.pntcity onchange=" this.dataset.chosen = this.value; " >
-          <option value="" disabled selected>Select</option>
           <option *ngFor="let city of Cityname">
             {{city.citynam}}
           </option> 

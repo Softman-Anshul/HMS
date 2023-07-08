@@ -1,0 +1,89 @@
+<div class="row" >
+    <div class="col" >
+           <h2>Test Result</h2>
+            <label style="font-size:medium; margin-left:15px;" type="vchrNo"  >RegNo</label>
+            <input style="font-size:small; margin-left:5px; width:50px ; background-color:lightblue; " readonly="true" [(ngModel)]=Students.vchrNo type="vchrNo"  >
+            <label style="font-size:medium; margin-left:15px;" for="vchrDate">RegDate</label>
+            <input style="font-size:small; margin-left:5px; width:150px ; background-color:lightblue;" readonly="true" [(ngModel)]=Students.vchrDate  type="Date"  >
+            <br>
+            <label style="font-size:medium; margin-left:15px;" for="pntn">Title</label>
+            <input style="font-size:small; margin-left:22px; width:50px ; "  type="pntn" readonly="true" [(ngModel)]=Students.pntn >
+            <label style="font-size:medium; margin-left:15px;" for="PntName">Patient</label>
+            <input style="font-size:small; margin-left:15px; width:150px ; " type="PntName" readonly="true" [(ngModel)]=Students.PntName >
+            <label style="font-size:medium; margin-left:15px;" for="pntg">S/o,W/o,C/o</label>
+            <input style="font-size:small; margin-left:15px; width:40px ;  " type="pntg" readonly="true" [(ngModel)]=Students.pntg >
+            <input style="font-size:small; margin-left:15px; width:150px ; " type="Pntgname" readonly="true" [(ngModel)]=Students.Pntgname>
+            <label style="font-size:medium; margin-left:50px;" for="uhID">UHID</label>
+            <input style="font-size:small; margin-left:15px; width:70px ;  " type="uhID" readonly="true" [(ngModel)]=Students.uhID>
+            <label style="font-size:medium; margin-left:20px;" for="Labid">Labid</label>
+            <input style="font-size:small; margin-left:5px; width:70px ; " type="labid" [(ngModel)]=Students.labid >
+            <br>
+            <label style="font-size:medium; margin-left:15px;" for="pntage">Age</label>
+            <input style="font-size:small; margin-left:25px; width:50px ;" type="pntage" readonly="true" [(ngModel)]=Students.pntage >
+            <label style="font-size:medium; margin-left:15px;" for="pntsex">Gender</label>
+            <input style="font-size:small; margin-left:15px; width:50px ; " type="pntsex" readonly="true" [(ngModel)]=Students.pntsex>
+            <label style="font-size:medium; margin-left:5px;" for="pntyears">Years</label>
+            <input style="font-size:small; margin-left:5px; width:50px ; " type="pntyears" readonly="true" [(ngModel)]=Students.pntyears>
+            <label style="font-size:medium; margin-left:15px;" for="condoctor">Refby</label>
+            <input style="font-size:small; margin-left:65px; width:205px ; " type="condoctor" readonly="true" [(ngModel)]=Students.condoctor>
+            <label style="font-size:medium; margin-left:45px;" for="pntmobile">Mobile</label>
+            <input style="font-size:small; margin-left:5px; width:205px ; " type="pntmobile" readonly="true" [(ngModel)]=Students.pntmobile>
+
+            <br><br>
+            <table class="table table-stripped;" style="padding-bottom:0px ;">
+            <thead>
+            <th >TestCode</th>
+            <th >TestName</th>
+            <th >SubUnit</th>
+            <th >Normal Value</th>
+            <th >Male Value</th>
+            <th >Female Value</th>
+            <th >Test Result</th>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of this.testreport; let i = index" [attr.data-index]="i" [ngStyle]="{'background-color': this.testreport[i].Heading == 'MH' ? 'wheat' : (this.testreport[i].Heading == 'SH' && this.testreport[i].subgroup.toLowerCase() == 'yes') ? 'antiquewhite' : 'white' }">
+            <td>{{report.testcode}}</td>
+            <td>{{report.testname}}</td>
+            <td>{{report.subunit}}</td>
+            <td>{{report.normalvalue}}</td>
+            <td>{{report.male}}</td>
+            <td>{{report.female}}</td>
+            <td>
+              <div *ngIf="viewResult(report); then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock><input (ngModelChange)="validateValue(report,$event)"  [(ngModel)]=report.value style=" background-color: rgb(255, 255, 255); height: 22px; width:120px ; "></ng-template>
+              <ng-template #elseBlock>
+                <div *ngIf="report.Wordcode != ''; then dropDown "></div>
+                <ng-template #dropDown>
+                  <select style="width: 120px;" type="text"  [(ngModel)]=report.value>
+                      <option *ngFor="let test of labTestWord.get(report.Wordcode)" >
+                       {{test}}
+                      </option> 
+                  </select>              
+                </ng-template>
+              </ng-template>
+            </td>
+            <!-- <td *ngIf="report.Heading =='MH'">
+              <select style="width: 120px;" type="text" [(ngModel)]="report.labid" >
+                <option *ngFor="let lab of labname" value="{{lab.labid}}">
+                 {{lab.labname}}
+                </option> 
+                </select>
+            </td> -->
+            <td>
+              <div *ngIf="report.Ipet == 'Y'; then thenBlock1 else elseBlock1"></div>
+              <ng-template #thenBlock1><button (click)="this.openDialogI(i)">I</button></ng-template>
+              <ng-template #elseBlock1></ng-template>
+            </td>
+            <td>
+              <div *ngIf="report.comt == 'Y'; then thenBlock2 else elseBlock2"></div>
+              <ng-template #thenBlock2><button (click)="this.openDialogC(i)">C</button></ng-template>
+              <ng-template #elseBlock2></ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+            <br>
+            <button type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+</div>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpParams} from '@angular/common/http'; 
-import {billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, testmasterd, Ward} from './students';
+import {billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, Ward} from './students';
 import {Students} from './students';
 import {consulant } from './students';
 import {department } from './students';
@@ -323,7 +323,7 @@ gettable(vrdt1:any)
   }
   gettablevaluebyid(vchrNo:number,vchrDate:string)
   {
-//   return this.http.get<any> (this.cdn + '/Hospital/GetValue_byid.php?vchrNo=' + vchrNo + '&vchrDate=' + vchrDate);
+  return this.http.get<any> (this.cdn + '/Hospital/GetValue_byid.php?vchrNo=' + vchrNo + '&vchrDate=' + vchrDate);
   }
   gettablesearch(search:string,dt1:string,dt2:string,choice:string)
   {

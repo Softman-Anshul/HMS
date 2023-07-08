@@ -328,6 +328,7 @@ export class group {
     "payid":any;
     "paymode":string;
 }
+
 export class OPD {
     sno=0;
     dcmntType="";
@@ -498,6 +499,7 @@ export class testreport {
     RN=0;
     editorICount = 0;
     editorCCount = 0;
+    total= 0;
 }
 export class userpermission{
 unam="";

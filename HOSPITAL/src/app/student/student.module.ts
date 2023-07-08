@@ -80,6 +80,11 @@ import { FILEGenConsentFormComponent } from './file-gen-consent-form/file-gen-co
 import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
 import { MasterTestComponent } from './master-test/master-test.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { TestresultComponent } from './testresult/testresult.component';
+import { ResultcommentComponent } from './resultcomment/resultcomment.component';
+import { ResultinterpetComponent } from './resultinterpet/resultinterpet.component';
+import { TestreportComponent } from './testreport/testreport.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -155,6 +160,10 @@ import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
     FILEGenConsentFormComponent,
     MasterTestGroupComponent,
     MasterTestComponent,
+    TestresultComponent,
+    ResultcommentComponent,
+    ResultinterpetComponent,
+    TestreportComponent
 
   ],
   imports: [
@@ -168,6 +177,7 @@ import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
     NgxEditorModule,
     MaterialExampleModule,
     NgChartsModule,
+    AngularEditorModule,
   ],
   providers: [
     { provide: NgChartsConfiguration, useValue: { generateColors: false }}

@@ -103,6 +103,8 @@ import { IPDRegComponent } from './ipd-reg/ipd-reg.component';
 import { MasterTestGroupComponent } from './master-test-group/master-test-group.component';
 import { MasterTestComponent } from './master-test/master-test.component';
 import { PatholgoyreportComponent } from './patholgoyreport/patholgoyreport.component';
+import { TestresultComponent } from './testresult/testresult.component';
+import { TestreportComponent } from './testreport/testreport.component';
 
 const routes: Routes = [
     // RECIPTS 
@@ -180,8 +182,7 @@ const routes: Routes = [
     {path: 'dailyacitivy-Heads/:vrdt1/:vrdt2/:doc1',component:MisDailyAcitiyHeadsComponent}, 
     {path: 'dailyacitivy-Headsday/:vrdt1/:vrdt2/:doc1',component:MisDailyAcitiyHeadsumdayComponent}, 
     {path: 'dailyacitivy-Headssummonth/:vrdt1/:vrdt2/:doc1',component:MisDailyAcitiyHeadmonthComponent}, 
-
-   
+    {path:'listreport/:id',component: TestreportComponent},
 
     { path: 'homepage', component: HomepageComponent,
         children: [
@@ -252,7 +253,8 @@ const routes: Routes = [
                 {path: 'mis-master',component:MisMasterComponent},  
                 {path: 'Account',component:MenuAccountComponent},
                 {path: "testggroup",component:MasterTestGroupComponent},
-                {path: "test",component:MasterTestComponent}
+                {path: "test",component:MasterTestComponent},
+                {path: "result/:id",component:TestresultComponent}
         ]
     }
 ];
