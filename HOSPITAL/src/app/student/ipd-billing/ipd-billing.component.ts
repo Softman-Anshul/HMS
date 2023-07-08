@@ -117,11 +117,13 @@ export class IPDBillingComponent implements OnInit {
    });
    }
 
-  selectTest(event:any){
-    this.index = event.target.value;
+  selectTest(){
+    
+    this.index =0;
     for(let i = 0; i < this.testmaster.length;i++){
-      if(this.testmaster[i].chrgsName == event.target.value){
+      if(this.testmaster[i].chrgsName.includes(this.details.itmName)){
           this.index = i;
+          break;
       }
     }
     this.details.itmChrgs = Number(this.testmaster[this.index].chrgAmt)

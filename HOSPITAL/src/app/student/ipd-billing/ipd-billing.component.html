@@ -74,7 +74,7 @@
         <label style="margin-left:30px ;"  for="totalAmt">Amount</label>
         <br>
         <!-- <select type="text" style="margin-left:2px; width:250px ;"  [(ngModel)]=details.itmName (change)="selectTest($event)" id="ItemName"> -->
-          <input  type="text" style="width: 225px;" [(ngModel)]=details.itmName (change)="selectTest($event)" id="ItemName" list="dep" />
+          <input  type="text" style="width: 225px;" [(ngModel)]=details.itmName (change)="selectTest()" id="ItemName" list="dep" />
           <datalist id="dep" >
               <option *ngFor="let test of testmaster" >
                {{test.chrgsName}}

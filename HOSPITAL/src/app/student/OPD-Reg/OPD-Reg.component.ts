@@ -46,6 +46,25 @@ export class OpdregComponent implements OnInit {
     if (this.uname == '') {
       this.router.navigate(['']);
     }
+
+    //call permission
+    if (this._studentservice.permission != undefined) {
+      if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst")) {
+        this.router.navigate([''])
+      }
+    } else {
+      this._studentservice.getuserpermission(this.uname)
+        .subscribe(data => {
+          this._studentservice.permission = data
+          if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst") || !this._studentservice.checkPermission("Menu", "Master", "inst")) {
+            this.router.navigate(['/homepage/main'])
+          }
+          if(JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] != "Y") {
+            this.router.navigate(['/homepage/main'])
+          }
+        });
+    }
+
     const routerParams = this.routes.snapshot.params;
     this.dcmntNo = routerParams['id']
     this.opdDate = routerParams['dt']
@@ -106,7 +125,7 @@ export class OpdregComponent implements OnInit {
               this.consulant = data;
             });
 
-          if(this.OPD1.nature == "Emergency"){
+          if (this.OPD1.nature == "Emergency") {
             this.isOpd = false;
           }
 

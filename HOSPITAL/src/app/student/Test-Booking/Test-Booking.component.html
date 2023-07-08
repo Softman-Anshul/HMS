@@ -170,7 +170,17 @@
     </div>
     <div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
       <div class="user-box-big"  >
-        <select [(ngModel)]=test.itmName (change)="selectTest($event)" id="ItemName" onchange=" this.dataset.chosen = this.value; " >
+        <select [(ngModel)]=test.chtype  id="Itemtype" [disabled]="isTypeSelected" (change)="updateTestMaster()" onchange=" this.dataset.chosen = this.value; " >
+          <option selected disabled value="">Select</option>
+          <option *ngFor="let type of testtype" >
+            {{type}}
+          </option> 
+        </select>
+        <label>Type</label>
+      </div>
+
+      <div class="user-box-big"  >
+        <select [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName" onchange=" this.dataset.chosen = this.value; " >
           <option value="" disabled selected>Select</option>
           <option *ngFor="let test of testmaster" >
             {{test.chrgsName}}
@@ -194,10 +204,6 @@
         <label>Amount</label>
       </div>
 
-      <div class="user-box-small"  >
-        <input  type="text" disabled="true" [(ngModel)]=test.chtype >
-      </div>
-      
       <button type="button" style="width:6vw;" class="btn btn-info" (click)="addItem()">Add</button>
 
     </div>

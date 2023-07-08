@@ -28,13 +28,15 @@ export class NewBookingComponent implements OnInit {
   declare group: group[];
   declare Labname: Labname[];
   declare Cityname: City[];
+  declare alltestmaster: testmaster[];
   declare testmaster: testmaster[];
   declare department: department[];
   declare index: number;
   declare testname: testname[];
   declare id: string;
   declare search: string;
-
+  declare testtype: string[];
+  isTypeSelected = false;
 
   constructor
     (private _studentservice: StudentsService,
@@ -100,7 +102,12 @@ export class NewBookingComponent implements OnInit {
     //call Test for Booking
     this._studentservice.gettabletestname()
       .subscribe((data: testmaster[]) => {
-        this.testmaster = data;
+        this.alltestmaster = data;
+        let tempType = new Set<string>();
+        for(let i=0;i< this.alltestmaster.length;i++){
+            tempType.add(this.alltestmaster[i].type.toString())
+        }
+        this.testtype = Array.from(tempType)
       });
 
     if (routerParams["id"] == undefined) {
@@ -291,26 +298,42 @@ export class NewBookingComponent implements OnInit {
     }
     return true
   }
-  selectTest(event: any) {
-    this.index = event.target.value;
-    for (let i = 0; i < this.testmaster.length; i++) {
-      if (this.testmaster[i].chrgsName == event.target.value) {
+
+  updateTestMaster(){
+    this.testmaster = [];
+    for (let i = 0; i < this.alltestmaster.length; i++) {
+      if(this.alltestmaster[i].type == this.test.chtype){
+        this.testmaster.push(this.alltestmaster[i])
+      }
+    }
+  }
+
+  selectTest() {
+    this.index = 0;
+    let i = 0;
+    for (i = 0; i < this.testmaster.length; i++) {
+
+      if (this.testmaster[i].chrgsName.includes(this.test.itmName)) {
         this.index = i;
         this.test.itmChrgs = this.testmaster[this.index].chrgAmt
         this.Students.sampletype = this.Students.sampletype + "," + this.testmaster[this.index].testcode;
         this.test.chtype = this.testmaster[this.index].type;
         this.Students.Reporttype = this.testmaster[this.index].type;
+        break;
       }
     }
+
     this.getAmount();
   }
   public addItem(): void {
+    let type = this.test.chtype;
     this.Students.tests.push(this.test)
     this.Students.grandTotal = (+this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
     this.Students.balamt = 0;
-    this.test.itmName = this.testmaster[this.index].chrgsName
     this.getNetAmount()
     this.test = new Test()
+    this.test.chtype = type;
+    this.isTypeSelected = true;
     document.getElementById("ItemName")?.focus();
     this.Students.del = "Run"
     this.Students.duerec = "N";
@@ -344,6 +367,9 @@ export class NewBookingComponent implements OnInit {
         this.Students.grandTotal = (this.Students.grandTotal - value.totalAmt) - this.Students.discountAmt
         this.Students.recamt = this.Students.grandTotal
         this.getNetAmount()
+        if(this.Students.tests.length == 0){
+          this.isTypeSelected = false;
+        }
       }
     });
   }
