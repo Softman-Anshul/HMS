@@ -152,12 +152,6 @@ constructor(private _studentservice:StudentsService,
   printPage() {
       this.router.navigate(['receipts/' + this.selected.vchrNo]);
   }
-  
-  result(vchrNo:any):void{
-    let id = vchrNo;
-    this.router.navigate(['homepage/result/' + id]);
-     } 
-
   searchquery(){
     this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,this.Choice)
     .subscribe((data:Students[]) => {

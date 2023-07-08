@@ -93,10 +93,11 @@ export class PatholgoyreportComponent implements OnInit {
   
 }
     
-   result(vchrNo:any):void{
-    let id = vchrNo;
-    this.router.navigate(['homepage/result/' + id]);
-     } 
+result(vchrNo:any):void{
+  let id = vchrNo;
+  this.router.navigate(['homepage/result/' + id]);
+   } 
+
 
   searchquery(){
     this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,this.Choice)
