@@ -192,12 +192,12 @@
 
 <div class ="row" style="padding-left: 1vw; margin-top: 3vh;">
   <div class="user-box"  >
-    <select [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
+    <input [(ngModel)]=OPD1.rfrdBy list="charge" onchange="this.dataset.chosen = this.value;  " >
+      <datalist id="charge" >
       <option *ngFor="let rstudents of rconsulant">
         {{rstudents.dctName}}
       </option> 
-    </select>
+    </datalist>
     <label>RefConsultant</label>
   </div>
 

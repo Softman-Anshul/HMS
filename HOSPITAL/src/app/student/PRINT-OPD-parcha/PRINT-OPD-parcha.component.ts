@@ -11,7 +11,7 @@ import { consulant } from '../../students';
 })
 export class OpdparchaComponent implements OnInit {
   OPD = new OPD();
-  declare consulant : consulant;
+  consulant = new consulant();
   uname = '';
   company="";
   add="";

@@ -227,6 +227,7 @@ export class NewBookingComponent implements OnInit {
   onSubmit(){
     if(this.validation()){
     const routerParams = this.routes.snapshot.params; 
+
     if(routerParams["id"] == undefined){
       this._studentservice.createbookingh(this.Students)
         .subscribe(data => {
@@ -288,9 +289,6 @@ export class NewBookingComponent implements OnInit {
     }
     if(this.Students.labto == "" || this.Students.labto == undefined){
       this.Students.labto = "Self";
-    }
-    if(this.Students.condoctor == "" || this.Students.condoctor == undefined){
-      this.Students.condoctor = "Self";
     }
     if(this.Students.pntcity == "" || this.Students.pntcity == undefined){
       alert("City is mandatory");
@@ -370,6 +368,7 @@ searchquery(){
   this.Students.pntage = data[0].pntAgeYrs;
   this.Students.pntyears = data[0].agey;
   this.Students.dcmntType = data[0].dcmntType;
+  this.Students.department = data[0].caseType;
   this.Students.condoctor = data[0].dctrVisited;
 
     //call todays Sno
@@ -419,7 +418,7 @@ patienttypevalidation(){
   this.Students.pntage = "";
   this.Students.pntyears = "";
   this.Students.dcmntType = "";
-  this.Students.condoctor = "--Select--";
+
   this.Students.pntn = "";
   }
   else if(this.Students.dcmntType == "OPD"){
