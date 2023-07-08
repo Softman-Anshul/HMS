@@ -141,9 +141,19 @@
   <label>Type</label>
 </div>
 
-<div class="user-box-big"  >
-  <input type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1 >
+<div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw" >
+  <input style="width: 16vw;"  type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1 >
   <label>Address</label>
+</div>
+
+<div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+  <select style="width: 10vw;" [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; " >
+    <option value="" disabled selected>Select</option>
+    <option *ngFor="let city of Cityname">
+      {{city.citynam}}
+    </option> 
+  </select>
+  <label>City</label>
 </div>
 
 </div>
@@ -164,8 +174,8 @@
     <label>Department</label>
   </div>
 
-  <div class="user-box" style="width: 26vw;max-width: 100%; margin-right:1vw">
-    <select style="width: 26vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value; " >
+  <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+    <select style="width: 16vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value; " >
       <option value="" disabled selected>Select</option>
       <option *ngFor="let students of consulant" value="{{students.dctName}}">
         {{students.dctName}}
@@ -174,40 +184,31 @@
     <label>Consultant</label>
   </div>
 
-  <div class="user-box" style="width: 27vw;max-width: 100%; margin-right:1vw">
-    <select style="width: 27vw;" (change)="selectWard()" [(ngModel)]=Ward1.category onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let room of Ward" >
-        {{room.category}}
-      </option> 
-    </select>
-    <label>Ward Name</label>
+  <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+      <select style="width: 16vw;" [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; " >
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let rstudents of rconsulant">
+          {{rstudents.dctName}}
+        </option> 
+      </select>
+      <label>RefConsultant</label>
   </div>
 
+ 
+ 
+  <!-- <div class ="row" style="padding-left: 1vw; "> -->
+
+<div class="user-box"  style="width: 27vw;max-width: 100%; margin-right:1vw; margin-top: 3vh;" >
+  <select style="width: 27vw;" (change)="selectWard()" [(ngModel)]=Ward1.category onchange=" this.dataset.chosen = this.value; " >
+    <option value="" disabled selected>Select</option>
+    <option *ngFor="let room of Ward" >
+      {{room.category}}
+    </option> 
+  </select>
+  <label>Ward Name</label>
 </div>
 
-<div class ="row" style="padding-left: 1vw; margin-top: 3vh;">
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let rstudents of rconsulant">
-        {{rstudents.dctName}}
-      </option> 
-    </select>
-    <label>RefConsultant</label>
-  </div>
-
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let city of Cityname">
-        {{city.citynam}}
-      </option> 
-    </select>
-    <label>City</label>
-  </div>
-
-  <div class="user-box"  >
+  <div class="user-box"  style="margin-top: 3vh;">
     <select [(ngModel)]=Ward1.roomNo onchange=" this.dataset.chosen = this.value; ">
       <option value="" disabled selected>Select</option>
       <option *ngFor="let room of room"  >
@@ -217,7 +218,7 @@
     <label>Room No</label>
   </div>
 
-  <div class="user-box"  >
+  <div class="user-box"  style="margin-top: 3vh;">
     <select [(ngModel)]=Ward1.Bedno>
       <option value="" disabled selected>Select</option>
       <option *ngFor="let bed of room " >
@@ -227,7 +228,7 @@
     <label>Bed No</label>
   </div>
 
-  <div class="user-box"  >
+  <div class="user-box"  style="margin-top: 3vh;">
     <input type="text" name="" required="" [(ngModel)]=Deposit.advanceReceived >
     <label>Deposit</label>
   </div>
