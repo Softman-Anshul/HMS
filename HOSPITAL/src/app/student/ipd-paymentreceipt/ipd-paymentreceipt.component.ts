@@ -70,5 +70,7 @@ printComponent() {
 amount(){
   return this._studentservice.numberToText(this.payment.advanceReceived)
 }
-
+Ipdlist(){
+  this.Router.navigate(['homepage/ipdlist/']);
+}
 }

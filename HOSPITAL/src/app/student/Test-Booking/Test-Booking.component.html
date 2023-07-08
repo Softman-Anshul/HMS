@@ -148,15 +148,15 @@
         <label>City</label>
       </div>
 
-      <div style="margin-left: 1vw;" class="user-box"  >
-        <select [(ngModel)]=Students.labto onchange=" this.dataset.chosen = this.value; " >
+      <div class="user-box"  >
+        <select (change)="selectdepartment()" [(ngModel)]=Students.department onchange=" this.dataset.chosen = this.value; " >
           <option value="" disabled selected>Select</option>
-          <option *ngFor="let lab of Labname">
-            {{lab.labname}}
-          </option>
+          <option *ngFor="let students of department">
+            {{students.caseType}}
+          </option> 
         </select>
-        <label>Outside Lab</label>
-      </div> 
+        <label>Department</label>
+      </div>
       
       <div style="margin-left: 1vw;" class="user-box-big"  >
         <select [(ngModel)]=Students.condoctor onchange=" this.dataset.chosen = this.value; " >
@@ -240,7 +240,7 @@
       </div>
 
       <div style="margin-left: 1vw;" class="user-box"  >
-        <input  type="text" [(ngModel)]=Students.grandTotal (keyup)="getNetAmount()"  >
+        <input  type="text" disabled="true" [(ngModel)]=Students.grandTotal (keyup)="getNetAmount()"  >
         <label>Total Amount</label>
       </div>
 
@@ -254,7 +254,7 @@
       </div>
 
       <div class="user-box"  >
-        <input  type="text" [(ngModel)]=Students.billamt >
+        <input  type="text" disabled="true" [(ngModel)]=Students.billamt >
         <label>Net Amount</label>
       </div>
 

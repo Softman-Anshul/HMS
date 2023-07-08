@@ -9,7 +9,7 @@ import { department, Students,Test } from '../../students';
 import { Labname } from '../../students';
 import {consulant} from '../../students';
 import { group } from '../../students';
-import {Cityname} from '../../students';
+import {City} from '../../students';
 import {testmaster} from '../../students';
 import {testname} from '../../students';
 import { readOnlyMode } from '@syncfusion/ej2-angular-richtexteditor';
@@ -27,7 +27,7 @@ export class NewBookingComponent implements OnInit {
   declare consulant : consulant[];
   declare group : group[];
   declare Labname : Labname[]; 
-  declare Cityname :Cityname[];
+  declare Cityname :City[];
   declare testmaster:testmaster[];
   declare department : department[];
   declare index:number;
@@ -91,13 +91,11 @@ export class NewBookingComponent implements OnInit {
     .subscribe((data:Labname[]) => {
     this.Labname = data;
     });
-     
-    //call City
-    this._studentservice.gettablecityname()
-    .subscribe((data:Cityname[]) => {
-    this.Cityname = data;
+     //call City
+    this._studentservice.gettableCity()
+    .subscribe((data: City[]) => {
+      this.Cityname = data;
     });
-     
      //call Test for Booking
      this._studentservice.gettabletestname()
      .subscribe((data:testmaster[]) => {
@@ -268,7 +266,7 @@ export class NewBookingComponent implements OnInit {
           this._studentservice.createbookingd(this.Students)
             .subscribe(data => {
           });
-              alert('Records Modify...Thanks');
+              alert('Save Records...Thanks');
               this.router.navigate(['/homepage/list']);
           });
     }

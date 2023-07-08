@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { OPD} from '../../students';
+import { consulant } from '../../students';
 
 @Component({
   selector: 'app-opdparcha',
@@ -10,14 +11,16 @@ import { OPD} from '../../students';
 })
 export class OpdparchaComponent implements OnInit {
   OPD = new OPD();
+  declare consulant : consulant;
   uname = '';
   company="";
   add="";
   city="";
   phone="";
   profle="";
+  doctor="";
 
-   constructor(private _studentservice:StudentsService,
+  constructor(private _studentservice:StudentsService,
     private routes : ActivatedRoute,
     private Router :Router, 
    ) {}
@@ -27,7 +30,18 @@ export class OpdparchaComponent implements OnInit {
     this._studentservice.getopdregRecp(routerParams["id"],routerParams["opdDate"])
     .subscribe((data:any) => {
     this.OPD = data[0];
+    this.doctor = this.OPD.dctrVisited;
+
+    this._studentservice.getconsultantbyname(this.doctor)
+    .subscribe((data:consulant[]) => {
+      this.consulant = data[0];
+      console.log(data)
     });
+
+
+    });
+
+   
 
     //call company
     this._studentservice.getCompany()

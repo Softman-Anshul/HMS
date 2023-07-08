@@ -44,10 +44,12 @@ export class MasterChargesComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       chrgsGrp:['', Validators.required],
       chrgsName:['', Validators.required],
+      chrgsName1:['', Validators.required],
       chrgAmt:['', Validators.required],
       chrgsCat:['', Validators.required],
       sNo:['', Validators.required],
       type:['', Validators.required],
+      type1:['', Validators.required],
       Servicetax:['', Validators.required],
       ipdchargs:['', Validators.required],
       IExp:['', Validators.required],
@@ -90,6 +92,7 @@ export class MasterChargesComponent implements OnInit {
       this.addForm.controls['type'].setValue(data.type);
       this.addForm.controls['itmName'].setValue(data.chrgsName);
       this.addForm.controls['itmtype'].setValue(data.type);
+
     });
   }
   onSubmitedit(){

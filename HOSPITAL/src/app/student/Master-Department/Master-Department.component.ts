@@ -23,6 +23,7 @@ export class TestdepartmentComponent implements OnInit {
 
   declare addForm: FormGroup;
   depid = null;
+  deprt = "";
   departmentidtoupdate=null;
   showMeedit:boolean=false
   showMesave:boolean=true
@@ -37,7 +38,7 @@ export class TestdepartmentComponent implements OnInit {
    }
    this.Mobile = this._studentservice.isMob()
    
-    this._studentservice.gettabledepart()
+    this._studentservice.getdepart()
     .subscribe((data:department[]) => {
     this.consulant = data;
     });
@@ -45,6 +46,7 @@ export class TestdepartmentComponent implements OnInit {
       caseID:['', Validators.required],
       caseType:['', Validators.required],
       dprtmnt:['', Validators.required],
+      deprt:['', Validators.required],
     });
   }
   onSubmit(){
@@ -58,6 +60,7 @@ export class TestdepartmentComponent implements OnInit {
       caseID:['', Validators.required],
       caseType:['', Validators.required],
       dprtmnt:['', Validators.required],
+      deprt:['', Validators.required],
 
     });
     });
@@ -90,9 +93,8 @@ onSubmitedit(){
       this._studentservice.getdepartbyid(students.caseID)
       .subscribe((data:any) => {
         data = data[0]
-        console.log(data)
         //this.addForm.patchValue(data);
-
+    this.addForm.controls['deprt'].setValue(data.caseType);
     this.addForm.controls['caseID'].setValue(data.caseID);
     this.addForm.controls['caseType'].setValue(data.caseType);
       }) 

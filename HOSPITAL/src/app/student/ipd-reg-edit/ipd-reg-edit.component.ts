@@ -22,6 +22,7 @@ export class IpdRegEditComponent implements OnInit {
   declare OPD : OPD[];
   OPD1 = new OPD();
   dcmntNo = new OPD();
+  uhID = new OPD();
   opdDate = new OPD();
   dcmntType = new OPD();
   declare search:string;
@@ -43,7 +44,7 @@ export class IpdRegEditComponent implements OnInit {
      @Inject(MAT_DIALOG_DATA) public data: {OPD:OPD,OPD2:OPD,OPD3:OPD },
     ) {
      this.dcmntNo = data.OPD
-     this.opdDate = data.OPD2
+     this.uhID = data.OPD2
      this.dcmntType = data.OPD3
 
      }
@@ -96,8 +97,9 @@ export class IpdRegEditComponent implements OnInit {
      this.Cityname = data;
      });
 
-     this._studentservice.getipdreg(this.dcmntNo,this.opdDate)
+     this._studentservice.getipdregRecp(this.dcmntNo,this.uhID)
      .subscribe((data:any) => {
+      console.log(data)
       this.OPD1 = data[0]
       this.OPD1.dcmntType = "IPD";
       this.OPD1.dctrVisited = data[0].dctrVisited;

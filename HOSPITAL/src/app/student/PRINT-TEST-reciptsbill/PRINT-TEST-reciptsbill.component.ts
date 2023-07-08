@@ -66,4 +66,7 @@ if(this.uname == '')
   printComponent() {
     window.print();
   }
+  testlist(){
+    this.Router.navigate(['homepage/list/']);
+  }
 }

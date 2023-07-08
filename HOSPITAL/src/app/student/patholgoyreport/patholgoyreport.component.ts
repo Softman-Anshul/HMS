@@ -47,7 +47,7 @@ export class PatholgoyreportComponent implements OnInit {
     this.vrdt1 = new Date().toISOString().split('T')[0];
     this.vrdt2 = new Date().toISOString().split('T')[0];
 
-    this._studentservice.gettable(this.vrdt1)
+    this._studentservice.gettable_pathology(this.vrdt1)
     .subscribe((data:Students[]) => {
       this.Students= data;
     });

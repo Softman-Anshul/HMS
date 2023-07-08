@@ -75,7 +75,7 @@ export class AddStudentComponent implements OnInit {
       this.consulant = data;
     });
     //call Department
-    this._studentservice.gettabledepart()
+    this._studentservice.getdepart()
     .subscribe((data:department[]) => {
       this.department = data;
     });      
@@ -210,7 +210,6 @@ export class AddStudentComponent implements OnInit {
 
     });
   } 
-  
   onSubmitedit(){
     this._studentservice.updateconsultant(this.addForm.value)
     .subscribe(data => {

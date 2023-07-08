@@ -313,6 +313,10 @@ gettable(vrdt1:any)
   {
    return this.http.get<Students[]> (this.cdn + '/Hospital/Test_list.php?vrdt1=' + vrdt1);
   }
+  gettable_pathology(vrdt1:any)
+  {
+   return this.http.get<Students[]> (this.cdn + '/Hospital/Test_list_pathology.php?vrdt1=' + vrdt1);
+  }
   gettablebyid(id:string)
   {
    return this.http.get<Students[]> (this.cdn + '/Hospital/GetTesti_info_byid.php?id=' + id);
@@ -333,6 +337,10 @@ gettable(vrdt1:any)
   gettableconsultant()
   {
    return this.http.get<consulant[]> (this.cdn + '/Hospital/Consultant_list.php');
+  }
+  getconsultantbyname(dctrVisited:any)
+  {
+   return this.http.get<consulant[]> (this.cdn + '/Hospital/Consultantbyname.php?dctrVisited=' + dctrVisited);
   }
   createstudent(student:Students)
   {
@@ -368,6 +376,10 @@ gettable(vrdt1:any)
   gettabledepart()
   {
    return this.http.get<department[]> (this.cdn + '/Hospital/Department_list.php');
+  }
+  getdepart()
+  {
+   return this.http.get<department[]> (this.cdn + '/Hospital/Depart_list.php');
   }
   gettableward()
   {

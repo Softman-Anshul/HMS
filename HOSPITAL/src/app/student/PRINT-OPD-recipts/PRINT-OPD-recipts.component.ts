@@ -28,6 +28,7 @@ export class OpdreciptsComponent implements OnInit {
     this._studentservice.getopdregRecp(routerParams["id"],routerParams["opdDate"])
     .subscribe((data:any) => {
     this.OPD = data[0];
+    console.log(data);
     });
 
     //call company

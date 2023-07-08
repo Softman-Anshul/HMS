@@ -43,6 +43,7 @@ export class TestgroupComponent implements OnInit {
      this.addForm = this.formBuilder.group({
       payid:['', Validators.required],
       paymode:['', Validators.required],
+      paymode1:['', Validators.required],
     });
   }
   onSubmit(){
@@ -57,6 +58,7 @@ export class TestgroupComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       payid:['', Validators.required],
       paymode:['', Validators.required],
+      paymode1:['', Validators.required],
     });
    
   }
@@ -74,6 +76,7 @@ export class TestgroupComponent implements OnInit {
        this.addForm = this.formBuilder.group({
          payid:['', Validators.required],
          paymode:['', Validators.required],
+         paymode1:['', Validators.required],
        });
   }
   deleter(group:group):void{
@@ -95,6 +98,7 @@ export class TestgroupComponent implements OnInit {
      .subscribe((data:any) => {
       data = data[0]
      this.addForm.patchValue(data);
+     this.addForm.controls['paymode1'].setValue(data.paymode);
      }) 
 }
 tooletageedit(){

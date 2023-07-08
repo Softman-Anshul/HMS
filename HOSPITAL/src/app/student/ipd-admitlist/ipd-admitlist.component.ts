@@ -71,13 +71,13 @@ export class IPDADMITLISTComponent implements OnInit {
     // dialogRef.afterClosed().subscribe(result => {
     // });
 }
-edit(dcmntNo:any,opdDate:any) {
+edit(dcmntNo:any,uhID:any) {
   let id = dcmntNo;
-   let dt = opdDate;
+   let dt = uhID;
    let ty =  "IPD";
   const dialogRef = this.dialog.open(IpdRegEditComponent, {
     height:'450px', width: '1500px',
-    data: {OPD:dcmntNo,OPD2:opdDate,OPD3:ty},
+    data: {OPD:dcmntNo,OPD2:uhID,OPD3:ty},
   });
 
   dialogRef.afterClosed().subscribe(result => {

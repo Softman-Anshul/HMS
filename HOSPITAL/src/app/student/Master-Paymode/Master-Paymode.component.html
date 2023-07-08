@@ -6,6 +6,7 @@
                 <!-- <input *ngIf="showMeedit"  style="background-color: lightblue; " value="0" type="text" readonly="true" formControlName="payid" > -->
                 <div [ngClass]="Mobile ? 'columnGroup' : 'rowGroup'">
                         <div class="input-group">
+                                <input class="form-control"  type="text"  hidden="true" formControlName="paymode1" placeholder="Old Paymode" >
                                 <span class="input-group-addon">Payment Mode</span>
                                 <input style="width: 120px;" class="form-control"  type="text" formControlName="paymode" >
                         </div>

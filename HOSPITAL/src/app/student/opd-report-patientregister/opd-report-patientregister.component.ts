@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
-import { Students } from '../../students';
+import { OPD, Students } from '../../students';
 
 @Component({
   selector: 'app-opd-report-patientregister',
@@ -9,7 +9,7 @@ import { Students } from '../../students';
   styleUrls: ['./opd-report-patientregister.component.css']
 })
 export class OPDReportPatientregisterComponent implements OnInit {
-  declare Students : Students[];
+  declare OPD : OPD[];
   uname = '';
   declare fromdt:string;
   declare todt:string;
@@ -25,9 +25,9 @@ export class OPDReportPatientregisterComponent implements OnInit {
     const routerParams = this.routes.snapshot.params;
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
-    this._studentservice.gettabledaycollection(routerParams["vrdt1"],routerParams["vrdt2"])
-    .subscribe((data:Students[]) => {
-    this.Students= data;
+    this._studentservice.gettableopddaycollection(routerParams["vrdt1"],routerParams["vrdt2"])
+    .subscribe((data:OPD[]) => {
+    this.OPD= data;
     });
     
    //call username 

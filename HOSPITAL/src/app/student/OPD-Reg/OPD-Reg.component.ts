@@ -47,7 +47,6 @@ export class OpdregComponent implements OnInit {
       this.router.navigate(['']);
     }
     const routerParams = this.routes.snapshot.params;
-    console.log(routerParams)
     this.dcmntNo = routerParams['id']
     this.opdDate = routerParams['dt']
     this.ty = routerParams['ty']
@@ -98,7 +97,7 @@ export class OpdregComponent implements OnInit {
       this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
     }
     else {
-      this._studentservice.getopdreg(this.dcmntNo, this.opdDate,this.type)
+      this._studentservice.getopdreg(this.dcmntNo, this.opdDate, this.type)
         .subscribe((data: any) => {
           this.OPD1 = data[0]
           //call Consultant
@@ -106,12 +105,18 @@ export class OpdregComponent implements OnInit {
             .subscribe((data: any) => {
               this.consulant = data;
             });
+
+          if(this.OPD1.nature == "Emergency"){
+            this.isOpd = false;
+          }
+
         })
     }
     this.OPD1.pntn = "Mr"
     this.OPD1.paymode = "CASH"
     this.OPD1.PntType = "General"
     this.populate()
+
   }
   searchquery() {
     //call date 
@@ -221,7 +226,7 @@ export class OpdregComponent implements OnInit {
       this.OPD1.pntg = "S/o"
       this.OPD1.agey = "Years"
     }
-    if (this.OPD1.pntn == "Master") {
+    if (this.OPD1.pntn == "Mst") {
       this.OPD1.pntSex = "Male"
       this.OPD1.pntg = "C/o"
       this.OPD1.agey = "Years"
@@ -255,7 +260,7 @@ export class OpdregComponent implements OnInit {
             this.router.navigate(['opdreceipt/' + id, opdDate]);
           }
           else {
-            window.location.reload();
+            this.router.navigate(['homepage/opdlist/']);
           }
         });
     }
@@ -302,13 +307,16 @@ export class OpdregComponent implements OnInit {
     if (this.OPD1.dcmntType == "" || this.OPD1.dcmntType == undefined) {
       this.OPD1.dcmntType = "OPD";
     }
+    if (this.OPD1.nature == "" || this.OPD1.nature == undefined) {
+      this.OPD1.nature = "OPD";
+    }
     return true
   }
 
   typeChange() {
-    this.OPD1.dcmntType = "Emergency";
+    this.OPD1.nature = "Emergency";
     if (this.isOpd) {
-      this.OPD1.dcmntType = "OPD";
+      this.OPD1.nature = "OPD";
     }
     if (this.OPD1.dctrVisited != "") {
       this.consultantChange(null)
