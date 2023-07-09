@@ -407,6 +407,7 @@ export class OPD {
     cardissuedt="";
     cardexpdt="";
 
+    
     category: Ward[]=[];
     roomNo: Ward[]=[];
     Bedno:Ward[]=[];

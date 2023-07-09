@@ -1,9 +1,9 @@
 <div on-mouseover="hideTooltip()">
 <div class="col-12 text-right">
-     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary" (click)="newreg()"                  >Add Registration</button>
+     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary" (click)="newreg()"        >Add Registration</button>
+     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="paymentdetails()">Payment Details</button>
     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="payment()"       >Payment Received</button>
     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="testbooking()"   >TestBooking</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="paymentdetails()">Payment Details</button>
     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="billing()"       >Billing</button>
     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="billdischarge()" >Discharge</button>
     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="roomshifting()"  >Room Shifting</button>
@@ -38,31 +38,31 @@
         <thead  style="color:white; font-family: Arial, Helvetica, sans-serif;">
           <tr>
             <th ></th>
-            <th >SN.</th>
+            <th >SN</th>
             <th >FileNo</th>
             <th >UHID</th>
-            <th >Title</th>
+            <th >PT</th>
             <th >Patient</th>
             <th >Age</th>
             <th >Years</th>
             <th >Sex</th>
-            <th >T</th>
             <th >Guardian</th>
             <th >Address</th>
             <th >Admit Date</th>
             <th >Time</th>
             <th >Ward Name</th>
             <th >RNo</th>
-            <th >BNo</th>
+            <th >BN</th>
             <th >Consutlant</th>
             <th >Type</th>
+            <th >Condition</th>
             <th >Action</th>
           </tr>
         </thead>
         <tbody>
         <tr *ngFor="let students of OPD let i=index;"  on-mouseover="loaddata(students,$event)" class="CellWithComment"  style="text-align:center;"  >
           <td><input name="options" ng-control="options" type="radio" [value]="students"  [(ngModel)]=selected></td>
-          <td> {{i + 1}}</td>
+          <td style="width: 7px;"> {{i + 1}}</td>
           <td>{{students.dcmntNo}}</td>
           <td>{{students.uhID}}</td>
           <td >{{students.pntn}}</td>
@@ -70,7 +70,6 @@
           <td>{{students.pntAgeYrs}}</td>
           <td>{{students.agey}}</td>
           <td>{{students.pntSex}}</td>
-          <td>{{students.pntg}}</td>
           <td>{{students.pntGrdn}}</td>
           <td>{{students.pntAdrs1}}</td>
           <td>{{students.opdDate}}</td>
@@ -80,6 +79,7 @@
           <td >{{students.Bedno}}</td>
           <td>{{students.dctrVisited}}</td>
           <td>{{students.PntType}}</td>
+          <td><a style="font-size:small; cursor: pointer; color: blue;" (click) ="statuschange()" >{{students.cond}}</a></td>
           <div class="btn-group" role="group" >
           <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students.dcmntNo,students.uhID)"></i> </button></a></td>
           </div>

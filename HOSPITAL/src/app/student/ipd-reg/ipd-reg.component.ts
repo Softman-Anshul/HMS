@@ -351,6 +351,9 @@ export class IPDRegComponent implements OnInit {
     if (this.OPD1.surgical == "" || this.OPD1.surgical == undefined) {
       this.OPD1.surgical = "Medical";
     }
+    if (this.OPD1.cond == "" || this.OPD1.cond == undefined) {
+      this.OPD1.cond = "Normal";
+    }
     return true
   }
 

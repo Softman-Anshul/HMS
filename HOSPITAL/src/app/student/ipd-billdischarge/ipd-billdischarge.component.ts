@@ -165,12 +165,9 @@ this._studentservice.ipdgetmaxbillno()
                 var result = confirm("Bill Print ?");
                 if (result==true) {
               this.Router.navigate(['ipdbill2/' + this.heads.dcmntNo,this.heads.uhID]);
-              this.dialogRef.close();
-
               }
               else
               {
-                this.dialogRef.close();
                 this.Router.navigate(['/homepage/ipdlist']);
                 window.location.reload();
 

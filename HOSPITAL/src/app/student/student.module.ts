@@ -85,6 +85,7 @@ import { ResultcommentComponent } from './resultcomment/resultcomment.component'
 import { ResultinterpetComponent } from './resultinterpet/resultinterpet.component';
 import { TestreportComponent } from './testreport/testreport.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { IpdRiskComponent } from './ipd-risk/ipd-risk.component';
 
 
 @NgModule({
@@ -163,7 +164,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     TestresultComponent,
     ResultcommentComponent,
     ResultinterpetComponent,
-    TestreportComponent
+    TestreportComponent,
+    IpdRiskComponent
 
   ],
   imports: [

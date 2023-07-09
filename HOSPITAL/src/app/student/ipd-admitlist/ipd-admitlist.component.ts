@@ -16,6 +16,7 @@ import { IpdMlcComponent } from '../ipd-mlc/ipd-mlc.component';
 import { IpdDoctorchangeComponent } from '../ipd-doctorchange/ipd-doctorchange.component';
 import { IpdDischargecardComponent } from '../ipd-dischargecard/ipd-dischargecard.component';
 import { IPDDisccertificateComponent } from '../ipd-disccertificate/ipd-disccertificate.component';
+import { IpdRiskComponent } from '../ipd-risk/ipd-risk.component';
 
 @Component({
   selector: 'app-ipd-admitlist',
@@ -50,6 +51,7 @@ export class IPDADMITLISTComponent implements OnInit {
      this._studentservice.getipdadmit()
     .subscribe((data:OPD[]) => {
       this.OPD= data;
+      console.log(data)
   });
 
   }
@@ -249,4 +251,15 @@ doctorchange(): void {
       dialogRef.afterClosed().subscribe(result => {
       });
     }
+
+    statuschange(): void {
+      const dialogRef = this.dialog.open(IpdRiskComponent, {
+        height:'250px', width: '250px',
+            data: {OPD:this.selected},
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {
+      });
+      
+      }
 }
