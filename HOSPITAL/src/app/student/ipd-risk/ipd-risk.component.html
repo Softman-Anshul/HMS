@@ -1,1 +1,13 @@
-<h2>Patient Status</h2>>
+<h2>Patient Status</h2>
+<form action="/action_page.php">
+    <p>Please select Patient Condition</p>
+
+    <input type="radio" id ="Normal" name="fav_language" value="Normal" [(ngModel)]="normal">
+    <label for="Nomal">Normal</label><br>
+    <input type="radio" id="Risk" name="fav_language" value="Risk" [(ngModel)]="risk">
+    <label for="Risk">Risk</label><br>
+    <input type="radio" id="HighRisk" name="fav_language" value="HighRisk" [(ngModel)]="hrisk">
+    <label for="HighRisk">HighRisk</label><br>
+
+<button style="font-size:small; margin-left:25px; width:70px ; margin-top: 10px;" (click)="onSubmit()" class="btn btn-success">SAVE</button>
+</form>

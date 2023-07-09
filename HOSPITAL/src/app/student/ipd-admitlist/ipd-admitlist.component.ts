@@ -51,7 +51,6 @@ export class IPDADMITLISTComponent implements OnInit {
      this._studentservice.getipdadmit()
     .subscribe((data:OPD[]) => {
       this.OPD= data;
-      console.log(data)
   });
 
   }
@@ -252,10 +251,10 @@ doctorchange(): void {
       });
     }
 
-    statuschange(): void {
+    statuschange(students:any): void {
       const dialogRef = this.dialog.open(IpdRiskComponent, {
         height:'250px', width: '250px',
-            data: {OPD:this.selected},
+            data: {OPD:students},
       });
     
       dialogRef.afterClosed().subscribe(result => {

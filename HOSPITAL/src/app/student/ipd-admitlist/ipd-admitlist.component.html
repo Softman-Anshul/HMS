@@ -79,7 +79,7 @@
           <td >{{students.Bedno}}</td>
           <td>{{students.dctrVisited}}</td>
           <td>{{students.PntType}}</td>
-          <td><a style="font-size:small; cursor: pointer; color: blue;" (click) ="statuschange()" >{{students.cond}}</a></td>
+          <td><a style="font-size:small; cursor: pointer; color: blue;" (click) ="statuschange(students)" >{{students.cond}}</a></td>
           <div class="btn-group" role="group" >
           <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students.dcmntNo,students.uhID)"></i> </button></a></td>
           </div>

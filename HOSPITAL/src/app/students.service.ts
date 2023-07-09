@@ -266,6 +266,10 @@ getopd(vrdt1:any)
    {
        return this.http.put(this.cdn + '/Hospital/ipddoctorchange_insert.php',OPD,{responseType: 'text'});
    }
+   ipdstatuschange(uhID:any,ipdno:any,value:any)
+   {
+    return this.http.get<Students[]> (this.cdn + '/Hospital/ipd_statuschange.php?uhID=' + uhID + '&ipdno=' + ipdno + '&value=' + value);
+   }
    //mlc
    mlcgetmaxmlcno()
    {
