@@ -1,0 +1,418 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col">
+                <p style="font-size: 18px;">Edit IPD Registration</p>
+            </div>
+        </div>
+        <div>
+            <div class="row" style="padding-left: 1vw; margin-top: 1vh;">
+                <div class="user-box col-2">
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-2" style="padding-left: 2vw;">
+                </div>
+                <div class="col-5" style="margin-left: 8vw;">
+                    <div class="row">
+                        <div class="user-box-small">
+                            <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.dcmntNo>
+                            <label>IPD No</label>
+                        </div>
+                        <div class="user-box-small">
+                            <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.uhID>
+                            <label>UHID</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+        <div class="row" style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px;">
+            Patient Information
+        </div>
+        <div class="row" style="padding-left: 1vw;padding-top: 3vh;">
+            <!-- row 2 -->
+            <div class="user-box">
+                <input type="text" name="" required="" [(ngModel)]=OPD1.pntMobile [maxLength]="10">
+                <label>Mobile</label>
+            </div>
+            <div class="user-box">
+                <select [(ngModel)]=OPD1.pntn (change)="populate()" onchange=" this.dataset.chosen = this.value; ">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Mst">Mst</option>
+                    <option value="Baby">Baby</option>
+                    <option value="B/o">B/o</option>
+                    <option value="B/o">Dr</option>
+                </select>
+                <label>Title</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="" required="" [(ngModel)]=OPD1.pntName>
+                <label>Patient Name</label>
+            </div>
+
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=OPD1.pntAgeYrs>
+                <label>Age</label>
+            </div>
+
+            <div class="user-box">
+                <select [(ngModel)]=OPD1.agey onchange=" this.dataset.chosen = this.value; ">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Years">Years</option>
+                    <option value="Months">Months</option>
+                    <option value="Days">Days</option>
+                    <option value="Hrs">Hrs</option>
+                </select>
+                <label>Years</label>
+            </div>
+
+            <div class="user-box">
+                <select [(ngModel)]=OPD1.pntSex onchange=" this.dataset.chosen = this.value; ">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label>Gender</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="margin-top:1vw ;padding-left: 1vw;">
+
+        <div class="user-box">
+            <select [(ngModel)]=OPD1.pntg onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option value="S/o">S/o</option>
+                <option value="W/o">W/o</option>
+                <option value="D/o">D/o</option>
+                <option value="C/o">C/o</option>
+            </select>
+            <label>Title</label>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="" required="" [(ngModel)]=OPD1.pntGrdn>
+            <label>Guardian</label>
+        </div>
+
+        <div class="user-box">
+            <select [(ngModel)]=OPD1.PntType onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option value="General">General</option>
+                <option value="Package">Package</option>
+                <option value="TPA">TPA</option>
+                <option value="Ayushman">Ayushman</option>
+            </select>
+            <label>Type</label>
+        </div>
+
+        <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+            <input style="width: 16vw;" type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1>
+            <label>Address</label>
+        </div>
+
+        <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+            <select style="width: 10vw;" [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let city of Cityname">
+                    {{city.citynam}}
+                </option>
+            </select>
+            <label>City</label>
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:1vw ;padding-left: 1vw;">
+
+        <div class="user-box-small">
+            <select (change)="selectdepartment()" [(ngModel)]=OPD1.caseType
+                onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let students of department">
+                    {{students.caseType}}
+                </option>
+            </select>
+            <label>Department</label>
+        </div>
+
+        <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+            <select style="width: 16vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let students of consulant" value="{{students.dctName}}">
+                    {{students.dctName}}
+                </option>
+            </select>
+            <label>Consultant</label>
+        </div>
+
+        <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+            <select style="width: 16vw;" [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let rstudents of rconsulant">
+                    {{rstudents.dctName}}
+                </option>
+            </select>
+            <label>RefConsultant</label>
+        </div>
+
+        <div class="user-box-small">
+            <input type="date" name="" required="" [(ngModel)]=OPD1.opdDate>
+            <label>Admit Date</label>
+        </div>
+
+        <div class="user-box-small">
+            <input type="text" name="" required="" [(ngModel)]=OPD1.opdTime>
+            <label>Admin Time</label>
+        </div>
+
+        <div class="user-box-small">
+            <input type="date" name="" required="" [(ngModel)]=heads1.Statusdate>
+            <label>Dis Date</label>
+        </div>
+
+        <div class="user-box-small">
+            <input type="text" name="" required="" [(ngModel)]=heads1.distime>
+            <label>Dis Time</label>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 1vw;">
+        <div class="user-box" style="width: 27vw;max-width: 100%; margin-right:1vw; margin-top: 3vh;">
+            <select style="width: 27vw;" (change)="selectWard()" [(ngModel)]=Ward1.category
+                onchange=" this.dataset.chosen = this.value; ">
+                <option *ngFor="let room of Ward">
+                    {{room.category}}
+                </option>
+            </select>
+            <label>Ward Name</label>
+        </div>
+
+        <div class="user-box" style="margin-top: 3vh;">
+            <select [(ngModel)]=Ward1.roomNo onchange=" this.dataset.chosen = this.value; ">
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let room of room">
+                    {{room.roomNo}}
+                </option>
+            </select>
+            <label>Room No</label>
+        </div>
+
+        <div class="user-box" style="margin-top: 3vh;">
+            <select [(ngModel)]=Ward1.Bedno>
+                <option value="" disabled selected>Select</option>
+                <option *ngFor="let bed of room ">
+                    {{bed.Bedno}}
+                </option>
+            </select>
+            <label>Bed No</label>
+        </div>
+
+        <div class="user-box-small" style="margin-top: 3vh;">
+            <select [(ngModel)]=heads1.Status>
+                <option value="Normal">Normal</option>
+                <option value="Recovered">Recovered</option>
+                <option value="Reffered">Reffered</option>
+                <option value="L.A.M.A.">L.A.M.A.</option>
+                <option value="Expired">Expired</option>
+                <option value="Absconded">Absconded</option>
+                <option value="Cacelled">Cacelled</option>
+                <option value="Dopr">Dopr</option>      
+            </select>
+            <label>Status</label>
+        </div>
+
+    </div>
+
+    <div class="row"
+        style="padding-left: 1vw; margin-top: 2vh;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px;">
+        Bill Information
+    </div>
+
+    <div style="padding-left: 1vw;margin-top:1vh;border: none; border-top: 0px solid gray;">
+        <div class="row" style="padding-top: 2vh;">
+            <div class="user-box">
+                <select [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
+                    onchange=" this.dataset.chosen = this.value; ">
+                    <option value="" disabled selected>Select</option>
+                    <option *ngFor="let test of testmaster">
+                        {{test.chrgsName}}
+                    </option>
+                </select>
+                <label>Test Name</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" (change)="getAmount()" [(ngModel)]=details.itmQty>
+                <label>Qty</label>
+            </div>
+            <div class="user-box-small">
+                <select [(ngModel)]=details.Remark>
+                    <option value="Day">Day</option>
+                    <option value="Time">Time</option>
+                    <option value="Hrs">Hrs</option>
+                    <option value="Unit">Unit</option>
+                </select>
+                <label>Type</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" (change)="getAmount()" [(ngModel)]=details.itmChrgs>
+                <label>Rate</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=details.disp (change)="getAmountdp()">
+                <label>Dis%</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=details.itmDiscntPrsnt (change)="getAmountdamt()">
+                <label>DisAmt</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=details.totalAmt>
+                <label>Amount</label>
+            </div>
+            <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh;" (click)="addItem()">Add</button>
+        </div>
+    </div>
+
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+        <div class="row" style="padding-top: 2vh;">
+            <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler">
+                <thead>
+                    <tr>
+                        <th>TestName</th>
+                        <th>Qty</th>
+                        <th>Type</th>
+                        <th>Rate</th>
+                        <th>Disc%</th>
+                        <th>DicAmt</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of heads.tests let i=index;">
+                        <td>{{item.itmName}}</td>
+                        <td>{{item.itmQty}}</td>
+                        <td>{{item.Remark}}</td>
+                        <td>{{item.itmChrgs}}</td>
+                        <td>{{item.disp}}</td>
+                        <td>{{item.itmDiscntPrsnt}}</td>
+                        <td>{{item.totalAmt}}</td>
+
+                        <td> <a><button style="width: 7px; padding:0px;padding-right:0px ; " class="btn"><i
+                                        class="fa fa-arrow-circle-up" type="button" (click)="moveUp(i)"></i> </button>
+                            </a> </td>
+                        <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i
+                                        class="fa fa-arrow-circle-down" type="button" (click)="moveDown(i)"></i>
+                                </button> </a> </td>
+                        <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i
+                                        class="fas fa-cut" type="button" (click)="delete(item.itmName)"></i> </button>
+                            </a> </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="row"
+        style="padding-left: 1vw; margin-top: 2vh;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px;">
+        Payment Information
+    </div>
+    <div style="padding-left: 1vw;margin-top:1vh;border: none; border-top: 0px solid gray;">
+        <div class="row" style="padding-top: 2vh;">
+            <div class="user-box-small">
+                <input type="text" name="" required="" disabled [(ngModel)]=heads.grandTotal (change)="updatePayment()">
+                <label>Total</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=heads1.discountAmt (change)="updatePayment()">
+                <label>Discount</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" disabled [(ngModel)]=billamt (change)="updatePayment()">
+                <label>Bill Amount</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" disabled [(ngModel)]=totalnetamt (change)="updatePayment()">
+                <label>Advance</label>
+            </div>
+            <div class="user-box-small">
+                <input type="text" name="" required="" [(ngModel)]=heads1.paydue (change)="updatePayment()">
+                <label>Due Amount</label>
+            </div>
+            <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh; margin-right: 1vw;" (click)="addFoc()">=></button>
+            <div class="user-box-small">
+                <input type="text" name="" required="" disabled [(ngModel)]=heads1.foc>
+                <label>FOC Amt</label>
+            </div>
+            <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh; margin-right: 1vw;" (click)="addSet()">=></button>
+            <div class="user-box-small">
+                <input type="text" name="" required="" disabled [(ngModel)]=heads1.set>
+                <label>Set Amt</label>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="padding-left: 1vw;margin-top:1vh;border: none; border-top: 0px solid gray; margin-bottom: 3vh;">
+        <div class="row" style="padding-top: 2vh;">
+            <table class="table table-bordered border-primary"
+                style="text-align: center ; width: 100%; font-size:smaller;  margin-bottom: 3vh;">
+                <thead>
+                    <th>Sno</th>
+                    <th>RecNo</th>
+                    <th>Date</th>
+                    <th>RecTime</th>
+                    <th>RecAmt</th>
+                    <th>Refund</th>
+                    <th>Paymode</th>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let report of Details let i=index;">
+                        <td> {{i + 1}}</td>
+                        <td>{{report.recno}}</td>
+                        <td>{{report.ipdDate}}</td>
+                        <td>{{report.rectime}}</td>
+                        <td>
+                            <div class="user-box-small">
+                                <input type="text" name="" required="" (change)="updateBill()" [(ngModel)]='Details[i].advanceReceived'>
+                                <label></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-box-small">
+                                <input type="text" name="" required=""  (change)="updateBill()" [(ngModel)]='Details[i].Refundpayment'>
+                                <label></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-box-small">
+                                <input type="text" name="" required="" [(ngModel)]='Details[i].paymode'>
+                                <label></label>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalrecamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalrefund}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalnetamt}}</td>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 1vw;">
+        <button class="btn btn-success" style="width: 5vw; margin-top: 1vh;" (click)="updateAll()">Update</button>
+    </div>
+</div>

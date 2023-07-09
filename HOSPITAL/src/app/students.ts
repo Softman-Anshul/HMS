@@ -130,6 +130,7 @@ export class billheading{
     foc=0;
     satelment=0;
     disp=0;
+    set=0;
     tests: billdetails[]=[];
     bills:IPDPAYMENT[]=[] ;  
 

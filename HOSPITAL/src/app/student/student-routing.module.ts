@@ -105,6 +105,7 @@ import { MasterTestComponent } from './master-test/master-test.component';
 import { PatholgoyreportComponent } from './patholgoyreport/patholgoyreport.component';
 import { TestresultComponent } from './testresult/testresult.component';
 import { TestreportComponent } from './testreport/testreport.component';
+import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
 
 const routes: Routes = [
     // RECIPTS 
@@ -254,7 +255,8 @@ const routes: Routes = [
                 {path: 'Account',component:MenuAccountComponent},
                 {path: "testggroup",component:MasterTestGroupComponent},
                 {path: "test",component:MasterTestComponent},
-                {path: "result/:id",component:TestresultComponent}
+                {path: "result/:id",component:TestresultComponent},
+                {path: "ipdedita/:v/:d/:u/:opdDate",component:IpdEditAfterdischComponent}
         ]
     }
 ];

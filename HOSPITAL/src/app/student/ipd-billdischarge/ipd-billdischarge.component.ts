@@ -25,7 +25,7 @@ export class IPDBilldischargeComponent implements OnInit {
   totalrecamt = 0;
   totalrefund = 0;
   totalnetamt = 0;
-
+  allowedSave = false;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -100,6 +100,10 @@ export class IPDBilldischargeComponent implements OnInit {
 
           for (let i = 0; i < this.heads.tests.length; i++) {
             this.heads.grandTotal += parseInt(this.heads.tests[i].totalAmt.toString());
+          }
+
+          if(this.heads.tests.length > 0) {
+            this.allowedSave = true;
           }
 
           this.heads.paydue = this.heads.grandTotal - this.heads.adv - this.heads.discountAmt - this.heads.foc;

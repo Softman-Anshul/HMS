@@ -59,7 +59,6 @@ export class IPDRegComponent implements OnInit {
     if (this.uname == '') {
       this.router.navigate(['']);
     }
-    const routerParams = this.routes.snapshot.params;
     this.OPD1.uname = this.uname;
     this.Deposit.uname = this.uname;
     this.Ward1.uname = this.uname;

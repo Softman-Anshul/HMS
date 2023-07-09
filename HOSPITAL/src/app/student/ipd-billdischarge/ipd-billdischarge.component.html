@@ -225,7 +225,7 @@
 
   <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
     <div class="row" style="padding-top: 2vh;">
-      <button style="width: 6vw;" class="btn btn-success" (click)="onsave()">SAVE</button>
+      <button style="width: 6vw;" class="btn btn-success" *ngIf="allowedSave" (click)="onsave()">SAVE</button>
       <button style="width: 6vw; margin-left: 1vw;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
     </div>
   </div>

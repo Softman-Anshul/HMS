@@ -30,7 +30,7 @@ export class IPDBillingComponent implements OnInit {
   isTypeSelected = false;
   declare alltestmaster: testmaster[];
   dueAmount = 0;
-  C = 0;
+  allowedSave = false;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -105,18 +105,22 @@ export class IPDBillingComponent implements OnInit {
             this.heads.grandTotal += parseInt(this.heads.tests[i].totalAmt.toString());
           }
 
+          if (this.heads.tests.length > 0) {
+            this.allowedSave = true;
+          }
+
           this._studentservice.gettestduelistsum(this.OPD.dcmntNo, this.OPD.uhID)
-          .subscribe((data1: any) => {
-            if (data1 == null || data1.length <= 0) {
-              this.dueAmount = 0;
-            } else {
-              this.dueAmount = 0;
-              console.log(data1);
-              for (let i = 0; i < data1.length; i++) {
-                this.dueAmount += parseInt(data1[i].balamt.toString());
+            .subscribe((data1: any) => {
+              if (data1 == null || data1.length <= 0) {
+                this.dueAmount = 0;
+              } else {
+                this.dueAmount = 0;
+                console.log(data1);
+                for (let i = 0; i < data1.length; i++) {
+                  this.dueAmount += parseInt(data1[i].balamt.toString());
+                }
               }
-            }
-          });    
+            });
         }
       });
 
@@ -129,6 +133,10 @@ export class IPDBillingComponent implements OnInit {
         this.heads.tests.splice(index, 1);
 
         this.heads.grandTotal = (this.heads.grandTotal - value.totalAmt)
+
+        if (this.heads.tests.length < 1) {
+          this.allowedSave = false;
+        }
       }
     });
   }
@@ -150,6 +158,9 @@ export class IPDBillingComponent implements OnInit {
   }
   public addItem(): void {
     this.heads.tests.push(this.details)
+    if (this.heads.tests.length > 0) {
+      this.allowedSave = true;
+    }
     this.heads.grandTotal = (this.heads.grandTotal + this.details.totalAmt)
     this.details.itmName = this.testmaster[this.index].chrgsName
     this.details = new billdetails()
@@ -169,7 +180,7 @@ export class IPDBillingComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  
+
   moveUp(num: any) {
     if (num == 0) {
       return
@@ -218,8 +229,8 @@ export class IPDBillingComponent implements OnInit {
 
   check() {
     let tooltip = document.getElementById("tool-tip");
-    if(tooltip != null){
-      tooltip.setAttribute("style","display: block;")
+    if (tooltip != null) {
+      tooltip.setAttribute("style", "display: block;")
     }
   }
 
