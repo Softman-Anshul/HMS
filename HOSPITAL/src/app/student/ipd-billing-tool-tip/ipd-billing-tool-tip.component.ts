@@ -3,17 +3,18 @@ import { OPD, Students } from '../../students';
 import { StudentsService } from '../../students.service';
 
 @Component({
-  selector: 'app-ipd-tool-tip',
-  templateUrl: './ipd-tool-tip.component.html',
-  styleUrls: ['./ipd-tool-tip.component.css']
+  selector: 'app-ipd-billing-tool-tip',
+  templateUrl: './ipd-billing-tool-tip.component.html',
+  styleUrls: ['./ipd-billing-tool-tip.component.css']
 })
-export class IpdToolTipComponent implements OnInit {
+export class IpdBillingToolTipComponent implements OnInit {
 
   @Input() x = '';
   @Input() y = '';
   OPD: Students[] = [];
   @Input() hoverDcmntNo = '';
   @Input() hoverUhID = '';
+  @Input() flag = false;
 
   totalBalAmount = 0;
   totalBillAmount = 0;
@@ -21,23 +22,18 @@ export class IpdToolTipComponent implements OnInit {
 
   constructor(private _studentservice: StudentsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   ngOnChanges() {
     this._studentservice.gettestduelistsum(this.hoverDcmntNo, this.hoverUhID)
       .subscribe((data: any) => {
         this.OPD = data
         if (this.OPD == null || this.OPD.length <= 0) {
-          let tooltip = document.getElementById("tooltip");
+          let tooltip = document.getElementById("tool-tip");
           if (tooltip != null) {
             tooltip.style.display = 'none';
           }
         } else {
-          let tooltip = document.getElementById("tooltip");
-          if (tooltip != null) {
-            tooltip.style.display = 'block';
-          }
           this.totalBalAmount = 0;
           this.totalBillAmount = 0;
           for (let i = 0; i < this.OPD.length; i++) {
@@ -47,6 +43,15 @@ export class IpdToolTipComponent implements OnInit {
         }
 
       });
-
   }
+
+  close() {
+    let tooltip = document.getElementById("tool-tip");
+    if (tooltip != null) {
+      tooltip.style.display = 'none';
+    }
+  }
+
+  transfer() { }
+
 }

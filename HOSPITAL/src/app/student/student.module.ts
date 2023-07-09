@@ -86,6 +86,7 @@ import { ResultinterpetComponent } from './resultinterpet/resultinterpet.compone
 import { TestreportComponent } from './testreport/testreport.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { IpdRiskComponent } from './ipd-risk/ipd-risk.component';
+import { IpdBillingToolTipComponent } from './ipd-billing-tool-tip/ipd-billing-tool-tip.component';
 
 
 @NgModule({

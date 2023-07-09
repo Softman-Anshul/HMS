@@ -71,6 +71,7 @@ export class OpdregComponent implements OnInit {
     this.ty = routerParams['ty']
     this.type = routerParams['type']
     this.OPD1.uname = this.uname;
+
     //call company for f.years
     this._studentservice.getCompany()
       .subscribe((data: any) => {
@@ -99,6 +100,7 @@ export class OpdregComponent implements OnInit {
     this._studentservice.gettableCity()
       .subscribe((data: City[]) => {
         this.Cityname = data;
+        this.OPD1.pntCity = this.Cityname[0].citynam
       });
     if (this.dcmntNo == undefined) {
       //call maxvchrno

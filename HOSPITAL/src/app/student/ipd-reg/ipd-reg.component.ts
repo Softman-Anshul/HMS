@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Cityname, IPDPAYMENT, Ward } from '../../students';
+import { City, Cityname, IPDPAYMENT, Ward } from '../../students';
 import { consulant } from '../../students';
 import { Students, OPD, department } from '../../students';
 import { group, company } from '../../students';
@@ -13,7 +13,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./ipd-reg.component.css']
 })
 export class IPDRegComponent implements OnInit {
-  declare Cityname: Cityname[];
+  declare Cityname: City[];
   declare company: company[];
   declare consulant: consulant[];
   declare rconsulant: consulant[];
@@ -81,6 +81,7 @@ export class IPDRegComponent implements OnInit {
     this._studentservice.gettablegroup()
       .subscribe((data: group[]) => {
         this.group = data;
+        this.OPD1.paymode = "CASH";
         this.Deposit.paymode = data[0].paymode;
       });
     //call Department
@@ -100,9 +101,10 @@ export class IPDRegComponent implements OnInit {
         this.rconsulant = data;
       });
     //call City
-    this._studentservice.gettablecityname()
-      .subscribe((data: Cityname[]) => {
+    this._studentservice.gettableCity()
+      .subscribe((data: City[]) => {
         this.Cityname = data;
+        this.OPD1.pntCity = this.Cityname[0].citynam
       });
 
 

@@ -24,6 +24,13 @@
             <td><b>{{totalBalAmount}}</b></td>
             <td></td>
         </tr>
+        <tr style="text-align:center;" *ngIf="flag">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button class="btn btn-primary" (click)="close()">Close</button></td>
+          <td><button class="btn btn-primary" (click)="transfer()">Transfer to Bill</button></td>
+      </tr>
       </tbody>
     </table>
 

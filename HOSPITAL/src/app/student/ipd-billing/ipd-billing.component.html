@@ -1,141 +1,240 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-<h2>IPD Billing</h2>
-<div class="row" >
-    <div class = "col">
-        <label style="font-size:medium;  margin-left:15px;" type="dcmntno"  >File No</label>
-            <input style="font-size:small; margin-left:30px; width:50px ; " disabled="true" [(ngModel)]=OPD.dcmntNo  type="dcmntno"  >
-            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
-            <input style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=OPD.uhID >
-            <input hidden="true" style="font-size:small; margin-left:5px; width:75px ;" disabled="true" [(ngModel)]=heads.uhID >
-
-            <label style="font-size:medium; margin-left:10px;" for="uhID">Patient Type</label>
-            <input style="font-size:small; margin-left:5px; width:95px ;" disabled="true" [(ngModel)]=OPD.PntType >
-            <label style="font-size:medium; margin-left:10px;" for="uhID">BillNo</label>
-            <input style="font-size:small; margin-left:5px; width:40px ;" disabled="true" [(ngModel)]=heads.vchrNo >
-            <label style="font-size:medium; margin-left:10px;" for="uhID">Bill Date</label>
-            <input style="font-size:small; margin-left:5px; width:95px ;" disabled="true" [(ngModel)]=heads.vchrDate  type="Date" >
-           
-            <br>
-
-            <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
-            <input style="font-size:small; color: white; background-color: darkslategrey;  width:550px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
-            
-            <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
-            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntSex type="pntSex" >
-            <input style="font-size:small; color: white; background-color: darkslategrey; width:60px ; height: 40px;"  disabled="true" [(ngModel)]=OPD.agey type="agey">
-
-            <br>
-            <label  style="font-size:medium; margin-left:15px;" for="pntg">Guardian</label>
-            <input   style="font-size:small; margin-left:15px; width:55px ;  " disabled="true"  [(ngModel)]=OPD.pntg type="pntg"  >
-            <input   style="font-size:small; width:200px ; " disabled="true"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
-
-            <label   style="font-size:medium; margin-left:85px;" for="condoctor">Consultant</label>
-            <input  style="font-size:small; margin-left:5px; width:250px ; " disabled="true" [(ngModel)]=OPD.dctrVisited >
-            <br>
-            <label  style="font-size:medium; margin-left:15px;" for="pntg">Address</label>
-            <input   style="font-size:small; width:250px ; margin-left:25px;" disabled="true"  [(ngModel)]=OPD.pntAdrs1 >
-
-            <label   style="font-size:medium; margin-left:85px;" for="condoctor">Ref Doctor</label>
-            <input  style="font-size:small; margin-left:5px; width:250px ; " disabled="true" [(ngModel)]=OPD.rfrdBy  >
-<br>
-<label  style="font-size:medium; margin-left:15px;" for="pntg">City</label>
-<input   style="font-size:small; width:250px ; margin-left:55px;" disabled="true"  [(ngModel)]=OPD.pntCity >
-
-<label   style="font-size:medium; margin-left:85px;" for="condoctor">Ward</label>
-<input  style="font-size:small; margin-left:45px; width:250px ; " disabled="true" [(ngModel)]=OPD.category  >
-
-<br>
-<label  style="font-size:medium; margin-left:15px;" for="pntg">Mobile</label>
-<input   style="font-size:small; width:250px ; margin-left:35px;" disabled="true"  [(ngModel)]=OPD.pntMobile >
-
-<label   style="font-size:medium; margin-left:85px;" for="condoctor">RoomNo</label>
-<input  style="font-size:small; margin-left:20px; width:70px ; " disabled="true" [(ngModel)]=OPD.roomNo >
-
-<label   style="font-size:medium; margin-left:5px;" for="condoctor">BedNo</label>
-<input  style="font-size:small; margin-left:35px; width:70px ; " disabled="true" [(ngModel)]=OPD.Bedno >
-<br>
-<label style="font-size:medium; margin-left:10px;" >Admit Date</label>
-<input style="font-size:small; margin-left:5px; width:95px ;" disabled="true" [(ngModel)]=OPD.opdDate type="Date" >
-
-<label style="font-size:medium; margin-left:10px;" >Test Due</label>
-<input style="font-size:small; margin-left:5px; width:75px ; background-color: brown; color: white;" disabled="true" [(ngModel)]=heads.grandTotal type="text" >
-
-<button type="button" style="font-size:xx-small; margin-left:10px;" class="btn btn-info"  >Check</button>
-
-<label   style="font-size:medium; margin-left:32px;" for="condoctor">Bill Amt</label>
-<input  style="font-size:small; margin-left:25px; width:70px ; " disabled="true" [(ngModel)]=heads.grandTotal >
-
-
-<label   style="font-size:medium; margin-left:5px;" for="condoctor">Rec Amt</label>
-<input  style="font-size:small; margin-left:25px; width:70px ; " disabled="true" [(ngModel)]=totalnetamt >
-<br><br>
-
-        <label for="itmName">TestName</label>
-        <label style="margin-left:220px; " for="itmQty">Qty</label>
-        <label style="margin-left:40px ;" for="itmChrgs">Type</label>
-        <label style="margin-left:55px ;" for="itmChrgs">Rate</label>
-        <label style="margin-left:35px ;" for="itmChrgs">Dis%</label>
-        <label style="margin-left:25px ;" for="itmChrgs">DisAmt</label>
-        <label style="margin-left:30px ;"  for="totalAmt">Amount</label>
-        <br>
-        <!-- <select type="text" style="margin-left:2px; width:250px ;"  [(ngModel)]=details.itmName (change)="selectTest($event)" id="ItemName"> -->
-          <input  type="text" style="width: 225px;" [(ngModel)]=details.itmName (change)="selectTest()" id="ItemName" list="dep" />
-          <datalist id="dep" >
-              <option *ngFor="let test of testmaster" >
-               {{test.chrgsName}}
-              </option> 
-            </datalist>
-
-        <input  style="margin-left:30px ; width:50px ;" type="text" [(ngModel)]=details.itmQty (change)="getAmount()">  
-        <select style="width:85px ;"  [(ngModel)]=details.Remark>
-            <option value="Day">Day</option>
-            <option value="Time">Time</option>
-            <option value="Hrs">Hrs</option>
-            <option value="Unit">Unit</option>
-       </select>
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=details.itmChrgs  (change)="getAmount()">  
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=details.disp  (change)="getAmountdp()">  
-        <input  style="margin-left:10px ; width:50px ;" type="text" [(ngModel)]=details.itmDiscntPrsnt  (change)="getAmountdamt()" >  
-        <input  style="margin-left:25px ; width:70px ;" type="text"  [(ngModel)]=details.totalAmt>  
-
-        <button type="button" style="margin-left:10px; padding:2px;padding-right:20px ; " class="btn btn-info"  (click)="addItem()" >Add</button>
-        <br>
-        <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler" >
-            <thead >
-            <tr>
-                <th>TestName</th>
-                <th>Qty</th>
-                <th>Type</th>
-                <th>Rate</th>
-                <th>Disc%</th>
-                <th>DicAmt</th>
-                <th>Amount</th>
-              </tr>
-            </thead> 
-          <tbody>
-              <tr *ngFor="let item of heads.tests let i=index;">
-                <td>{{item.itmName}}</td>
-                <td >{{item.itmQty}}</td>
-                <td >{{item.Remark}}</td>
-                <td >{{item.itmChrgs}}</td>
-                <td >{{item.disp}}</td>
-                <td >{{item.itmDiscntPrsnt}}</td>
-                <td>{{item.totalAmt}}</td>
-
-                <td> <a><button style="width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fa fa-arrow-circle-up"type="button" (click)="moveUp(i)" ></i> </button> </a> </td>
-                <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fa fa-arrow-circle-down"type="button" (click)="moveDown(i)"></i> </button> </a> </td> 
-                <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fas fa-cut"type="button" (click)="delete(item.itmName)"></i> </button> </a> </td> 
-            </tr>
-          </tbody>
-
-        </table>
-            <div >
-                <button  class="btn btn-success" (click)="onsave()">SAVE</button>
-                <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
-
-          <label  style="margin-left:450px ;" for="grandtotal">Total Amount</label>
-          <input style="margin-left:30px ; width:90px; background-color:lightblue;" readonly="true" type="text" [(ngModel)]=heads.grandTotal  >
-
-
+<div>
+  <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+    <div class="col">
+      <p style="font-size: 18px;">IPD Billing</p>
+    </div>
+    <div class="col-7" style="margin-left: 8vw;">
+      <div class="row">
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD.dcmntNo>
+          <label>File No</label>
         </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD.uhID>
+          <label>UHID</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD.PntType>
+          <label>Type</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled="true" [(ngModel)]=heads.vchrNo>
+          <label>Bill No</label>
+        </div>
+        <div class="user-box-small">
+          <input type="date" name="" required="" disabled="true" [(ngModel)]=heads.vchrDate>
+          <label>Bill Date</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="row" style="padding-left: 1vw; margin-top: 1vh;">
+      <div class="user-box col-2">
+      </div>
+      <div class="col-2" style="padding-left: 2vw;">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom: 2vh; border: 1px solid black;">
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+      <div class="row" style="padding-left: 1vw;padding-top: 3vh;">
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntn>
+          <label>Title</label>
+        </div>
+        <div class="user-box-big">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntName>
+          <label>Patient Name</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntAgeYrs>
+          <label>Age</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.agey>
+          <label></label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntSex>
+          <label>Sex</label>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+      <div class="row" style="padding-left: 1vw;padding-top: 2vh;">
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntg>
+          <label></label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntGrdn>
+          <label>Guardian</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntAdrs1>
+          <label>Address</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntCity>
+          <label>City</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.pntMobile>
+          <label>Mobile</label>
+        </div>
+        <div class="user-box-small">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.opdDate>
+          <label>Admit Date</label>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+      <div class="row" style="padding-left: 1vw;padding-top: 2vh;">
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.dctrVisited>
+          <label>Consultant</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.rfrdBy>
+          <label>Ref Doctor</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.category>
+          <label>Ward</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.roomNo>
+          <label>Room No</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.Bedno>
+          <label>Bed No</label>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+      <div class="row" style="padding-left: 1vw;padding-top: 2vh;">
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=OPD.grandTotal>
+          <label>Bill Amt</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" disabled [(ngModel)]=totalnetamt>
+          <label>Rec Amt</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="" style="color: red;" disabled [(ngModel)]=dueAmount>
+          <label>Test Due</label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" style="width: 5vw; margin-top: 1vh;" (click)="check()">Check</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+    <div class="row" style="padding-top: 2vh;">
+      <div class="user-box">
+        <select [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
+          onchange=" this.dataset.chosen = this.value; ">
+          <option value="" disabled selected>Select</option>
+          <option *ngFor="let test of testmaster">
+            {{test.chrgsName}}
+          </option>
+        </select>
+        <label>Test Name</label>
+      </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" (change)="getAmount()" [(ngModel)]=details.itmQty>
+        <label>Qty</label>
+      </div>
+      <div class="user-box-small">
+        <select [(ngModel)]=details.Remark>
+          <option value="Day">Day</option>
+          <option value="Time">Time</option>
+          <option value="Hrs">Hrs</option>
+          <option value="Unit">Unit</option>
+        </select>
+        <label>Type</label>
+      </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" (change)="getAmount()" [(ngModel)]=details.itmChrgs>
+        <label>Rate</label>
+      </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" [(ngModel)]=details.disp (change)="getAmountdp()">
+        <label>Dis%</label>
+      </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" [(ngModel)]=details.itmDiscntPrsnt (change)="getAmountdamt()">
+        <label>DisAmt</label>
+      </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" [(ngModel)]=details.totalAmt>
+        <label>Amount</label>
+      </div>
+      <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh;" (click)="addItem()">Add</button>
+    </div>
+  </div>
+
+  <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+    <div class="row" style="padding-top: 2vh;">
+      <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler">
+        <thead>
+          <tr>
+            <th>TestName</th>
+            <th>Qty</th>
+            <th>Type</th>
+            <th>Rate</th>
+            <th>Disc%</th>
+            <th>DicAmt</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of heads.tests let i=index;">
+            <td>{{item.itmName}}</td>
+            <td>{{item.itmQty}}</td>
+            <td>{{item.Remark}}</td>
+            <td>{{item.itmChrgs}}</td>
+            <td>{{item.disp}}</td>
+            <td>{{item.itmDiscntPrsnt}}</td>
+            <td>{{item.totalAmt}}</td>
+
+            <td> <a><button style="width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fa fa-arrow-circle-up"type="button" (click)="moveUp(i)" ></i> </button> </a> </td>
+            <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fa fa-arrow-circle-down"type="button" (click)="moveDown(i)"></i> </button> </a> </td> 
+            <td> <a><button style=" width: 7px; padding:0px;padding-right:0px ; " class="btn"><i class="fas fa-cut"type="button" (click)="delete(item.itmName)"></i> </button> </a> </td> 
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+    <div class="row" style="padding-top: 2vh;">
+      <div class="col-7">
+      <button class="btn btn-success" (click)="onsave()">SAVE</button>
+      <button style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+
+      </div>
+      <div class="col-4">
+      <label for="grandtotal">Total Amount</label>
+      <input style="margin-left:10px ; width:90px; background-color:lightblue;" readonly="true" type="text"
+        [(ngModel)]=heads.grandTotal>
+      </div>
+    </div>
+  </div>
+  <app-ipd-billing-tool-tip id="tool-tip" style="display: none;" [x] = "'131'" [y] = "'121'" [hoverDcmntNo]="OPD.dcmntNo.toString()" [hoverUhID]="OPD.uhID.toString()" [flag]="true"></app-ipd-billing-tool-tip>
 </div>

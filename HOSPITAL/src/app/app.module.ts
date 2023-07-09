@@ -67,6 +67,7 @@ import { MenuAccountComponent } from './student/menu-account/menu-account.compon
 import { IPDDisccertificateComponent } from './student/ipd-disccertificate/ipd-disccertificate.component';
 import { PatholgoyreportComponent } from './student/patholgoyreport/patholgoyreport.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { IpdBillingToolTipComponent } from './student/ipd-billing-tool-tip/ipd-billing-tool-tip.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,7 @@ import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
     MenuAccountComponent,
     IPDDisccertificateComponent,
     PatholgoyreportComponent,
-
+    IpdBillingToolTipComponent,
 
     ],
   imports: [

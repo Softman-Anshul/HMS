@@ -1,7 +1,7 @@
 <div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
   <div>
-    <div class ="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
-      <div class ="col">
+    <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+      <div class="col">
         <p style="font-size: 18px;">IPD Registration</p>
       </div>
       <!-- <div class ="col-sm-5" >
@@ -12,307 +12,300 @@
     </div>
     <div>
       <!-- row 1 -->
-      <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
-        <div class="user-box col-2"  >
+      <div class="row" style="padding-left: 1vw; margin-top: 1vh;">
+        <div class="user-box col-2">
           <input type="search" name="" required="" [(ngModel)]=search>
           <label>by UHID</label>
         </div>
-        <div class = "col-1" >
+        <div class="col-1">
           <button class="btn btn-primary" (click)="searchquery()" style="width: 5vw; margin-top: 1vh;">Search</button>
         </div>
-        <div class = "col-2" style="padding-left: 2vw;">
-          <!-- <label class="switch" >
-            <input type="checkbox" [(ngModel)]="isOpd" (change)="typeChange()">
-            <span class="slider round">
-              <ng-container *ngIf="isOpd" >
-                <p style="padding-top: 1vh;padding-left: 10%; color: white;font-family: 'Source Sans Pro';font-weight: 500;">OPD</p>
-              </ng-container>  
-              <ng-container *ngIf="!isOpd" >
-                <p style="padding-left: 35px;padding-top: 1vh;color: white;font-family: 'Source Sans Pro';font-weight: 500;">EMR</p>
-              </ng-container>  
-            </span>
-          </label> -->
+        <div class="col-2" style="padding-left: 2vw;">
         </div>
         <div class="col-5" style="margin-left: 8vw;">
-          <div class = "row" >
-          <div class="user-box-small">
-            <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.dcmntNo>
-            <label>IPD No</label>
-          </div>
-          <div class="user-box-small">
-            <input type="date" name="" required="" disabled="true" [(ngModel)]=OPD1.opdDate>
-            <label>Date</label>
-          </div>
-          <div class="user-box-small">
-            <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.opdTime>
-            <label>Time</label>
-          </div>
-          <div class="user-box-small">
-            <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.uhID>
-            <label>UHID</label>
-          </div>
+          <div class="row">
+            <div class="user-box-small">
+              <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.dcmntNo>
+              <label>IPD No</label>
+            </div>
+            <div class="user-box-small">
+              <input type="date" name="" required="" disabled="true" [(ngModel)]=OPD1.opdDate>
+              <label>Date</label>
+            </div>
+            <div class="user-box-small">
+              <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.opdTime>
+              <label>Time</label>
+            </div>
+            <div class="user-box-small">
+              <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.uhID>
+              <label>UHID</label>
+            </div>
           </div>
         </div>
-      </div>    
-  </div>
-</div>
-
-<div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
-  <div class ="row" style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px;">
-    Patient Information
-  </div>
-  <div class ="row" style="padding-left: 1vw;padding-top: 3vh;">
-  <!-- row 2 -->
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.pntMobile [maxLength]="10">
-    <label>Mobile</label>
-  </div>
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.pntn (change)="populate()" onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option value="Mr">Mr</option>
-      <option value="Mrs">Mrs</option>
-      <option value="Miss">Miss</option>
-      <option value="Mst">Mst</option>
-      <option value="Baby">Baby</option>
-      <option value="B/o">B/o</option>
-      <option value="B/o">Dr</option>
-    </select>
-    <label>Title</label>
-  </div>
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.pntName >
-    <label>Patient Name</label>
+      </div>
+    </div>
   </div>
 
-  <div class="user-box-small"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.pntAgeYrs >
-    <label>Age</label>
-  </div>
+  <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+    <div class="row" style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px;">
+      Patient Information
+    </div>
+    <div class="row" style="padding-left: 1vw;padding-top: 3vh;">
+      <!-- row 2 -->
+      <div class="user-box">
+        <input type="text" name="" required="" [(ngModel)]=OPD1.pntMobile [maxLength]="10">
+        <label>Mobile</label>
+      </div>
+      <div class="user-box">
+        <select [(ngModel)]=OPD1.pntn (change)="populate()" onchange=" this.dataset.chosen = this.value; ">
+          <option value="" disabled selected>Select</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+          <option value="Mst">Mst</option>
+          <option value="Baby">Baby</option>
+          <option value="B/o">B/o</option>
+          <option value="B/o">Dr</option>
+        </select>
+        <label>Title</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="" required="" [(ngModel)]=OPD1.pntName>
+        <label>Patient Name</label>
+      </div>
 
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.agey onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option value="Years">Years</option>
-      <option value="Months">Months</option>
-      <option value="Days">Days</option>
-      <option value="Hrs">Hrs</option>
-    </select>
-    <label>Years</label>
-  </div>
+      <div class="user-box-small">
+        <input type="text" name="" required="" [(ngModel)]=OPD1.pntAgeYrs>
+        <label>Age</label>
+      </div>
 
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.pntSex onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
+      <div class="user-box">
+        <select [(ngModel)]=OPD1.agey onchange=" this.dataset.chosen = this.value; ">
+          <option value="" disabled selected>Select</option>
+          <option value="Years">Years</option>
+          <option value="Months">Months</option>
+          <option value="Days">Days</option>
+          <option value="Hrs">Hrs</option>
+        </select>
+        <label>Years</label>
+      </div>
+
+      <div class="user-box">
+        <select [(ngModel)]=OPD1.pntSex onchange=" this.dataset.chosen = this.value; ">
+          <option value="" disabled selected>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <label>Gender</label>
+      </div>
+
+    </div>
+  </div>
+  <div class="row" style="margin-top:1vw ;padding-left: 1vw;">
+
+    <div class="user-box">
+      <select [(ngModel)]=OPD1.pntg onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option value="S/o">S/o</option>
+        <option value="W/o">W/o</option>
+        <option value="D/o">D/o</option>
+        <option value="C/o">C/o</option>
       </select>
-    <label>Gender</label>
-  </div>
+      <label>Title</label>
+    </div>
+
+    <div class="user-box">
+      <input type="text" name="" required="" [(ngModel)]=OPD1.pntGrdn>
+      <label>Guardian</label>
+    </div>
+
+    <div class="user-box">
+      <select [(ngModel)]=OPD1.PntType onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option value="General">General</option>
+        <option value="Package">Package</option>
+        <option value="TPA">TPA</option>
+        <option value="Ayushman">Ayushman</option>
+      </select>
+      <label>Type</label>
+    </div>
+
+    <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+      <input style="width: 16vw;" type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1>
+      <label>Address</label>
+    </div>
+
+    <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+      <select style="width: 10vw;" [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let city of Cityname">
+          {{city.citynam}}
+        </option>
+      </select>
+      <label>City</label>
+    </div>
 
   </div>
-</div>
-<div class ="row" style="margin-top:1vw ;padding-left: 1vw;">
 
-<div class="user-box"  >
-  <select [(ngModel)]=OPD1.pntg onchange=" this.dataset.chosen = this.value; " >
-    <option value="" disabled selected>Select</option>
-    <option value="S/o">S/o</option>
-    <option value="W/o">W/o</option>
-    <option value="D/o">D/o</option>
-    <option value="C/o">C/o</option>
-  </select>
-  <label>Title</label>
-</div>
-
-<div class="user-box"  >
-  <input type="text" name="" required="" [(ngModel)]=OPD1.pntGrdn >
-  <label>Guardian</label>
-</div>
-
-<div class="user-box"  >
-  <select [(ngModel)]=OPD1.PntType onchange=" this.dataset.chosen = this.value; " >
-    <option value="" disabled selected>Select</option>
-    <option value="General">General</option>
-    <option value="Package">Package</option>
-    <option value="TPA">TPA</option>
-    <option value="Ayushman">Ayushman</option>
-</select>
-  <label>Type</label>
-</div>
-
-<div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw" >
-  <input style="width: 16vw;"  type="text" name="" required="" [(ngModel)]=OPD1.pntAdrs1 >
-  <label>Address</label>
-</div>
-
-<div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
-  <select style="width: 10vw;" [(ngModel)]=OPD1.pntCity onchange=" this.dataset.chosen = this.value; " >
-    <option value="" disabled selected>Select</option>
-    <option *ngFor="let city of Cityname">
-      {{city.citynam}}
-    </option> 
-  </select>
-  <label>City</label>
-</div>
-
-</div>
-
-<div class ="row" style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px; margin-top: 2vh;margin-bottom: 3vh;">
-  Consultant Information
-</div>
-
-<div class ="row" style="padding-left: 1vw;">
-
-  <div class="user-box"  >
-    <select (change)="selectdepartment()" [(ngModel)]=OPD1.caseType onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let students of department">
-        {{students.caseType}}
-      </option> 
-    </select>
-    <label>Department</label>
+  <div class="row"
+    style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px; margin-top: 2vh;margin-bottom: 3vh;">
+    Consultant Information
   </div>
 
-  <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
-    <select style="width: 16vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let students of consulant" value="{{students.dctName}}">
-        {{students.dctName}}
-      </option> 
-    </select>
-    <label>Consultant</label>
-  </div>
+  <div class="row" style="padding-left: 1vw;">
 
-  <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
-      <select style="width: 16vw;" [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; " >
+    <div class="user-box">
+      <select (change)="selectdepartment()" [(ngModel)]=OPD1.caseType onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let students of department">
+          {{students.caseType}}
+        </option>
+      </select>
+      <label>Department</label>
+    </div>
+
+    <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+      <select style="width: 16vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let students of consulant" value="{{students.dctName}}">
+          {{students.dctName}}
+        </option>
+      </select>
+      <label>Consultant</label>
+    </div>
+
+    <div class="user-box" style="width: 16vw;max-width: 100%; margin-right:1vw">
+      <select style="width: 16vw;" [(ngModel)]=OPD1.rfrdBy onchange=" this.dataset.chosen = this.value; ">
         <option value="" disabled selected>Select</option>
         <option *ngFor="let rstudents of rconsulant">
           {{rstudents.dctName}}
-        </option> 
+        </option>
       </select>
       <label>RefConsultant</label>
+    </div>
+
+
+
+    <!-- <div class ="row" style="padding-left: 1vw; "> -->
+
+    <div class="user-box" style="width: 27vw;max-width: 100%; margin-right:1vw; margin-top: 3vh;">
+      <select style="width: 27vw;" (change)="selectWard()" [(ngModel)]=Ward1.category
+        onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let room of Ward">
+          {{room.category}}
+        </option>
+      </select>
+      <label>Ward Name</label>
+    </div>
+
+    <div class="user-box" style="margin-top: 3vh;">
+      <select [(ngModel)]=Ward1.roomNo onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let room of room">
+          {{room.roomNo}}
+        </option>
+      </select>
+      <label>Room No</label>
+    </div>
+
+    <div class="user-box" style="margin-top: 3vh;">
+      <select [(ngModel)]=Ward1.Bedno>
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let bed of room ">
+          {{bed.Bedno}}
+        </option>
+      </select>
+      <label>Bed No</label>
+    </div>
+
+    <div class="user-box" style="margin-top: 3vh;">
+      <input type="text" name="" required="" [(ngModel)]=Deposit.advanceReceived>
+      <label>Deposit</label>
+    </div>
+
   </div>
 
- 
- 
-  <!-- <div class ="row" style="padding-left: 1vw; "> -->
-
-<div class="user-box"  style="width: 27vw;max-width: 100%; margin-right:1vw; margin-top: 3vh;" >
-  <select style="width: 27vw;" (change)="selectWard()" [(ngModel)]=Ward1.category onchange=" this.dataset.chosen = this.value; " >
-    <option value="" disabled selected>Select</option>
-    <option *ngFor="let room of Ward" >
-      {{room.category}}
-    </option> 
-  </select>
-  <label>Ward Name</label>
-</div>
-
-  <div class="user-box"  style="margin-top: 3vh;">
-    <select [(ngModel)]=Ward1.roomNo onchange=" this.dataset.chosen = this.value; ">
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let room of room"  >
-        {{room.roomNo}}
-      </option> 
-    </select> 
-    <label>Room No</label>
+  <div class="row"
+    style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px; margin-top: 2vh;margin-bottom: 3vh;">
+    Other Information
   </div>
 
-  <div class="user-box"  style="margin-top: 3vh;">
-    <select [(ngModel)]=Ward1.Bedno>
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let bed of room " >
-        {{bed.Bedno}}
-      </option> 
-    </select> 
-    <label>Bed No</label>
+  <div class="row" style="padding-left: 1vw;">
+
+    <div class="user-box">
+      <input type="text" name="" required="" [(ngModel)]=OPD1.aadhar>
+      <label>Aadhar</label>
+    </div>
+
+    <div class="user-box">
+      <select [(ngModel)]=OPD1.occupation onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option value="Service">Service</option>
+        <option value="Student">Student</option>
+        <option value="Housewife">Housewife</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Business">Business</option>
+      </select>
+      <label>Occupation</label>
+    </div>
+
+    <div class="user-box">
+      <select [(ngModel)]=OPD1.surgical onchange=" this.dataset.chosen = this.value; ">
+        <option value="Medical">Medical</option>
+        <option value="Surgical">Surgical</option>
+      </select>
+      <label>Patient Type</label>
+    </div>
+
+    <div class="user-box-small">
+      <select [(ngModel)]=OPD1.BloodGroup onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option value="A">A</option>
+        <option value="A+">A+</option>
+        <option value="B">B</option>
+        <option value="B+">B+</option>
+        <option value="O">O</option>
+        <option value="O+">O+</option>
+      </select>
+      <label>Blood Group</label>
+    </div>
+
+    <div class="user-box">
+      <input type="text" name="" required="" [(ngModel)]=OPD1.Dignosis>
+      <label>Diagnosis</label>
+    </div>
+
+    <div class="user-box">
+      <input type="text" name="" required="" [(ngModel)]=OPD1.email>
+      <label>Email</label>
+    </div>
+
   </div>
 
-  <div class="user-box"  style="margin-top: 3vh;">
-    <input type="text" name="" required="" [(ngModel)]=Deposit.advanceReceived >
-    <label>Deposit</label>
-  </div>
-  
-</div>
+  <div class="row" style="padding-left: 1vw; padding-top: 3vh;">
+    <div class="user-box">
+      <select [(ngModel)]=OPD1.paymode onchange=" this.dataset.chosen = this.value; ">
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let pay of group">
+          {{pay.paymode}}
+        </option>
+      </select>
+      <label>Payment Mode</label>
+    </div>
 
-<div class ="row" style="padding-left: 1vw;font-family: 'Source Sans Pro';font-weight: 600;font-size: 17px; margin-top: 2vh;margin-bottom: 3vh;">
-  Other Information
-</div>
+    <div class="user-box">
+      <input type="text" name="" required="" [(ngModel)]=OPD1.narration>
+      <label>Narration</label>
+    </div>
 
-<div class ="row" style="padding-left: 1vw;">
-
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.aadhar>
-    <label>Aadhar</label>
-  </div>
-
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.occupation onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option value="Service">Service</option>
-      <option value="Student">Student</option>
-      <option value="Housewife">Housewife</option>
-      <option value="Doctor">Doctor</option>
-      <option value="Business">Business</option>
-    </select>
-    <label>Occupation</label>
-  </div>
-
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.surgical onchange=" this.dataset.chosen = this.value; " >
-      <option value="Medical">Medical</option>
-      <option value="Surgical">Surgical</option>
-    </select>
-  <label>Patient Type</label>
-  </div>
-
-  <div class="user-box-small"  >
-    <select [(ngModel)]=OPD1.BloodGroup onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option value="A">A</option>
-      <option value="A+">A+</option>
-      <option value="B">B</option>
-      <option value="B+">B+</option>
-      <option value="O">O</option>
-      <option value="O+">O+</option>
-    </select>
-    <label>Blood Group</label>
-  </div>
-
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.Dignosis>
-    <label>Diagnosis</label>
-  </div>
-
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.email>
-    <label>Email</label>
-  </div>
-
-</div>
-
-<div class ="row" style="padding-left: 1vw; padding-top: 3vh;">
-  <div class="user-box"  >
-    <select [(ngModel)]=OPD1.paymode onchange=" this.dataset.chosen = this.value; " >
-      <option value="" disabled selected>Select</option>
-      <option *ngFor="let pay of group">
-        {{pay.paymode}}
-      </option> 
-    </select>
-    <label>Payment Mode</label>
-  </div>
-
-  <div class="user-box"  >
-    <input type="text" name="" required="" [(ngModel)]=OPD1.narration>
-    <label>Narration</label>
-  </div>
-
-  <button style="margin-left:70px ; width:120px ;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
+    <button style="margin-left:70px ; width:120px ;" type="submit" class="btn btn-success"
+      (click)="onSubmit()">SAVE</button>
 
 
-  <div class ="row">
+    <div class="row">
       <!-- row 4 -->
-  <!-- <div class = "col">
+      <!-- <div class = "col">
     <label style="margin-top:2vw ;" >RefConsultant </label>
     <select style="width:270px ; " class="form-control" [(ngModel)]=OPD1.rfrdBy>
       <option>--Select--</option>
@@ -321,7 +314,7 @@
       </option> 
     </select> 
   </div> -->
-  <!-- <div class ="col">
+      <!-- <div class ="col">
     <label style="margin-top:2vw ;"  for="pntcity">City</label>
       <select style="width:230px ;" class="form-control" [(ngModel)]=OPD1.pntCity>
         <option *ngFor="let city of Cityname">
@@ -330,7 +323,7 @@
       </select>
   </div> -->
 
-  <!-- <div class ="col">
+      <!-- <div class ="col">
     <label  style="margin-top:2vw ;">Consultant </label>
     <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.dctrVisited >
       <option>--Select--</option>    
@@ -340,10 +333,10 @@
     </select> 
   </div> -->
 
-</div>
-  <div class ="row">
+    </div>
+    <div class="row">
       <!-- row 5 -->
-    <!-- <div class = "col">
+      <!-- <div class = "col">
       <label style="margin-top:2vw ;" for="aadhar">Aadhar</label>
       <input style="width:280px ; " class="form-control" type="text" [(ngModel)]=OPD1.aadhar >
       
@@ -369,9 +362,9 @@
         </select> 
     </div> -->
 
-</div>
-    <div class ="row">
-        <!-- row 6 -->
+    </div>
+    <div class="row">
+      <!-- row 6 -->
       <!-- <div class = "col">
         <label style="margin-top:2vw ;" >PatientType</label>
         <select style="width:280px ;" class="form-control"  [(ngModel)]=OPD1.surgical>
@@ -398,11 +391,11 @@
             {{pay.paymode}}
           </option> 
         </select>  -->
-        <!-- <label style="margin-top:2vw ;" for="aadhar">Email</label>
+      <!-- <label style="margin-top:2vw ;" for="aadhar">Email</label>
         <input style="width:230px ; " class="form-control" type="text" [(ngModel)]=OPD1.email > -->
-        
-      </div>
-      <!-- <div class ="col">
+
+    </div>
+    <!-- <div class ="col">
     <div>      
         <label  style="margin-top:2vw ;">RoomNo </label>
     <label  style=" margin-left:35px ; ">Bed NO</label>
@@ -432,15 +425,13 @@
      -->
 
     <div>
-        <!-- <label style="margin-top:2vw ;" for="aadhar">Narration</label>
+      <!-- <label style="margin-top:2vw ;" for="aadhar">Narration</label>
         <input style="width:280px ; " class="form-control" type="text" [(ngModel)]=Deposit.narration >
         <button style="margin-top:3.5vw ; margin-left:70px ; width:120px ;" type="submit" class="btn btn-success" (click)="onSubmit()">SAVE</button>
          -->
-        </div>
-      
-      </div>
-      </div>
-  
-  <!-- row end -->
-  
-  
+    </div>
+
+  </div>
+</div>
+
+<!-- row end -->
