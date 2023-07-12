@@ -13,6 +13,7 @@ import { City } from '../../students';
 import { testmaster } from '../../students';
 import { testname } from '../../students';
 import { readOnlyMode } from '@syncfusion/ej2-angular-richtexteditor';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -134,7 +135,7 @@ export class NewBookingComponent implements OnInit {
 
 
       //call date 
-      this.Students.vchrDate = new Date().toISOString().split('T')[0];
+      this.Students.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
       this.Students.vchrTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
 
     }
@@ -153,7 +154,7 @@ export class NewBookingComponent implements OnInit {
         });
 
       //call date 
-      this.Students.vchrDate = new Date().toISOString().split('T')[0];
+      this.Students.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
       this.Students.vchrTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
 
       this._studentservice.Testgetopdreg(routerParams["id"], routerParams["dt"])
@@ -192,7 +193,7 @@ export class NewBookingComponent implements OnInit {
         });
 
       //call date 
-      this.Students.vchrDate = new Date().toISOString().split('T')[0];
+      this.Students.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
       this.Students.vchrTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
 
       this._studentservice.Testgetopdreg(routerParams["id"], routerParams["dt"])
@@ -268,10 +269,16 @@ export class NewBookingComponent implements OnInit {
           .subscribe(data => {
             this._studentservice.createbookingd(this.Students)
               .subscribe(data => {
+                var result = confirm("Print Receipt ?");
+                if (result == true) {
+                  this.router.navigate(['receiptsb/' + this.Students.vchrNo]);
+                }
+                else {
+                  this.router.navigate(['/homepage/list']);
+                }
               });
-            alert('Save Records...Thanks');
-            this.router.navigate(['/homepage/list']);
-          });
+           
+            });
       }
     }
   }
@@ -409,7 +416,7 @@ export class NewBookingComponent implements OnInit {
         this.Students.billamt = 0;
 
         //call date 
-        this.Students.vchrDate = new Date().toISOString().split('T')[0];
+        this.Students.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
         this.Students.vchrTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
 
       });
@@ -451,7 +458,7 @@ export class NewBookingComponent implements OnInit {
       this.Students.pntsex = "Male"
       this.Students.pntg = "S/o"
     }
-    if (this.Students.pntn == "Master") {
+    if (this.Students.pntn == "Mst") {
       this.Students.pntsex = "Male"
       this.Students.pntg = "C/o"
     }

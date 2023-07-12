@@ -3,6 +3,7 @@ import { StudentsService } from './../../students.service';
 import { Router } from '@angular/router';
 import {consulant,login1,Students} from '../../students';
 import { Labname,Cityname } from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-opd-master-report',
@@ -62,8 +63,8 @@ this.Labname = data;
        this.router.navigate(['']);
      }
  
-     this.vrdt1 = new Date().toISOString().split('T')[0];
-     this.vrdt2 = new Date().toISOString().split('T')[0];
+     this.vrdt1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+     this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
    }
     
    daycollection(vrdt1:any,vrdt2:any){

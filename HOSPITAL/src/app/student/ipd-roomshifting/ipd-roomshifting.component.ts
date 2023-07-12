@@ -3,6 +3,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import { OPD,roomshift,group,Ward} from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-ipd-roomshifting',
@@ -38,7 +39,7 @@ export class IPDRoomshiftingComponent implements OnInit {
    this.Ward1.Years = data[0].years;
   });
 
-  this.Ward1.cdt = new Date().toISOString().split('T')[0];
+  this.Ward1.cdt = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
  //call Ward
  this._studentservice.gettableward()
  .subscribe((data:any) => {

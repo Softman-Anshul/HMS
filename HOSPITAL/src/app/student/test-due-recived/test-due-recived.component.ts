@@ -3,6 +3,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import { OPD,group, Students} from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-test-due-recived',
@@ -33,7 +34,7 @@ export class TestDueRecivedComponent implements OnInit {
   //  this.Deposit.rectime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",  minute: "numeric"});
   //  this.Deposit.reason = "Payment";
 
-    this.Students.printdate = new Date().toISOString().split('T')[0];
+    this.Students.printdate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
 
    //call company for f.years
    this._studentservice.getCompany()

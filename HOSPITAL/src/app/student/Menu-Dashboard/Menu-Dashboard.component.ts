@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { OPD, Students } from '../../students';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -59,7 +60,7 @@ export class DashboardComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.vrdt1 = new Date().toISOString().split('T')[0];
+    this.vrdt1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
 
     //count OPD 
     this._studentservice.getopd(this.vrdt1)
@@ -98,7 +99,7 @@ export class DashboardComponent implements OnInit {
       });
 
     this.from = new Date(new Date().setDate(new Date().getDate() - 7)).toISOString().split('T')[0];
-    this.to = new Date().toISOString().split('T')[0];
+    this.to = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
 
     this.getOpdDetails()
   }

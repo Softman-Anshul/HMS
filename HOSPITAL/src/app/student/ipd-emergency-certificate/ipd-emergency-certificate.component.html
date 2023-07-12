@@ -1,12 +1,16 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 <body >
+    <div class="col" style="text-align:right">
+        <button (click)="printComponent()">Print</button>
+        <button (click)="ipdlist()">Close</button>
+    </div>
 <div class="row" > 
-    <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
+    <div class="items-group" style="margin-top: 5vh; margin-left: 40px; width: 90%;">
     <div class = "col" >
         <div style="text-align: center;">
         <label style="font-size:medium; " type="dcmntno"  >File No</label>
             <input style="font-size:small; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; " readonly="true" [(ngModel)]=dcmntNo >
-            <b><label style="width: 400px;">EMERGENCY ADMISSION CERTIFICATE</label></b>
+            <b><label style="width: 380px; font-size: larger;">EMERGENCY ADMISSION CERTIFICATE</label></b>
             <label style="font-size:medium; margin-left:40px;" for="uhID">UHID</label>
             <input style="font-size:small; margin-left:5px; width:75px ;border:none ;color: black; background-color: white; "[(ngModel)]=OPD.uhID >
         </div>

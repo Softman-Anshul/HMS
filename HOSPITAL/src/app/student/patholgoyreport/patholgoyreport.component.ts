@@ -8,6 +8,7 @@ import { RefundComponent } from '../TEST-Refund/TEST-Refund.component';
 import { TestdetailsComponent } from '../TEST-Testdetails/TEST-Testdetails.component';
 import { TestPmodechangeComponent } from '../test-pmodechange/test-pmodechange.component';
 import { TestDueRecivedComponent } from '../test-due-recived/test-due-recived.component';
+import { formatDate } from '@angular/common';
 
 export interface DialogData {Vno: string;}
 
@@ -44,8 +45,8 @@ export class PatholgoyreportComponent implements OnInit {
   ngOnInit(): void {
       
     //call Date
-    this.vrdt1 = new Date().toISOString().split('T')[0];
-    this.vrdt2 = new Date().toISOString().split('T')[0];
+    this.vrdt1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+    this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
 
     this._studentservice.gettable_pathology(this.vrdt1)
     .subscribe((data:Students[]) => {
@@ -113,7 +114,7 @@ result(vchrNo:any):void{
 
   }
   openDialog(): void {
-    if(this.selected.vchrDate == new Date().toISOString().split('T')[0])
+    if(this.selected.vchrDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0])
     {
     const dialogRef = this.dialog.open(RefundComponent, {
       height:'550px', width: '650px',
@@ -143,7 +144,7 @@ result(vchrNo:any):void{
 }
 
   openDialogpay(): void {
-    if(this.selected.vchrDate == new Date().toISOString().split('T')[0])
+    if(this.selected.vchrDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0])
     {
     const dialogRef = this.dialog.open(TestPmodechangeComponent, {
       height:'550px', width: '650px',

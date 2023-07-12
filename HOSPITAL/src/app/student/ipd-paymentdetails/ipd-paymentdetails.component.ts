@@ -5,6 +5,7 @@ import {Router, Params, ActivatedRoute} from '@angular/router';
 import { OPD,IPDPAYMENT } from 'src/app/students';
 import { IPDPaymentmodechangeComponent } from '../ipd-paymentmodechange/ipd-paymentmodechange.component';
 import {MatDialog} from '@angular/material/dialog';
+import { window } from 'rxjs';
 
 @Component({
   selector: 'app-ipd-paymentdetails',
@@ -21,6 +22,7 @@ export class IPDPaymentdetailsComponent implements OnInit {
   totalrecamt=0;
   totalrefund=0;
   totalnetamt=0;
+  declare time :string;
   declare selected:IPDPAYMENT;
 
   constructor( private _studentservice:StudentsService,
@@ -41,7 +43,8 @@ export class IPDPaymentdetailsComponent implements OnInit {
       {
         this.Router.navigate(['']);
       }
-   
+     
+
        const routerParams = this.routes.snapshot.params;
        this._studentservice.getipdpaymentdetails(this.OPD.dcmntNo,this.OPD.uhID)
        .subscribe((data:IPDPAYMENT[]) => {
@@ -79,5 +82,27 @@ export class IPDPaymentdetailsComponent implements OnInit {
 
       this.dialogRef.close();
     }
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+    ondelete(): void {
+      this.time = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
+      let id = this.selected.recno;
+      let dt =   this.selected.ipdDate;
+      var result = confirm("Want to delete?");
+        if (result == true) {
+          this._studentservice.deleterecipts(id,dt,this.uname,this.time)
+            .subscribe(data => {
+              alert("Delete Record....Thanks")
+              this.onNoClick();
+              this.Router.navigate(['homepage/ipdlist/']);
+            })
+        }
+        else{
+          this.onNoClick();
+        }
+      }
+     
+    
    }
    

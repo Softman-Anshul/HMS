@@ -5,6 +5,7 @@ import { FormBuilder,FormGroup, FormControl,Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { LoginExpiredComponent } from '../login-expired/login-expired.component';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   this.company = data[0].Comp_nam;
   this.logo = data[0].logo;
   this.city = data[0].Comp_city;
-  this.logindate = new Date().toISOString().split('T')[0];
+  this.logindate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
     });
 
     
@@ -61,7 +62,7 @@ export class LoginComponent implements OnInit {
           var yyyy = this.key.charAt(24) + this.key.charAt(6);
           var sdt1 =  new Date(Date.parse(20 + yyyy + "-" + MM + "-" + dd));
           var sdt = sdt1.toISOString().split('T')[0];
-          var cdt = new Date().toISOString().split('T')[0];
+          var cdt = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
 
           var today = new Date();
           var priorDate = new Date(new Date().setDate(today.getDate() + 15));

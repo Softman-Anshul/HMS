@@ -3,6 +3,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import { OPD,IPDPAYMENT,group,billheading} from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-ipd-due-list',
@@ -36,7 +37,7 @@ export class IpdDueListComponent implements OnInit {
 
   ngOnInit(): void {
     const routerParams = this.routes.snapshot.params;
-    this.Deposit.ipdDate = new Date().toISOString().split('T')[0];
+    this.Deposit.ipdDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
    this.Deposit.rectime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",  minute: "numeric"});
    this.Deposit.reason = "Payment";
 

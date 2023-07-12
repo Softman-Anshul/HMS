@@ -6,6 +6,7 @@ import { consulant } from '../../students';
 import { Students, OPD, department } from '../../students';
 import { group, company } from '../../students';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-ipd-reg',
@@ -131,7 +132,7 @@ export class IPDRegComponent implements OnInit {
 
         });
       //call date 
-      this.OPD1.opdDate = new Date().toISOString().split('T')[0];
+      this.OPD1.opdDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
       this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
       this.Ward1.cdt = this.OPD1.opdDate;
       this.Deposit.ipdDate = this.OPD1.opdDate;
@@ -162,7 +163,7 @@ export class IPDRegComponent implements OnInit {
 
             this.selectdepartment();
 
-            this.OPD1.opdDate = new Date().toISOString().split('T')[0];
+            this.OPD1.opdDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
             this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
             this.Ward1.cdt = this.OPD1.opdDate;
             this.Deposit.ipdDate = this.OPD1.opdDate;
@@ -215,7 +216,7 @@ export class IPDRegComponent implements OnInit {
             this.OPD1.Years = data[0].years;
           });
         //call date 
-        this.OPD1.opdDate = new Date().toISOString().split('T')[0];
+        this.OPD1.opdDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
         this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
         this.OPD1.isOldPnt = "N"
       },

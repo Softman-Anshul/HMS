@@ -744,6 +744,10 @@ gettabledaycollection(vrdt1:string,vrdt2:string)
   { 
    return this.http.get<IPDPAYMENT[]> (this.cdn + '/Hospital/Getipdpaymentdetails.php?dcmntNo=' + dcmntNo + '&uhID=' + uhID);
   }
+  deleterecipts(recno:any,ipddate:any,uname:any,time:any)
+  {
+    return this.http.get<IPDPAYMENT[]> (this.cdn + '/Hospital/ipdreceipt_delete.php?recno=' + recno + '&ipddate=' + ipddate + '&uname=' + uname + '&time=' + time);
+  }
   gettestduelist(dcmntNo:number,uhID:number)
   { 
    return this.http.get<IPDPAYMENT[]> (this.cdn + '/Hospital/GetTest_due_details.php?dcmntNo=' + dcmntNo + '&uhID=' + uhID);

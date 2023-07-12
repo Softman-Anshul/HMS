@@ -17,6 +17,7 @@ import { IpdDoctorchangeComponent } from '../ipd-doctorchange/ipd-doctorchange.c
 import { IpdDischargecardComponent } from '../ipd-dischargecard/ipd-dischargecard.component';
 import { IPDDisccertificateComponent } from '../ipd-disccertificate/ipd-disccertificate.component';
 import { IpdRiskComponent } from '../ipd-risk/ipd-risk.component';
+import { OpdslipaComponent } from '../PRINT-OPD-SLIP/PRINT-OPD-SLIP.component';
 
 @Component({
   selector: 'app-ipd-admitlist',
@@ -103,8 +104,9 @@ export class IPDADMITLISTComponent implements OnInit {
   }
   paymentdetails() {
     const dialogRef = this.dialog.open(IPDPaymentdetailsComponent, {
-      height: '650px', width: '650px',
+      height: '650px', width: '750px',
       data: { OPD: this.selected },
+      
     });
 
     dialogRef.afterClosed().subscribe(result => {

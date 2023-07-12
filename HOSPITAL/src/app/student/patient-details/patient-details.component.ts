@@ -3,6 +3,7 @@ import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import {OPD} from '../../students';
 import {Test} from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-patient-details',
@@ -50,7 +51,7 @@ export class PatientDetailsComponent implements OnInit {
    .subscribe((data:any) => {
    this.OPD.Years = data[0].years;
   });
-  this.vchrDate = new Date().toISOString().split('T')[0];
+  this.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
   this.vchrTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",  minute: "numeric"});
 
 }

@@ -50,15 +50,15 @@ export class IpdEditAfterdischComponent implements OnInit {
 
     const routerParams = this.routes.snapshot.params;
     this.OPD1.dcmntNo = routerParams['d'];
-    this.OPD1.uhID = routerParams['u'];
     this.vchrNo = routerParams['v'];
+    this.OPD1.uhID = routerParams['u'];
     this.OPD1.opdDate = routerParams["opdDate"]
 
     //call company for f.years
     this._studentservice.getCompany()
       .subscribe((data: any) => {
         this.OPD1.Years = data[0].years;
-      });
+       });
 
     this.OPD1.payment = "Y";
     this.OPD1.dctrPrscrptn = "NA";
@@ -116,14 +116,9 @@ export class IpdEditAfterdischComponent implements OnInit {
             this.consulant = data;
           });
 
-        //call save entry
-        this._studentservice.getipdbilldetails(this.OPD1.dcmntNo, this.OPD1.uhID)
+          this._studentservice.getipdbilldetailsdischarge(this.vchrNo, this.OPD1.Years)
           .subscribe((data: any) => {
-
-            if (data == undefined) {
-
-            }
-            else {
+            this.heads.tests = data;
               this.heads.tests = data;
               this.heads.vchrNo = data[0].vchrNo;
 
@@ -134,7 +129,6 @@ export class IpdEditAfterdischComponent implements OnInit {
               if (this.heads.tests.length > 0) {
                 this.allowedSave = true;
               }
-            }
 
             //call roomhistory
             this._studentservice.getshifttable(this.OPD1.dcmntNo, this.OPD1.uhID)

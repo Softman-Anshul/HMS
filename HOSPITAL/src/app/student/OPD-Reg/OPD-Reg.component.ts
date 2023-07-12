@@ -6,6 +6,8 @@ import { consulant } from '../../students';
 import { Students, OPD, department } from '../../students';
 import { group, company } from '../../students';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-opdreg',
@@ -35,7 +37,7 @@ export class OpdregComponent implements OnInit {
 
   constructor(private _studentservice: StudentsService,
     private router: Router,
-    private routes: ActivatedRoute,
+    private routes: ActivatedRoute
   ) {
   }
 
@@ -114,7 +116,10 @@ export class OpdregComponent implements OnInit {
           this.OPD1.uhID = data;
         });
       //call date 
-      this.OPD1.opdDate = new Date().toISOString().split('T')[0];
+      // console.log(formatDate(new Date(), 'dd-MM-yyyy', 'en_US').split('T')[0]);
+      // console.log(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }), 'dd/MM/yyyy');
+      // new Date().toISOString().split('T')[0];
+      this.OPD1.opdDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
       this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
     }
     else {
@@ -143,14 +148,11 @@ export class OpdregComponent implements OnInit {
     //call date 
     this._studentservice.getuhidsearch(this.search)
       .subscribe((data: OPD[]) => {
-        console.log(data)
         this.OPD1 = data[0];
         this.selectdepartment()
         this.OPD1.opdDate = new Date().toISOString().split('T')[0];
         this.OPD1.opdTime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
         if (this.OPD1.dcmntType = 'OPD') {
-          console.log(this.OPD1.expiryDate)
-          console.log(this.OPD1.opdDate)
           if (this.OPD1.expiryDate > this.OPD1.opdDate) {
             this.OPD1.amt = 0;
             this.OPD1.disp = 0;
@@ -203,9 +205,9 @@ export class OpdregComponent implements OnInit {
   }
 
   consultantChange(event: any) {
-    if (this.OPD1.nature == "Follow") {
-      return
-    }
+    // if (this.OPD1.nature == "Follow") {
+    //   return
+    // }
     let doc = this.OPD1.dctrVisited
     if (event != null) {
       doc = event.target.value
@@ -232,15 +234,25 @@ export class OpdregComponent implements OnInit {
       }
     }
   }
+
   public getNetAmount(event: any): void {
-    this.OPD1.srvcTax = this.OPD1.amt - event
+    this.OPD1.amt = event
     this.OPD1.disp = 0;
+    this.OPD1.discount = 0;
+    this.OPD1.srvcTax = this.OPD1.amt - this.OPD1.discount
   }
 
-  public getNetAmountByPercent(event: any): void {
-    this.OPD1.discount = (this.OPD1.amt * event) / 100;
-    this.OPD1.srvcTax = this.OPD1.amt * (100 - event) / 100
+  public getNetAmountByPercent(event: any) {
+    this.OPD1.discount = ( this.OPD1.amt * event ) / 100;  
+    this.OPD1.srvcTax = this.OPD1.amt - this.OPD1.discount
   }
+
+  public getNetAmountWithDisc(event: any): void {
+    this.OPD1.discount = event;
+    this.OPD1.disp = this.OPD1.amt / event;
+    this.OPD1.srvcTax = this.OPD1.amt - this.OPD1.discount
+  }
+  
   populate() {
     if (this.OPD1.pntn == "Mr") {
       this.OPD1.pntSex = "Male"

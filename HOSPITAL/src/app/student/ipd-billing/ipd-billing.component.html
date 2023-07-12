@@ -146,7 +146,7 @@
   <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
     <div class="row" style="padding-top: 2vh;">
       <div class="user-box">
-        <select [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
+        <select  [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
           onchange=" this.dataset.chosen = this.value; ">
           <option value="" disabled selected>Select</option>
           <option *ngFor="let test of testmaster">
@@ -155,6 +155,7 @@
         </select>
         <label>Test Name</label>
       </div>
+
       <div class="user-box-small">
         <input type="text" name="" required="" (change)="getAmount()" [(ngModel)]=details.itmQty>
         <label>Qty</label>

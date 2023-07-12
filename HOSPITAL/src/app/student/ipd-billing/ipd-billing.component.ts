@@ -5,6 +5,7 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 import { IPDPAYMENT, OPD } from '../../students';
 import { testmaster, Test } from '../../students';
 import { billheading, billdetails } from '../../students';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -75,7 +76,7 @@ export class IPDBillingComponent implements OnInit {
       });
 
 
-    this.heads.vchrDate = new Date().toISOString().split('T')[0];
+    this.heads.vchrDate = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
     //call company for f.years
     this._studentservice.getCompany()
       .subscribe((data: any) => {
@@ -142,27 +143,29 @@ export class IPDBillingComponent implements OnInit {
   }
 
   selectTest() {
-
     this.index = 0;
     for (let i = 0; i < this.testmaster.length; i++) {
-      if (this.testmaster[i].chrgsName.includes(this.details.itmName)) {
+      if (this.testmaster[i].chrgsName.includes(this.test.itmName)) {
         this.index = i;
+        console.log(this.testmaster[i])
+        this.details.itmChrgs = Number(this.testmaster[this.index].chrgAmt)
+        this.details.totalAmt = Number(this.testmaster[this.index].chrgAmt)
+        this.details.itmQty = 1;
+        this.details.Remark = 'Day';    
         break;
+
       }
     }
-    this.details.itmChrgs = Number(this.testmaster[this.index].chrgAmt)
-    this.details.totalAmt = Number(this.testmaster[this.index].chrgAmt)
-    this.details.itmQty = 1;
-    this.details.Remark = 'Day';
 
   }
+
   public addItem(): void {
     this.heads.tests.push(this.details)
     if (this.heads.tests.length > 0) {
       this.allowedSave = true;
     }
     this.heads.grandTotal = (this.heads.grandTotal + this.details.totalAmt)
-    this.details.itmName = this.testmaster[this.index].chrgsName
+    this.details.itmName = this.test.itmName
     this.details = new billdetails()
     document.getElementById("ItemName")?.focus();
   }

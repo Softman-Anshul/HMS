@@ -26,6 +26,7 @@ export class IPDBilldischargeComponent implements OnInit {
   totalrefund = 0;
   totalnetamt = 0;
   allowedSave = false;
+  dueAmount = 0;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -110,7 +111,18 @@ export class IPDBilldischargeComponent implements OnInit {
         }
       });
 
-
+      this._studentservice.gettestduelistsum(this.OPD.dcmntNo, this.OPD.uhID)
+      .subscribe((data1: any) => {
+        if (data1 == null || data1.length <= 0) {
+          this.dueAmount = 0;
+        } else {
+          this.dueAmount = 0;
+          console.log(data1);
+          for (let i = 0; i < data1.length; i++) {
+            this.dueAmount += parseInt(data1[i].balamt.toString());
+          }
+        }
+      });
   }
 
   delete(item: any) {
@@ -179,4 +191,10 @@ export class IPDBilldischargeComponent implements OnInit {
         });
     }
   }
+  check() {
+    let tooltip = document.getElementById("tool-tip");
+    if (tooltip != null) {
+      tooltip.setAttribute("style", "display: block;")
+    }
+}
 }

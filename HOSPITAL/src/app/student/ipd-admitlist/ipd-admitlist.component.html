@@ -48,13 +48,13 @@
             <th >Sex</th>
             <th >Guardian</th>
             <th >Address</th>
+            <th >Consutlant</th>
+            <th >Type</th>
             <th >Admit Date</th>
             <th >Time</th>
             <th >Ward Name</th>
             <th >RNo</th>
             <th >BN</th>
-            <th >Consutlant</th>
-            <th >Type</th>
             <th >Condition</th>
             <th >Action</th>
           </tr>
@@ -72,13 +72,14 @@
           <td>{{students.pntSex}}</td>
           <td>{{students.pntGrdn}}</td>
           <td>{{students.pntAdrs1}}</td>
+          <td>{{students.dctrVisited}}</td>
+          <td>{{students.PntType}}</td>
           <td>{{students.opdDate}}</td>
           <td>{{students.opdTime}}</td>
           <td>{{students.category}}</td>
           <td >{{students.roomNo}}</td>
           <td >{{students.Bedno}}</td>
-          <td>{{students.dctrVisited}}</td>
-          <td>{{students.PntType}}</td>
+         
           <td><a style="font-size:small; cursor: pointer; color: blue;" (click) ="statuschange(students)" >{{students.cond}}</a></td>
           <div class="btn-group" role="group" >
           <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students.dcmntNo,students.uhID)"></i> </button></a></td>

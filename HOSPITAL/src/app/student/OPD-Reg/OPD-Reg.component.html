@@ -44,7 +44,7 @@
               <label>RegNo</label>
             </div>
             <div class="user-box-small">
-              <input type="date" name="" required="" disabled="true" [(ngModel)]=OPD1.opdDate>
+              <input type="Date" name="" required="" disabled="true" [(ngModel)]=OPD1.opdDate>
               <label>Date</label>
             </div>
             <div class="user-box-small">
@@ -210,7 +210,7 @@
       </div>
 
       <div class="user-box">
-        <input type="text" name="" required="" [(ngModel)]=OPD1.amt>
+        <input type="text" name="" (ngModelChange)="getNetAmount($event)" required="" [(ngModel)]=OPD1.amt>
         <label>Amt</label>
       </div>
 
@@ -221,7 +221,7 @@
       </div>
 
       <div class="user-box">
-        <input type="text" (ngModelChange)="getNetAmount($event)" [(ngModel)]=OPD1.discount>
+        <input type="text" (ngModelChange)="getNetAmountWithDisc($event)" [(ngModel)]=OPD1.discount>
         <label>Disc Amt</label>
       </div>
 

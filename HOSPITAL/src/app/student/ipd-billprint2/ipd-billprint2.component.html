@@ -8,7 +8,7 @@
         <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
     </div>
     <div class = "col">
-        <h3 style="margin-top: 5vw; height: 4px;">{{company}}</h3>
+      <h3 style="margin-top: 5vw; font-weight: bold; font-size: larger; height: 4px;">{{company}}</h3>
         <h4 style="height: 4px;">{{add}}</h4>
         <h4 style="height: 4px;">{{city}}</h4>
         <h4 >{{phone}}</h4>
@@ -18,46 +18,48 @@
 </div>
 
 <div class="row" style="text-align: center;">
-<h3 style=" font-size:xx-large; margin-left: 30px; width:740px; font-family:Haettenschweiler, 'Arial Narrow Bold'" >IPD BILL</h3>
+  <h2
+  style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
+  IPD BILL</h2>
 </div>
 <div class ="row" style="margin-left: 30px;">
     <div class="col-7">
           <div>
-          <label style="font-size:medium; margin-left:15px; " >Patient Name</label>
+          <label style="font-size:medium; font-weight: bold; margin-left:15px; " >Patient Name</label>
           <input style="font-size:medium;   margin-left:15px; width:40px ; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
          <input style="font-size:medium; margin-left:5px; width:230px ; border:none ;color: black; background-color: white; " [(ngModel)]=OPD.pntName type="pntName"  >
           </div>
 
           <div>
-         <label style="font-size:medium; margin-left:15px;" >Age/Gender</label>
+         <label style="font-size:medium; font-weight: bold; margin-left:15px;" >Age/Gender</label>
          <input style="margin-left: 25px; font-size:medium; width:30px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
          <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; " [(ngModel)]=OPD.pntSex type="pntSex" >
          <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.agey type="agey">
           </div>
 
          <div>
-         <label  style="font-size:medium; margin-left:15px;" >Guardian</label>
+         <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >Guardian</label>
          <input   style="font-size:medium; margin-left:50px; width:45px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntg type="pntg"  >
          <input   style="font-size:medium; margin-left:5px; width:250px ; border:none ;color: black; background-color: white;"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
          </div>
 
          <div>
-          <label  style="font-size:medium; margin-left:15px;" >Address</label>
+          <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >Address</label>
           <input   style="font-size:medium; margin-left:55px; width:155px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntAdrs1   >
           </div>
 
           <div>
-          <label  style="font-size:medium; margin-left:15px;" >District</label>
+          <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >District</label>
           <input   style="font-size:medium; margin-left:65px; width:155px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntCity   >
            </div>
 
            <div>
-           <label  style="font-size:medium; margin-left:15px; ">Mobile</label>
+           <label  style="font-size:medium; font-weight: bold; margin-left:15px; ">Mobile</label>
            <input   style="font-size:medium; margin-left:70px; width:155px ; border:none ;color: black; background-color: white; "   [(ngModel)]=OPD.pntMobile   >
            </div>
 
            <div>
-            <strong><label  style="font-size:medium; margin-left:15px; ">Consultant</label></strong>
+            <strong><label  style="font-size:medium; font-weight: bold; margin-left:15px; ">Consultant</label></strong>
             <input  style="font-weight: bold; width:210px ; margin-left:40px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.dctrVisited>
             </div>
   
@@ -65,26 +67,26 @@
     </div>           
     <div class="col-5">
       <div>
-        <label style="font-size:medium;"  >BillNo/DT</label>
+        <label style="font-size:medium; font-weight: bold;"  >BillNo/DT</label>
         <input style="font-size:medium; width:60px ; margin-left:15px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=heads1.vchrNo type="text" >
          <input style="font-size:medium; width:115px ; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=heads1.vchrDate type="date"  >
          </div>
 
           <div>
-         <label style="font-size:medium;"  >Admit Date</label>
+         <label style="font-size:medium; font-weight: bold;"  >Admit Date</label>
          <input style="font-size:medium; width:110px ; margin-left:65px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.opdDate type="date" >
           <input style="font-size:medium; width:75px ; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.opdTime  >
           </div>
 
           <div>
-            <label style="font-size:medium;"  >Discharge Date</label>
+            <label style="font-size:medium; font-weight: bold;"  >Discharge Date</label>
             <input style="font-size:medium; width:105px ; margin-left:40px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=heads1.Statusdate type="date" >
              <input style="font-size:medium; width:75px ; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=heads1.distime  >
              </div>
 
              
           <div>
-          <label style="font-size:medium;"  >File-No</label>
+          <label style="font-size:medium; font-weight: bold;"  >File-No</label>
           <input   style="font-size:medium; margin-left:35px; width:45px ; border:none ;color: black; background-color: white; "   [(ngModel)]=OPD.dcmntNo   >
           <label style="font-size:medium; margin-left:20px;"  >UHID</label>
           <input style="font-size:medium; width:40px ; margin-left: 25px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.uhID >
@@ -95,14 +97,14 @@
           </div>
   
           <div>
-          <label style="font-size:medium;"  >RoomNo</label>
+          <label style="font-size:medium; font-weight: bold;"  >RoomNo</label>
           <input style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=Ward1.roomNo>
-          <label style="font-size:medium; margin-left:40px;"  >BedNo</label>
+          <label style="font-size:medium; font-weight: bold; margin-left:40px;"  >BedNo</label>
           <input style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=Ward1.bedno>
           </div>
 
           <div>
-            <label style="font-size:medium;"  >Patient Type</label>
+            <label style="font-size:medium; font-weight: bold;"  >Patient Type</label>
             <input style="font-size:medium; width:210px ; margin-left:60px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.PntType >
             </div>
 

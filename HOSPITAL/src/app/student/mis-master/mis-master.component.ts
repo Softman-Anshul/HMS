@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from './../../students.service';
 import { Router } from '@angular/router';
 import {group } from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-mis-master',
@@ -26,8 +27,8 @@ export class MisMasterComponent implements OnInit {
   ngOnInit(): void {
     this.Mobile = this._studentservice.isMob();
     this.list = [];
-    this.vrdt1 = new Date().toISOString().split('T')[0];
-    this.vrdt2 = new Date().toISOString().split('T')[0];
+    this.vrdt1 =formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+    this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
           //call username 
         this.uname = this._studentservice.getUsername();
          //call username 

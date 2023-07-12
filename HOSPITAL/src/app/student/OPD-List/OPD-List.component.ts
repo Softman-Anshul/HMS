@@ -9,6 +9,7 @@ import { OpddoctorchangeComponent } from '../OPD-Doctorchange/OPD-Doctorchange.c
 import { OPDEMRComponent } from '../opd-emr/opd-emr.component';
 import { IPDRegComponent } from '../ipd-reg/ipd-reg.component';
 import { OpdMedicalcertificateComponent } from '../opd-medicalcertificate/opd-medicalcertificate.component';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-opdlist',
@@ -47,8 +48,8 @@ export class OpdlistComponent implements OnInit {
 
   ngOnInit(): void {
     //call Date
-    this.vrdt1 = new Date().toISOString().split('T')[0];
-    this.vrdt2 = new Date().toISOString().split('T')[0];
+    this.vrdt1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+    this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
 
     this._studentservice.getopd(this.vrdt1)
       .subscribe((data: OPD[]) => {
@@ -104,7 +105,7 @@ export class OpdlistComponent implements OnInit {
     }
   }
   openDialogrefund(): void {
-    if (this.selected.opdDate == new Date().toISOString().split('T')[0]) {
+    if (this.selected.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       const dialogRef = this.dialog.open(OpdrefundComponent, {
         height: '550px', width: '650px',
         data: { OPD: this.selected },
@@ -129,7 +130,7 @@ export class OpdlistComponent implements OnInit {
     }
   }
   delete(students: any): void {
-    if (students.opdDate == new Date().toISOString().split('T')[0]) {
+    if (students.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       var result = confirm("Want to delete?");
       if (result == true) {
         this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
@@ -155,7 +156,7 @@ export class OpdlistComponent implements OnInit {
     }
   }
   openDialogpmode(): void {
-    if (this.selected.opdDate == new Date().toISOString().split('T')[0]) {
+    if (this.selected.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       const dialogRef = this.dialog.open(OpdpmodechangeComponent, {
         height: '550px', width: '650px',
         data: { OPD: this.selected },
@@ -182,7 +183,7 @@ export class OpdlistComponent implements OnInit {
 
   }
   openDialogdoctor(): void {
-    if (this.selected.opdDate == new Date().toISOString().split('T')[0]) {
+    if (this.selected.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       const dialogRef = this.dialog.open(OpddoctorchangeComponent, {
         height: '550px', width: '650px',
         data: { OPD: this.selected },
@@ -255,6 +256,7 @@ export class OpdlistComponent implements OnInit {
     this._studentservice.opdsearch(this.search, this.vrdt1, this.vrdt2, this.Choice)
       .subscribe((data: OPD[]) => {
         this.OPD = data;
+
       });
   }
   searchdirect() {
@@ -264,7 +266,7 @@ export class OpdlistComponent implements OnInit {
       });
   }
   onEdit(dcmntNo: any, opdDate: any): void {
-    if (opdDate == new Date().toISOString().split('T')[0]) {
+    if (opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       this.router.navigate(['homepage/opdreg', { OPD: dcmntNo, OPD2: opdDate }]);
 
       // const dialogRef = this.dialog.open(OpdregComponent, {

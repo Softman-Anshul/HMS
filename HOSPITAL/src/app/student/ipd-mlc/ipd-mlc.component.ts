@@ -5,6 +5,7 @@ import {Router, Params, ActivatedRoute} from '@angular/router';
 import {OPD} from '../../students';
 import { MLC} from '../../students';
 import {HttpClient} from '@angular/common/http';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-ipd-mlc',
@@ -53,7 +54,7 @@ export class IpdMlcComponent implements OnInit {
     this.MLC.mlcno = data;
     });
   
-    this.MLC.mlcdt = new Date().toISOString().split('T')[0];
+    this.MLC.mlcdt = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
      //call company for f.years
      this._studentservice.getCompany()
      .subscribe((data:any) => {

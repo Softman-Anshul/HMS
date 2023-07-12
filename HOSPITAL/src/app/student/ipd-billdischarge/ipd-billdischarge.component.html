@@ -132,11 +132,11 @@
           <label>Rec Amt</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" style="color: red;" disabled [(ngModel)]=heads.grandTotal>
+          <input type="text" name="" required="" style="color: red;" disabled [(ngModel)]=dueAmount>
           <label>Test Due</label>
         </div>
         <div class="col-1">
-          <button class="btn btn-primary" style="width: 5vw; margin-top: 1vh;">Check</button>
+          <button class="btn btn-primary" style="width: 5vw; margin-top: 1vh;" (click)="check()">Check</button>
         </div>
       </div>
     </div>

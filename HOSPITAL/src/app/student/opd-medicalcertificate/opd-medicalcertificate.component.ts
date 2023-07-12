@@ -3,6 +3,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import { MEDICALCERT, OPD} from '../../students';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-opd-medicalcertificate',
@@ -48,10 +49,10 @@ this.cer1.uhID = this.OPD.uhID;
         this.cer1.recno = data;
         });
 
-        this.cer1.issuedt = new Date().toISOString().split('T')[0];
-        this.cer1.fromdt = new Date().toISOString().split('T')[0];
+        this.cer1.issuedt = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
+        this.cer1.fromdt = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
         this.cer1.todt = "";
-        this.cer1.dutyfrom = new Date().toISOString().split('T')[0];
+        this.cer1.dutyfrom = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]
         this.cer1.uname = this.uname
 
     //call username 
@@ -72,7 +73,7 @@ this.cer1.uhID = this.OPD.uhID;
   onsave(){
     this._studentservice.medicalcerinsert(this.cer1)
    .subscribe(data => {
-    var result = confirm("Print Receipts ?");
+    var result = confirm("Print ?");
     if (result==true) {
       let id = this.cer1.recno;
       let cerDate = this.cer1.issuedt;

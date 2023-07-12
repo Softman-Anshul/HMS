@@ -51,5 +51,11 @@ export class IpdEmergencyCertificateComponent implements OnInit {
   
 
 }
+printComponent() {
+  window.print();
+}
 
+ipdlist(){
+  this.Router.navigate(['homepage/ipdlist/']);
+}
 }
