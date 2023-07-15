@@ -50,21 +50,21 @@ export class IPDDISCHARGEComponent implements OnInit {
     let yrs = this.selected.Years;
     let dcmntNo = this.selected.dcmntNo;
     let uhID = this.selected.uhID;
-    this.router.navigate(['ipdbill2/' + billno, yrs, dcmntNo, uhID]);
+    this.router.navigate(['/homepage/ipdbill2/' + billno, yrs, dcmntNo, uhID]);
   }
   bill3() {
     let billno = this.selected.vchrNo;
     let yrs = this.selected.Years;
     let dcmntNo = this.selected.dcmntNo;
     let uhID = this.selected.uhID;
-    this.router.navigate(['ipdbill3/' + billno, yrs, dcmntNo, uhID]);
+    this.router.navigate(['/homepage/ipdbill3/' + billno, yrs, dcmntNo, uhID]);
   }
   bill4() {
     let billno = this.selected.vchrNo;
     let yrs = this.selected.Years;
     let dcmntNo = this.selected.dcmntNo;
     let uhID = this.selected.uhID;
-    this.router.navigate(['ipdbill4/' + billno, yrs, dcmntNo, uhID]);
+    this.router.navigate(['/homepage/ipdbill4/' + billno, yrs, dcmntNo, uhID]);
   }
   searchquery() {
     this._studentservice.ipdsearch_discharge(this.search, this.vrdt1, this.vrdt2, this.Choice)

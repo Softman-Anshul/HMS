@@ -61,7 +61,7 @@ export class OpdregComponent implements OnInit {
           if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst") || !this._studentservice.checkPermission("Menu", "Master", "inst")) {
             this.router.navigate(['/homepage/main'])
           }
-          if(JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] != "Y") {
+          if (JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] != "Y") {
             this.router.navigate(['/homepage/main'])
           }
         });
@@ -243,7 +243,7 @@ export class OpdregComponent implements OnInit {
   }
 
   public getNetAmountByPercent(event: any) {
-    this.OPD1.discount = ( this.OPD1.amt * event ) / 100;  
+    this.OPD1.discount = (this.OPD1.amt * event) / 100;
     this.OPD1.srvcTax = this.OPD1.amt - this.OPD1.discount
   }
 
@@ -252,7 +252,7 @@ export class OpdregComponent implements OnInit {
     this.OPD1.disp = this.OPD1.amt / event;
     this.OPD1.srvcTax = this.OPD1.amt - this.OPD1.discount
   }
-  
+
   populate() {
     if (this.OPD1.pntn == "Mr") {
       this.OPD1.pntSex = "Male"

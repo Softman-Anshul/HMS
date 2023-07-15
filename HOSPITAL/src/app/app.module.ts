@@ -141,7 +141,7 @@ import { IpdBillingToolTipComponent } from './student/ipd-billing-tool-tip/ipd-b
    StudentModule,
    BrowserAnimationsModule,
    FormsModule,
-   NgChartsModule
+   NgChartsModule,
    
     ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],

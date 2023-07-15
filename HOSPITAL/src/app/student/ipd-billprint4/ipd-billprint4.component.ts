@@ -99,10 +99,19 @@ export class IPDBillprint4Component implements OnInit {
 
   }
 
-printComponent() {
-window.print();
-}
-Ipdlist(){
-  this.Router.navigate(['homepage/ipdlist/']);
-}
+  printComponent() {
+    const element = document.getElementById("print")
+    if (element != null) {
+      const printContents = element.innerHTML;
+      const originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+      window.location.reload()
+    }
+  }
+  
+  Ipdlist() {
+    this.Router.navigate(['homepage/ipdlist/']);
+  }
 }
