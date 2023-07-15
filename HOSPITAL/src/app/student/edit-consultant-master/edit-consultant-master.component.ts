@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { Students } from './../../students';
 import { consulant } from './../../students';
 import { department } from './../../students';
+import { needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-edit-consultant-master',
@@ -143,18 +144,20 @@ export class EditConsultantMasterComponent implements OnInit {
           });
       });
   }
+
+
+  @needConfirmation({
+    title : "Delete Confirmation",
+    message : "Are you sure you want to delete ?",
+    cancel : function(){}
+  })
   deleter(consulant: consulant): void {
-    var result = confirm("Want to delete?");
-    if (result == true) {
       this._studentservice.deleterconsultant(consulant.dctID)
         .subscribe(data => {
           this.consulant = this.consulant.filter(u => u !== consulant);
         })
-    }
-    else {
-      () => { }
-    }
   }
+
   editer(doctorid: any): void {
     this.id = doctorid;
     //  this.router.navigate(['homepage/consultantedit/' + this.id]);

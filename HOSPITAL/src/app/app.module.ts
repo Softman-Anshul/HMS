@@ -68,6 +68,15 @@ import { IPDDisccertificateComponent } from './student/ipd-disccertificate/ipd-d
 import { PatholgoyreportComponent } from './student/patholgoyreport/patholgoyreport.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { IpdBillingToolTipComponent } from './student/ipd-billing-tool-tip/ipd-billing-tool-tip.component';
+import { ENVIRONMENT_INITIALIZER, importProvidersFrom, inject } from '@angular/core';
+import { DialogService } from './dialog.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+export function initializeDialogService() {
+  return () => {
+    inject(DialogService)
+  };
+}
 
 @NgModule({
   declarations: [
@@ -144,7 +153,12 @@ import { IpdBillingToolTipComponent } from './student/ipd-billing-tool-tip/ipd-b
    NgChartsModule,
    
     ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},{
+    provide: ENVIRONMENT_INITIALIZER,
+    useFactory: initializeDialogService,
+    deps: [MatDialog],
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

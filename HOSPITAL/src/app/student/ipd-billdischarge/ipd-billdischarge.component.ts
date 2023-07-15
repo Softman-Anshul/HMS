@@ -5,6 +5,7 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 import { IPDPAYMENT, OPD } from '../../students';
 import { testmaster, Test } from '../../students';
 import { billheading, billdetails } from '../../students';
+import { needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-ipd-billdischarge',
@@ -168,6 +169,7 @@ export class IPDBilldischargeComponent implements OnInit {
       this.heads.tests[num] = tmp;
     }
   }
+
   onsave() {
     const routerParams = this.routes.snapshot.params;
     if (this.heads.Status == "") {

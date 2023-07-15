@@ -10,6 +10,7 @@ import { OPDEMRComponent } from '../opd-emr/opd-emr.component';
 import { IPDRegComponent } from '../ipd-reg/ipd-reg.component';
 import { OpdMedicalcertificateComponent } from '../opd-medicalcertificate/opd-medicalcertificate.component';
 import { formatDate } from '@angular/common';
+import { needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-opdlist',
@@ -337,5 +338,4 @@ export class OpdlistComponent implements OnInit {
     let ty = "edit";
     this.router.navigate(['/homepage/opdreg/', { id: id, dt: dt, ty: ty, type: type }]);
   }
-
 }
