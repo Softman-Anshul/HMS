@@ -49,19 +49,18 @@ export class MisDailyAcitiyHeadsComponent implements OnInit {
     this._studentservice.misheadsacticity(routerParams["vrdt1"],routerParams["vrdt2"],routerParams["doc1"])
     .subscribe((data:Students[]) => {
     this.Students= data;
-
-    for(let i=0;i<this.Students.length;i++)
+    console.log(data)
+        for(let i=0;i<this.Students.length;i++)
       {
         this.headingMap.set(this.Students[i].Reporttype.toString(),true);
-        
       }
 
-    for(let ii=0;ii<this.Students.length;ii++){
-     this.totalgamt +=  parseInt(this.Students[ii].grandTotal.toString());
-      this.totaldamt +=  parseInt(this.Students[ii].discountAmt.toString());
-      this.totalramt +=  parseInt(this.Students[ii].refund.toString());
-      this.totalbal +=  parseInt(this.Students[ii].balamt.toString());
-      this.totalnamt +=  parseInt(this.Students[ii].recamt.toString());
+    for(let i=0;i<this.Students.length;i++){
+     this.totalgamt +=  parseInt(this.Students[i].grandTotal.toString());
+      this.totaldamt +=  parseInt(this.Students[i].discountAmt.toString());
+      this.totalramt +=  parseInt(this.Students[i].refund.toString());
+      this.totalbal +=  parseInt(this.Students[i].balamt.toString());
+      this.totalnamt +=  parseInt(this.Students[i].recamt.toString());
     }
 
   });

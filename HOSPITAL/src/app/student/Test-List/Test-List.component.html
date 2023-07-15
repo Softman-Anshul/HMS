@@ -32,6 +32,7 @@
   <thead class="thead-dark" style="color:white; font-family: Arial, Helvetica, sans-serif;">
     <tr>
         <th></th>
+        <th scope="col" style="width:40px;text-align: center ; ">SN</th>
         <th scope="col" style="width:40px;text-align: center ; ">RNo</th>
         <th scope="col" style="width:50px;text-align: center ; ">UHID</th>
         <th scope="col" style="width:50px;text-align: center ; ">Date</th>
@@ -50,8 +51,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let students of Students " >
+      <tr *ngFor="let students of Students let i=index" >
         <td><input name="options" ng-control="options" type="radio" [value]="students" [(ngModel)]=selected ></td>
+        <td >{{i + 1}}</td>
         <td>{{students.vchrNo}}</td>
         <td>{{students.uhID}}</td>
         <td style="width:110px ;">{{students.vchrDate}}</td>
@@ -73,6 +75,20 @@
         </div>
       </tr>
     </tbody>
+    <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totaldis}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalrefund}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalbalamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{totalrecamt}}</td>
     </table>
     
 

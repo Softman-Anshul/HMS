@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
-import {Router, Params, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import { OPD } from '../../students';
-import { window } from 'rxjs';
 
 @Component({
   selector: 'app-opd-daycollection',
@@ -51,5 +50,10 @@ export class OPDDaycollectionComponent implements OnInit {
    }
   });
   }
-
+  printComponent() {
+   window.print;
+  }
+  opdlist(){
+    this.Router.navigate(['homepage/opd-reportmaster/']);
+  }
 }

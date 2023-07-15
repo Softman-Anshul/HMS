@@ -1,7 +1,7 @@
 <body>
     <app-report-PageHeading></app-report-PageHeading>
     
-        <h4 style="margin-left: 20px; height: 10px;" >City Wise OPD Collection from {{fromdt}} To {{todt}} </h4>
+        <h4 style="margin-left: 20px; height: 10px;" >City Wise OPD Collection from --> {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}} </h4>
         <h3 style="margin-left: 20px; font-weight: bold; text-align: center; ">{{pcity}} </h3>
   
         <table class="table table-bordered border-primary" style="margin-left:10px ;width: 96%; font-size:smaller; ">

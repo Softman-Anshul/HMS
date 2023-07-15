@@ -35,8 +35,7 @@
     <thead  style="color:white; font-family: Arial, Helvetica, sans-serif;" >
       <tr>
         <th ></th>
-        <th >SN.</th>
-        <th >BillNo</th>
+        <th >SN</th>
         <th >FileNo</th>
         <th >UHID</th>
         <th >Title</th>
@@ -60,7 +59,6 @@
     <tr *ngFor="let students of OPD let i=index;" style="text-align:center;" >
       <td><input name="options" ng-control="options" type="radio" [value]="students"  [(ngModel)]=selected></td>
       <td> {{i + 1}}</td>
-      <td>{{students.vchrNo}}</td>
       <td>{{students.dcmntNo}}</td>
       <td>{{students.uhID}}</td>
       <td >{{students.pntn}}</td>
@@ -82,5 +80,21 @@
       <td > <a><button  class="btn" (click) ="edit(students)" ><i  class="fa fa-edit" type="button" ></i> </button></a></td>
       </div>
     </tr>
+    <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                <td style="text-align: center ;  font-weight: bold;">{{billamt}}</td>
+                <td style="text-align: center ;  font-weight: bold;">{{dueamt}}</td>
 </table>
 </div>

@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-8">
             <div>
                 <label style="font-size:medium; font-weight: bold; margin-left:25px; margin-top: 3vw;"
                     type="dcmntno">OPD NO</label>
@@ -42,7 +42,7 @@
                 <input style="margin-left:30px; width:50px; border:none ;color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntn type="pntn">
                 <input
-                    style="font-size:small; margin-left:10px; width:150px; border:none ; color: black; background-color: white; "
+                    style="font-size:small; margin-left:10px; width:220px; border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntName type="pntName">
             </div>
 
@@ -77,7 +77,7 @@
                             style="font-size:small; margin-left:90px; width:50px ; border:none ; color: black; background-color: white; "
                             disabled="true" [(ngModel)]=OPD.uhID type="opdTime">
 
-                            <label style="font-size:medium; font-weight: bold; margin-left:5px;" for="condoctor">Validupto</label>
+                            <label style="font-size:medium; font-weight: bold; margin-left:5px;" for="condoctor">Valid Upto >> </label>
                             <input
                                 style="font-size:small; margin-left:5px; width:90px ; border:none ; color: black; background-color: white;"
                                 disabled="true" [(ngModel)]=OPD.expiryDate type="Date">
@@ -87,7 +87,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div style="margin-top: 1vw;" class="disclaimer signature-field">
     </div>
 </body>

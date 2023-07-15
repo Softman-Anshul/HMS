@@ -256,13 +256,32 @@ export class OpdlistComponent implements OnInit {
     this._studentservice.opdsearch(this.search, this.vrdt1, this.vrdt2, this.Choice)
       .subscribe((data: OPD[]) => {
         this.OPD = data;
-
+        this.totalamt = 0;
+        this.totaldis = 0;
+        this.totalrefund=0;
+        this.totalrecamt = 0;
+        for (let i = 0; i < this.OPD.length; i++) {
+          this.totalamt += parseInt(this.OPD[i].amt.toString());
+          this.totaldis += parseInt(this.OPD[i].discount.toString());
+          this.totalrefund += parseInt(this.OPD[i].refund.toString());
+          this.totalrecamt += parseInt(this.OPD[i].srvcTax.toString());
+        }
       });
   }
   searchdirect() {
     this._studentservice.opdsearch(this.search, this.vrdt1, this.vrdt2, 'Direct')
       .subscribe((data: OPD[]) => {
         this.OPD = data;
+        this.totalamt = 0;
+        this.totaldis = 0;
+        this.totalrefund=0;
+        this.totalrecamt = 0;
+        for (let i = 0; i < this.OPD.length; i++) {
+          this.totalamt += parseInt(this.OPD[i].amt.toString());
+          this.totaldis += parseInt(this.OPD[i].discount.toString());
+          this.totalrefund += parseInt(this.OPD[i].refund.toString());
+          this.totalrecamt += parseInt(this.OPD[i].srvcTax.toString());
+        }
       });
   }
   onEdit(dcmntNo: any, opdDate: any): void {

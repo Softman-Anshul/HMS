@@ -94,6 +94,7 @@ export class MisMasterComponent implements OnInit {
     }
     else if(doc == "Head Wise Details")
     {
+      console.log(dt,dt2,doc1,doc)
       this.router.navigate(['dailyacitivy-Heads/' + dt,dt2,doc1]);
     }
     else if(doc == "Head Wise Daily")

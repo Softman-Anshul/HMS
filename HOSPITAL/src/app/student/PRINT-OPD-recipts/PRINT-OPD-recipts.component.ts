@@ -28,7 +28,6 @@ export class OpdreciptsComponent implements OnInit {
     this._studentservice.getopdregRecp(routerParams["id"],routerParams["opdDate"])
     .subscribe((data:any) => {
     this.OPD = data[0];
-    console.log(data);
     });
 
     //call company
@@ -50,12 +49,13 @@ export class OpdreciptsComponent implements OnInit {
  }
 
 }
-printComponent() {
-  window.print();
-}
+
 
  amount(){
     return this._studentservice.numberToText(this.OPD.srvcTax)
+  }
+  printComponent() {
+    window.print();
   }
   opdlist(){
     this.Router.navigate(['homepage/opdlist/']);

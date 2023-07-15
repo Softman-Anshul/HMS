@@ -278,7 +278,6 @@ export class IPDRegComponent implements OnInit {
       const routerParams = this.routes.snapshot.params;
       this._studentservice.ipd_insert(this.OPD1)
         .subscribe(data => {
-          console.log(this.OPD1);
           this._studentservice.updateroominfo(this.Ward1)
             .subscribe(data => {
 

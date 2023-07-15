@@ -38,6 +38,11 @@ declare paymode : boolean
 declare Receiptsbooking : boolean
 declare Billingbooking : boolean
 declare Refundbooking : boolean
+totalamt = 0;
+totaldis = 0;
+totalrefund = 0;
+totalbalamt = 0;
+totalrecamt = 0;
 
 constructor(private _studentservice:StudentsService,
   private router: Router,
@@ -54,6 +59,13 @@ constructor(private _studentservice:StudentsService,
     this._studentservice.gettable(this.vrdt1)
     .subscribe((data:Students[]) => {
       this.Students= data;
+      for (let i = 0; i < this.Students.length; i++) {
+        this.totalamt += parseInt(this.Students[i].grandTotal.toString());
+        this.totaldis += parseInt(this.Students[i].discountAmt.toString());
+        this.totalrefund += parseInt(this.Students[i].refund.toString());
+        this.totalbalamt += parseInt(this.Students[i].balamt.toString());
+        this.totalrecamt += parseInt(this.Students[i].recamt.toString());
+      }
     });
     
    //call username 
@@ -157,12 +169,39 @@ constructor(private _studentservice:StudentsService,
     this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,this.Choice)
     .subscribe((data:Students[]) => {
     this.Students= data;
+    
+    this.totalamt = 0;
+    this.totaldis=0;
+    this.totalrefund=0;
+    this.totalbalamt=0;
+    this.totalrecamt=0;
+    for (let i = 0; i < this.Students.length; i++) {
+      this.totalamt += parseInt(this.Students[i].grandTotal.toString());
+      this.totaldis += parseInt(this.Students[i].discountAmt.toString());
+      this.totalrefund += parseInt(this.Students[i].refund.toString());
+      this.totalbalamt += parseInt(this.Students[i].balamt.toString());
+      this.totalrecamt += parseInt(this.Students[i].recamt.toString());
+    }
+
   });
   }
   directquery(){
     this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,'Direct')
     .subscribe((data:Students[]) => {
     this.Students= data;
+
+    this.totalamt = 0;
+    this.totaldis=0;
+    this.totalrefund=0;
+    this.totalbalamt=0;
+    this.totalrecamt=0;
+    for (let i = 0; i < this.Students.length; i++) {
+      this.totalamt += parseInt(this.Students[i].grandTotal.toString());
+      this.totaldis += parseInt(this.Students[i].discountAmt.toString());
+      this.totalrefund += parseInt(this.Students[i].refund.toString());
+      this.totalbalamt += parseInt(this.Students[i].balamt.toString());
+      this.totalrecamt += parseInt(this.Students[i].recamt.toString());
+    }
   });
 
   }

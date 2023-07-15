@@ -21,6 +21,9 @@ export class IPDDISCHARGEComponent implements OnInit {
   declare selected: OPD;
   declare search: string;
 
+  billamt = 0;
+  dueamt=0;
+
   constructor(private _studentservice: StudentsService,
     private router: Router,
     public dialog: MatDialog
@@ -34,6 +37,12 @@ export class IPDDISCHARGEComponent implements OnInit {
     this._studentservice.getipddischarge(this.vrdt1)
       .subscribe((data: OPD[]) => {
         this.OPD = data;
+
+        for (let i = 0; i < this.OPD.length; i++) {
+          this.billamt += parseInt(this.OPD[i].grandTotal.toString());
+          this.dueamt += parseInt(this.OPD[i].paydue.toString());
+         
+        }
       });
   }
   bill2() {
@@ -61,12 +70,27 @@ export class IPDDISCHARGEComponent implements OnInit {
     this._studentservice.ipdsearch_discharge(this.search, this.vrdt1, this.vrdt2, this.Choice)
       .subscribe((data: OPD[]) => {
         this.OPD = data;
+        this.billamt = 0;
+        this.dueamt=0;
+        for (let i = 0; i < this.OPD.length; i++) {
+          this.billamt += parseInt(this.OPD[i].grandTotal.toString());
+          this.dueamt += parseInt(this.OPD[i].paydue.toString());
+         
+        }
       });
   }
   searchdirect() {
     this._studentservice.ipdsearch_discharge(this.search, this.vrdt1, this.vrdt2, 'Direct')
       .subscribe((data: OPD[]) => {
         this.OPD = data;
+        this.OPD = data;
+        this.billamt = 0;
+        this.dueamt=0;
+        for (let i = 0; i < this.OPD.length; i++) {
+          this.billamt += parseInt(this.OPD[i].grandTotal.toString());
+          this.dueamt += parseInt(this.OPD[i].paydue.toString());
+         
+        }
       });
   }
   paymentdetails() {

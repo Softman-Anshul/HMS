@@ -176,8 +176,8 @@ getopd(vrdt1:any)
    }
    ipd_update(OPD1:any)
    {
-       return this.http.post(this.cdn + '/Hospital/pntinfo_ipd_update.php',OPD1,{responseType: 'text'});
-   }
+     return this.http.post(this.cdn + '/Hospital/pntinfo_ipd_update.php',OPD1,{responseType: 'text'});
+    }
    updateroominfo(ward1:any)
    {
        return this.http.post(this.cdn + '/Hospital/wardupdate.php',ward1,{responseType: 'text'});
@@ -668,7 +668,7 @@ gettableopddaycollection(vrdt1:string,vrdt2:string)
     }
     gettableopdrdoctorsummary(vrdt1:string,vrdt2:string) 
     {
-      return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_rdoctorsummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+      return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_doctorsummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
      }
      gettableopddaycollectioncity(vrdt1:string,vrdt2:string,city:string)
      {

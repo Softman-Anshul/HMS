@@ -1,9 +1,9 @@
 <body>
     <app-report-PageHeading></app-report-PageHeading>
       
-      <h4 style="margin-left: 20px;">OPD Patient Register from {{fromdt}} To {{todt}}</h4> 
+      <h4 style="margin-left: 20px;">OPD Patient Register from --> {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}} </h4> 
 
-  <table class="table table-bordered border-primary" style="margin-left:10px ;width: 96%;  font-size:smaller; ">
+  <table class="table table-bordered border-primary" style="margin-left:10px ;width: 86%;  font-size:smaller; ">
     <thead >
         <td style="text-align: center;">SNO</td>
         <th style="text-align: center ;">Title</th>

@@ -77,9 +77,10 @@ export class ControlComponent implements OnInit {
     });
   }
   passwordchange(pass:any){
+    alert('Thanks');
     this._studentservice.passwordchange(this.uname,pass)
     .subscribe((data:any) => {
-      alert('Records Saved...Thanks');
+      window.location.reload();
     });
   }
 }
