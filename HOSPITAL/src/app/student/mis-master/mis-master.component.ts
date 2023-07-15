@@ -82,28 +82,28 @@ export class MisMasterComponent implements OnInit {
   {
     if(doc == "Details")
     {
-      this.router.navigate(['dailyacitivy-details/' + dt,dt2]);
+      this.router.navigate(['/homepage/dailyacitivy-details/' + dt,dt2]);
     }
     else if(doc == "PaymentMode")
     {
-      this.router.navigate(['dailyacitivy-Paymode/' + dt,dt2,doc1]);
+      this.router.navigate(['/homepage/dailyacitivy-Paymode/' + dt,dt2,doc1]);
     }
     else if(doc == "Summary")
     {
-      this.router.navigate(['dailyacitivy-Summary/' + dt,dt2]);
+      this.router.navigate(['/homepage/dailyacitivy-Summary/' + dt,dt2]);
     }
     else if(doc == "Head Wise Details")
     {
       console.log(dt,dt2,doc1,doc)
-      this.router.navigate(['dailyacitivy-Heads/' + dt,dt2,doc1]);
+      this.router.navigate(['/homepage/dailyacitivy-Heads/' + dt,dt2,doc1]);
     }
     else if(doc == "Head Wise Daily")
     {
-     this.router.navigate(['dailyacitivy-Headsday/' + dt,dt2,doc1]);
+     this.router.navigate(['/homepage/dailyacitivy-Headsday/' + dt,dt2,doc1]);
     }
     else if(doc == "Head Wise Monthly")
     {
-     this.router.navigate(['dailyacitivy-Headssummonth/' + dt,dt2,doc1]);
+     this.router.navigate(['/homepage/dailyacitivy-Headssummonth/' + dt,dt2,doc1]);
     }
   }
 }

@@ -86,8 +86,17 @@ export class MisDailyAcitiyDetailsComponent implements OnInit {
   }
 
   printComponent() {
-    window.print();
+    const element = document.getElementById("print")
+    if (element != null) {
+      const printContents = element.innerHTML;
+      const originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+      window.location.reload()
+    }
   }
+  
   opdlist(){
     this.Router.navigate(['homepage/mis-master/']);
   }
