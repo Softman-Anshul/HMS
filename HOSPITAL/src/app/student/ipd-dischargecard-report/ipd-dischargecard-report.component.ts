@@ -105,7 +105,14 @@ else{
 }
 }
 printComponent() {
-  window.print();
+  const element = document.getElementById("print")
+  if (element != null) {
+    let body = document.createElement("body")
+    body.appendChild(element)
+    document.body = body;
+    window.print();
+    window.location.reload()
+  }
 }
 
  }

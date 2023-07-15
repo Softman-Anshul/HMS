@@ -78,7 +78,7 @@ export class IPDPaymentdetailsComponent implements OnInit {
       let yrs = this.selected.Years;
       let dcmntno = this.OPD.dcmntNo;
       let uhid = this.OPD.uhID;
-      this.Router.navigate(['ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
+      this.Router.navigate(['homepage/ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
 
       this.dialogRef.close();
     }

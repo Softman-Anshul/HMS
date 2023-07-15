@@ -67,7 +67,7 @@ onsave(){
 
     var result = confirm("Print Receipts ?");
     if (result==true) {
-    // this.Router.navigate(['ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
+    // this.Router.navigate(['homepage/ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
     this.dialogRef.close();
     }
     else

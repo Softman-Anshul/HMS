@@ -1,124 +1,135 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" /> -->
-<body>
-    <div class = "col" style="text-align:right">
-        <button  (click)="printComponent()">Print</button>
-      </div>
-    <app-report-PageHeading></app-report-PageHeading>
-<h2 style="text-align: center;">MLC INJURY REPORT</h2>
-<div class="row" >
-    <div class = "col" style="margin-left: 40PX;">
-        <label style="font-size:medium;" type="dcmntno"  >Patient Name</label>
-            <input style="margin-left: 20px; font-size:small; width:40px ; border:none ;color: black; background-color: white;" [(ngModel)]=OPD.pntn type="pntn"  >
-            <input style="font-size:small; width:220px ;border:none ;color: black; background-color: white;" [(ngModel)]=OPD.pntName type="pntName"  >
-
-            <label style="margin-left: 30px; font-size:medium;" type="dcmntno"  >File No</label>
-            <input style="font-size:small; margin-left:25px; width:70px ; border:none ;color: black; background-color: white;" [(ngModel)]=OPD.dcmntNo  >
-
-            <br>
-            <label style="font-size:medium;" type="dcmntno"  >Age/Gender</label>
-            <input style="margin-left: 30px; font-size:small; width:40px ;border:none ;color: black; background-color: white;" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
-            <input style="font-size:small; width:60px ;border:none ;color: black; background-color: white;" [(ngModel)]=OPD.pntSex type="pntSex" >
-            <input style="font-size:small; width:60px ;border:none ;color: black; background-color: white;" [(ngModel)]=OPD.agey type="agey">
-
-            <label style="margin-left: 135px; font-size:medium;" for="uhID">UHID</label>
-            <input style="font-size:small; margin-left:35px; width:70px ;border:none ;color: black; background-color: white;" [(ngModel)]=OPD.uhID >
-
-            <br>
-            <label  style="font-size:medium;" for="pntg">Guardian</label>
-            <input   style=" margin-left:50px; font-size:small; width:55px ;  border:none ;color: black; background-color: white;"  [(ngModel)]=OPD.pntg type="pntg"  >
-            <input   style="font-size:small; width:200px ; border:none ;color: black; background-color: white;"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
-            <br>
-            <label  style="font-size:medium;" for="pntg">Address</label>
-            <input   style=" margin-left:55px; font-size:small; width:250px ;" disabled="true"  [(ngModel)]=OPD.pntAdrs1 >
-
-            <label style="margin-left:50px; font-size:medium;" for="uhID">MLCNo</label>
-            <input style="font-size:small; margin-left:20px; width:70px ;" disabled="true" [(ngModel)]=MLC.mlcno >
-
-            <br>
-            <label  style="font-size:medium;" for="pntg">City</label>
-            <input   style=" margin-left:85px; font-size:small; width:250px ;" disabled="true"  [(ngModel)]=OPD.pntCity >
-
-            <label style="margin-left:50px; font-size:medium;" for="uhID">MLC Dt</label>
-            <input style="font-size:small; margin-left:25px; width:90px ;" disabled="true" [(ngModel)]=MLC.mlcdt  type="Date" >
-
-            <br>
-            <label  style="font-size:medium;" for="pntg">Mobile</label>
-            <input   style=" margin-left:65px; font-size:small; width:250px ;" disabled="true"  [(ngModel)]=OPD.pntMobile >
-
-            <label   style="margin-left:45px; font-size:medium;" for="condoctor">Consultant</label>
-            <input  style="font-size:small; margin-left:5px; width:250px ; " disabled="true" [(ngModel)]=OPD.dctrVisited >
-            <br><br>
-
-            <!-- for image -->
-<div class="row">
-  <div class="col-4">
-    <label   style="font-size:medium; " for="condoctor">Patient Photo</label>
-    <br>
-<!-- <input type="file" (change)="onFilephoto($event)"> -->
-<img [src]="imageSrc" for="image" style="height: 80px; width:80px">
-<br>
+<div class="col" style="text-align:right">
+  <button (click)="printComponent()">Print</button>
 </div>
-<div class="col-4">
-    <label   style="font-size:medium; " for="condoctor">Patient Image</label>
-    <br>
-    <img [src]="imageSrc1" style="height: 80px; width:80px">
-    <br>
-  </div>
-  <div class="col-4">
-    <label   style="font-size:medium; " for="condoctor">Patient Image</label>
-    <br>
-    <img [src]="imageSrc2" style="height: 80px; width:80px">
-    <br>
-  </div>
-</div>
-<!-- end image -->
+<div id="print" style="background-color: white;">
+  <app-report-PageHeading></app-report-PageHeading>
+  <h2 style="text-align: center;">MLC INJURY REPORT</h2>
+  <div class="row">
+    <div class="col" style="margin-left: 40PX;">
+      <label style="font-size:medium;" type="dcmntno">Patient Name</label>
+      <input
+        style="margin-left: 20px; font-size:small; width:40px ; border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntn type="pntn">
+      <input style="font-size:small; width:220px ;border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntName type="pntName">
 
-<br>
-<label   style="font-size:medium; " for="condoctor">Patient Thana</label>
-<input  style="font-size:small; margin-left:45px; width:580px ; "  [(ngModel)]=MLC.THANA  >
-<br>
-<label   style="font-size:medium; " for="condoctor">Patient Brought by</label>
-<input  style="font-size:small; margin-left:15px; width:580px ; "  [(ngModel)]=MLC.PBRBY >
-<br>
-<label   style="font-size:medium; " for="condoctor">Address Brought by</label>
-<input  style="font-size:small; margin-left:5px; width:580px ; "  [(ngModel)]=MLC.bradd >
-<br>
-<label   style="font-size:medium; " for="condoctor">City Thana</label>
-<input  style="font-size:small; margin-left:70px; width:580px ; "  [(ngModel)]=MLC.brcity >
-<br>
-<label   style="font-size:medium; " for="condoctor">Relation</label>
-<input  style="font-size:small; margin-left:85px; width:580px ; "  [(ngModel)]=MLC.relation >
-<br>
-<label   style="font-size:medium; " for="condoctor">Type of Injury</label>
-<input  style="font-size:small; margin-left:50px; width:580px ; " [(ngModel)]=MLC.nature  >
-<br>
-<label   style="font-size:medium; " for="condoctor">Mark of Identity</label>
-<input  style="font-size:small; margin-left:35px; width:580px ; " [(ngModel)]=MLC.MOI >
-<br>
-<label   style="font-size:medium; " for="condoctor">Place of Accident</label>
-<input  style="font-size:small; margin-left:20px; width:580px ; "  [(ngModel)]=MLC.PLACEACC >
-<br>
-<label   style="font-size:medium; " for="condoctor">Date/Time Accident</label>
-<input  style="font-size:small; margin-left:2px; width:580px ; "  [(ngModel)]=MLC.dttimeac >
-<br>
-<label   style="font-size:medium; " for="condoctor">Remark</label>
-<input  style="font-size:small; margin-left:90px; width:580px ; " [(ngModel)]=MLC.REM  >
-<br>
-<label   style="font-size:medium; " for="condoctor">Diagnosis Patient</label>
-<input  style="font-size:small; margin-left:20px; width:580px ; " [(ngModel)]=MLC.diagnosis  >
-<br>
-<label   style="font-size:medium; " for="condoctor">Surgery Details</label>
-<textarea  style="font-size:small; margin-left:35px; width:580px ; " [(ngModel)]=MLC.surgery ></textarea>
-<br>
-<label   style="font-size:medium; " for="condoctor">Injury Details</label>
-<textarea  style="font-size:small; margin-left:50px; width:580px ; "  [(ngModel)]=MLC.treatment></textarea>
+      <label style="margin-left: 30px; font-size:medium;" type="dcmntno">File No</label>
+      <input style="font-size:small; margin-left:25px; width:70px ; border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.dcmntNo>
 
-<br><br>
-<label   style="font-size:medium; margin-top: 6vh; " for="condoctor">Left hand thumb impression</label>
-<label   style="margin-left: 300px; font-size:medium; margin-top: 6vh; " for="condoctor">Hospital Officer</label>
-<br>
-<label   style="margin-left: 530px; font-size:medium; " for="condoctor">Signature</label>
+      <br>
+      <label style="font-size:medium;" type="dcmntno">Age/Gender</label>
+      <input style="margin-left: 30px; font-size:small; width:40px ;border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs">
+      <input style="font-size:small; width:60px ;border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntSex type="pntSex">
+      <input style="font-size:small; width:60px ;border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.agey type="agey">
 
+      <label style="margin-left: 135px; font-size:medium;" for="uhID">UHID</label>
+      <input style="font-size:small; margin-left:35px; width:70px ;border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.uhID>
+
+      <br>
+      <label style="font-size:medium;" for="pntg">Guardian</label>
+      <input
+        style=" margin-left:50px; font-size:small; width:55px ;  border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntg type="pntg">
+      <input style="font-size:small; width:200px ; border:none ;color: black; background-color: white;"
+        [(ngModel)]=OPD.pntGrdn type="pntGrdn">
+      <br>
+      <label style="font-size:medium;" for="pntg">Address</label>
+      <input style=" margin-left:55px; font-size:small; width:250px ;" disabled="true" [(ngModel)]=OPD.pntAdrs1>
+
+      <label style="margin-left:50px; font-size:medium;" for="uhID">MLCNo</label>
+      <input style="font-size:small; margin-left:20px; width:70px ;" disabled="true" [(ngModel)]=MLC.mlcno>
+
+      <br>
+      <label style="font-size:medium;" for="pntg">City</label>
+      <input style=" margin-left:85px; font-size:small; width:250px ;" disabled="true" [(ngModel)]=OPD.pntCity>
+
+      <label style="margin-left:50px; font-size:medium;" for="uhID">MLC Dt</label>
+      <input style="font-size:small; margin-left:25px; width:90px ;" disabled="true" [(ngModel)]=MLC.mlcdt type="Date">
+
+      <br>
+      <label style="font-size:medium;" for="pntg">Mobile</label>
+      <input style=" margin-left:65px; font-size:small; width:250px ;" disabled="true" [(ngModel)]=OPD.pntMobile>
+
+      <label style="margin-left:45px; font-size:medium;" for="condoctor">Consultant</label>
+      <input style="font-size:small; margin-left:5px; width:250px ; " disabled="true" [(ngModel)]=OPD.dctrVisited>
+      <br><br>
+
+      <!-- for image -->
+      <div class="row">
+        <div class="col-4">
+          <label style="font-size:medium; " for="condoctor">Patient Photo</label>
+          <br>
+          <!-- <input type="file" (change)="onFilephoto($event)"> -->
+          <img [src]="imageSrc" for="image" style="height: 80px; width:80px">
+          <br>
         </div>
+        <div class="col-4">
+          <label style="font-size:medium; " for="condoctor">Patient Image</label>
+          <br>
+          <img [src]="imageSrc1" style="height: 80px; width:80px">
+          <br>
+        </div>
+        <div class="col-4">
+          <label style="font-size:medium; " for="condoctor">Patient Image</label>
+          <br>
+          <img [src]="imageSrc2" style="height: 80px; width:80px">
+          <br>
+        </div>
+      </div>
+      <!-- end image -->
+
+      <br>
+      <label style="font-size:medium; " for="condoctor">Patient Thana</label>
+      <input style="font-size:small; margin-left:45px; width:580px ; " [(ngModel)]=MLC.THANA>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Patient Brought by</label>
+      <input style="font-size:small; margin-left:15px; width:580px ; " [(ngModel)]=MLC.PBRBY>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Address Brought by</label>
+      <input style="font-size:small; margin-left:5px; width:580px ; " [(ngModel)]=MLC.bradd>
+      <br>
+      <label style="font-size:medium; " for="condoctor">City Thana</label>
+      <input style="font-size:small; margin-left:70px; width:580px ; " [(ngModel)]=MLC.brcity>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Relation</label>
+      <input style="font-size:small; margin-left:85px; width:580px ; " [(ngModel)]=MLC.relation>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Type of Injury</label>
+      <input style="font-size:small; margin-left:50px; width:580px ; " [(ngModel)]=MLC.nature>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Mark of Identity</label>
+      <input style="font-size:small; margin-left:35px; width:580px ; " [(ngModel)]=MLC.MOI>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Place of Accident</label>
+      <input style="font-size:small; margin-left:20px; width:580px ; " [(ngModel)]=MLC.PLACEACC>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Date/Time Accident</label>
+      <input style="font-size:small; margin-left:2px; width:580px ; " [(ngModel)]=MLC.dttimeac>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Remark</label>
+      <input style="font-size:small; margin-left:90px; width:580px ; " [(ngModel)]=MLC.REM>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Diagnosis Patient</label>
+      <input style="font-size:small; margin-left:20px; width:580px ; " [(ngModel)]=MLC.diagnosis>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Surgery Details</label>
+      <textarea style="font-size:small; margin-left:35px; width:580px ; " [(ngModel)]=MLC.surgery></textarea>
+      <br>
+      <label style="font-size:medium; " for="condoctor">Injury Details</label>
+      <textarea style="font-size:small; margin-left:50px; width:580px ; " [(ngModel)]=MLC.treatment></textarea>
+
+      <br><br>
+      <label style="font-size:medium; margin-top: 6vh; " for="condoctor">Left hand thumb impression</label>
+      <label style="margin-left: 300px; font-size:medium; margin-top: 6vh; " for="condoctor">Hospital Officer</label>
+      <br>
+      <label style="margin-left: 530px; font-size:medium; " for="condoctor">Signature</label>
+
+    </div>
+  </div>
 </div>
-</body>

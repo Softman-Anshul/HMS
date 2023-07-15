@@ -183,12 +183,12 @@ export class IPDADMITLISTComponent implements OnInit {
   sticker() {
     let dcmntNo = this.selected.dcmntNo;
     let dt = this.selected.opdDate;
-    this.router.navigate(['sticker/', dcmntNo, dt]);
+    this.router.navigate(['/homepage/sticker/', dcmntNo, dt]);
   }
   emercer() {
     let dcmntNo = this.selected.dcmntNo;
     let dt = this.selected.opdDate;
-    this.router.navigate(['emer_certificate/', dcmntNo, dt]);
+    this.router.navigate(['/homepage/emer_certificate/', dcmntNo, dt]);
 
   }
   doctorchange(): void {
@@ -219,13 +219,13 @@ export class IPDADMITLISTComponent implements OnInit {
     let dcmntNo = this.selected.dcmntNo;
     let dt = this.selected.opdDate;
     let uhID = this.selected.uhID;
-    this.router.navigate(['gatepass/', dcmntNo, dt, uhID]);
+    this.router.navigate(['homepage/gatepass/', dcmntNo, dt, uhID]);
   }
   reportrec() {
     let dcmntNo = this.selected.dcmntNo;
     let dt = this.selected.opdDate;
     let uhID = this.selected.uhID;
-    this.router.navigate(['reportrec/', dcmntNo, dt, uhID]);
+    this.router.navigate(['homepage/reportrec/', dcmntNo, dt, uhID]);
   }
 
   hideTooltip() {
@@ -242,7 +242,7 @@ export class IPDADMITLISTComponent implements OnInit {
 
     // dialogRef.afterClosed().subscribe(result => {
     // });
-    this.router.navigate(['paymentstatus/']);
+    this.router.navigate(['homepage/paymentstatus/']);
   }
   discertificate() {
     const dialogRef = this.dialog.open(IPDDisccertificateComponent, {

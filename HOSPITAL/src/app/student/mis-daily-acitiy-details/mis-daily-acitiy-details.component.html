@@ -1,11 +1,11 @@
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="opdlist()">Close</button>
+</div>
+
 <div id="print" style="background-color: white;">
 
-    <div class="col" style="text-align:right">
-        <button (click)="printComponent()">Print</button>
-        <button (click)="opdlist()">Close</button>
-
-        <app-report-PageHeading></app-report-PageHeading>
-    </div>
+    <app-report-PageHeading></app-report-PageHeading>
     <h4 style="margin-left: 20px; font-weight: bold;">Daily Activity Report from {{fromdt | date :'dd/MM/yyyy'}} To
         {{todt | date :'dd/MM/yyyy'}}
         <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->

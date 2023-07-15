@@ -28,13 +28,13 @@ export class IpdFileDocumentComponent implements OnInit {
   admitticket(){
     let dcmntNo = this.OPD.dcmntNo;
   let dt =   this.OPD.opdDate;
-  this.Router.navigate(['admitticket/' , dcmntNo,dt]);
+  this.Router.navigate(['/homepage/admitticket/' , dcmntNo,dt]);
   this.dialogRef.close();
   }
   genconsent(){
     let dcmntNo = this.OPD.dcmntNo;
   let dt =   this.OPD.opdDate;
-  this.Router.navigate(['genconsent/' , dcmntNo,dt]);
+  this.Router.navigate(['/homepage/genconsent/' , dcmntNo,dt]);
   this.dialogRef.close();
   }
 }

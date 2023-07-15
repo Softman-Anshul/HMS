@@ -128,7 +128,7 @@ export class IPDDISCHARGEComponent implements OnInit {
   sticker() {
     let dcmntNo = this.selected.dcmntNo;
     let dt = this.selected.opdDate;
-    this.router.navigate(['sticker/', dcmntNo, dt]);
+    this.router.navigate(['/homepage/sticker/', dcmntNo, dt]);
   }
   certificate() {
     if (String(this.selected.Status) == "L.A.M.A.") {

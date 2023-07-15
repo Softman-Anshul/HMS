@@ -1,51 +1,79 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-<body>
-    <div class = "col" style="text-align:right">
-        <button  (click)="printComponent()">Print</button>
-      </div>
-      <app-report-PageHeading></app-report-PageHeading>
-      <h2 style="text-align: center;">CONSENT FORM</h2>
-<div class="row" > 
-    <div class = "col" style="margin-top: 1vh;">
-      
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+</div>
+<div id="print" style="background-color: white;">
+    <app-report-PageHeading></app-report-PageHeading>
+    <h2 style="text-align: center;">CONSENT FORM</h2>
+    <div class="row">
+        <div class="col" style="margin-top: 1vh;">
+
             <label style="margin-left: 40px;"> 1. मै____________अपने मरीज </label>
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; " readonly="true" [(ngModel)]=OPD.pntn type="pntn"  >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:610px ; "[(ngModel)]=OPD.pntName readonly="true"  >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ;margin-left: 60px; "[(ngModel)]=OPD.pntAgeYrs readonly="true" >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "[(ngModel)]=OPD.pntSex readonly="true">
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:90px ; " [(ngModel)]=OPD.agey readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; "
+                readonly="true" [(ngModel)]=OPD.pntn type="pntn">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:610px ; "
+                [(ngModel)]=OPD.pntName readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ;margin-left: 60px; "
+                [(ngModel)]=OPD.pntAgeYrs readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "
+                [(ngModel)]=OPD.pntSex readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:90px ; "
+                [(ngModel)]=OPD.agey readonly="true">
 
             <label style="margin-left: 40px;">का इलाज कराना चाहता / चाहती हुॅ । </label>
-            <label style="margin-left: 40px;">2  मुझे व्लास्टर / आपरेशन  निश्चेतना मरीज की हालत व सम्भावित खतरो के सम्बन्ध में सर्जन एवं निश्चेतक द्धारा पूरी तरह समझा दिया गया है और</label>
-            <label style="margin-left: 55px;">मै उन्हे समझते हुये अपने पर /  अपने मरीज पर आपरेशन की स्वीक्रति अपने पूरे होशोहवास व अपनी इच्छा से देता हूॅ ।  </label>
-            <label style="margin-left: 40px;">3 मुझे इलाज के बारे में सम्भावित विघियों की जानकारी दे दी गयी है और मैने सबको समझते हुए यह निश्चय किया है कि उपरोक्त इलाज व्लास्टर</label>   
-            <label style="margin-left: 55px;">/ आपरेशन ही मेरे लिये और मेरे मरीज के लिये सर्वोत्तम है ।  </label>
-            <label style="margin-left: 40px;">4 मुझे समझा दिया गया है कि उपरोक्त इलाज व्लास्टर ध् आपरेशन के दौरान अन्य बीमारियॉ भी पाई जा सकती है जिनके इलाज की यदि आवश्कता</label>   
-            <label style="margin-left: 55px;">हो तो मैं अपने डाक्टर को उसका सही इलाज करने की अनुमती देता हूॅ ।  </label>
-            <label style="margin-left: 40px;">5 मुझे बता दिया गया है कि मेरे मरीज को बेहोशी के दौरान श्वांस नली में टयूब डालने की आवश्यकता  (Endotracheal- Intrubation) भी पड </label>
-            <label style="margin-left: 55px;">सकती है जिसके कारण गला खराश ;ैवतम जीतवंजद्ध आबाज मे कुछ समय को भारीपन आ सकता है तथा दांत तथा नकली दांत को इस प्रकिया में </label>
+            <label style="margin-left: 40px;">2 मुझे व्लास्टर / आपरेशन निश्चेतना मरीज की हालत व सम्भावित खतरो के सम्बन्ध
+                में सर्जन एवं निश्चेतक द्धारा पूरी तरह समझा दिया गया है और</label>
+            <label style="margin-left: 55px;">मै उन्हे समझते हुये अपने पर / अपने मरीज पर आपरेशन की स्वीक्रति अपने पूरे
+                होशोहवास व अपनी इच्छा से देता हूॅ । </label>
+            <label style="margin-left: 40px;">3 मुझे इलाज के बारे में सम्भावित विघियों की जानकारी दे दी गयी है और मैने
+                सबको समझते हुए यह निश्चय किया है कि उपरोक्त इलाज व्लास्टर</label>
+            <label style="margin-left: 55px;">/ आपरेशन ही मेरे लिये और मेरे मरीज के लिये सर्वोत्तम है । </label>
+            <label style="margin-left: 40px;">4 मुझे समझा दिया गया है कि उपरोक्त इलाज व्लास्टर ध् आपरेशन के दौरान अन्य
+                बीमारियॉ भी पाई जा सकती है जिनके इलाज की यदि आवश्कता</label>
+            <label style="margin-left: 55px;">हो तो मैं अपने डाक्टर को उसका सही इलाज करने की अनुमती देता हूॅ । </label>
+            <label style="margin-left: 40px;">5 मुझे बता दिया गया है कि मेरे मरीज को बेहोशी के दौरान श्वांस नली में टयूब
+                डालने की आवश्यकता (Endotracheal- Intrubation) भी पड </label>
+            <label style="margin-left: 55px;">सकती है जिसके कारण गला खराश ;ैवतम जीतवंजद्ध आबाज मे कुछ समय को भारीपन आ
+                सकता है तथा दांत तथा नकली दांत को इस प्रकिया में </label>
             <label style="margin-left: 55px;">चोट पहुंच सकती है । </label>
-            <label style="margin-left: 40px;">6 प्लास्टरध्आपरेशन या निश्चेतना के दौरान शरीर के किसी अंग में पहले से न जाना गया कोई आकस्मिक अनदेखा विकार ह्रदय एश्वांस एस्नायु एगुर्दा </label>
-            <label style="margin-left: 55px;">व जिगर से सम्बघित तंत्र (System)  में आ सकता है । आकस्मिक  मृृत्यु के आपरेशन और निश्चेतना की जटिलताओं में इस सम्भावना को नकारा </label>
-            <label style="margin-left: 55px;">नहीं जा सकता इस तथ्य को भी मै समझता हॅू ।</label>   
-            <label style="margin-left: 40px;">7 प्लास्टर / आपरेशन के नतीजे के बारे में कोई वादा या गारन्टी मुझसे नही किया गया है तथा मैं यह समझता हॅू कि मेरे मरीज के पूरे इलाज के</label>
-            <label style="margin-left: 55px;">लिये उसी समय या बाद में किसी अन्य प्लास्टर / आपरेशन की आवश्यकता भी हो सकती है जिसके लिये मै तैयार हॅू । </label>   
-            <label style="margin-left: 40px;">8 मरीज को पहले हुई किसी ।ससमतहतल तमंबजपवद  की किसी पिछली बीमारी व उसके ईलाज की अथवा पिछले किसी प्लास्टर / आपरेशन</label>
-            <label style="margin-left: 55px;">में हुई किसी परेशानी की पूरी लिखित जानकारी चिकित्सक को देना मेरा कर्तव्य है और मेरे / मेरे मरीज के हित में है इस तथ्य को मैं समझता हूॅ ।</label>   
-            <label style="margin-left: 40px;">9 मेरे मरीज को प्लास्टर ध् आपरेशन के दौरान अथवा बाद में खून चढाने की आवश्यकता हो सकती है । पूरी सावघानी बरतने के पश्चात भी रियेक्शन </label>
-            <label style="margin-left: 55px;">का खतरा रहता है इसकी मुझे जानकारी है । </label>   
-            <label style="margin-left: 40px;">10 मै अपनी / अपने मरीज की जांच की रिपोर्ट ए एक्स , रे ए  फोटोगा्रफ आदि रिकार्ड के लिये डाक्टर के पास रखने की तथा यदि चिकित्सा </label>
-            <label style="margin-left: 55px;">शास्त्र अघ्ययन में उपयोगी हो तो प्रकाशित करने की भी इजाजत देता हॅू । </label>   
-            <label style="margin-left: 40px;">11 मुझे अपने सर्जन तथा अपने निश्चेतक पर पूर्ण विश्वास है तथा मैं उनके निर्देशो का पालन करूंगा ए मैं हर स्थिति में अपने चिकत्सिको को अपना</label>
-            <label style="margin-left: 55px;">पूर्ण सहयोग देने का वादा करता हॅू ।  </label>   
-            <label style="margin-left: 40px;">12 मुझे यह बता दिया गया है कि मेरे मरीज की हालत गम्भीर है और आपरेशन के दौरान भी उसकी मृृत्यु हो सकती है तथा पूरी सावघानियॉ बरतने</label>
-            <label style="margin-left: 55px;">के बाद भी प्दमिबजपवद अथवा पस हो सकता है । </label>   
-            <label style="margin-left: 40px;">13 मुझे प्लास्टर के बाद होने वाले ब्वउचसपबंजपवद के बारे में समझा दिया गया है । </label>   
-                <br><br> <br><br>
+            <label style="margin-left: 40px;">6 प्लास्टरध्आपरेशन या निश्चेतना के दौरान शरीर के किसी अंग में पहले से न
+                जाना गया कोई आकस्मिक अनदेखा विकार ह्रदय एश्वांस एस्नायु एगुर्दा </label>
+            <label style="margin-left: 55px;">व जिगर से सम्बघित तंत्र (System) में आ सकता है । आकस्मिक मृृत्यु के आपरेशन
+                और निश्चेतना की जटिलताओं में इस सम्भावना को नकारा </label>
+            <label style="margin-left: 55px;">नहीं जा सकता इस तथ्य को भी मै समझता हॅू ।</label>
+            <label style="margin-left: 40px;">7 प्लास्टर / आपरेशन के नतीजे के बारे में कोई वादा या गारन्टी मुझसे नही
+                किया गया है तथा मैं यह समझता हॅू कि मेरे मरीज के पूरे इलाज के</label>
+            <label style="margin-left: 55px;">लिये उसी समय या बाद में किसी अन्य प्लास्टर / आपरेशन की आवश्यकता भी हो सकती
+                है जिसके लिये मै तैयार हॅू । </label>
+            <label style="margin-left: 40px;">8 मरीज को पहले हुई किसी ।ससमतहतल तमंबजपवद की किसी पिछली बीमारी व उसके ईलाज
+                की अथवा पिछले किसी प्लास्टर / आपरेशन</label>
+            <label style="margin-left: 55px;">में हुई किसी परेशानी की पूरी लिखित जानकारी चिकित्सक को देना मेरा कर्तव्य
+                है और मेरे / मेरे मरीज के हित में है इस तथ्य को मैं समझता हूॅ ।</label>
+            <label style="margin-left: 40px;">9 मेरे मरीज को प्लास्टर ध् आपरेशन के दौरान अथवा बाद में खून चढाने की
+                आवश्यकता हो सकती है । पूरी सावघानी बरतने के पश्चात भी रियेक्शन </label>
+            <label style="margin-left: 55px;">का खतरा रहता है इसकी मुझे जानकारी है । </label>
+            <label style="margin-left: 40px;">10 मै अपनी / अपने मरीज की जांच की रिपोर्ट ए एक्स , रे ए फोटोगा्रफ आदि
+                रिकार्ड के लिये डाक्टर के पास रखने की तथा यदि चिकित्सा </label>
+            <label style="margin-left: 55px;">शास्त्र अघ्ययन में उपयोगी हो तो प्रकाशित करने की भी इजाजत देता हॅू ।
+            </label>
+            <label style="margin-left: 40px;">11 मुझे अपने सर्जन तथा अपने निश्चेतक पर पूर्ण विश्वास है तथा मैं उनके
+                निर्देशो का पालन करूंगा ए मैं हर स्थिति में अपने चिकत्सिको को अपना</label>
+            <label style="margin-left: 55px;">पूर्ण सहयोग देने का वादा करता हॅू । </label>
+            <label style="margin-left: 40px;">12 मुझे यह बता दिया गया है कि मेरे मरीज की हालत गम्भीर है और आपरेशन के
+                दौरान भी उसकी मृृत्यु हो सकती है तथा पूरी सावघानियॉ बरतने</label>
+            <label style="margin-left: 55px;">के बाद भी प्दमिबजपवद अथवा पस हो सकता है । </label>
+            <label style="margin-left: 40px;">13 मुझे प्लास्टर के बाद होने वाले ब्वउचसपबंजपवद के बारे में समझा दिया गया
+                है । </label>
+            <br><br> <br><br>
             <b><label style="margin-left: 40px;">मरीज के हस्ताक्षर /अंगूढा निशानी</label>
-            <label style="margin-left: 50px;">तीमारदार  के हस्ताक्षर /अंगूढा निशानी </label>
-            <label style="margin-left: 50px;">कर्मचारी  के हस्ताक्षर /अंगूढा निशानी </label></b>
+                <label style="margin-left: 50px;">तीमारदार के हस्ताक्षर /अंगूढा निशानी </label>
+                <label style="margin-left: 50px;">कर्मचारी के हस्ताक्षर /अंगूढा निशानी </label></b>
 
         </div>
+    </div>
 </div>
-</body>

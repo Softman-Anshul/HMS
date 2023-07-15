@@ -77,7 +77,7 @@ this.cer1.uhID = this.OPD.uhID;
     if (result==true) {
       let id = this.cer1.recno;
       let cerDate = this.cer1.issuedt;
-      this.Router.navigate(['MedicalCert_print/' + id,cerDate]);
+      this.Router.navigate(['homepage/MedicalCert_print/' + id,cerDate]);
       this.dialogRef.close();
     }
     else{
@@ -102,7 +102,7 @@ this.cer1.uhID = this.OPD.uhID;
   }
 
   print(recno:any,issuedt:any){
-    this.Router.navigate(['MedicalCert_print/' + recno,issuedt]);
+    this.Router.navigate(['homepage/MedicalCert_print/' + recno,issuedt]);
     this.dialogRef.close();
   }
 }

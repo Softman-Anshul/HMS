@@ -160,10 +160,10 @@ constructor(private _studentservice:StudentsService,
     }
   }
   printPageb() {
-      this.router.navigate(['receiptsb/' + this.selected.vchrNo]);
+      this.router.navigate(['/homepage/receiptsb/' + this.selected.vchrNo]);
   }
   printPage() {
-      this.router.navigate(['receipts/' + this.selected.vchrNo]);
+      this.router.navigate(['/homepage/receipts/' + this.selected.vchrNo]);
   }
   searchquery(){
     this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,this.Choice)

@@ -108,39 +108,18 @@ import { TestreportComponent } from './testreport/testreport.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
 
 const routes: Routes = [
-    // RECIPTS 
-    { path: 'receipts/:id', component: ReciptsComponent },
-    { path: 'receiptsb/:id', component: ReciptsBillComponent },
-    { path: 'opdreceipt/:id/:opdDate', component: OpdreciptsComponent },
-    { path: 'opdparcha/:id/:opdDate', component: OpdparchaComponent },
 
-    { path: 'MedicalCert_print/:id/:cerDate', component: OpdMedicalcertificatePrintComponent },
 
     { path: 'lama/:dcmntNo/:uhID', component: DisccertificateLAMAComponent },
     { path: 'death/:dcmntNo/:uhID', component: DisccertificateDEATHComponent },
     { path: 'reffer/:dcmntNo/:uhID', component: DisccertificateREFFERComponent },
 
     //IPD
-    { path: 'emer_certificate/:dcmntNo/:dt', component: IpdEmergencyCertificateComponent },
-    { path: 'sticker/:dcmntNo/:dt', component: PatientDetailsComponent },
-    { path: 'ipdreceipt/:id/:dt/:yrs/:dcmntno/:uhid', component: IPDPaymentreceiptComponent },
     { path: 'fullpayment/:uhID', component: PatientFullpaymentComponent },
-    { path: 'gatepass/:dcmntNo/:dt/:uhID', component: IpdGatepassComponent },
-    { path: 'reportrec/:dcmntNo/:dt/:uhID', component: IpdReportreceivedComponent },
-    { path: 'dischargereport/:ipdno/:uhid/:dt/:category/:roomNo/:Bedno', component: IpdDischargecardReportComponent },
-    { path: 'paymentstatus', component: IpdPaymentStatusComponent },
     { path: 'paymentstatus_slip', component: IpdPaymentStatusSlipComponent },
 
-    //MLC
-    { path: 'pi/:ipdNo/:uhID', component: MlcPoliceformComponent },
-    { path: 'injury/:ipdNo/:uhID', component: MlcInjuryreportComponent },
-
-    //COMPLETE FILES
-    { path: 'admitticket/:dcmntNo/:dt', component: FILEAdmittricketComponent },
-    { path: 'genconsent/:dcmntNo/:dt', component: FILEGenConsentFormComponent },
 
     //OPD Reporting
-    { path: 'opddaycollection/:vrdt1/:vrdt2', component: OPDDaycollectionComponent },
     { path: 'opddaysummary/:vrdt1/:vrdt2', component: OPDReportDaysummaryComponent },
     { path: 'opdmonthsummary/:vrdt1/:vrdt2', component: OPDReportMonthlysummaryComponent },
     { path: 'opddoctor/:vrdt1/:vrdt2/:doctor', component: OPDReportDoctorcollectionComponent },
@@ -263,6 +242,29 @@ const routes: Routes = [
             { path: 'dailyacitivy-Heads/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsComponent },
             { path: 'dailyacitivy-Headsday/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsumdayComponent },
             { path: 'dailyacitivy-Headssummonth/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadmonthComponent },
+            { path: 'opdreceipt/:id/:opdDate', component: OpdreciptsComponent },
+            { path: 'opdparcha/:id/:opdDate', component: OpdparchaComponent },
+            //COMPLETE FILES
+            { path: 'admitticket/:dcmntNo/:dt', component: FILEAdmittricketComponent },
+            { path: 'genconsent/:dcmntNo/:dt', component: FILEGenConsentFormComponent },
+
+
+
+            { path: 'dischargereport/:ipdno/:uhid/:dt/:category/:roomNo/:Bedno', component: IpdDischargecardReportComponent },
+            { path: 'emer_certificate/:dcmntNo/:dt', component: IpdEmergencyCertificateComponent },
+            { path: 'gatepass/:dcmntNo/:dt/:uhID', component: IpdGatepassComponent },
+            { path: 'paymentstatus', component: IpdPaymentStatusComponent },
+            //MLC
+            { path: 'pi/:ipdNo/:uhID', component: MlcPoliceformComponent },
+            { path: 'injury/:ipdNo/:uhID', component: MlcInjuryreportComponent },
+            { path: 'ipdreceipt/:id/:dt/:yrs/:dcmntno/:uhid', component: IPDPaymentreceiptComponent },
+            { path: 'reportrec/:dcmntNo/:dt/:uhID', component: IpdReportreceivedComponent },
+            { path: 'opddaycollection/:vrdt1/:vrdt2', component: OPDDaycollectionComponent },
+            { path: 'MedicalCert_print/:id/:cerDate', component: OpdMedicalcertificatePrintComponent },
+            { path: 'sticker/:dcmntNo/:dt', component: PatientDetailsComponent },
+            // RECIPTS 
+            { path: 'receipts/:id', component: ReciptsComponent },
+            { path: 'receiptsb/:id', component: ReciptsBillComponent },
 
 
         ]

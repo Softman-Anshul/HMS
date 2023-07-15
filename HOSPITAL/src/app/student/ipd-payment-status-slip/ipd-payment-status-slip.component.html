@@ -1,44 +1,43 @@
-<body >
-    <div class = "col" style="text-align:right">
-        <button  (click)="printComponent()">Print</button>
-      </div>
-    <div >
-    <table  class="table table-bordered table-striped " style="font-size:x-small; margin-left: 30px;width: 90%;"  >
-        <thead >
-          <tr>
-            <th >FileNo</th>
-            <th >UHID</th>
-            <th >Title</th>
-            <th >Patient</th>
-            <th >Admit Date</th>
-            <th >Ward Name</th>
-            <th >RNo</th>
-            <th >BNo</th>
-            <th >Consutlant</th>
-            <th >Type</th>
-            <th >BillAmt</th>
-            <th >Advance</th>
-            <th >Payment</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let students of OPD let i=index;"  style="text-align:center;"  >
+<div class="col" style="text-align:right">
+  <button (click)="printComponent()">Print</button>
+</div>
+<div id="print" style="background-color: white;">
+  <div>
+    <table class="table table-bordered table-striped " style="font-size:x-small; margin-left: 30px;width: 90%;">
+      <thead>
+        <tr>
+          <th>FileNo</th>
+          <th>UHID</th>
+          <th>Title</th>
+          <th>Patient</th>
+          <th>Admit Date</th>
+          <th>Ward Name</th>
+          <th>RNo</th>
+          <th>BNo</th>
+          <th>Consutlant</th>
+          <th>Type</th>
+          <th>BillAmt</th>
+          <th>Advance</th>
+          <th>Payment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let students of OPD let i=index;" style="text-align:center;">
           <td>{{students.dcmntNo}}</td>
           <td>{{students.uhID}}</td>
-          <td >{{students.pntn}}</td>
+          <td>{{students.pntn}}</td>
           <td>{{students.pntName}}</td>
           <td>{{students.opdDate}}</td>
           <td>{{students.category}}</td>
-          <td >{{students.roomNo}}</td>
-          <td >{{students.Bedno}}</td>
+          <td>{{students.roomNo}}</td>
+          <td>{{students.Bedno}}</td>
           <td>{{students.dctrVisited}}</td>
           <td>{{students.PntType}}</td>
           <td>{{students.fixed}}</td>
           <td>{{students.amt}}</td>
           <td>{{students.due}}</td>
         </tr>
-        </tbody>
+      </tbody>
     </table>
-    </div>
-    </body>
-    
+  </div>
+</div>

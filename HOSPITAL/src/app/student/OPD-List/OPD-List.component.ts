@@ -312,11 +312,11 @@ export class OpdlistComponent implements OnInit {
     }
   }
   openDialogparcha() {
-    this.router.navigate(['opdparcha/' + this.selected.dcmntNo, this.selected.opdDate]);
+    this.router.navigate(['homepage/opdparcha/' + this.selected.dcmntNo, this.selected.opdDate]);
   }
 
   openDialogreceipts() {
-    this.router.navigate(['opdreceipt/' + this.selected.dcmntNo, this.selected.opdDate]);
+    this.router.navigate(['homepage/opdreceipt/' + this.selected.dcmntNo, this.selected.opdDate]);
 
   }
   Medicalcerficate() {

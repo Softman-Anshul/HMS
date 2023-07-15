@@ -139,7 +139,7 @@ this._studentservice.getdischargetempheading()
                   let category = this.OPD.category;
                   let roomNo = this.OPD.roomNo;
                   let Bedno = this.OPD.Bedno;
-                  this.Router.navigate(['dischargereport/' + ipdno,uhid,dt,category,roomNo,Bedno]);
+                  this.Router.navigate(['/homepage/dischargereport/' + ipdno,uhid,dt,category,roomNo,Bedno]);
                   this.dialogRef.close();
                 }
                 else{

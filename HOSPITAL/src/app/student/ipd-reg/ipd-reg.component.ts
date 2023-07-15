@@ -295,7 +295,7 @@ export class IPDRegComponent implements OnInit {
                       let yrs = this.Deposit.Years;
                       let dcmntno = this.OPD1.dcmntNo;
                       let uhid = this.OPD1.uhID;
-                      this.router.navigate(['ipdreceipt/' + id, dt, yrs, dcmntno, uhid]);
+                      this.router.navigate(['homepage/ipdreceipt/' + id, dt, yrs, dcmntno, uhid]);
                     }
                     else {
                       this.router.navigate(['homepage/ipdlist/']);

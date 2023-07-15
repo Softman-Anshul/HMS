@@ -1,4 +1,8 @@
-<body>
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="opdlist()">Close</button>
+</div>
+<div id="print" style="background-color: white;">
     <div class="row">
         <div class="col-3">
             <input
@@ -18,10 +22,7 @@
                 disabled="true" [(ngModel)]=consulant.digree3 type="text">
 
         </div>
-        <div class="col" style="text-align:right">
-            <button (click)="printComponent()">Print</button>
-            <button (click)="opdlist()">Close</button>
-        </div>
+
     </div>
     <div class="row">
         <div class="col-sm-8">
@@ -77,15 +78,16 @@
                             style="font-size:small; margin-left:90px; width:50px ; border:none ; color: black; background-color: white; "
                             disabled="true" [(ngModel)]=OPD.uhID type="opdTime">
 
-                            <label style="font-size:medium; font-weight: bold; margin-left:5px;" for="condoctor">Valid Upto >> </label>
-                            <input
-                                style="font-size:small; margin-left:5px; width:90px ; border:none ; color: black; background-color: white;"
-                                disabled="true" [(ngModel)]=OPD.expiryDate type="Date">
-            
+                        <label style="font-size:medium; font-weight: bold; margin-left:5px;" for="condoctor">Valid Upto
+                            >> </label>
+                        <input
+                            style="font-size:small; margin-left:5px; width:90px ; border:none ; color: black; background-color: white;"
+                            disabled="true" [(ngModel)]=OPD.expiryDate type="Date">
+
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-</body>
+</div>

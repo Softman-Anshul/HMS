@@ -70,12 +70,12 @@ this.Labname = data;
    daycollection(vrdt1:any,vrdt2:any){
     let dt = this.vrdt1;
     let dt2 = this.vrdt1;
-      this.router.navigate(['opddaycollection/' + dt,dt2]);
+      this.router.navigate(['homepage/opddaycollection/' + dt,dt2]);
 }
 Datecollection(vrdt1:any,vrdt2:any){
   let dt = this.vrdt1;
   let dt2 = this.vrdt2;
-this.router.navigate(['opddaycollection/' + dt,dt2]);
+this.router.navigate(['homepage/opddaycollection/' + dt,dt2]);
 }
 daysummary(vrdt1:any,vrdt2:any){
   let dt = this.vrdt1;

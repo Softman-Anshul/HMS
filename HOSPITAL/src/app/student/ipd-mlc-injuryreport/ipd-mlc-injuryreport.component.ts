@@ -71,7 +71,14 @@ export class MlcInjuryreportComponent implements OnInit {
       this.imageSrc2 = "http://silversoft.softmansystem.com/Hospital/upload/mlc-" + this.OPD.uhID + this.OPD.dcmntNo + "@2" + ".jpg"
     }    
     printComponent() {
-      window.print();
+      const element = document.getElementById("print")
+      if (element != null) {
+        let body = document.createElement("body")
+        body.appendChild(element)
+        document.body = body;
+        window.print();
+        window.location.reload()
       }
+    }
   }
   

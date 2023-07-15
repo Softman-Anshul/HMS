@@ -91,13 +91,13 @@ export class IpdMlcComponent implements OnInit {
     mlcpi(){
   let ipdNo = this.MLC.ipdNo;
   let uhID = this.MLC.uhID;
-  this.Router.navigate(['pi/' + ipdNo,uhID]);
+  this.Router.navigate(['homepage/pi/' + ipdNo,uhID]);
   this.dialogRef.close();
     }
     mlcinjury(){
       let ipdNo = this.MLC.ipdNo;
       let uhID = this.MLC.uhID;
-      this.Router.navigate(['injury/' + ipdNo,uhID]);
+      this.Router.navigate(['homepage/injury/' + ipdNo,uhID]);
       this.dialogRef.close();
 
     }

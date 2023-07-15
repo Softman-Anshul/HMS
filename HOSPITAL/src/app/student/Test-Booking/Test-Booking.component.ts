@@ -241,7 +241,7 @@ export class NewBookingComponent implements OnInit {
               .subscribe(data => {
                 var result = confirm("Print Receipt ?");
                 if (result == true) {
-                  this.router.navigate(['receipts/' + this.Students.vchrNo]);
+                  this.router.navigate(['/homepage/receipts/' + this.Students.vchrNo]);
                 }
                 else {
                   this.router.navigate(['/homepage/list']);
@@ -256,7 +256,7 @@ export class NewBookingComponent implements OnInit {
               .subscribe(data => {
                 var result = confirm("Print Receipt ?");
                 if (result == true) {
-                  this.router.navigate(['receiptsb/' + this.Students.vchrNo]);
+                  this.router.navigate(['/homepage/receiptsb/' + this.Students.vchrNo]);
                 }
                 else {
                   this.router.navigate(['/homepage/list']);
@@ -271,7 +271,7 @@ export class NewBookingComponent implements OnInit {
               .subscribe(data => {
                 var result = confirm("Print Receipt ?");
                 if (result == true) {
-                  this.router.navigate(['receiptsb/' + this.Students.vchrNo]);
+                  this.router.navigate(['/homepage/receiptsb/' + this.Students.vchrNo]);
                 }
                 else {
                   this.router.navigate(['/homepage/list']);

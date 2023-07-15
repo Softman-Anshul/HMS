@@ -1,64 +1,102 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-<body >
-    <div class = "col" style="text-align:right">
-        <button  (click)="printComponent()">Print</button>
-        <button  (click)="Ipdlist()">Close</button>
-      </div>
-<div class="row" > 
-    <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
-    <div class = "col" >
-        <div style="text-align: center;">
-        <label style="font-size:medium; " type="dcmntno"  >File No</label>
-            <input style="font-size:medium; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; " readonly="true" [(ngModel)]=dcmntNo >
-            <b><label style="width: 400px;">रिपोर्ट प्राप्ति प़त्र</label></b>
-            <label style="font-size:medium; margin-left:20px;" for="uhID">UHID</label>
-            <input style="font-size:medium; margin-left:5px; width:75px ;border:none ;color: black; background-color: white; "[(ngModel)]=OPD.uhID >
-        </div>
-            <br>
-            <label style="font-size:medium;  margin-left:60px;" type="dcmntno"  >मैने अपने मरीज  </label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntn >
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:medium; width:420px ;color: black; background-color: white; "[(ngModel)]=OPD.pntName readonly="true"  >
-            <br>
-            <label style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  margin-left:20px;" type="dcmntno"  >उम </label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left: 10px; width:40px ;color: black; background-color: white; "[(ngModel)]=OPD.pntAgeYrs readonly="true" >
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  width:60px ;color: black; background-color: white; "[(ngModel)]=OPD.pntSex readonly="true" >
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:60px ; color: black; background-color: white;" [(ngModel)]=OPD.agey readonly="true">
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="Ipdlist()">Close</button>
+</div>
+<div id="print" style="background-color: white;">
+    <div class="row">
+        <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
+            <div class="col">
+                <div style="text-align: center;">
+                    <label style="font-size:medium; " type="dcmntno">File No</label>
+                    <input
+                        style="font-size:medium; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; "
+                        readonly="true" [(ngModel)]=dcmntNo>
+                    <b><label style="width: 400px;">रिपोर्ट प्राप्ति प़त्र</label></b>
+                    <label style="font-size:medium; margin-left:20px;" for="uhID">UHID</label>
+                    <input
+                        style="font-size:medium; margin-left:5px; width:75px ;border:none ;color: black; background-color: white; "
+                        [(ngModel)]=OPD.uhID>
+                </div>
+                <br>
+                <label style="font-size:medium;  margin-left:60px;" type="dcmntno">मैने अपने मरीज </label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=OPD.pntn>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:medium; width:420px ;color: black; background-color: white; "
+                    [(ngModel)]=OPD.pntName readonly="true">
+                <br>
+                <label
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  margin-left:20px;"
+                    type="dcmntno">उम </label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left: 10px; width:40px ;color: black; background-color: white; "
+                    [(ngModel)]=OPD.pntAgeYrs readonly="true">
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  width:60px ;color: black; background-color: white; "
+                    [(ngModel)]=OPD.pntSex readonly="true">
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:60px ; color: black; background-color: white;"
+                    [(ngModel)]=OPD.agey readonly="true">
 
-            <label  style="font-size:medium; margin-left:10px;" for="pntg">Guardian</label>
-            <u><input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; " [(ngModel)]=OPD.pntg readonly="true"  >
-            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:295px ; color:black; background-color: white; " [(ngModel)]=OPD.pntGrdn readonly="true"></u>
+                <label style="font-size:medium; margin-left:10px;" for="pntg">Guardian</label>
+                <u><input
+                        style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; "
+                        [(ngModel)]=OPD.pntg readonly="true">
+                    <input
+                        style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:295px ; color:black; background-color: white; "
+                        [(ngModel)]=OPD.pntGrdn readonly="true"></u>
 
-            
-            <br>
-            <label  style="font-size:medium; margin-left:20px;" for="pntg">निवासी</label>
-            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:360px ; margin-left:20px; color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntAdrs1 >
 
-            <input   style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:195px ; margin-left:5px;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.pntCity >
-            <br>
-            <label  style="font-size:medium; margin-left:15px;" for="pntg">भर्ती दिनांक</label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:115px ;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.opdDate type="Date" >
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:65px ;color: black; background-color: white; " readonly="true" [(ngModel)]=OPD.opdTime >
+                <br>
+                <label style="font-size:medium; margin-left:20px;" for="pntg">निवासी</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:360px ; margin-left:20px; color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=OPD.pntAdrs1>
 
-            <label  style="font-size:medium; margin-left:15px;" >डिस्चार्ज दिनांक</label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:175px ;color: black; background-color: white; " >
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:65px ;color: black; background-color: white; "  >
-            <br>
-            <label  style="font-size:medium; margin-left:15px;" >कमरा नाम</label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:340px ;color: black; background-color: white; " readonly="true" [(ngModel)]=ward.category type="text" >
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:195px ; margin-left:5px;color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=OPD.pntCity>
+                <br>
+                <label style="font-size:medium; margin-left:15px;" for="pntg">भर्ती दिनांक</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:115px ;color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=OPD.opdDate type="Date">
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:65px ;color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=OPD.opdTime>
 
-            <label  style="font-size:medium; margin-left:15px;" >कमरा सं0</label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:120px ;color: black; background-color: white; " readonly="true" [(ngModel)]=ward.roomNo type="text" >
-            <br>
-            <label  style="font-size:medium; margin-left:15px;" >जिसका इलाज अस्पताल मेे चल रहा था , उसकी जॉचों की सभी रिपोर्ट एवं पेपर प्राप्त कर लिए है । </label>
-            <br><br>
-            <label  style="font-size:medium; margin-left:35px;" >अब अस्पताल में मेरे मरीज की कोई  भी रिपोर्ट एवं पेपर बाकी नही है  । </label>
-            <br>
-            <br><br>
-            <label   style="font-size:medium; " >दिनॉंक</label>
-            <input style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:85px ;color: black; background-color: white; " readonly="true" type="text" >
-            <label   style="font-size:medium; margin-left: 260px;" >हस्ताक्षर मरीज तीमारदार</label>
-            <br> 
+                <label style="font-size:medium; margin-left:15px;">डिस्चार्ज दिनांक</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:175px ;color: black; background-color: white; ">
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:65px ;color: black; background-color: white; ">
+                <br>
+                <label style="font-size:medium; margin-left:15px;">कमरा नाम</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:340px ;color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=ward.category type="text">
+
+                <label style="font-size:medium; margin-left:15px;">कमरा सं0</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:120px ;color: black; background-color: white; "
+                    readonly="true" [(ngModel)]=ward.roomNo type="text">
+                <br>
+                <label style="font-size:medium; margin-left:15px;">जिसका इलाज अस्पताल मेे चल रहा था , उसकी जॉचों की सभी
+                    रिपोर्ट एवं पेपर प्राप्त कर लिए है । </label>
+                <br><br>
+                <label style="font-size:medium; margin-left:35px;">अब अस्पताल में मेरे मरीज की कोई भी रिपोर्ट एवं पेपर
+                    बाकी नही है । </label>
+                <br>
+                <br><br>
+                <label style="font-size:medium; ">दिनॉंक</label>
+                <input
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:85px ;color: black; background-color: white; "
+                    readonly="true" type="text">
+                <label style="font-size:medium; margin-left: 260px;">हस्ताक्षर मरीज तीमारदार</label>
+                <br>
+            </div>
         </div>
     </div>
 </div>
-</body>

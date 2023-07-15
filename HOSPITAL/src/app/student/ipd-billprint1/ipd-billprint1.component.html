@@ -1,143 +1,177 @@
-<body >
-      <div class = "col" style="text-align:right">
-          <button  (click)="printComponent()">Print</button>
-          <button  (click)="Ipdlist()">Close</button>
-        </div>
-  <div class="row" >
-      <div class="col" id="printsection" style="margin-top: 5vw; margin-left: 30px;">
-          <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
-      </div>
-      <div class = "col">
-          <h3 style="margin-top: 5vw; font-weight: bold; font-size: larger; height: 4px;">{{company}}</h3>
-          <h4 style="height: 4px;">{{add}}</h4>
-          <h4 style="height: 4px;">{{city}}</h4>
-          <h4 >{{phone}}</h4>
-      </div>
+<div class="col" style="text-align:right">
+  <button (click)="printComponent()">Print</button>
+  <button (click)="Ipdlist()">Close</button>
+</div>
+<div id="print" style="background-color: white;">
+  <div class="row">
+    <div class="col" id="printsection" style="margin-top: 5vw; margin-left: 30px;">
+      <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
+    </div>
+    <div class="col">
+      <h3 style="margin-top: 5vw; font-weight: bold; font-size: larger; height: 4px;">{{company}}</h3>
+      <h4 style="height: 4px;">{{add}}</h4>
+      <h4 style="height: 4px;">{{city}}</h4>
+      <h4>{{phone}}</h4>
+    </div>
   </div>
   <div class="disclaimer signature-field">
-</div>
+  </div>
 
   <div class="row" style="text-align: center;">
     <h2
-    style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
-    ESTIMATED IPD BILL</h2>
+      style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
+      ESTIMATED IPD BILL</h2>
   </div>
-<div class ="row">
-      <div class="col-7">
-            <div>
-            <label style="font-size:medium; font-weight: bold; margin-left:15px; " >Patient Name</label>
-            <input style="font-size:medium;   margin-left:25px; width:40px ; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
-           <input style="font-size:medium; margin-left:5px; width:230px ; border:none ;color: black; background-color: white; " [(ngModel)]=OPD.pntName type="pntName"  >
-            </div>
-
-            <div>
-           <label style="font-size:medium; font-weight: bold; margin-left:15px;" >Age/Gender</label>
-           <input style="margin-left: 35px; font-size:medium; width:30px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >
-           <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; " [(ngModel)]=OPD.pntSex type="pntSex" >
-           <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.agey type="agey">
-            </div>
-
-           <div>
-           <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >Guardian</label>
-           <input   style="font-size:medium; margin-left:60px; width:45px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntg type="pntg"  >
-           <input   style="font-size:medium; margin-left:5px; width:250px ; border:none ;color: black; background-color: white;"  [(ngModel)]=OPD.pntGrdn type="pntGrdn" >
-           </div>
-
-           <div>
-            <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >Address</label>
-            <input   style="font-size:medium; margin-left:65px; width:155px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntAdrs1   >
-            </div>
- 
-            <div>
-            <label  style="font-size:medium; font-weight: bold; margin-left:15px;" >District</label>
-            <input   style="font-size:medium; margin-left:75px; width:155px ; border:none ;color: black; background-color: white; "  [(ngModel)]=OPD.pntCity   >
-             </div>
-
-             <div>
-             <label  style="font-size:medium;font-weight: bold; margin-left:15px; ">Mobile</label>
-             <input   style="font-size:medium; margin-left:80px; width:155px ; border:none ;color: black; background-color: white; "   [(ngModel)]=OPD.pntMobile   >
-             </div>
-      
-
-      </div>           
-      <div class="col-5">
-            <div>
-           <label style="font-size:medium; font-weight: bold; margin-left:5px;"  >Admit Date</label>
-           <input style="font-size:medium; width:120px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.opdDate type="date" >
-            </div>
-
-            <div>
-            <label style="font-size:medium; font-weight: bold; margin-left:5px;"  >Admit Time</label>
-            <input style="font-size:medium; width:120px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.opdTime  >
-            </div>
-
-            <div>
-            <label style="font-size:medium; font-weight: bold; margin-left:5px;"  >File-No</label>
-            <input   style="font-size:medium; margin-left:35px; width:45px ; border:none ;color: black; background-color: white; "   [(ngModel)]=OPD.dcmntNo   >
-            <label style="font-size:medium; font-weight: bold; margin-left:2px;"  >UHID</label>
-            <input style="font-size:medium; width:40px ; margin-left: 25px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.uhID >
-            </div>
-
-            <div>
-            <input style="font-size:medium; width:210px ; margin-left:2px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=Ward.category>
-            </div>
-
-            <div>
-            <label style="font-size:medium; font-weight: bold; margin-left:5px;"  >RoomNo</label>
-            <input style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=Ward.roomNo>
-            <label style="font-size:medium; font-weight: bold; margin-left:5px;"  >BedNo</label>
-            <input style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=Ward.Bedno>
-            </div>
-
-            <div>
-            <input style="font-size:medium; width:210px ; margin-left:8px; font-weight: bold; border:none ;color: black; background-color: white; " disabled="true" [(ngModel)]=OPD.dctrVisited>
-            </div>
-      
-
-            
-
-      </div>
-            <table class="table table-bordered border-primary" style="margin-left:30px ; width: 90%; font-size:smaller; ">
-            <thead >
-            <tr>
-            <th>SNo</th>
-            <th>Description</th>
-            <th>Qty</th>
-            <th>Duration</th>
-            <th>Rate</th>
-            <th>Dis%</th>
-            <th>DicAmt</th>
-            <th style="padding-right:20px ;">Amount</th>
-              </tr>
-            </thead> 
-          <tbody>
-              <tr *ngFor="let item of heads.tests let i=index;" >
-                <td style="width:30px;">{{i+1}}</td>  
-                <td style="width:250px;">{{item.itmName}}</td>
-                <td style="width:40px ;">{{item.itmQty}}</td>
-                <td style="width:20px ;">{{item.Remark}}</td>
-                <td style="width:40px;">{{item.itmChrgs}}</td>
-                <td style="width:30px;">{{item.disp}}</td>
-                <td style="width:40px; ">{{item.itmDiscntPrsnt}}</td>
-                <td style="width:40px; ">{{item.totalAmt}}</td>
-            </tr>
-          </tbody>
-       </table>
-
-       <div>
-       <label  style="margin-left:730px;" >Total</label>
-       <input style="margin-left:70px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads.grandTotal  >
+  <div class="row">
+    <div class="col-7">
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:15px; ">Patient Name</label>
+        <input
+          style="font-size:medium;   margin-left:25px; width:40px ; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=OPD.pntn type="pntn">
+        <input
+          style="font-size:medium; margin-left:5px; width:230px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntName type="pntName">
       </div>
 
       <div>
-            <label  style="margin-left:730px;" >Advance</label>
-            <input style="margin-left:45px ; width:90px; " readonly="true" type="text" [(ngModel)]=totaladvance  >
-           </div>
-
-           <div>
-            <label  style="margin-left:730px;" >Due Amount</label>
-            <input style="margin-left:20px ; width:90px; " readonly="true" type="text" [(ngModel)]=balamount  >
-           </div>
-
+        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Age/Gender</label>
+        <input
+          style="margin-left: 35px; font-size:medium; width:30px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs">
+        <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntSex type="pntSex">
+        <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.agey type="agey">
       </div>
-</body>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Guardian</label>
+        <input
+          style="font-size:medium; margin-left:60px; width:45px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntg type="pntg">
+        <input
+          style="font-size:medium; margin-left:5px; width:250px ; border:none ;color: black; background-color: white;"
+          [(ngModel)]=OPD.pntGrdn type="pntGrdn">
+      </div>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Address</label>
+        <input
+          style="font-size:medium; margin-left:65px; width:155px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntAdrs1>
+      </div>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:15px;">District</label>
+        <input
+          style="font-size:medium; margin-left:75px; width:155px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntCity>
+      </div>
+
+      <div>
+        <label style="font-size:medium;font-weight: bold; margin-left:15px; ">Mobile</label>
+        <input
+          style="font-size:medium; margin-left:80px; width:155px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.pntMobile>
+      </div>
+
+
+    </div>
+    <div class="col-5">
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:5px;">Admit Date</label>
+        <input
+          style="font-size:medium; width:120px ; margin-left: 5px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=OPD.opdDate type="date">
+      </div>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:5px;">Admit Time</label>
+        <input
+          style="font-size:medium; width:120px ; margin-left: 5px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=OPD.opdTime>
+      </div>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:5px;">File-No</label>
+        <input
+          style="font-size:medium; margin-left:35px; width:45px ; border:none ;color: black; background-color: white; "
+          [(ngModel)]=OPD.dcmntNo>
+        <label style="font-size:medium; font-weight: bold; margin-left:2px;">UHID</label>
+        <input
+          style="font-size:medium; width:40px ; margin-left: 25px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=OPD.uhID>
+      </div>
+
+      <div>
+        <input
+          style="font-size:medium; width:210px ; margin-left:2px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=Ward.category>
+      </div>
+
+      <div>
+        <label style="font-size:medium; font-weight: bold; margin-left:5px;">RoomNo</label>
+        <input
+          style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=Ward.roomNo>
+        <label style="font-size:medium; font-weight: bold; margin-left:5px;">BedNo</label>
+        <input
+          style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=Ward.Bedno>
+      </div>
+
+      <div>
+        <input
+          style="font-size:medium; width:210px ; margin-left:8px; font-weight: bold; border:none ;color: black; background-color: white; "
+          disabled="true" [(ngModel)]=OPD.dctrVisited>
+      </div>
+
+
+
+
+    </div>
+    <table class="table table-bordered border-primary" style="margin-left:30px ; width: 90%; font-size:smaller; ">
+      <thead>
+        <tr>
+          <th>SNo</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Duration</th>
+          <th>Rate</th>
+          <th>Dis%</th>
+          <th>DicAmt</th>
+          <th style="padding-right:20px ;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of heads.tests let i=index;">
+          <td style="width:30px;">{{i+1}}</td>
+          <td style="width:250px;">{{item.itmName}}</td>
+          <td style="width:40px ;">{{item.itmQty}}</td>
+          <td style="width:20px ;">{{item.Remark}}</td>
+          <td style="width:40px;">{{item.itmChrgs}}</td>
+          <td style="width:30px;">{{item.disp}}</td>
+          <td style="width:40px; ">{{item.itmDiscntPrsnt}}</td>
+          <td style="width:40px; ">{{item.totalAmt}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <label style="margin-left:730px;">Total</label>
+      <input style="margin-left:70px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads.grandTotal>
+    </div>
+
+    <div>
+      <label style="margin-left:730px;">Advance</label>
+      <input style="margin-left:45px ; width:90px; " readonly="true" type="text" [(ngModel)]=totaladvance>
+    </div>
+
+    <div>
+      <label style="margin-left:730px;">Due Amount</label>
+      <input style="margin-left:20px ; width:90px; " readonly="true" type="text" [(ngModel)]=balamount>
+    </div>
+
+  </div>
+</div>

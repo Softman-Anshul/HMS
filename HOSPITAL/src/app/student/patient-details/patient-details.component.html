@@ -1,69 +1,112 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-<body>
-    <div class = "col" style="text-align:right">
-        <button  (click)="printComponent()">Print</button>
-      </div>
-<div class="row" > 
-    <div class = "col" style="margin-top: 5vh;">
-        <label style="font-size:medium;  margin-left:20px;" type="dcmntno"  >FileNo</label>
-            <input style="font-size:small; margin-left:30px; width:50px ; border:none ; " readonly="true" [(ngModel)]=dcmntNo >
+
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+  </div>
+  <div id="print" style="background-color: white;">
+    <div class="row">
+        <div class="col" style="margin-top: 5vh;">
+            <label style="font-size:medium;  margin-left:20px;" type="dcmntno">FileNo</label>
+            <input style="font-size:small; margin-left:30px; width:50px ; border:none ; " readonly="true"
+                [(ngModel)]=dcmntNo>
             <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
-            <input style="font-size:small; margin-left:5px; width:75px ;border:none ; "  readonly="true" [(ngModel)]=OPD.uhID >
-            <input hidden="true" style="font-size:small; margin-left:5px; width:75px ;border:none ; " readonly="true" [(ngModel)]=OPD.uhID >
+            <input style="font-size:small; margin-left:5px; width:75px ;border:none ; " readonly="true"
+                [(ngModel)]=OPD.uhID>
+            <input hidden="true" style="font-size:small; margin-left:5px; width:75px ;border:none ; " readonly="true"
+                [(ngModel)]=OPD.uhID>
 
             <label style="font-size:medium; margin-left:10px;" for="uhID">Patient Type</label>
-            <input style="font-size:small; margin-left:5px; width:95px ;border:none ; " readonly="true" [(ngModel)]=OPD.PntType >
-            
-            <br>
-            <label style="font-size:medium;  margin-left:20px;" type="dcmntno"  >Patient Name</label>
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; " readonly="true" [(ngModel)]=OPD.pntn type="pntn"  >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:550px ; "[(ngModel)]=OPD.pntName readonly="true"  >
-            
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ; "[(ngModel)]=OPD.pntAgeYrs readonly="true" >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "[(ngModel)]=OPD.pntSex readonly="true">
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:90px ; " [(ngModel)]=OPD.agey readonly="true">
+            <input style="font-size:small; margin-left:5px; width:95px ;border:none ; " readonly="true"
+                [(ngModel)]=OPD.PntType>
 
             <br>
-            <label  style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:45px; width:55px ; " [(ngModel)]=OPD.pntg readonly="true"  >
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:730px ;  " [(ngModel)]=OPD.pntGrdn readonly="true">
+            <label style="font-size:medium;  margin-left:20px;" type="dcmntno">Patient Name</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; "
+                readonly="true" [(ngModel)]=OPD.pntn type="pntn">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:550px ; "
+                [(ngModel)]=OPD.pntName readonly="true">
 
-            
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ; "
+                [(ngModel)]=OPD.pntAgeYrs readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "
+                [(ngModel)]=OPD.pntSex readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:90px ; "
+                [(ngModel)]=OPD.agey readonly="true">
+
             <br>
-            <label  style="font-size:medium; margin-left:20px;" for="pntg">Address</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:790px ; margin-left:55px; " [(ngModel)]=OPD.pntAdrs1  readonly="true">
+            <label style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:45px; width:55px ; "
+                [(ngModel)]=OPD.pntg readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:730px ;  "
+                [(ngModel)]=OPD.pntGrdn readonly="true">
 
-            
+
             <br>
-            <label  style="font-size:medium; margin-left:20px;" for="pntg">City</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:450px ; margin-left:85px; " [(ngModel)]=OPD.pntCity readonly="true">
+            <label style="font-size:medium; margin-left:20px;" for="pntg">Address</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:790px ; margin-left:55px; "
+                [(ngModel)]=OPD.pntAdrs1 readonly="true">
 
-            <label  style="font-size:medium; margin-left:15px;" for="pntg">Mobile</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:260px ; margin-left:15px; " [(ngModel)]=OPD.pntMobile readonly="true">
+
             <br>
-            <label  style="font-size:medium; margin-left:20px;" for="pntg">Occupation</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:360px ; margin-left:30px; " [(ngModel)]=OPD.occupation readonly="true">
+            <label style="font-size:medium; margin-left:20px;" for="pntg">City</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:450px ; margin-left:85px; "
+                [(ngModel)]=OPD.pntCity readonly="true">
 
-            <label  style="font-size:medium; margin-left:5px;" for="pntg">Married/Unmarried</label>
-            <input   style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:270px ; margin-left:15px; " [(ngModel)]=OPD.maritalstatus readonly="true">
+            <label style="font-size:medium; margin-left:15px;" for="pntg">Mobile</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:260px ; margin-left:15px; "
+                [(ngModel)]=OPD.pntMobile readonly="true">
+            <br>
+            <label style="font-size:medium; margin-left:20px;" for="pntg">Occupation</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:360px ; margin-left:30px; "
+                [(ngModel)]=OPD.occupation readonly="true">
+
+            <label style="font-size:medium; margin-left:5px;" for="pntg">Married/Unmarried</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:270px ; margin-left:15px; "
+                [(ngModel)]=OPD.maritalstatus readonly="true">
             <br>
 
-            <label style="font-size:medium; margin-left:20px;" >D.O.A.</label>
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:65px; width:95px ; "[(ngModel)]=OPD.opdDate type="Date" readonly="true">
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:365px ; "[(ngModel)]=OPD.opdTime readonly="true">
+            <label style="font-size:medium; margin-left:20px;">D.O.A.</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:65px; width:95px ; "
+                [(ngModel)]=OPD.opdDate type="Date" readonly="true">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:365px ; "
+                [(ngModel)]=OPD.opdTime readonly="true">
 
-             <label style="font-size:medium; margin-left:5px;" >D.O.D.</label>
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:95px ; "[(ngModel)]=vchrDate type="Date" >
-            <input style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:175px ; "[(ngModel)]=vchrTime >
+            <label style="font-size:medium; margin-left:5px;">D.O.D.</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:95px ; "
+                [(ngModel)]=vchrDate type="Date">
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:175px ; "
+                [(ngModel)]=vchrTime>
             <br>
-            <label   style="font-size:medium; margin-left:20px;" for="condoctor">Diagnosis</label>
-            <input  style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:40px; width:790px ;  "[(ngModel)]=OPD.Dignosis >
+            <label style="font-size:medium; margin-left:20px;" for="condoctor">Diagnosis</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:40px; width:790px ;  "
+                [(ngModel)]=OPD.Dignosis>
             <br>
-            <label   style="font-size:medium; margin-left:20px;" for="condoctor">Consultant</label>
-            <b><input  style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:35px; width:400px ; "[(ngModel)]=OPD.dctrVisited  readonly="true"></b>
+            <label style="font-size:medium; margin-left:20px;" for="condoctor">Consultant</label>
+            <b><input
+                    style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:35px; width:400px ; "
+                    [(ngModel)]=OPD.dctrVisited readonly="true"></b>
 
-            <label   style="font-size:medium; margin-left:5px;" for="condoctor">Ref Doctor</label>
-            <input  style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap;margin-left:5px; width:310px ; "[(ngModel)]=OPD.rfrdBy  readonly="true">
+            <label style="font-size:medium; margin-left:5px;" for="condoctor">Ref Doctor</label>
+            <input
+                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap;margin-left:5px; width:310px ; "
+                [(ngModel)]=OPD.rfrdBy readonly="true">
         </div>
+    </div>
 </div>
-</body>

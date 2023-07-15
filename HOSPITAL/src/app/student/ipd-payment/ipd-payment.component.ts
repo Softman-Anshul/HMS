@@ -93,7 +93,7 @@ onsave(){
     let yrs = this.Deposit.Years;
     let dcmntno = this.OPD.dcmntNo;
     let uhid = this.OPD.uhID;
-    this.Router.navigate(['ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
+    this.Router.navigate(['homepage/ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
     this.dialogRef.close();
     }
     else

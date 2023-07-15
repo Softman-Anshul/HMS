@@ -102,11 +102,10 @@ export class IPDBillprint4Component implements OnInit {
   printComponent() {
     const element = document.getElementById("print")
     if (element != null) {
-      const printContents = element.innerHTML;
-      const originalContents = document.body.innerHTML;
-      document.body.innerHTML = printContents;
+      let body = document.createElement("body")
+      body.appendChild(element)
+      document.body = body;
       window.print();
-      document.body.innerHTML = originalContents;
       window.location.reload()
     }
   }
