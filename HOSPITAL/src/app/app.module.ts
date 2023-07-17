@@ -151,7 +151,6 @@ export function initializeDialogService() {
    BrowserAnimationsModule,
    FormsModule,
    NgChartsModule,
-   
     ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},{
     provide: ENVIRONMENT_INITIALIZER,

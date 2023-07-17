@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #ce1e53, #8f00c7);
+    min-height: 100vh;
+    padding: 2rem 0rem;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 30px 45px;
+    box-shadow: 5px 25px 35px #3535356b;
+}
+
+.wrapper label {
+    display: block;
+    padding-bottom: 0.2rem;
+}
+
+.wrapper .form .row {
+    padding: 0.6rem 0;
+}
+
+.wrapper .form .row .form-control {
+    box-shadow: none;
+}
+
+.wrapper .form .option {
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+
+.wrapper .form .option input {
+    opacity: 0;
+}
+
+.wrapper .form .checkmark {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+}
+
+.wrapper .form .option input:checked~.checkmark:after {
+    display: block;
+}
+
+.wrapper .form .option:hover .checkmark {
+    background: #f3f3f3;
+}
+
+.wrapper .form .option .checkmark:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: linear-gradient(45deg, #ce1e53, #8f00c7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.wrapper .form .option input[type="radio"]:checked~.checkmark {
+    background: #fff;
+    transition: 300ms ease-in-out 0s;
+}
+
+.wrapper .form .option input[type="radio"]:checked~.checkmark:after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#sub {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+#sub:focus {
+    outline: none;
+}
+
+    .wrapper .form .row {
+        padding: 0;
+    }
+
+
+    .user-box {
+        position: relative;
+        max-width: 12vw;
+      }
+      
+      .user-box input {
+        width: 11vw;
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box select {
+        width: 11vw;
+        padding: 9px 0;
+        font-size: 14px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+      
+      .user-box input:focus ~ label,
+      .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box select:not([data-chosen=""])  ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+
+      .user-box-small {
+        position: relative;
+        max-width: 6vw;
+        margin-right: 1vw;
+      }
+      .user-box-small input {
+        max-width: 6vw;
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box-small select {
+        width: 6vw;
+        padding: 9px 0;
+        font-size: 14px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box-small label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+      
+      .user-box-small input:focus ~ label,
+      .user-box-small input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box-small input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box-small select:not([data-chosen=""])  ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+
+      .user-box-big {
+        width: 42vw;
+        position: relative;
+        margin-right: 1vw;
+      }
+
+      .user-box-big input {
+        width: 42vw;
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box-big label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+      
+      .user-box-big input:focus ~ label,
+      .user-box-big input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box-big input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+
+      .user-box-big1 {
+        width: 30vw;
+        position: relative;
+        margin-right: 1vw;
+      }
+
+      .user-box-big1 input {
+        width: 30vw;
+        padding: 8px 0;
+        font-size: 12px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+      }
+      .user-box-big1 label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: black;
+        pointer-events: none;
+        transition: .5s;
+      }
+
+
+      .user-box-big1 input:focus ~ label,
+      .user-box-big1 input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+      .user-box-big1 input:disabled ~ label {
+        top: -20px;
+        left: 0;
+        color: #000000;
+        font-size: 12px;
+      }
+
+      /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  margin-top: 2%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f39696;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #0d6efd;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #0d6efd;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(49px);
+  -ms-transform: translateX(49px);
+  transform: translateX(49px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

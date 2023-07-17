@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
-import {Router, Params, ActivatedRoute} from '@angular/router';
-import { group, Students, testgroup, testreport } from '../../students';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Students, testgroup, testreport } from '../../students';
 import { __values } from 'tslib';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { ResultinterpetComponent } from '../resultinterpet/resultinterpet.component';
+import { ResultcommentComponent } from '../resultcomment/resultcomment.component';
+import { Editor } from 'ngx-editor';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-testreport',
@@ -14,18 +18,20 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 export class TestreportComponent implements OnInit {
   //declare Students : Students[];
   Students = new Students();
-  declare testreport :testreport[];
-  declare selected : Students;
-  labTestWord = new Map<string,string[]>([]);
+  declare testreport: testreport[];
+  declare selected: Students;
+  labTestWord = new Map<string, string[]>([]);
   uname = '';
-  constructor(private _studentservice:StudentsService,
-    private routes : ActivatedRoute,
+  declare editor: Editor;
+
+  constructor(private _studentservice: StudentsService,
+    private routes: ActivatedRoute,
     public dialog: MatDialog,
-    private Router :Router 
+    private Router: Router
   ) { }
 
-  declare group : testgroup[];
-  declare groups : testgroup[];
+  declare group: testgroup[];
+  declare groups: testgroup[];
 
   config: AngularEditorConfig = {
     spellcheck: true,
@@ -55,67 +61,158 @@ export class TestreportComponent implements OnInit {
 
   ngOnInit(): void {
 
-   //call username 
-   this.uname = this._studentservice.getUsername();
-   if(this.uname == '')
-   {
-     this.Router.navigate(['']);
-   }
-   
+    //call username 
+    this.uname = this._studentservice.getUsername();
+    if (this.uname == '') {
+      this.Router.navigate(['']);
+    }
+
     this._studentservice.getAllTestGroups()
-    .subscribe((data:testgroup[]) => {
-    this.group = data;
-    this.groups = [];
-    });
+      .subscribe((data: testgroup[]) => {
+        this.group = data;
+        this.groups = [];
+      });
 
     const routerParams = this.routes.snapshot.params;
     this._studentservice.getlabtestword()
-    .subscribe((data:any) => {
-      for (var value in data) {  
-        this.labTestWord.set(value,data[value])  
-        }  
-    });
+      .subscribe((data: any) => {
+        for (var value in data) {
+          this.labTestWord.set(value, data[value])
+        }
+      });
 
-    this._studentservice.gettablebyid(routerParams['id']).subscribe((data:any) => {
+    this._studentservice.gettablebyid(routerParams['id']).subscribe((data: any) => {
       this.Students = data[0];
 
-      this._studentservice.getresulttable(this.Students.vchrNo,this.Students.vchrDate).subscribe((data:any) => {
-        this.testreport= data;    
-        
+      this._studentservice.getresulttable(this.Students.vchrNo, this.Students.vchrDate).subscribe((data: any) => {
+        this.testreport = data;
+
         this.group.forEach(grp => {
-          for(let i=0;i<this.testreport.length;i++)
-          {
-            if(this.testreport[i].testgroup == grp.group_name && this.testreport[i].labid == 0)
-            {
+          for (let i = 0; i < this.testreport.length; i++) {
+            if (this.testreport[i].testgroup == grp.group_name && this.testreport[i].labid == 0) {
               this.groups.push(grp);
               break;
             }
           };
         });
-      
-        //call value from lab_test_subvalue
-        this._studentservice.gettablevaluebyid(this.Students.vchrNo,this.Students.vchrDate).subscribe((data:any) => {
-          for(let i=0;i<this.testreport.length;i++)
-          {
-              let element = this.testreport[i];
-              if(JSON.parse(JSON.stringify(data))[element.testname] != undefined){
-              element.value = JSON.parse(JSON.stringify(data))[element.testname]['value'];
-              element.interpet = data[element.testname]['interpet'];
-              element.comments = data[element.testname]['comments'];
 
-              }
-            };
+        //call value from lab_test_subvalue
+        this._studentservice.gettablevaluebyid(this.Students.vchrNo, this.Students.vchrDate).subscribe((data: any) => {
+          for (let i = 0; i < this.testreport.length; i++) {
+            let element = this.testreport[i];
+            console.log("--" + element.testname + "---")
+            if (JSON.parse(JSON.stringify(data))[element.testname.trim()] != undefined) {
+              element.value = JSON.parse(JSON.stringify(data))[element.testname.trim()]['value'];
+              element.interpet = data[element.testname.trim()]['interpet'];
+              element.comments = data[element.testname.trim()]['comments'];
+            }
+          };
         });
       });
     });
   }
-  viewResult(report:testreport) :boolean{
-    if(((report.subgroup.toLowerCase() == "yes" ) || report.Ipet == "Y") || report.Wordcode != ""){
-      return false
-    } else{
-    return true
-      }
-    }    
 
-    addNewItem(data:any){}
+  viewResult(report: testreport): boolean {
+    if (((report.subgroup.toLowerCase() == "yes") || report.Ipet == "Y") || report.Wordcode != "") {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  addNewItem(data: any) { }
+
+  openDialogI(index: number): void {
+    const dialogRef = this.dialog.open(ResultinterpetComponent, {
+      height: '550PX', width: '750px',
+      data: { testreport: this.testreport[index], i: index },
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.testreport[result.i] = result.report
+    });;
+  }
+
+  openDialogC(index: number): void {
+    const dialogRef = this.dialog.open(ResultcommentComponent, {
+      height: '550PX', width: '750px',
+      data: { testreport: this.testreport[index], i: index },
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.testreport[result.i] = result.report
+    });;
+  }
+
+  printReport(){
+
+    const classes = document.getElementsByClassName("enterValue")
+
+    for(let i=0; i < classes.length; i++){
+      let e = classes.item(i)
+      if(e != null){
+        e.setAttribute("style","border:0px")
+      }
+    }
+
+    const dclasses = document.getElementsByClassName("tbd")
+
+    for(let i=0; i < dclasses.length; i++){
+      let e = dclasses.item(i)
+      if(e != null){
+        e.setAttribute("style","display:none")
+      }
+    }
+
+    const element = document.getElementById("print")
+    if (element != null) {
+      let body = document.createElement("body")
+      body.appendChild(element)
+      document.body = body;
+      window.print();
+      window.location.reload()
+    }
+  }
+
+  cancel(router: Router) {
+    router.navigate(['homepage/Pathology']);
+  }
+
+  @needConfirmation()
+  confirm() {
+    this.printReport()
+  }
+
+
+  save() {
+    this.Students.report = this.testreport
+    if (this.validate()) {
+      this._studentservice.savereport(this.Students)
+        .subscribe(data => {
+          defaultConfirmData.cancel = this.cancel
+          defaultConfirmData.title = "Print"
+          defaultConfirmData.message = "Do you want to print?"
+          this.confirm()
+        });;
+    }
+  }
+
+  validate(): boolean {
+    for (let i = 0; i < this.testreport.length; i++) {
+      if (this.testreport[i].total > 0) {
+        let total = 0;
+        for (let j = i + 1; j < this.testreport.length; j++) {
+          if (this.testreport[i].testcode == this.testreport[j].testcode) {
+            total = total + Number(this.testreport[j].value);
+          }
+        }
+        // if(total > this.testreport[i].total){
+        //   alert("Value of " + this.testreport[i].testname + " greater than " + this.testreport[i].total);
+        //   return false
+        // }
+      }
+    }
+    return true
+  }
+
 }

@@ -24,8 +24,8 @@ ListOfSideBar = [
     { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench" },
     { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
     { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
-    // { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
-    // { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
+    { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
+    { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
     { sidebartext: "Controls", url : "control","icon":"fa fa-wrench",} 
 ];
 SideBars : sidebar[] = [];

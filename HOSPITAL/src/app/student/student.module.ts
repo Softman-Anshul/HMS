@@ -88,6 +88,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { IpdRiskComponent } from './ipd-risk/ipd-risk.component';
 import { IpdBillingToolTipComponent } from './ipd-billing-tool-tip/ipd-billing-tool-tip.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
+import { TestReportComponent } from './test-report/test-report.component';
 
 
 @NgModule({
@@ -168,7 +169,8 @@ import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-after
     ResultinterpetComponent,
     TestreportComponent,
     IpdRiskComponent,
-    IpdEditAfterdischComponent
+    IpdEditAfterdischComponent,
+    TestReportComponent
 
   ],
   imports: [

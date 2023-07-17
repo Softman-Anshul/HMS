@@ -10,18 +10,18 @@ export class EditorComponent implements OnInit {
 
   declare editor: Editor;
   @Input()  text = '';
-  data = {type:'doc',content:[{type:'paragraph',attrs:{align:null,},content:[{type:'text',text:'',},],}]}
+  data = ""
   @Output() newItemEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
     this.editor = new Editor();
-    this.data = JSON.parse(this.text);
+    this.data = this.text;
   }
 
   addNewItem(event:any) {
-    this.newItemEvent.emit(JSON.stringify(event));
+    this.newItemEvent.emit(event);
   }
 
 }

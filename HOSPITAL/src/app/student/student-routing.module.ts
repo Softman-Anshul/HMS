@@ -107,6 +107,7 @@ import { TestresultComponent } from './testresult/testresult.component';
 import { TestreportComponent } from './testreport/testreport.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { TestReportComponent } from './test-report/test-report.component';
 
 const routes: Routes = [
 
@@ -227,7 +228,9 @@ const routes: Routes = [
             { path: 'Account', component: MenuAccountComponent },
             { path: "testggroup", component: MasterTestGroupComponent },
             { path: "test", component: MasterTestComponent },
-            { path: "result/:id", component: TestresultComponent },
+            { path: "result/:id", component: TestReportComponent },
+            { path: "resultold/:id", component: TestresultComponent },
+            
             { path: "ipdedita/:v/:d/:u/:opdDate", component: IpdEditAfterdischComponent },
             //Estimated IPD Bill
             { path: 'ipdbill1/:dcmntNo/:uhID', component: IPDBillprint1Component },
