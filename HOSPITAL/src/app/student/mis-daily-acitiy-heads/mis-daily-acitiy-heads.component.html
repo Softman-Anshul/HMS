@@ -5,11 +5,11 @@
 <div id="print" style="background-color: white;">
     <app-report-PageHeading></app-report-PageHeading>
 
-    <h4 style="margin-left: 20px; font-weight: bold;">Daily Activity Head Wise Report from {{fromdt | date
+    <h4 style="margin-left: 20px; font-weight: bold; margin-top: 4vh;">Daily Activity Head Wise Report from {{fromdt | date
         :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}}
         <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
     </h4>
-    <h4 style="margin-left: 20px; font-weight: bold;"> Payment Mode {{paymode}} </h4>
+    <h4 style="margin-left: 20px; font-weight: bold;"> Head >> {{paymode}} </h4>
 
     <table class="table table-bordered border-primary" style="margin-left:10px ; width: 90%; font-size:smaller;">
         <thead>
@@ -20,13 +20,14 @@
             <th style="text-align: center ;">UHID</th>
             <th style="text-align: center ;">Patient</th>
             <th style="text-align: center ;">Consultant</th>
-            <th style="text-align: center ;">Total</th>
-            <th style="text-align: center ;">Disc</th>
-            <th style="text-align: center ;">Refund</th>
-            <th style="text-align: center ;">Bal Amt</th>
-            <th style="text-align: center ;">Rec Amt</th>
             <th style="text-align: center ; padding-right:20px ;">Paymode</th>
             <th style="text-align: center ; padding-right:20px ;">Uname</th>
+            <th style="text-align: center ;">Total</th>
+            <th style="text-align: center ;">Disc.</th>
+            <th style="text-align: center ;">Refund</th>
+            <th style="text-align: center ;">Bal. Amt</th>
+            <th style="text-align: center ;">Rec. Amt</th>
+            
         </thead>
 
         <tbody>
@@ -44,13 +45,13 @@
                             <td style="width:50px; ">{{students.uhID}}</td>
                             <td style="width:120px;">{{students.PntName}}</td>
                             <td style="width:140px ; ;">{{students.condoctor}}</td>
+                            <td style="width:40px; text-align: center ; ">{{students.paymode}}</td>
+                            <td style="width:40px; text-align: center ; ">{{students.uname}}</td>
                             <td style="width:40px; text-align: center ;">{{students.grandTotal}}</td>
                             <td style="width:40px; text-align: center ;">{{students.discountAmt}}</td>
                             <td style="width:40px; text-align: center ;">{{students.refund}}</td>
                             <td style="width:40px; text-align: center ;">{{students.balamt}}</td>
                             <td style="width:40px; text-align: center ;">{{students.recamt}}</td>
-                            <td style="width:40px; text-align: center ; ">{{students.paymode}}</td>
-                            <td style="width:40px; text-align: center ; ">{{students.uname}}</td>
 
                         </tr>
                     </ng-container>
@@ -58,6 +59,8 @@
                 </ng-container>
             </ng-container>
         </tbody>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

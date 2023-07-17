@@ -10,7 +10,7 @@ import { OPDEMRComponent } from '../opd-emr/opd-emr.component';
 import { IPDRegComponent } from '../ipd-reg/ipd-reg.component';
 import { OpdMedicalcertificateComponent } from '../opd-medicalcertificate/opd-medicalcertificate.component';
 import { formatDate } from '@angular/common';
-import { needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-opdlist',
@@ -104,7 +104,9 @@ export class OpdlistComponent implements OnInit {
 
         });
     }
+
   }
+
   openDialogrefund(): void {
     if (this.selected.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       const dialogRef = this.dialog.open(OpdrefundComponent, {
@@ -130,32 +132,44 @@ export class OpdlistComponent implements OnInit {
       }
     }
   }
+
+  @needConfirmation()
+  confirm(students: any) {
+    this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
+      .subscribe(data => {
+        this.OPD = this.OPD.filter(u => u !== students);
+        window.location.reload();
+      })
+  }
+
+  @needConfirmation()
+  confirm1(students: any) {
+    this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
+      .subscribe(data => {
+        this.OPD = this.OPD.filter(u => u !== students);
+        window.location.reload();
+      })
+  }
+
+
   delete(students: any): void {
     if (students.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
-      var result = confirm("Want to delete?");
-      if (result == true) {
-        this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
-          .subscribe(data => {
-            this.OPD = this.OPD.filter(u => u !== students);
-          })
-      }
+      defaultConfirmData.title = "Delete"
+      defaultConfirmData.message = "Are you sure you want to delete?"
+      this.confirm(students)
     }
     else {
       if (JSON.parse(JSON.stringify(this.permission))["Backdate"]["opd_Delete"]["inst"] == "") {
         alert("You are not Authorized for backdate delete")
       }
       else {
-        var result = confirm("Want to delete?");
-        if (result == true) {
-          this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
-            .subscribe(data => {
-              this.OPD = this.OPD.filter(u => u !== students);
-              window.location.reload();
-            })
-        }
+        defaultConfirmData.title = "Delete"
+        defaultConfirmData.message = "Are you sure you want to delete?"
+        this.confirm1(students)
       }
     }
   }
+  
   openDialogpmode(): void {
     if (this.selected.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       const dialogRef = this.dialog.open(OpdpmodechangeComponent, {
@@ -259,7 +273,7 @@ export class OpdlistComponent implements OnInit {
         this.OPD = data;
         this.totalamt = 0;
         this.totaldis = 0;
-        this.totalrefund=0;
+        this.totalrefund = 0;
         this.totalrecamt = 0;
         for (let i = 0; i < this.OPD.length; i++) {
           this.totalamt += parseInt(this.OPD[i].amt.toString());
@@ -275,7 +289,7 @@ export class OpdlistComponent implements OnInit {
         this.OPD = data;
         this.totalamt = 0;
         this.totaldis = 0;
-        this.totalrefund=0;
+        this.totalrefund = 0;
         this.totalrecamt = 0;
         for (let i = 0; i < this.OPD.length; i++) {
           this.totalamt += parseInt(this.OPD[i].amt.toString());

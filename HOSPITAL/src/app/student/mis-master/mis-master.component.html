@@ -11,8 +11,6 @@
         <option value="Head Wise Details">Head Wise Details</option>
         <option value="Head Wise Daily">Head Wise Daily</option>
         <option value="Head Wise Monthly">Head Wise Monthly</option>
-        <!-- <option value="Day Summery(Amount)">Day Summery(Amount)</option>
-        <option value="Monthly Summery(Amount)">Monthly Summery(Amount)</option> -->
         </select>
 
         <select style="width:260px ;" class="form-control" [(ngModel)]=choice1   [disabled]="!SelectedFieldList.includes(choice)" >
@@ -27,63 +25,27 @@
           <button style="font-size:small; margin-left:10px;" (click) =dailyreport(vrdt1,vrdt2,choice,choice1) class="btn btn-primary">OK</button>
         </div>
         </div>
+<!-- consultan by  -->
+<div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+  <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+          <div class="cardbody">
+          <h2 class="card-title">Consultant by Daily Activity Reports</h2>
+        <select style="width:260px ;" class="form-control" (change)="dchangedata()" [(ngModel)]=choice1 >
+        <option value="ALL">ALL</option>
+        <option value="Consulant">Consulant</option>
+        </select>
 
-        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
-        <div class="cardbody">
-            <h2 class="card-title">Consultant Wise Daily Activity Reports</h2>
-            <select style="width:260px ;" class="form-control" >
-            <option value="Details">Details</option>
-            <option value="PaymentMode">PaymentMode</option>
-            <option value="Head Wise Details">Head Wise Details</option>
-            <option value="Head Wise Summery (Day)">Head Wise Summery (Day)</option>
-            <option value="Head Wise Summery (Month)">Head Wise Summery (Month)</option>
-            <option value="Day Summery(Amount)">Day Summery(Amount)</option>
-            <option value="Monthly Summery(Amount)">Monthly Summery(Amount)</option>
-            </select>
-    
-            <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
-            <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
-              <button style="font-size:small; margin-left:10px;"  class="btn btn-primary">OK</button>
-              </div>
+        <select style="width:260px ;" class="form-control" [(ngModel)]=choice1   [disabled]="!SelectedFieldList.includes(choice1)" >
+          <option>--Select--</option>
+          <option *ngFor="let element of list">
+            {{element}}
+          </option> 
+          </select>
+      
+        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
+          <button style="font-size:small; margin-left:10px;" (click) =dailyreport(vrdt1,vrdt2,choice,choice1) class="btn btn-primary">OK</button>
         </div>
-
-        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
-              <div class="cardbody">
-                <h2 class="card-title">User Wise Daily Activity Reports</h2>
-                <select style="width:260px ;" class="form-control" >
-                <option value="Details">Details</option>
-                <option value="PaymentMode">PaymentMode</option>
-                <option value="Head Wise Details">Head Wise Details</option>
-                <option value="Head Wise Summery (Day)">Head Wise Summery (Day)</option>
-                <option value="Head Wise Summery (Month)">Head Wise Summery (Month)</option>
-                <option value="Day Summery(Amount)">Day Summery(Amount)</option>
-                <option value="Monthly Summery(Amount)">Monthly Summery(Amount)</option>
-                </select>
-        
-                <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
-                <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
-                  <button style="font-size:small; margin-left:10px;"  class="btn btn-primary">OK</button>
-                  </div>
         </div>
-
-        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
-                  <div class="cardbody">
-                        <h2 class="card-title">Payment Dashboard</h2>
-                        <select style="width:260px ;" class="form-control" >
-                        <option value="Details">Details</option>
-                        <option value="PaymentMode">PaymentMode</option>
-                        <option value="Head Wise Details">Head Wise Details</option>
-                        <option value="Head Wise Summery (Day)">Head Wise Summery (Day)</option>
-                        <option value="Head Wise Summery (Month)">Head Wise Summery (Month)</option>
-                        <option value="Day Summery(Amount)">Day Summery(Amount)</option>
-                        <option value="Monthly Summery(Amount)">Monthly Summery(Amount)</option>
-                        </select>
-                
-                        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
-                        <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
-                          <button style="font-size:small; margin-left:10px;"  class="btn btn-primary">OK</button>
-                          </div>
-        </div>
-
        
 </div>

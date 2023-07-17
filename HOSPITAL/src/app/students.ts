@@ -8,6 +8,7 @@ export class company {
     "Comp_key":string;
      "Comp_Short_nam":string;
      "email":string;
+     "website":string;
      "years ":string;
      "front":ImageData;
      "logo":ImageData;

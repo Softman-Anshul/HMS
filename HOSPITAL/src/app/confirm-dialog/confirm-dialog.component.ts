@@ -1,9 +1,9 @@
-
 import { Component, Inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ConfirmDialogData } from '../confirm-dialog-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -13,10 +13,10 @@ import { ConfirmDialogData } from '../confirm-dialog-data';
   styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData,private router: Router) {}
 
 
   cancel(){
-    this.data.cancel()
+    this.data.cancel(this.router)
   }
 }

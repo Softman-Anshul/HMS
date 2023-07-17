@@ -106,6 +106,7 @@ import { PatholgoyreportComponent } from './patholgoyreport/patholgoyreport.comp
 import { TestresultComponent } from './testresult/testresult.component';
 import { TestreportComponent } from './testreport/testreport.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 const routes: Routes = [
 

@@ -4,6 +4,7 @@ import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import { OPD,group, Students} from '../../students';
 import { formatDate } from '@angular/common';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-test-due-recived',
@@ -61,19 +62,24 @@ export class TestDueRecivedComponent implements OnInit {
 onNoClick(): void {
   this.dialogRef.close();
 }
+
+cancel(router: Router) {
+  window.location.reload();
+}
+
+@needConfirmation()
+confirm() {
+  window.location.reload()
+}
+
+
 onsave(){
   this._studentservice.Test_due_recevied(this.Students)
   .subscribe(data => {
-
-    var result = confirm("Print Receipts ?");
-    if (result==true) {
-    // this.Router.navigate(['homepage/ipdreceipt/' + id,dt,yrs,dcmntno,uhid]);
-    this.dialogRef.close();
-    }
-    else
-    {
-    this.dialogRef.close();
-    }
+    defaultConfirmData.cancel = this.cancel
+    defaultConfirmData.title = "Print Receipts"
+    defaultConfirmData.message = "Do you want to print receipts?"
+    this.confirm()
  });
 }
 

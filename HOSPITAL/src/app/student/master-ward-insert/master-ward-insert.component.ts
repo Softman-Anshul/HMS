@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StudentsService } from '../../students.service';
-import {Router, Params, ActivatedRoute} from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 import { Ward } from 'src/app/students';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-master-ward-insert',
@@ -11,57 +12,60 @@ import { Ward } from 'src/app/students';
 })
 export class MasterWardInsertComponent implements OnInit {
   uname = '';
-  declare Ward1 : Ward[];
+  declare Ward1: Ward[];
   Ward = new Ward();
   category = "";
   Floor = "";
 
-  totalbed=0;
+  totalbed = 0;
 
-  constructor(private _studentservice:StudentsService,
-    private routes : ActivatedRoute,
-    private Router :Router, 
+  constructor(private _studentservice: StudentsService,
+    private routes: ActivatedRoute,
+    private Router: Router,
     public dialogRef: MatDialogRef<MasterWardInsertComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {Ward:any},
-   ) {
-     this.Ward1 = data.Ward;
-    }
+    @Inject(MAT_DIALOG_DATA) public data: { Ward: any },
+  ) {
+    this.Ward1 = data.Ward;
+  }
 
   ngOnInit(): void {
 
   }
-  deleter(roomNo:any,Bedno:any,ipdno:any){
-    if(ipdno == 0)
-    {
-      var result = confirm("Want to delete?");
-      if (result==true) {
-      this._studentservice.deletebed(roomNo,Bedno)
-      .subscribe((data:any) => {
-      alert("Thanks....Deleted Records")
-      window.location.reload();
+
+  @needConfirmation()
+  confirm(roomNo: any, Bedno: any, ipdno: any) {
+    this._studentservice.deletebed(roomNo, Bedno)
+      .subscribe((data: any) => {
+        alert("Thanks....Deleted Records")
+        window.location.reload();
       });
+  }
+
+
+  deleter(roomNo: any, Bedno: any, ipdno: any) {
+    if (ipdno == 0) {
+      defaultConfirmData.title = "Delete"
+      defaultConfirmData.message = "Are you sure you want to delete?"
+      this.confirm(roomNo, Bedno, ipdno)
     }
-    }
-    else{
+    else {
       alert("Sorry ! You can not delete this bed due to patient are on this bed")
     }
-
   }
-  onSubmit(){
+  
+  onSubmit() {
 
-              this._studentservice.newbedinsert(this.Ward)
-            .subscribe((data:any) => {
-            alert("Thanks....Save Records")
-            window.location.reload();
-            });
+    this._studentservice.newbedinsert(this.Ward)
+      .subscribe((data: any) => {
+        alert("Thanks....Save Records")
+        window.location.reload();
+      });
   }
-  bedtype(){
-    if(this.Ward.Bedno == 1)
-    {
+  bedtype() {
+    if (this.Ward.Bedno == 1) {
       this.Ward.bed = "S"
     }
-    else
-    {
+    else {
       this.Ward.bed = 'M'
     }
   }

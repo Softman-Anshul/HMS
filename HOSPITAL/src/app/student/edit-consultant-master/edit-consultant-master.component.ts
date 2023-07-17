@@ -149,7 +149,9 @@ export class EditConsultantMasterComponent implements OnInit {
   @needConfirmation({
     title : "Delete Confirmation",
     message : "Are you sure you want to delete ?",
-    cancel : function(){}
+    cancel : function(){},
+    yes: "Yes",
+    no: "No",  
   })
   deleter(consulant: consulant): void {
       this._studentservice.deleterconsultant(consulant.dctID)

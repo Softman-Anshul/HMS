@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { StudentsService } from '../../students.service';
-import {Router,ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import {Cityname, testmaster} from '../../students';
+import { Cityname, testmaster } from '../../students';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-master-charges',
@@ -14,107 +15,109 @@ export class MasterChargesComponent implements OnInit {
   DefaultCity = "Bareilly";
   DefaultValue = "Male";
   declare addForm: FormGroup;
-  declare Cityname :Cityname[];
-  declare Testmaster :testmaster[];
-  showMeedit:boolean=false
-  showMesave:boolean=true
+  declare Cityname: Cityname[];
+  declare Testmaster: testmaster[];
+  showMeedit: boolean = false
+  showMesave: boolean = true
   id: any;
-  resultType= '';
-  itmName="";
-  itmtype="";
-  declare search:string;
+  resultType = '';
+  itmName = "";
+  itmtype = "";
+  declare search: string;
 
-  constructor(private formBuilder :FormBuilder,
-    private _studentservice:StudentsService,
+  constructor(private formBuilder: FormBuilder,
+    private _studentservice: StudentsService,
     private router: Router,
-    private routes : ActivatedRoute ) { }
+    private routes: ActivatedRoute) { }
 
   ngOnInit(): void {
     //call City
     this._studentservice.gettablecityname()
-    .subscribe((data:Cityname[]) => {
-      this.Cityname = data;
-    });  
-     //call type
-     this._studentservice.gettabletestname()
-     .subscribe((data:testmaster[]) => {
-       this.Testmaster = data;
-     });  
+      .subscribe((data: Cityname[]) => {
+        this.Cityname = data;
+      });
+    //call type
+    this._studentservice.gettabletestname()
+      .subscribe((data: testmaster[]) => {
+        this.Testmaster = data;
+      });
 
     this.addForm = this.formBuilder.group({
-      chrgsGrp:['', Validators.required],
-      chrgsName:['', Validators.required],
-      chrgsName1:['', Validators.required],
-      chrgAmt:['', Validators.required],
-      chrgsCat:['', Validators.required],
-      sNo:['', Validators.required],
-      type:['', Validators.required],
-      type1:['', Validators.required],
-      Servicetax:['', Validators.required],
-      ipdchargs:['', Validators.required],
-      IExp:['', Validators.required],
-      testcode:['', Validators.required],
-      itmName:['', Validators.required],
-      itmtype:['', Validators.required],
+      chrgsGrp: ['', Validators.required],
+      chrgsName: ['', Validators.required],
+      chrgsName1: ['', Validators.required],
+      chrgAmt: ['', Validators.required],
+      chrgsCat: ['', Validators.required],
+      sNo: ['', Validators.required],
+      type: ['', Validators.required],
+      type1: ['', Validators.required],
+      Servicetax: ['', Validators.required],
+      ipdchargs: ['', Validators.required],
+      IExp: ['', Validators.required],
+      testcode: ['', Validators.required],
+      itmName: ['', Validators.required],
+      itmtype: ['', Validators.required],
     });
   }
-  onSubmit(){
+  onSubmit() {
     this._studentservice.createtestmasterh(this.addForm.value)
-    .subscribe(data => {
-      alert('Records Saved...Thanks');
-      window.location.reload();
-    });
-  }
-  deleter(student:testmaster):void{
-    var result = confirm("Want to delete?");
-    if (result==true) {
-      this._studentservice.deleteTest(student.sNo)
       .subscribe(data => {
-        this.Testmaster = this.Testmaster.filter(u => u !== student); 
-      }) 
-    } 
-    else 
-    {
-      () => {} 
-    }
+        alert('Records Saved...Thanks');
+        window.location.reload();
+      });
   }
-  editer(student:any):void{
+
+  @needConfirmation()
+  confirm(student: testmaster) {
+    this._studentservice.deleteTest(student.sNo)
+      .subscribe(data => {
+        this.Testmaster = this.Testmaster.filter(u => u !== student);
+      })
+  }
+
+  deleter(student: testmaster): void {
+    defaultConfirmData.title = "Delete"
+    defaultConfirmData.message = "Do you want to delete?"
+    this.confirm(student)
+  }
+  
+  editer(student: any): void {
     this.id = student;
     //  this.router.navigate(['homepage/consultantedit/' + this.id]);
     this._studentservice.getTestbyid(this.id)
-    .subscribe((data:any) => {
-      data = data[0]
-      // this.addForm.patchValue({data});
-      this.addForm.controls['sNo'].setValue(data.sNo);
-      this.addForm.controls['chrgsName'].setValue(data.chrgsName);
-      this.addForm.controls['chrgAmt'].setValue(data.chrgAmt);
-      this.addForm.controls['ipdchargs'].setValue(data.ipdchargs);
-      this.addForm.controls['type'].setValue(data.type);
-      this.addForm.controls['itmName'].setValue(data.chrgsName);
-      this.addForm.controls['itmtype'].setValue(data.type);
+      .subscribe((data: any) => {
+        data = data[0]
+        // this.addForm.patchValue({data});
+        this.addForm.controls['sNo'].setValue(data.sNo);
+        this.addForm.controls['chrgsName'].setValue(data.chrgsName);
+        this.addForm.controls['chrgAmt'].setValue(data.chrgAmt);
+        this.addForm.controls['ipdchargs'].setValue(data.ipdchargs);
+        this.addForm.controls['type'].setValue(data.type);
+        this.addForm.controls['itmName'].setValue(data.chrgsName);
+        this.addForm.controls['itmtype'].setValue(data.type);
 
-    });
+      });
   }
-  onSubmitedit(){
+  onSubmitedit() {
     this._studentservice.updateTest(this.addForm.value)
-    .subscribe(data => {
-      alert('Modify Records Saved...Thanks');
-      window.location.reload();
-        });
+      .subscribe(data => {
+        alert('Modify Records Saved...Thanks');
+        window.location.reload();
+      });
   }
-  Depart(){
+  Depart() {
     this.router.navigate(['homepage/radd']);
   }
-  tooletageedit(){
+  tooletageedit() {
     this.showMeedit = true
     this.showMesave = false
   }
-  searchdirect(){
-//call type
-this._studentservice.gettestsearchname(this.search)
-.subscribe((data:testmaster[]) => {
-  this.Testmaster = data;
-}); 
+  searchdirect() {
+    //call type
+    this._studentservice.gettestsearchname(this.search)
+      .subscribe((data: testmaster[]) => {
+        this.Testmaster = data;
+      });
   }
 
 }

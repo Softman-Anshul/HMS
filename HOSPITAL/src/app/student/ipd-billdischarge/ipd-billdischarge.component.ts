@@ -5,7 +5,7 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 import { IPDPAYMENT, OPD } from '../../students';
 import { testmaster, Test } from '../../students';
 import { billheading, billdetails } from '../../students';
-import { needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-ipd-billdischarge',
@@ -104,7 +104,7 @@ export class IPDBilldischargeComponent implements OnInit {
             this.heads.grandTotal += parseInt(this.heads.tests[i].totalAmt.toString());
           }
 
-          if(this.heads.tests.length > 0) {
+          if (this.heads.tests.length > 0) {
             this.allowedSave = true;
           }
 
@@ -112,7 +112,7 @@ export class IPDBilldischargeComponent implements OnInit {
         }
       });
 
-      this._studentservice.gettestduelistsum(this.OPD.dcmntNo, this.OPD.uhID)
+    this._studentservice.gettestduelistsum(this.OPD.dcmntNo, this.OPD.uhID)
       .subscribe((data1: any) => {
         if (data1 == null || data1.length <= 0) {
           this.dueAmount = 0;
@@ -170,8 +170,17 @@ export class IPDBilldischargeComponent implements OnInit {
     }
   }
 
+  cancel(router: Router) {
+    router.navigate(['/homepage/ipdlist']);
+    window.location.reload();
+  }
+
+  @needConfirmation()
+  confirm() {
+    this.Router.navigate(['/homepage/ipdbill2/' + this.heads.vchrNo,this.heads.Years,this.heads.dcmntNo, this.heads.uhID]);
+    this.onNoClick();
+  }
   onsave() {
-    const routerParams = this.routes.snapshot.params;
     if (this.heads.Status == "") {
       alert("Result Must be Entered....Sorry !! ")
     }
@@ -180,15 +189,10 @@ export class IPDBilldischargeComponent implements OnInit {
         .subscribe(data => {
           this._studentservice.dischargebillingdetails(this.heads)
             .subscribe(data => {
-              var result = confirm("Bill Print ?");
-              if (result == true) {
-                this.Router.navigate(['ipdbill2/' + this.heads.dcmntNo, this.heads.uhID]);
-              }
-              else {
-                this.Router.navigate(['/homepage/ipdlist']);
-                window.location.reload();
-
-              }
+              defaultConfirmData.cancel = this.cancel
+            defaultConfirmData.title = "Print Bill"
+            defaultConfirmData.message = "Do you want to print Bill?"
+            this.confirm()
             });
         });
     }
@@ -198,5 +202,5 @@ export class IPDBilldischargeComponent implements OnInit {
     if (tooltip != null) {
       tooltip.setAttribute("style", "display: block;")
     }
-}
+  }
 }

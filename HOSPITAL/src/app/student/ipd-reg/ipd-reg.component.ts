@@ -7,6 +7,7 @@ import { Students, OPD, department } from '../../students';
 import { group, company } from '../../students';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { formatDate } from '@angular/common';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-ipd-reg',
@@ -273,6 +274,22 @@ export class IPDRegComponent implements OnInit {
       this.OPD1.agey = "Years"
     }
   }
+
+  cancel(router: Router) {
+    router.navigate(['homepage/ipdlist/']);
+  }
+
+  @needConfirmation()
+  confirm() {
+    let id = this.Deposit.recno;
+    let dt = this.Deposit.ipdDate;
+    let yrs = this.Deposit.Years;
+    let dcmntno = this.OPD1.dcmntNo;
+    let uhid = this.OPD1.uhID;
+    this.router.navigate(['homepage/ipdreceipt/' + id, dt, yrs, dcmntno, uhid]);
+
+  }
+
   onSubmit() {
     if (this.validation()) {
       const routerParams = this.routes.snapshot.params;
@@ -288,18 +305,10 @@ export class IPDRegComponent implements OnInit {
                     window.location.reload();
                   }
                   else {
-                    var result = confirm("Print Receipts ?");
-                    if (result == true) {
-                      let id = this.Deposit.recno;
-                      let dt = this.Deposit.ipdDate;
-                      let yrs = this.Deposit.Years;
-                      let dcmntno = this.OPD1.dcmntNo;
-                      let uhid = this.OPD1.uhID;
-                      this.router.navigate(['homepage/ipdreceipt/' + id, dt, yrs, dcmntno, uhid]);
-                    }
-                    else {
-                      this.router.navigate(['homepage/ipdlist/']);
-                    }
+                    defaultConfirmData.cancel = this.cancel
+                    defaultConfirmData.title = "Print Receipts"
+                    defaultConfirmData.message = "Do you want to print receipts?"
+                    this.confirm()
                   }
 
                 });

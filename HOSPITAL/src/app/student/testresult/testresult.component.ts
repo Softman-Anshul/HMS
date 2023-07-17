@@ -8,6 +8,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { ResultinterpetComponent } from '../resultinterpet/resultinterpet.component';
 import { EditorComponent } from '../editor/editor.component';
 import { Labname } from 'src/app/students';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-testresult',
@@ -103,18 +104,25 @@ export class TestresultComponent implements OnInit {
     }
   }
 
+  cancel(router: Router) {
+    this.Router.navigate(['homepage/list']);
+  }
+
+  @needConfirmation()
+  confirm() {
+    this.Router.navigate(['listreport/' + this.Students.vchrNo]);
+  }
+
+
   onSubmit() {
     this.Students.report = this.testreport
     if (this.validate()) {
       this._studentservice.savereport(this.Students)
         .subscribe(data => {
-          var result = confirm("Want to PRINT?");
-          if (result == true) {
-            this.Router.navigate(['listreport/' + this.Students.vchrNo]);
-          }
-          else {
-            this.Router.navigate(['homepage/list']);
-          }
+          defaultConfirmData.cancel = this.cancel
+          defaultConfirmData.title = "Print"
+          defaultConfirmData.message = "Do you want to print?"
+          this.confirm()
         });;
     }
   }

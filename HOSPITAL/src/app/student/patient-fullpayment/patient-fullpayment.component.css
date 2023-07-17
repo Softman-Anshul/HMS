@@ -4,7 +4,7 @@ body {
     margin: 0 auto;
     margin-bottom: 0.5cm;
     box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-    width: 21cm;
+    width: 24cm;
     height: 29.7cm; 
     page-break-before: always; /*This style rule makes every page element start at the top of a new page:*/
     counter-increment: page

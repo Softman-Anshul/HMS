@@ -17,10 +17,10 @@
             <th style="text-align: center ;">Date</th>
             <th style="text-align: center ;">#</th>
             <th style="text-align: center ;">Total</th>
-            <th style="text-align: center ;">Disc</th>
+            <th style="text-align: center ;">Disc.</th>
             <th style="text-align: center ;">Refund</th>
-            <th style="text-align: center ;">Bal Amt</th>
-            <th style="text-align: center ;">Rec Amt</th>
+            <th style="text-align: center ;">Bal. Amt</th>
+            <th style="text-align: center ;">Rec. Amt</th>
         </thead>
 
         <tbody>
@@ -29,7 +29,7 @@
                     <td colspan="12" style="text-align: center;"><b>{{heading.key}}</b></td>
                 </tr>
                 <ng-container *ngFor="let students of Students let i=index">
-                    <!-- <ng-container *ngIf="students.Reporttype == heading.key " > -->
+                    <ng-container *ngIf="students.dcmntType == heading.key " >
                     <tr>
                         <!-- <td style="width:30px;">{{i + 1}}</td> -->
                         <td style="width:80px ;">{{students.vchrDate | date :'dd/MM/yyyy' }}</td>
@@ -41,16 +41,27 @@
                         <td style="width:40px; text-align: center ;">{{students.recamt}}</td>
                     </tr>
                 </ng-container>
-                <!-- </ng-container> -->
-            </ng-container>
-        </tbody>
-        <td></td>
-        <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                </ng-container>
+            <!-- <tr>
+        <td></td> -->
+        <!-- <td style="font-weight: bold;">{{headwiseTotal.get(heading.key)}}</td>
+        <td style="font-weight: bold;">{{headwiseTotaldis.get(heading.key)}}</td>
+        <td style="font-weight: bold;">{{headwiseTotalrefund.get(heading.key)}}</td>
+        <td style="font-weight: bold;">{{headwiseTotalbal.get(heading.key)}}</td>
+        <td style="font-weight: bold;">{{headwiseTotalnet.get(heading.key)}}</td> -->
+    <!-- </tr> -->
+</ng-container>
+    </tbody>
+    <td></td>
+    <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
         <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
         <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
         <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
         <td style="text-align: center ;  font-weight: bold;">{{totalbal}}</td>
         <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
+
+
+
     </table>
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from './../../students.service';
 import { Router } from '@angular/router';
-import {group } from '../../students';
+import {group,consulant,OPD } from '../../students';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -19,6 +19,8 @@ export class MisMasterComponent implements OnInit {
   editable: boolean = false; 
   SelectedFieldList =["PaymentMode","Head Wise Details","Head Wise Daily","Head Wise Monthly"];
   declare group : group[];
+  declare rconsulant: consulant[];
+  OPD1 = new OPD();
   declare list : string[];
 
   constructor(private _studentservice:StudentsService,
@@ -29,6 +31,13 @@ export class MisMasterComponent implements OnInit {
     this.list = [];
     this.vrdt1 =formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
     this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+
+    //call RConsultant
+    this._studentservice.getopdrconsultant()
+      .subscribe((data: any) => {
+        this.rconsulant = data;
+      });
+
           //call username 
         this.uname = this._studentservice.getUsername();
          //call username 
@@ -69,6 +78,18 @@ export class MisMasterComponent implements OnInit {
     });       
        }
   }
+  dchangedata(){
+    if(this.choice == "Consulant")
+        {
+        this._studentservice.gettablegroup()
+        .subscribe((data:group[]) => {
+         this.list = [];
+         data.forEach(element => {
+           this.list.push(element.paymode);
+         });
+        });
+       }
+ }
   dailyreport(vrdt1:any,vrdt2:any,choice:any,choice1:any){
     let dt = this.vrdt1;
     let dt2 = this.vrdt2;
@@ -94,7 +115,6 @@ export class MisMasterComponent implements OnInit {
     }
     else if(doc == "Head Wise Details")
     {
-      console.log(dt,dt2,doc1,doc)
       this.router.navigate(['/homepage/dailyacitivy-Heads/' + dt,dt2,doc1]);
     }
     else if(doc == "Head Wise Daily")

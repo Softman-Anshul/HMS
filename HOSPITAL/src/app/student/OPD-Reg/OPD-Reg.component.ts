@@ -7,6 +7,7 @@ import { Students, OPD, department } from '../../students';
 import { group, company } from '../../students';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { formatDate } from '@angular/common';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 
 @Component({
@@ -282,19 +283,27 @@ export class OpdregComponent implements OnInit {
       this.OPD1.agey = "Years"
     }
   }
+
+  cancel(router: Router) {
+    router.navigate(['homepage/opdlist/']);
+  }
+
+  @needConfirmation()
+  confirm() {
+    let id = this.OPD1.dcmntNo;
+    let opdDate = this.OPD1.opdDate;
+    this.router.navigate(['homepage/opdreceipt/' + id, opdDate]);
+}
+
+
   onSubmit() {
     if (this.validation()) {
       this._studentservice.opd_insert(this.OPD1)
-        .subscribe(data => {
-          var result = confirm("Print Receipts ?");
-          if (result == true) {
-            let id = this.OPD1.dcmntNo;
-            let opdDate = this.OPD1.opdDate;
-            this.router.navigate(['opdreceipt/' + id, opdDate]);
-          }
-          else {
-            this.router.navigate(['homepage/opdlist/']);
-          }
+        .subscribe(data => { 
+          defaultConfirmData.cancel = this.cancel
+          defaultConfirmData.title = "Print Receipts"
+          defaultConfirmData.message = "Do you want to print receipts?"
+          this.confirm()
         });
     }
   }

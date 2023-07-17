@@ -6,7 +6,7 @@
     
     <app-report-PageHeading></app-report-PageHeading>
 
-    <h4 style="margin-left: 20px; font-weight: bold;">Daily Activity Summary Report from {{fromdt | date :'dd/MM/yyyy'}}
+    <h4 style="margin-left: 20px; font-weight: bold; margin-top: 4vh;">Summary Report from {{fromdt | date :'dd/MM/yyyy'}}
         To {{todt | date :'dd/MM/yyyy'}}
         <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
     </h4>
@@ -15,10 +15,11 @@
         <thead>
             <th style="text-align: center ;">Head</th>
             <th style="text-align: center ;">Total</th>
-            <th style="text-align: center ;">Disc</th>
+            <th style="text-align: center ;">Disc.</th>
             <th style="text-align: center ;">Refund</th>
-            <th style="text-align: center ;">Bal Amt</th>
-            <th style="text-align: center ;">Rec Amt</th>
+            <th style="text-align: center ;">Bal. Amt</th>
+            <th style="text-align: center ;">Rec. Amt</th>
+            <th style="text-align: center ;">Count</th>
         </thead>
 
         <tbody>
@@ -36,23 +37,30 @@
                             <td style="width:40px; text-align: center ;">{{students.refund}}</td>
                             <td style="width:40px; text-align: center ;">{{students.balamt}}</td>
                             <td style="width:40px; text-align: center ;">{{students.recamt}}</td>
+                            <td style="width:40px; text-align: center ;">{{students.uhID}}</td>
+
                         </tr>
                     </ng-container>
                 </ng-container>
-                <!-- <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
-    <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
-    <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
-    <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
-    <td style="text-align: center ;  font-weight: bold;">{{totalbal}}</td>
-    <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td> -->
+                <tr>
+                    <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+                    <td style="text-align: center ;font-weight: bold;">{{headwiseTotal.get(heading.key)}}</td>
+                    <td style="text-align: center ; font-weight: bold;">{{headwiseTotaldis.get(heading.key)}}</td>
+                    <td style="text-align: center ; font-weight: bold;">{{headwiseTotalrefund.get(heading.key)}}</td>
+                    <td style="text-align: center ; font-weight: bold;">{{headwiseTotalbal.get(heading.key)}}</td>
+                    <td style="text-align: center ; font-weight: bold;">{{headwiseTotalnet.get(heading.key)}}</td>
+                    <td style="text-align: center ; font-weight: bold;">{{headwiseTotalcount.get(heading.key)}}</td>
+            </tr>
             </ng-container>
-            <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+        </tbody>
+            <td style="text-align: center ; font-weight: bold; ">GRAND TOTAL</td>
             <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
             <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
             <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>
             <td style="text-align: center ;  font-weight: bold;">{{totalbal}}</td>
             <td style="text-align:center ;  font-weight: bold;">{{totalnamt}}</td>
-        </tbody>
+            <td style="text-align:center ;  font-weight: bold;">{{totalcount}}</td>
+        
     </table>
 
 

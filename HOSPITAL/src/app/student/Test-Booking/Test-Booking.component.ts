@@ -14,6 +14,7 @@ import { testmaster } from '../../students';
 import { testname } from '../../students';
 import { readOnlyMode } from '@syncfusion/ej2-angular-richtexteditor';
 import { formatDate } from '@angular/common';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 
 @Component({
@@ -44,7 +45,7 @@ export class NewBookingComponent implements OnInit {
       private router: Router,
       private routes: ActivatedRoute
     ) {
-      this.listData = []
+    this.listData = []
   }
 
 
@@ -105,8 +106,8 @@ export class NewBookingComponent implements OnInit {
       .subscribe((data: testmaster[]) => {
         this.alltestmaster = data;
         let tempType = new Set<string>();
-        for(let i=0;i< this.alltestmaster.length;i++){
-            tempType.add(this.alltestmaster[i].type.toString())
+        for (let i = 0; i < this.alltestmaster.length; i++) {
+          tempType.add(this.alltestmaster[i].type.toString())
         }
         this.testtype = Array.from(tempType)
       });
@@ -230,6 +231,26 @@ export class NewBookingComponent implements OnInit {
         })
     }
   }
+
+  cancel(router: Router) {
+    router.navigate(['/homepage/list/']);
+  }
+
+  @needConfirmation()
+  confirm() {
+    this.router.navigate(['/homepage/receipts/' + this.Students.vchrNo]);
+  }
+
+  cancel1(router: Router) {
+    router.navigate(['/homepage/list/']);
+  }
+
+  @needConfirmation()
+  confirm1() {
+    this.router.navigate(['/homepage/receipts/' + this.Students.vchrNo]);
+  }
+
+
   onSubmit() {
     if (this.validation()) {
       const routerParams = this.routes.snapshot.params;
@@ -239,14 +260,11 @@ export class NewBookingComponent implements OnInit {
           .subscribe(data => {
             this._studentservice.createbookingd(this.Students)
               .subscribe(data => {
-                var result = confirm("Print Receipt ?");
-                if (result == true) {
-                  this.router.navigate(['/homepage/receipts/' + this.Students.vchrNo]);
-                }
-                else {
-                  this.router.navigate(['/homepage/list']);
-                }
-              });
+                defaultConfirmData.cancel = this.cancel
+                defaultConfirmData.title = "Print Receipts"
+                defaultConfirmData.message = "Do you want to print receipts?"
+                this.confirm()
+               });
           });
       }
       else if (routerParams["ty"] == "OPD") {
@@ -254,13 +272,10 @@ export class NewBookingComponent implements OnInit {
           .subscribe(data => {
             this._studentservice.createbookingd(this.Students)
               .subscribe(data => {
-                var result = confirm("Print Receipt ?");
-                if (result == true) {
-                  this.router.navigate(['/homepage/receiptsb/' + this.Students.vchrNo]);
-                }
-                else {
-                  this.router.navigate(['/homepage/list']);
-                }
+                defaultConfirmData.cancel = this.cancel1
+                defaultConfirmData.title = "Print Receipt"
+                defaultConfirmData.message = "Do you want to print receipt?"
+                this.confirm1()
               });
           });
       }
@@ -269,16 +284,13 @@ export class NewBookingComponent implements OnInit {
           .subscribe(data => {
             this._studentservice.createbookingd(this.Students)
               .subscribe(data => {
-                var result = confirm("Print Receipt ?");
-                if (result == true) {
-                  this.router.navigate(['/homepage/receiptsb/' + this.Students.vchrNo]);
-                }
-                else {
-                  this.router.navigate(['/homepage/list']);
-                }
+                defaultConfirmData.cancel = this.cancel
+                defaultConfirmData.title = "Print Receipt"
+                defaultConfirmData.message = "Do you want to print receipt?"
+                this.confirm1()
               });
-           
-            });
+
+          });
       }
     }
   }
@@ -306,10 +318,10 @@ export class NewBookingComponent implements OnInit {
     return true
   }
 
-  updateTestMaster(){
+  updateTestMaster() {
     this.testmaster = [];
     for (let i = 0; i < this.alltestmaster.length; i++) {
-      if(this.alltestmaster[i].type == this.test.chtype){
+      if (this.alltestmaster[i].type == this.test.chtype) {
         this.testmaster.push(this.alltestmaster[i])
       }
     }
@@ -374,7 +386,7 @@ export class NewBookingComponent implements OnInit {
         this.Students.grandTotal = (this.Students.grandTotal - value.totalAmt) - this.Students.discountAmt
         this.Students.recamt = this.Students.grandTotal
         this.getNetAmount()
-        if(this.Students.tests.length == 0){
+        if (this.Students.tests.length == 0) {
           this.isTypeSelected = false;
         }
       }

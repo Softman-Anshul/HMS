@@ -6,6 +6,7 @@ import { billheading, OPD, Students } from '../../students';
 import { IPDPaymentdetailsComponent } from '../ipd-paymentdetails/ipd-paymentdetails.component';
 import { IpdDueListComponent } from '../ipd-due-list/ipd-due-list.component';
 import { IpdMlcComponent } from '../ipd-mlc/ipd-mlc.component';
+import { IpdDischargecardComponent } from '../ipd-dischargecard/ipd-dischargecard.component';
 
 @Component({
   selector: 'app-ipd-discharge',
@@ -150,7 +151,22 @@ export class IPDDISCHARGEComponent implements OnInit {
       alert("Sorry ! No need for Certificate")
     }
   }
+  dischargecard(): void {
+    const dialogRef = this.dialog.open(IpdDischargecardComponent, {
+      height: '750px', width: '950px',
+      data: { OPD: this.selected },
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+    });
+
+  }
+
+  fullpayment() {
+    let uhID = this.selected.uhID;
+    this.router.navigate(['fullpayment/', uhID]);
+  }
+  
   edit(students: any) {
     this.router.navigate(['/homepage/ipdedita/',students.vchrNo,students.dcmntNo,students.uhID,students.opdDate]);
   }

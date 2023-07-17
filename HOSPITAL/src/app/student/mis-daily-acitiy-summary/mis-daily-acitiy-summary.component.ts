@@ -20,11 +20,19 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
   totalramt = 0;
   totalnamt = 0;
   totalbal = 0;
+  totalcount = 0;
   heading = "";
   headingMap = new Map<string, boolean>();
   heading1 = "";
   groups = [];
 
+  headwiseTotal = new Map();
+  headwiseTotaldis = new Map();
+  headwiseTotalrefund = new Map();
+  headwiseTotalbal = new Map();
+  headwiseTotalnet = new Map();
+  headwiseTotalcount = new Map();
+  
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
     private Router: Router,
@@ -49,6 +57,24 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
 
         for (let i = 0; i < this.Students.length; i++) {
           this.headingMap.set(this.Students[i].paymode.toString(), true);
+
+          if(this.headwiseTotal.has(this.Students[i].paymode.toString())){
+            this.headwiseTotal.set(this.Students[i].paymode.toString(),this.headwiseTotal.get(this.Students[i].paymode.toString()) + Number(this.Students[i].grandTotal))
+            this.headwiseTotaldis.set(this.Students[i].paymode.toString(),this.headwiseTotaldis.get(this.Students[i].paymode.toString()) + Number(this.Students[i].discountAmt))
+            this.headwiseTotalrefund.set(this.Students[i].paymode.toString(),this.headwiseTotalrefund.get(this.Students[i].paymode.toString()) + Number(this.Students[i].refund))
+            this.headwiseTotalbal.set(this.Students[i].paymode.toString(),this.headwiseTotalbal.get(this.Students[i].paymode.toString()) + Number(this.Students[i].balamt))
+            this.headwiseTotalnet.set(this.Students[i].paymode.toString(),this.headwiseTotalnet.get(this.Students[i].paymode.toString()) + Number(this.Students[i].recamt))
+            this.headwiseTotalcount.set(this.Students[i].paymode.toString(),this.headwiseTotalcount.get(this.Students[i].paymode.toString()) + Number(this.Students[i].uhID))
+          } else {
+            this.headwiseTotal.set(this.Students[i].paymode.toString(),Number(this.Students[i].grandTotal))
+            this.headwiseTotaldis.set(this.Students[i].paymode.toString(),Number(this.Students[i].discountAmt))
+            this.headwiseTotalrefund.set(this.Students[i].paymode.toString(),Number(this.Students[i].refund))
+            this.headwiseTotalbal.set(this.Students[i].paymode.toString(),Number(this.Students[i].balamt))
+            this.headwiseTotalnet.set(this.Students[i].paymode.toString(),Number(this.Students[i].recamt))
+            this.headwiseTotalcount.set(this.Students[i].paymode.toString(),Number(this.Students[i].uhID))
+  
+          }    
+
         }
 
         for (let i = 0; i < this.Students.length; i++) {
@@ -57,6 +83,8 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
           this.totalramt += parseInt(this.Students[i].refund.toString());
           this.totalbal += parseInt(this.Students[i].balamt.toString());
           this.totalnamt += parseInt(this.Students[i].recamt.toString());
+          this.totalcount += parseInt(this.Students[i].uhID.toString());
+
         }
       });
   }

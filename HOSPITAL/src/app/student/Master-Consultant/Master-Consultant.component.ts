@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { company, Students } from '../../students';
 import { consulant } from '../../students';
 import { department } from '../../students';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-add-student',
@@ -162,18 +163,23 @@ export class AddStudentComponent implements OnInit {
           });
       });
   }
-  deleter(consulant: consulant): void {
-    var result = confirm("Want to delete?");
-    if (result == true) {
-      this._studentservice.deleteconsultant(consulant.dctID)
-        .subscribe(data => {
-          this.consulant = this.consulant.filter(u => u !== consulant);
-        })
-    }
-    else {
-      () => { }
-    }
+
+  @needConfirmation()
+  confirm(consulant: consulant) {
+    this._studentservice.deleteconsultant(consulant.dctID)
+      .subscribe(data => {
+        this.consulant = this.consulant.filter(u => u !== consulant);
+        window.location.reload()
+      })
   }
+
+
+  deleter(consulant: consulant): void {
+    defaultConfirmData.title = "Delete"
+    defaultConfirmData.message = "Are you sure you want to delete?"
+    this.confirm(consulant)
+  }
+
   editer(doctorid: any): void {
     this.id = doctorid;
     //  this.router.navigate(['homepage/consultantedit/' + this.id]);

@@ -6,6 +6,7 @@ import { OPD,IPDPAYMENT } from 'src/app/students';
 import { IPDPaymentmodechangeComponent } from '../ipd-paymentmodechange/ipd-paymentmodechange.component';
 import {MatDialog} from '@angular/material/dialog';
 import { window } from 'rxjs';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-ipd-paymentdetails',
@@ -85,22 +86,31 @@ export class IPDPaymentdetailsComponent implements OnInit {
     onNoClick(): void {
       this.dialogRef.close();
     }
-    ondelete(): void {
-      this.time = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
+
+    cancel(router: Router) {
+      router.navigate(['/homepage/ipdlist']);
+    }
+  
+    @needConfirmation()
+    confirm() {
       let id = this.selected.recno;
       let dt =   this.selected.ipdDate;
-      var result = confirm("Want to delete?");
-        if (result == true) {
-          this._studentservice.deleterecipts(id,dt,this.uname,this.time)
-            .subscribe(data => {
-              alert("Delete Record....Thanks")
-              this.onNoClick();
-              this.Router.navigate(['homepage/ipdlist/']);
-            })
-        }
-        else{
-          this.onNoClick();
-        }
+      this._studentservice.deleterecipts(id,dt,this.uname,this.time)
+      .subscribe(data => {
+        alert("Delete Record....Thanks")
+        this.onNoClick();
+        this.Router.navigate(['homepage/ipdlist/']);
+      })
+
+    }
+  
+    ondelete(): void {
+      this.time = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
+      defaultConfirmData.cancel = this.cancel
+      defaultConfirmData.title = "Delete"
+      defaultConfirmData.message = "Do you want to delete?"
+      this.confirm()
+
       }
      
     

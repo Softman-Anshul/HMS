@@ -6,6 +6,7 @@ import { IPDPAYMENT, OPD } from '../../students';
 import { testmaster, Test } from '../../students';
 import { billheading, billdetails } from '../../students';
 import { formatDate } from '@angular/common';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 
 @Component({
@@ -147,11 +148,10 @@ export class IPDBillingComponent implements OnInit {
     for (let i = 0; i < this.testmaster.length; i++) {
       if (this.testmaster[i].chrgsName.includes(this.test.itmName)) {
         this.index = i;
-        console.log(this.testmaster[i])
         this.details.itmChrgs = Number(this.testmaster[this.index].chrgAmt)
         this.details.totalAmt = Number(this.testmaster[this.index].chrgAmt)
         this.details.itmQty = 1;
-        this.details.Remark = 'Day';    
+        this.details.Remark = 'Day';
         break;
 
       }
@@ -200,23 +200,28 @@ export class IPDBillingComponent implements OnInit {
       this.heads.tests[num] = tmp;
     }
   }
+
+  cancel(router: Router) {
+    router.navigate(['/homepage/ipdlist']);
+    window.location.reload();
+  }
+
+  @needConfirmation()
+  confirm() {
+    this.Router.navigate(['/homepage/ipdbill1/' + this.heads.dcmntNo, this.heads.uhID]);
+    this.onNoClick();
+  }
+
   onsave() {
     const routerParams = this.routes.snapshot.params;
     this._studentservice.createbilling(this.heads)
       .subscribe(data => {
         this._studentservice.createbillingdetails(this.heads)
           .subscribe(data => {
-            var result = confirm("Estimated Bill Print ?");
-            if (result == true) {
-              this.Router.navigate(['ipdbill1/' + this.heads.dcmntNo, this.heads.uhID]);
-              this.dialogRef.close();
-
-            }
-            else {
-              this.dialogRef.close();
-              this.Router.navigate(['/homepage/ipdlist']);
-
-            }
+            defaultConfirmData.cancel = this.cancel
+            defaultConfirmData.title = "Print Estimate Bill"
+            defaultConfirmData.message = "Do you want to print Estimate Bill?"
+            this.confirm()
           });
       });
   }

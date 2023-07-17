@@ -58,7 +58,7 @@ export class IpdDischargecardReportComponent implements OnInit {
      this.discard.uname = this.uname;
 
       //patient information
-     this._studentservice.getipdreg(this.discard.ipdno,this.dt)
+     this._studentservice.getipdreg1(this.discard.ipdno,this.dt)
     .subscribe((data:any) => {
     this.OPD = data[0];
     this.OPD.expiryDate = "";

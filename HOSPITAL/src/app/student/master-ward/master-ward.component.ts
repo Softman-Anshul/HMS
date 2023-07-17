@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
-import {Router} from '@angular/router';
-import {Ward } from '../../students';
-import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Ward } from '../../students';
+import { MatDialog } from '@angular/material/dialog';
 import { MasterWardInsertComponent } from '../master-ward-insert/master-ward-insert.component';
 import { MasterWardEditComponent } from '../master-ward-edit/master-ward-edit.component';
+import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
 
 @Component({
   selector: 'app-master-ward',
@@ -13,86 +14,84 @@ import { MasterWardEditComponent } from '../master-ward-edit/master-ward-edit.co
 })
 export class MasterWardComponent implements OnInit {
   uname = '';
-  constructor(private _studentservice:StudentsService,
+  constructor(private _studentservice: StudentsService,
     private Router: Router,
     public dialog: MatDialog) { }
 
-    declare Ward : Ward[];
-    Ward1 = new Ward();
-    
-    showMeedit:boolean=false
-    showMesave:boolean=true
-    Mobile = false;
-    totalward=0;
+  declare Ward: Ward[];
+  Ward1 = new Ward();
+
+  showMeedit: boolean = false
+  showMesave: boolean = true
+  Mobile = false;
+  totalward = 0;
 
 
   ngOnInit(): void {
-   //call username 
-   this.uname = this._studentservice.getUsername();
-   if(this.uname == '')
-   {
-     this.Router.navigate(['']);
-   }
-
-   this._studentservice.gettablewardmaster()
-   .subscribe((data:any) => {
-   this.Ward = data;
-   
-   for(let i=0;i<this.Ward.length;i++){
-    this.totalward +=  parseInt(this.Ward[i].Bedno.toString());
-
-   }
-
-   });
-  }
-  onSubmit(){
-  //   this._studentservice.createCity(this.Ward1)
-  //  .subscribe(data => {
-  //    alert('Records Saved...Thanks');
-  //    window.location.reload();
-  //   });
+    //call username 
+    this.uname = this._studentservice.getUsername();
+    if (this.uname == '') {
+      this.Router.navigate(['']);
     }
-    onSubmitnew(){
-      const dialogRef = this.dialog.open(MasterWardInsertComponent, {
-        height:'250px', width: '650px',
-            data: {},
-      });
-    
-      dialogRef.afterClosed().subscribe(result => {
+
+    this._studentservice.gettablewardmaster()
+      .subscribe((data: any) => {
+        this.Ward = data;
+
+        for (let i = 0; i < this.Ward.length; i++) {
+          this.totalward += parseInt(this.Ward[i].Bedno.toString());
+
+        }
+
       });
   }
-    deleter(category:any,ipdno:any):void{
-      var result = confirm("Want to delete?");
-      if (result==true) {
-        if(ipdno == 0)
-        {
-          this._studentservice.deleteWard(category)
-          .subscribe(data => {
-            alert("Thanks...Records Deleted")
-            window.location.reload();
-          }) 
-        }
-        else
-        {
-          alert("This Ward have some Patient please move all Patient to Other Ward")
-        }
-     } 
-     else 
-     {
-       () => {} 
-     }
+  onSubmit() {
+    //   this._studentservice.createCity(this.Ward1)
+    //  .subscribe(data => {
+    //    alert('Records Saved...Thanks');
+    //    window.location.reload();
+    //   });
+  }
+  onSubmitnew() {
+    const dialogRef = this.dialog.open(MasterWardInsertComponent, {
+      height: '250px', width: '650px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  @needConfirmation()
+  confirm(category: any, ipdno: any) {
+    if (ipdno == 0) {
+      this._studentservice.deleteWard(category)
+        .subscribe(data => {
+          alert("Thanks...Records Deleted")
+          window.location.reload();
+        })
     }
-    
-    editer(ward:any){
-      const dialogRef = this.dialog.open(MasterWardEditComponent, {
-        height:'550px', width: '650px',
-            data: {Ward:ward},
-      });
-    
-      dialogRef.afterClosed().subscribe(result => {
-      });
+    else {
+      alert("This Ward have some Patient please move all Patient to Other Ward")
+    }
+}
+
+  deleter(category: any, ipdno: any): void {
+    defaultConfirmData.title = "Delete"
+    defaultConfirmData.message = "Are you sure you want to delete?"
+    this.confirm(category,ipdno)
   }
-  tooletageedit(){
+
+  editer(ward: any) {
+    const dialogRef = this.dialog.open(MasterWardEditComponent, {
+      height: '550px', width: '650px',
+      data: { Ward: ward },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  tooletageedit() {
     this.showMeedit = true
     this.showMesave = false
   }

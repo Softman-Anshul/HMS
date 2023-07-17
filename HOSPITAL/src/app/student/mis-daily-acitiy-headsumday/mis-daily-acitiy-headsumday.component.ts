@@ -18,12 +18,15 @@ export class MisDailyAcitiyHeadsumdayComponent implements OnInit {
   totalgamt = 0;
   totaldamt = 0;
   totalramt = 0;
-  totalnamt = 0;
   totalbal = 0;
+  totalnamt = 0;
+
   heading = "";
   headingMap = new Map<string, boolean>();
   heading1 = "";
   groups = [];
+
+
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -48,13 +51,10 @@ export class MisDailyAcitiyHeadsumdayComponent implements OnInit {
     this._studentservice.misheadsdailyacticity(routerParams["vrdt1"], routerParams["vrdt2"], routerParams["doc1"])
       .subscribe((data: Students[]) => {
         this.Students = data;
-
-
-
+        console.log(data)
         for (let i = 0; i < this.Students.length; i++) {
-          this.headingMap.set(this.Students[i].Reporttype.toString(), true);
+          this.headingMap.set(this.Students[i].dcmntType.toString(), true);
         }
-
         for (let i = 0; i < this.Students.length; i++) {
           this.totalgamt += parseInt(this.Students[i].grandTotal.toString());
           this.totaldamt += parseInt(this.Students[i].discountAmt.toString());

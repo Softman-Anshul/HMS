@@ -8,17 +8,25 @@
         <div class="col" id="printsection" style="margin-top: 3vw; margin-left: 30px;">
             <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
         </div>
-        <div class="col">
-            <h3 style="margin-top: 3vw; font-weight: bold; height: 4px;">{{company}}</h3>
+        <div class="col-sm-5">
+            <div>
+            <h4 style="margin-top: 3vw; font-weight: bold; height: 4px;">{{company}}</h4>
+        </div>
+        <div style="margin-top: 1vh;">
             <h4 style="height: 4px;">{{add}}</h4>
+        </div>
+        <div style="margin-top: 1vh;">
             <h4 style="height: 4px;">{{city}}</h4>
+        </div>
+        <div style="margin-top: 1vh;">
             <h4>{{phone}}</h4>
+        </div>
         </div>
     </div>
     <div class="row">
         <div class="disclaimer signature-field">
             <h2
-                style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
+                style="margin-left: 20px; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
                 OPD RECEIPT</h2>
         </div>
     </div>
@@ -119,7 +127,7 @@
     <div class="disclaimer signature-field">
     </div>
 
-    <h2 style=" margin-left:55px; margin-bottom: 0; ">RECEIVED with Thanks From
+    <h2 style=" margin-top: 2vh; margin-left:55px; margin-bottom: 0; ">RECEIVED with Thanks From
         <input style="margin-left:15px; width:40px; border:none ; color: black; background-color: white; "
             disabled="true" [(ngModel)]=OPD.pntn type="pntn">
         <input style="margin-left:5px; width:510px; border:none ;   color: black; background-color: white; "
