@@ -30,21 +30,39 @@
   <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
           <div class="cardbody">
           <h2 class="card-title">Consultant by Daily Activity Reports</h2>
-        <select style="width:260px ;" class="form-control" (change)="dchangedata()" [(ngModel)]=choice1 >
+        <select style="width:260px ;" class="form-control" (change)="changedata_Consulant()" [(ngModel)]=choice2 >
         <option value="ALL">ALL</option>
         <option value="Consulant">Consulant</option>
         </select>
 
-        <select style="width:260px ;" class="form-control" [(ngModel)]=choice1   [disabled]="!SelectedFieldList.includes(choice1)" >
+        <select style="width:260px ;" class="form-control" [(ngModel)]=choice3   *ngIf="list1.length > 0" >
           <option>--Select--</option>
-          <option *ngFor="let element of list">
+          <option *ngFor="let element of list1">
             {{element}}
           </option> 
           </select>
+
+          <select style="width:260px ;" class="form-control" [(ngModel)]=choice4 (change)="changedata1()">
+            <option value="Details">Details</option>
+            <option value="Summary">Summary</option>
+            <option value="PaymentMode">PaymentMode</option>
+            <option value="Daywise">Daywise</option>
+            <option value="Head Wise Details">Head Wise Details</option>
+            <option value="Head Wise Daily">Head Wise Daily</option>
+            <option value="Head Wise Monthly">Head Wise Monthly</option>
+            </select>
       
+            <select style="width:260px ;" class="form-control" [(ngModel)]=choice5  [disabled]="list2.length <= 0">
+              <option>All</option>
+              <option *ngFor="let element of list2">
+                {{element}}
+              </option> 
+              </select>
+
+
         <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
         <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
-          <button style="font-size:small; margin-left:10px;" (click) =dailyreport(vrdt1,vrdt2,choice,choice1) class="btn btn-primary">OK</button>
+          <button style="font-size:small; margin-left:10px;" (click) =dailyreport_consultant(vrdt1,vrdt2,choice2,choice3,choice4,choice5) class="btn btn-primary">OK</button>
         </div>
         </div>
        
