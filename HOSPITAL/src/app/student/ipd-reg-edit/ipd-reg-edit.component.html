@@ -120,9 +120,9 @@
         <label>Department</label>
       </div>
       <div class="user-box" style="width: 26vw;max-width: 100%; margin-right:1vw">
-        <select style="width: 26vw;" [(ngModel)]=OPD1.dctrVisited >
+        <select style="width: 26vw;" [(ngModel)]=OPD1.dctrVisited onchange=" this.dataset.chosen = this.value;">
           <option value="" disabled selected>Select</option>
-          <option *ngFor="let students of consulant" value="{{students.dctName}}">
+          <option *ngFor="let students of consulant" >
             {{students.dctName}}
           </option> 
         </select>

@@ -337,6 +337,10 @@ export class IPDRegComponent implements OnInit {
       alert("Department is mandatory");
       return false
     }
+    if (this.OPD1.dctrVisited == "" || this.OPD1.dctrVisited == undefined) {
+      alert("Consultant is mandatory");
+      return false
+    }
     if (this.OPD1.isOldPnt == "" || this.OPD1.isOldPnt == undefined) {
       this.OPD1.isOldPnt = "Y";
     }
@@ -364,6 +368,11 @@ export class IPDRegComponent implements OnInit {
     if (this.OPD1.cond == "" || this.OPD1.cond == undefined) {
       this.OPD1.cond = "Normal";
     }
+    if (this.Ward1.category== "" || this.Ward1.category == undefined) {
+      alert("Room Category is mandatory");
+      return false
+    }
+
     return true
   }
 

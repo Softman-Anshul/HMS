@@ -202,6 +202,7 @@ export class IPDADMITLISTComponent implements OnInit {
   }
   fullpayment() {
     let uhID = this.selected.uhID;
+    
     this.router.navigate(['fullpayment/', uhID]);
   }
   dischargecard(): void {

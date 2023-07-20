@@ -47,6 +47,7 @@ export class PatientFullpaymentComponent implements OnInit {
 
    const routerParams = this.routes.snapshot.params;
     this.uhID = routerParams["uhID"];
+    
     this._studentservice.patientfullpayment(routerParams["uhID"])
     .subscribe((data:Students[]) => {
     this.Students= data;

@@ -99,7 +99,6 @@ export class IpdRegEditComponent implements OnInit {
 
      this._studentservice.getipdregRecp(this.dcmntNo,this.uhID)
      .subscribe((data:any) => {
-      console.log(data)
       this.OPD1 = data[0]
       this.OPD1.dcmntType = "IPD";
       this.OPD1.dctrVisited = data[0].dctrVisited;
@@ -202,6 +201,7 @@ populate(){
    this._studentservice.getopdconsultant(this.OPD1.caseType)
    .subscribe((data:any) => {
    this.consulant = data;
+   this.OPD1.dctrVisited = this.consulant[0].dctName
    
   });
 
