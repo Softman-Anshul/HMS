@@ -78,12 +78,12 @@
                 <tr *ngIf="!report.isDeleted"  [attr.data-index]="i"
                   [ngStyle]="{'font-weight': this.testreport[i].Heading == 'MH' ? '500' : (this.testreport[i].Heading == 'SH' && this.testreport[i].subgroup.toLowerCase() == 'yes') ? '400' : 'normal' }">
                   <td class="tbd">
-                    <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
+                    <ng-container>
                       <a><button class="btn"><i class="fa fa-times" type="button" (click)="deleteTest(i)"></i></button></a>
                     </ng-container>
-                    <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
+                    <!-- <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
                       <input type="checkbox" (change)="checked(i)">
-                    </ng-container>
+                    </ng-container> -->
                   </td>
                   <td
                     [ngStyle]="{'padding-left': this.testreport[i].Heading == 'SH' ? '30px' : this.testreport[i].Heading == 'EH' ? '60px' : '0.5rem', 'font-weight': this.testreport[i].Heading == 'SH' ? 'normal' : this.testreport[i].Heading == 'EH' ? 'normal' : 'bold'}">
@@ -92,12 +92,12 @@
                     <td>
                       <div class="user-box" style="margin-left: 3vw;"
                         *ngIf="!(((report.subgroup.toLowerCase() == 'yes') || report.Ipet == 'Y') || report.Wordcode != '')">
-                        <input class="enterValue" type="text" name="" required="" [(ngModel)]=report.value>
+                        <input (keyup)="valueCheck(i)" [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" class="enterValue" type="text" name="" required="" [(ngModel)]=report.value>
                         <label></label>
                       </div>
                       <div class="user-box" style="margin-left: 3vw;">
                         <select class="enterValue" [(ngModel)]=report.value *ngIf="report.Wordcode != ''">
-                          <option *ngFor="let test of labTestWord.get(report.Wordcode)">
+                          <option (keyup)="valueCheck(i)" [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" *ngFor="let test of labTestWord.get(report.Wordcode)">
                             {{test}}
                           </option>
                         </select>

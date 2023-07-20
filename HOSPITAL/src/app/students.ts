@@ -504,6 +504,7 @@ export class testreport {
     editorCCount = 0;
     total= 0;
     isDeleted=false;
+    isNormal=true;
 }
 export class userpermission{
 unam="";

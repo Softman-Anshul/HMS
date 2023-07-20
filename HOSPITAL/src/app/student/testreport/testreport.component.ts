@@ -100,12 +100,12 @@ export class TestreportComponent implements OnInit {
         this._studentservice.gettablevaluebyid(this.Students.vchrNo, this.Students.vchrDate).subscribe((data: any) => {
           for (let i = 0; i < this.testreport.length; i++) {
             let element = this.testreport[i];
-            console.log("--" + element.testname + "---")
             if (JSON.parse(JSON.stringify(data))[element.testname.trim()] != undefined) {
               element.value = JSON.parse(JSON.stringify(data))[element.testname.trim()]['value'];
               element.interpet = data[element.testname.trim()]['interpet'];
               element.comments = data[element.testname.trim()]['comments'];
             }
+            this.valueCheck(i);
           };
         });
       });
@@ -144,23 +144,23 @@ export class TestreportComponent implements OnInit {
     });;
   }
 
-  printReport(){
+  printReport() {
 
     const classes = document.getElementsByClassName("enterValue")
 
-    for(let i=0; i < classes.length; i++){
+    for (let i = 0; i < classes.length; i++) {
       let e = classes.item(i)
-      if(e != null){
-        e.setAttribute("style","border:0px")
+      if (e != null) {
+        e.setAttribute("style", "border:0px;" + e.getAttribute("style"))
       }
     }
 
     const dclasses = document.getElementsByClassName("tbd")
 
-    for(let i=0; i < dclasses.length; i++){
+    for (let i = 0; i < dclasses.length; i++) {
       let e = dclasses.item(i)
-      if(e != null){
-        e.setAttribute("style","display:none")
+      if (e != null) {
+        e.setAttribute("style", "display:none")
       }
     }
 
@@ -216,12 +216,54 @@ export class TestreportComponent implements OnInit {
   }
 
 
-  deleteTest(i: number){
-    this.testreport[i].isDeleted = true;
+  removeTest(test : testreport) {
+    if(test.subgroup.toLowerCase() == "yes"){
+      if(test.Heading == "MH") {
+        test.isDeleted = true;
+        this.testreport.forEach(element => {
+          if(element.testid == test.testid && !element.isDeleted){
+            this.removeTest(element)
+          }
+        });
+      } else {
+        test.isDeleted = true;
+        this.testreport.forEach(element => {
+          if(element.testid == test.testmasterid){
+            this.removeTest(element)
+          }
+        });
+      }
+    } else {
+      test.isDeleted = true
+    }
   }
 
-  checked(i : number) {
 
+  deleteTest(i: number) {
+    this.removeTest(this.testreport[i]);
+  }
+
+  valueCheck(i: number){
+    let report = this.testreport[i];
+    let normalValues = report.normalvalue.split("-")
+    if(normalValues.length == 2){
+      if( parseInt(report.value) < parseInt(normalValues[0])) {
+        report.isNormal = false;
+      } else if (parseInt(report.value) > parseInt(normalValues[1])) {
+        report.isNormal = false;
+      } else {
+        report.isNormal = true;
+      }
+
+    } else if (normalValues.length == 1) {
+      if(report.value != report.normalvalue){
+        report.isNormal = false;
+      } else {
+        report.isNormal = true;
+      }
+    } else {
+      report.isNormal = true;
+    }
   }
 
 }
