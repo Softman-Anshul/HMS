@@ -13,6 +13,7 @@ export class OPDReportPatientregisterComponent implements OnInit {
   uname = '';
   declare fromdt:string;
   declare todt:string;
+  declare doc:string;
 
    constructor( private _studentservice:StudentsService,
     private routes : ActivatedRoute,
@@ -25,7 +26,9 @@ export class OPDReportPatientregisterComponent implements OnInit {
     const routerParams = this.routes.snapshot.params;
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
-    this._studentservice.gettableopddaycollection(routerParams["vrdt1"],routerParams["vrdt2"])
+    this.doc = routerParams["doc"];
+
+    this._studentservice.gettableopdpatientregister(routerParams["vrdt1"],routerParams["vrdt2"],routerParams["doc"])
     .subscribe((data:OPD[]) => {
     this.OPD= data;
     });

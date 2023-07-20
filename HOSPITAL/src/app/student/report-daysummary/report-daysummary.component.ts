@@ -14,6 +14,8 @@ export class ReportDaysummaryComponent implements OnInit {
   uname = '';
   declare vrdt1:string;
   declare vrdt2:string;
+
+  totalcount=0;
   totalgamt=0;
   totaldamt=0;
   totalramt=0;
@@ -38,6 +40,7 @@ export class ReportDaysummaryComponent implements OnInit {
     this.Students= data;
 
     for(let i=0;i<this.Students.length;i++){
+      this.totalcount +=  parseInt(this.Students[i].uhID.toString());
       this.totalgamt +=  parseInt(this.Students[i].grandTotal.toString());
       this.totaldamt +=  parseInt(this.Students[i].discountAmt.toString());
       this.totalramt +=  parseInt(this.Students[i].refund.toString());

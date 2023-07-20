@@ -167,6 +167,7 @@ export class IPDBillingComponent implements OnInit {
     this.heads.grandTotal = (this.heads.grandTotal + this.details.totalAmt)
     this.details.itmName = this.test.itmName
     this.details = new billdetails()
+    this.test.itmName = "";
     document.getElementById("ItemName")?.focus();
   }
   public getAmount(): void {

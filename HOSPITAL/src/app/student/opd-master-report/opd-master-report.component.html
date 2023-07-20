@@ -47,7 +47,10 @@
         </select> 
         <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
         <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
-        <button style="font-size:small; margin-left:20px;" class="btn btn-primary" (click) = "doctorreport(vrdt1,vrdt2,doctor)">OK</button>
+        <button style="font-size:small; margin-left:5px;" class="btn btn-primary" (click) = "doctorreport(vrdt1,vrdt2,doctor)">OK</button>
+        <button style="font-size:small; margin-left:68px;" class="btn btn-primary" (click) = "doctorreportday(vrdt1,vrdt2,doctor)">Day</button>
+        <button style="font-size:small; margin-left:5px;" class="btn btn-primary" (click) = "doctorreportmonth(vrdt1,vrdt2,doctor)">Monthly</button>
+
       </div>
     </div>
 

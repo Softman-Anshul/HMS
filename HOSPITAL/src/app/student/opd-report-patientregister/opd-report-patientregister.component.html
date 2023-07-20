@@ -6,6 +6,7 @@
   <table class="table table-bordered border-primary" style="margin-left:10px ;width: 86%;  font-size:smaller; ">
     <thead >
         <td style="text-align: center;">SNO</td>
+        <th style="text-align: center ;">UHID</th>
         <th style="text-align: center ;">Title</th>
         <th style="text-align: center ;">Patient</th>
         <th style="text-align: center ;">Age</th>
@@ -19,6 +20,7 @@
     <tbody >
       <tr *ngFor="let students of OPD let i=index" >
         <td style="width: 20px;">{{i+1}}</td>        
+        <td style="width:30px;">{{students.uhID}}</td>
         <td style="width:30px;">{{students.pntn}}</td>
         <td style="width:100px;" >{{students.pntName}}</td>
         <td style="width:30px ;">{{students.agey}}</td>

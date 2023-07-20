@@ -13,6 +13,7 @@ export class OPDReportDoctorsummaryComponent implements OnInit {
   uname = '';
   declare vrdt1:string;
   declare vrdt2:string;
+  totalcount=0;
   totalgamt=0;
   totaldamt=0;
   totalramt=0;
@@ -36,6 +37,7 @@ export class OPDReportDoctorsummaryComponent implements OnInit {
     this.OPD= data;
 
     for(let i=0;i<this.OPD.length;i++){
+      this.totalcount +=  parseInt(this.OPD[i].uhID.toString());
       this.totalgamt +=  parseInt(this.OPD[i].amt.toString());
       this.totaldamt +=  parseInt(this.OPD[i].discount.toString());
       this.totalramt +=  parseInt(this.OPD[i].refund.toString());

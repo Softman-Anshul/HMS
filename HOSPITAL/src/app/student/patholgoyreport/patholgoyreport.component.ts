@@ -101,13 +101,13 @@ result(vchrNo:any):void{
 
 
   searchquery(){
-    this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,this.Choice)
+    this._studentservice.gettablesearch_pathology(this.search,this.vrdt1,this.vrdt2,this.Choice)
     .subscribe((data:Students[]) => {
     this.Students= data;
   });
   }
   directquery(){
-    this._studentservice.gettablesearch(this.search,this.vrdt1,this.vrdt2,'Direct')
+    this._studentservice.gettablesearch_pathology(this.search,this.vrdt1,this.vrdt2,'Direct')
     .subscribe((data:Students[]) => {
     this.Students= data;
   });

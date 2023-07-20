@@ -32,10 +32,8 @@ export class StudentsService {
 constructor(private http: HttpClient) {}
 
   //for login   
+  // cdn = "http://krishna.softmansystem.com"
   cdn = "http://silversoft.softmansystem.com"
-// cdn = "http://softmanpinkpath.000webhostapp.com" 
-//cdn = "http://localhost"
-//cdn = "http://192.168.29.196"
 
 
   
@@ -337,6 +335,10 @@ gettable(vrdt1:any)
   {
     return this.http.get<Students[]> (this.cdn + '/Hospital/listsearch.php?search=' + search + '&Fromdt=' + dt1 + '&Todt=' + dt2 + '&choice=' + choice);
    }
+   gettablesearch_pathology(search:string,dt1:string,dt2:string,choice:string)
+   {
+     return this.http.get<Students[]> (this.cdn + '/Hospital/listsearch_pathology.php?search=' + search + '&Fromdt=' + dt1 + '&Todt=' + dt2 + '&choice=' + choice);
+    }
   deletebooking(vchrNo:string,vchrDate:string)
   {
     return this.http.delete<group[]> (this.cdn + '/Hospital/delete.php?vchrNo=' + vchrNo + '&vchrDate=' + vchrDate);
@@ -646,18 +648,32 @@ misdailyacticity(vrdt1:string,vrdt2:string)
      return this.http.get<Students[]> (this.cdn + '/Hospital/Report_Mis-DA-Headsmonthly.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
     }
     //  OPD reporting
+
 gettableopddaycollection(vrdt1:string,vrdt2:string)
 {
   return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_daycollection.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
  }
+ gettableopdpatientregister(vrdt1:string,vrdt2:string,doctor:string)
+{
+  return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_Patientregister.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doctor=' + doctor);
+ }
+
  gettableopddaysummary(vrdt1:string,vrdt2:string)
  {
    return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_daysummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
   }
+  gettableopddaysummary_doctor(vrdt1:string,vrdt2:string,doctor:string)
+  {
+    return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_doctordaysummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2  + '&doctor=' + doctor);
+   }
   gettableopdmonthsummary(vrdt1:string,vrdt2:string)
   {
     return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_monthsummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
    }
+   gettableopdmonthsummary_doctor(vrdt1:string,vrdt2:string,doctor:string)
+   {
+     return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_doctormonthsummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doctor=' + doctor);
+    }
    gettableopddaycollectiondoctor(vrdt1:string,vrdt2:string,doctor:string)
    {
      return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_daycollectiondoctor.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doctor=' + doctor );
@@ -690,6 +706,9 @@ gettableopddaycollection(vrdt1:string,vrdt2:string)
       {
         return this.http.get<OPD[]> (this.cdn + '/Hospital/Report_opd_daycollectionpaymode.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&paymode=' + paymode );
        }
+       //IPD Reports
+       
+
 //  Test reporting
 gettabledaycollection(vrdt1:string,vrdt2:string)
 {

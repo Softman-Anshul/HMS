@@ -7,6 +7,10 @@ body {
   width: 21cm;
   height: 29.7cm; 
 }
+td {
+  padding: 0;
+  padding-top: 1vh;
+}
 page {
   background: white;
   display: block;
@@ -168,9 +172,8 @@ body::-webkit-scrollbar {
     }
     
     .user-box input {
-      width: 11vw;
-      padding: 8px 0;
-      font-size: 12px;
+      width: 8vw;
+      font-size: 14px;
       color: gray;
       border: none;
       border-bottom: 1px solid black;
@@ -178,7 +181,7 @@ body::-webkit-scrollbar {
       background: transparent;
     }
     .user-box select {
-      width: 11vw;
+      width: 8vw;
       padding: 9px 0;
       font-size: 14px;
       color: gray;

@@ -7,6 +7,7 @@
   <table class="table table-bordered border-primary" >
     <thead >
         <th style="padding-left:90px ;">Consultant</th>
+        <th style="text-align: center ;">#</th>
         <th style="text-align: center ;">Bill Amt</th>
         <th style="text-align: center ;">Disc</th>
         <th style="text-align: center ;">Refund</th>
@@ -15,6 +16,7 @@
     <tbody >
       <tr *ngFor="let students of OPD " >
         <td style="width:90px ; padding-left:70px ; ">{{students.dctrVisited}}</td>
+        <td style="width:40px;text-align: center ;">{{students.uhID}}</td>
         <td style="width:40px;text-align: center ;">{{students.amt}}</td>
         <td style="width:40px;text-align: center ;">{{students.discount}}</td>
         <td style="width:40px;text-align: center ;">{{students.refund}}</td>
@@ -23,6 +25,7 @@
 </tbody>
 
 <td style="text-align: center ; font-weight: bold; ">TOTAL</td>
+<td style="text-align: center ;  font-weight: bold;">{{totalcount}}</td>
 <td style="text-align: center ;  font-weight: bold;">{{totalgamt}}</td>
 <td style="text-align: center ;  font-weight: bold;">{{totaldamt}}</td>
 <td style="text-align: center ;  font-weight: bold;">{{totalramt}}</td>

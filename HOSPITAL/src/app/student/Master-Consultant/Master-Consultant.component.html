@@ -8,7 +8,7 @@
                 <div class ="col-sm-5">
                         <div class="input-group">
                                 <span class="input-group-addon" style="width:70px;">Depart</span>
-                                <select style="width:240px;" type="text" class="form-control" formControlName="department">
+                                <select style="width:240px; height: auto;" type="text" class="form-control" formControlName="department">
                                 <option *ngFor="let dept of department">
                                         {{dept.caseType}}
                                 </option> 
@@ -17,14 +17,14 @@
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Gender</span>
-                                <select style="width:295px ;"  class="form-control" formControlName="dctSex">
+                                <select style="width:295px ; height: auto;"  class="form-control" formControlName="dctSex">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 </select>
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon"style="width:70px;">Doctor</span>
-                                <input  type="text" style="width: 295px;" class="form-control" formControlName="dctName" list="dep" />
+                                <input  type="text" style="width: 295px;height: auto;" class="form-control" formControlName="dctName" list="dep" />
                                 <datalist id="dep" >
                                 <option *ngFor="let dept of consulant">
                                 {{dept.dctName}}
@@ -35,76 +35,76 @@
 
                         <div class="input-group">
                                 <span class="input-group-addon" style="width:70px;">Mobile</span>
-                                <input style="width:110px;" type="text" [maxLength]="10" class="form-control form-control-sm"  formControlName="dctMobile">
+                                <input style="width:110px; height: auto;" type="text" [maxLength]="10" class="form-control form-control-sm"  formControlName="dctMobile">
                                 <span class="input-group-addon">Print</span>
-                                <select style="width:60px;"  type="text" class="form-control form-control-sm"  formControlName="mobileprint" >
+                                <select style="width:60px; height: auto;"  type="text" class="form-control form-control-sm"  formControlName="mobileprint" >
                                 <option value="Y">Yes</option>
                                 <option value="N">No</option>
                                 </select>
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon" style="width:70px;" >Email</span>                                         
-                                <input style="width:295px;" type="text" class="form-control"  formControlName="dctEmail" >
+                                <input style="width:295px; height: auto;" type="text" class="form-control"  formControlName="dctEmail" >
                         </div>
                 </div>
                 <div class ="col-sm-3">
                         <div class="input-group">
                                 <span class="input-group-addon">Degree</span>
-                                <input style="width:180px;" type="text" class="form-control " formControlName="digree">
+                                <input style="width:180px; height: auto;" type="text" class="form-control " formControlName="digree">
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Degree</span>
-                                <input style="width:180px;" type="text" class="form-control" formControlName="digree1" >
+                                <input style="width:180px; height: auto;" type="text" class="form-control" formControlName="digree1" >
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Degree</span>
-                                <input style="width:180px; " type="text" class="form-control" formControlName="digree2" >
+                                <input style="width:180px; height: auto;" type="text" class="form-control" formControlName="digree2" >
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Degree</span>
-                                <input style="width:180px; " type="text" class="form-control"  formControlName="digree3" >
+                                <input style="width:180px; height: auto;" type="text" class="form-control"  formControlName="digree3" >
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Degree</span>
-                                <input style="width:180px;" type="text" class="form-control"  formControlName="dctSplzn" >
+                                <input style="width:180px;height: auto;" type="text" class="form-control"  formControlName="dctSplzn" >
                         </div>
                 </div>
                 <div class ="col-sm-2">
                         <div class="input-group">
                                 <span class="input-group-addon">Room </span>
-                                <input style="width:90px;" type="text" class="form-control"  formControlName="roomno" >
+                                <input style="width:90px;height: auto;" type="text" class="form-control"  formControlName="roomno" >
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">Oncall</span>
-                                <select style="width:90px;" type="text" class="form-control" formControlName="oncall" >
+                                <select style="width:90px; height: auto;" type="text" class="form-control" formControlName="oncall" >
                                 <option value="Parmanent">Parmanent</option>
                                 <option value="Oncall">Oncall</option>
                                 </select>
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">E-Pres </span>
-                                <select style="width:90px; " type="text" class="form-control form-control-sm" formControlName="epres" >
+                                <select style="width:90px; height: auto;" type="text" class="form-control form-control-sm" formControlName="epres" >
                                 <option value="Y">Yes</option>
                                 <option value="N">No</option>
                                 </select>
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">VDays</span>
-                                <input style="width:90px; " type="text" class="form-control form-control-sm" formControlName="validday">
+                                <input style="width:90px; height: auto;" type="text" class="form-control form-control-sm" formControlName="validday">
                         </div>
                 </div>
                 <div class ="col-sm-1">
                         <div class="input-group">
                                 <span class="input-group-addon" style="width:70px;">OPD</span>
-                                <input style="width:80px; " type="text" class="form-control form-control-sm"  formControlName="opdcharges">
+                                <input style="width:80px;height: auto; " type="text" class="form-control form-control-sm"  formControlName="opdcharges">
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon"style="width:70px;">Emer</span>
-                                <input style="width:75px; " type="text" class="form-control form-control-sm" formControlName="Emergency">
+                                <input style="width:75px; height: auto;" type="text" class="form-control form-control-sm" formControlName="Emergency">
                         </div>  
                         <div class="input-group">
                                 <span class="input-group-addon"style="width:70px;">Ptype</span>
-                                <select style="width:75px; " type="text" class="form-control form-control-sm" formControlName="Parcha" >
+                                <select style="width:75px; height: auto;" type="text" class="form-control form-control-sm" formControlName="Parcha" >
                                 <option value="LH">LH</option>
                                 <option value="S">Slip</option>
                                 </select>
@@ -113,7 +113,7 @@
 
                         <div class="input-group">
                                 <button style="font-size: small; width:75px ; margin-top:1vw ; " type="submit" class="btn btn-success" *ngIf="showMesave" (click)="onSubmit()">SAVE</button>
-                                <button style="font-size: small; width:75px ; margin-top:1vw ;" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >EDIT</button>
+                                <button style="font-size: small; width:75px ; margin-top:1vw ;" type="submit" class="btn btn-success" *ngIf="showMeedit" (click)="onSubmitedit()" >SAVE</button>
                         </div>
         </div>
 

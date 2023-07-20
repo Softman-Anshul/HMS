@@ -100,6 +100,32 @@ doctorreport(vrdt1:any,vrdt2:any,doctor:any){
 this.router.navigate(['opddoctor/' + dt,dt2,doc]);
   }
 }
+doctorreportday(vrdt1:any,vrdt2:any,doctor:any){
+  let dt = this.vrdt1;
+  let dt2 = this.vrdt2;
+  let doc = this.doctor;
+  if(doc == undefined)
+  {
+   alert("Sorry ! Please Select Consultant Name")
+  }
+  else
+  {
+this.router.navigate(['opddoctorday/' + dt,dt2,doc]);
+  }
+}
+doctorreportmonth(vrdt1:any,vrdt2:any,doctor:any){
+  let dt = this.vrdt1;
+  let dt2 = this.vrdt2;
+  let doc = this.doctor;
+  if(doc == undefined)
+  {
+   alert("Sorry ! Please Select Consultant Name")
+  }
+  else
+  {
+this.router.navigate(['opddoctormonth/' + dt,dt2,doc]);
+  }
+}
 doctorsummary(vrdt1:any,vrdt2:any){
   let dt = this.vrdt1;
   let dt2 = this.vrdt2;
@@ -144,7 +170,8 @@ this.router.navigate(['opdcitysummary/' + dt,dt2]);
 patientregister(vrdt1:any,vrdt2:any){
   let dt = this.vrdt1;
   let dt2 = this.vrdt2;
-this.router.navigate(['opdpatientregister/' + dt,dt2]);
+  let doc = "OPD";
+this.router.navigate(['opdpatientregister/' + dt,dt2,doc]);
 }
 usercollection(vrdt1:any,vrdt2:any,puname:any){
   let dt = this.vrdt1;

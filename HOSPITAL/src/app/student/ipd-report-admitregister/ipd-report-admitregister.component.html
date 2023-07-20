@@ -1,0 +1,44 @@
+<body>
+    <app-report-PageHeading></app-report-PageHeading>
+      
+      <h4 style="text-align: center; margin-top: 3vh; font-weight: bold;">IPD Admit Patient Register from  {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}} </h4> 
+      <h4 style="text-align: center; font-weight: bold;">Consultant {{doc}}</h4> 
+
+  <table class="table table-bordered border-primary" style="margin-left:10px ;width: 86%;  font-size:smaller; ">
+    <thead >
+        <td style="text-align: center;">SNO</td>
+        <th style="text-align: center ;">FNo</th>
+        <th style="text-align: center ;">DOA</th>
+        <th style="text-align: center ;">TIME</th>
+        <th style="text-align: center ;">Title</th>
+        <th style="text-align: center ;">Patient</th>
+        <th style="text-align: center ;">Age</th>
+        <th style="text-align: center ;">Yrs</th>
+        <th style="text-align: center ;">Sex</th>
+        <th style="text-align: center ;">Title</th>
+        <th style="text-align: center ;">Guardian</th>
+        <th style="text-align: center ;">Address</th>
+        <th style="text-align: center ;">Mobile</th>
+        <th style="text-align: center ;">Status</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let students of OPD let i=index" >
+        <td style="width: 20px;">{{i+1}}</td>   
+        <td style="width:30px;">{{students.dcmntNo}}</td>
+        <td style="width:30px;">{{students.opdDate}}</td>
+        <td style="width:30px;">{{students.opdTime}}</td>
+        <td style="width:30px;">{{students.pntn}}</td>
+        <td style="width:100px;" >{{students.pntName}}</td>
+        <td style="width:30px ;">{{students.agey}}</td>
+        <td style="width:30px;">{{students.pntAgeYrs}}</td>
+        <td style="width:30px ;">{{students.pntSex}}</td>
+        <td style="width:30px;" >{{students.pntg}}</td>
+        <td style="width:100px;">{{students.pntGrdn}}</td>
+        <td style="width:140px;">{{students.pntAdrs1}}</td>
+        <td style="width:80px;">{{students.pntMobile}}</td>
+        <td style="width:80px;">{{students.nature}}</td>
+    </tr>
+</tbody>
+</table>
+
+</body>

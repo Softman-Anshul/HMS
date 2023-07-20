@@ -1,7 +1,7 @@
 <body>
     <app-report-PageHeading></app-report-PageHeading>
       
-      <h4 style="margin-left: 20px; height: 10px;" >RefConsultanty Wise Collection from --> {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}} </h4>
+      <h4 style="margin-left: 20px; height: 10px; margin-top: 3vh;" >Consultanty Wise Collection from --> {{fromdt | date :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}} </h4>
       <h3 style="margin-left: 20px; font-weight: bold; text-align: center; ">{{doctor}} </h3> 
 
 
@@ -9,27 +9,29 @@
     <thead >
         <th >SID</th>
         <th >RID</th>
-        <th >UHID</th>
+        <th >Type</th>
         <th >Date</th>
         <th >Patient</th>
+        <th >Test</th>
+        <th style="padding-right:20px ;">Paymode</th>
         <th >Bill Amt</th>
         <th >Disc</th>
         <th >Refund</th>
         <th >Net Amt</th>
-        <th style="padding-right:20px ;">Paymode</th>
     </thead>
     <tbody >
       <tr *ngFor="let students of Students let i=index" >
         <td style="width:30px;">{{i+1}}</td>
         <td style="width:30px;" >{{students.vchrNo}}</td>
-        <td style="width:50px;" >{{students.uhID}}</td>
+        <td style="width:50px;" >{{students.dcmntType}}</td>
         <td style="width:80px ;">{{students.vchrDate | date :'dd/MM/yyyy' }}</td>
         <td style="width:120px;">{{students.PntName}}</td>
+        <td style="width:120px;">{{students.Reporttype}}</td>
+        <td style="width:40px; text-align: center ;">{{students.paymode}}</td>
         <td style="width:40px; text-align: center ;">{{students.grandTotal}}</td>
         <td style="width:40px; text-align: center ;">{{students.discountAmt}}</td>
         <td style="width:40px; text-align: center ;">{{students.refund}}</td>
         <td style="width:40px; text-align: center ;">{{students.recamt}}</td>
-        <td style="width:40px; text-align: center ;">{{students.paymode}}</td>
     </tr>
 </tbody>
 <td ></td>

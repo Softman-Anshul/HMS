@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-3">
             <input
-                style="font-size:large; font-weight: bold; margin-top: 3vh; margin-left:20px; width:300px ; border:none ; color: black; background-color: white;"
+                style="font-size:x-large; font-weight: bold; margin-top: 3vh; margin-left:20px; width:300px ; border:none ; color: black; background-color: white;"
                 disabled="true" [(ngModel)]=OPD.dctrVisited type="dctrVisited">
             <input
                 style="font-size:medium; margin-left:20px; width:300px ; border:none ; color: black; background-color: white;"
@@ -25,69 +25,82 @@
 
     </div>
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
+            
             <div>
-                <label style="font-size:medium; font-weight: bold; margin-left:25px; margin-top: 3vw;"
-                    type="dcmntno">OPD NO</label>
-                <input
-                    style="font-size:small; margin-left:65px; width:50px ;  border:none ; color: black; background-color: white;"
-                    disabled="true" [(ngModel)]=OPD.dcmntNo type="dcmntno">
-
-                <label style="font-size:medium; font-weight: bold; margin-left:0%; margin-top: 3vw; ">Date</label>
-                <input
-                    style="font-size:small; margin-left:40px; width:100px ; border:none ; color: black; background-color: white;"
-                    disabled="true" [(ngModel)]=OPD.opdDate type="Date">
-            </div>
-            <div>
-                <label style="font-size:medium; font-weight: bold; margin-left:25px; " for="pntn">Patient Name</label>
-                <input style="margin-left:30px; width:50px; border:none ;color: black; background-color: white; "
+                <label style="font-size:medium; font-weight: bold; margin-left:25px; margin-top: 3vh; " for="pntn">Patient Name</label>
+                <input style="font-size:medium; margin-left:30px; width:50px; border:none ;color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntn type="pntn">
                 <input
-                    style="font-size:small; margin-left:10px; width:220px; border:none ; color: black; background-color: white; "
+                    style="font-size:medium; margin-left:10px; width:220px; border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntName type="pntName">
             </div>
 
             <div>
                 <label style="font-size:medium; font-weight: bold; margin-left:25px;" for="pntn">Age/Gender</label>
                 <input
-                    style="font-size:small; margin-left:40px; width:45px ; border:none ; color: black; background-color: white; "
+                    style="font-size:medium; margin-left:40px; width:45px ; border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs">
                 <input
-                    style="font-size:small; margin-left:15px; width:60px ;border:none ; color: black; background-color: white; "
+                    style="font-size:medium; margin-left:15px; width:60px ;border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntSex type="pntSex">
                 <input
-                    style="font-size:small; margin-left:5px; width:60px ; border:none ; color: black; background-color: white; "
+                    style="font-size:medium; margin-left:5px; width:60px ; border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.agey type="agey">
             </div>
             <div>
                 <label style="font-size:medium; font-weight: bold; margin-left:25px;" for="pntCity">City</label>
                 <input
-                    style="font-size:small; margin-left:100px; width:150px ; border:none ; color: black; background-color: white; "
+                    style="font-size:medium; margin-left:100px; width:150px ; border:none ; color: black; background-color: white; "
                     disabled="true" [(ngModel)]=OPD.pntCity type="pntCity">
             </div>
             <div>
                 <label style="font-size:medium; font-weight: bold; margin-left:25px;" for="pntMobile">Phone</label>
                 <input
-                    style="font-size:small; margin-left:80px; width:150px ; border:none ; color: black; background-color: white;"
+                    style="font-size:medium; margin-left:80px; width:150px ; border:none ; color: black; background-color: white;"
                     disabled="true" [(ngModel)]=OPD.pntMobile type="pntMobile">
                 <div>
 
-                    <div>
-                        <label style="font-size:medium; font-weight: bold; margin-left:25px;" for="recamt">UHID</label>
-                        <input
-                            style="font-size:small; margin-left:90px; width:50px ; border:none ; color: black; background-color: white; "
-                            disabled="true" [(ngModel)]=OPD.uhID type="opdTime">
-
-                        <label style="font-size:medium; font-weight: bold; margin-left:5px;" for="condoctor">Valid Upto
-                            >> </label>
-                        <input
-                            style="font-size:small; margin-left:5px; width:90px ; border:none ; color: black; background-color: white;"
-                            disabled="true" [(ngModel)]=OPD.expiryDate type="Date">
-
-                    </div>
+                    
 
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6">
+            <div>
+                <label style="font-size:medium; font-weight: bold; margin-left:0%; margin-top: 1vw;"
+                    type="dcmntno">OPD NO</label>
+                <input
+                    style="font-size:medium; margin-left:65px; width:50px ;  border:none ; color: black; background-color: white;"
+                    disabled="true" [(ngModel)]=OPD.dcmntNo type="dcmntno">
+                    <input
+                    style="font-size:medium; margin-left:60px; width:70px ;  border:none ; color: black; background-color: white;"
+                    disabled="true" [(ngModel)]=OPD.Years type="dcmntno">
+            </div>
+            <div>
+            <label style="font-size:medium; font-weight: bold; margin-left:0%;">Date</label>
+                <input
+                    style="font-size:medium; margin-left:90px; width:110px ; border:none ; color: black; background-color: white;"
+                    disabled="true" [(ngModel)]=OPD.opdDate type="Date">
+
+                    <input
+                    style="font-size:medium; margin-left:0%; width:100px ; border:none ; color: black; background-color: white;"
+                    disabled="true" [(ngModel)]=OPD.opdTime type="text">
+
+                </div>
+                <div>
+                    <label style="font-size:medium; font-weight: bold; margin-left:0%;" for="recamt">UHID</label>
+                    <input
+                        style="font-size:medium; margin-left:90px; width:50px ; border:none ; color: black; background-color: white; "
+                        disabled="true" [(ngModel)]=OPD.uhID type="opdTime">
+                </div>
+                <div>
+            <label style="font-size:medium; font-weight: bold; margin-left:0%;" for="condoctor">Valid Upto</label>
+            <input
+                style="font-size:medium; margin-left:50px; width:110px ; border:none ; color: black; background-color: white;"
+                disabled="true" [(ngModel)]=OPD.expiryDate type="Date">
+            </div>
+
         </div>
     </div>
 </div>

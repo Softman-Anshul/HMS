@@ -22,7 +22,7 @@ ListOfSideBar = [
     { sidebartext: "TEST Reports", url : "/homepage/Test-reportmaster","icon":"fa fa-print"},
     { sidebartext: "IPD Admit", url : "/homepage/ipdlist","icon":"fa fa-stethoscope"},
     { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench" },
-    { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
+    { sidebartext: "IPD Reports", url : "/homepage/ipd-reportmaster","icon":"fa fa-print"},
     { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
     { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
     { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
@@ -40,8 +40,7 @@ SideBars : sidebar[] = [];
   declare comp_add1:string;
   declare comp_city:string;
   declare Years:string;
-  initials = '';
-
+  
   isMobile = false;
   uname = ''
   declare permission : JSON
@@ -67,8 +66,6 @@ SideBars : sidebar[] = [];
     if(this.uname == ''){
       this.router.navigate(['']);
     }
-
-    this.initials = this.uname.charAt(0).toUpperCase();
 
     
     //call permission

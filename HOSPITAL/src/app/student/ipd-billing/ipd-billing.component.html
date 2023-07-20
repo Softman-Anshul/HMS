@@ -146,13 +146,12 @@
   <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
     <div class="row" style="padding-top: 2vh;">
       <div class="user-box">
-        <select  [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
-          onchange=" this.dataset.chosen = this.value; ">
-          <option value="" disabled selected>Select</option>
+        <input  [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName" onchange=" this.dataset.chosen = this.value;" list="dep" />
+        <datalist id="dep" > 
           <option *ngFor="let test of testmaster">
             {{test.chrgsName}}
           </option>
-        </select>
+        </datalist>
         <label>Test Name</label>
       </div>
 

@@ -86,9 +86,14 @@ import { ResultinterpetComponent } from './resultinterpet/resultinterpet.compone
 import { TestreportComponent } from './testreport/testreport.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { IpdRiskComponent } from './ipd-risk/ipd-risk.component';
-import { IpdBillingToolTipComponent } from './ipd-billing-tool-tip/ipd-billing-tool-tip.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
 import { TestReportComponent } from './test-report/test-report.component';
+import { OpdReportDoctordayComponent } from './opd-report-doctorday/opd-report-doctorday.component';
+import { OpdReportDoctormonthComponent } from './opd-report-doctormonth/opd-report-doctormonth.component';
+import { IpdReportMasterComponent } from './ipd-report-master/ipd-report-master.component';
+import { IpdReportDaycollectionComponent } from './ipd-report-daycollection/ipd-report-daycollection.component';
+import { IpdReportDailycollectionComponent } from './ipd-report-dailycollection/ipd-report-dailycollection.component';
+import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-report-admitregister.component';
 
 
 @NgModule({
@@ -170,7 +175,13 @@ import { TestReportComponent } from './test-report/test-report.component';
     TestreportComponent,
     IpdRiskComponent,
     IpdEditAfterdischComponent,
-    TestReportComponent
+    TestReportComponent,
+    OpdReportDoctordayComponent,
+    OpdReportDoctormonthComponent,
+    IpdReportMasterComponent,
+    IpdReportDaycollectionComponent,
+    IpdReportDailycollectionComponent,
+    IpdReportAdmitregisterComponent
 
   ],
   imports: [

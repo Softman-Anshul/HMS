@@ -21,7 +21,7 @@ export class LeftsidebarComponent implements OnInit {
     { sidebartext: "TEST Reports", url : "/homepage/Test-reportmaster","icon":"fa fa-print"},
     { sidebartext: "IPD Admit", url : "/homepage/ipdlist","icon":"fa fa-stethoscope"},
     { sidebartext: "IPD Discharge", url : "/homepage/ipddischarge","icon":"fa fa-wrench" },
-    { sidebartext: "IPD Reports", url : "/homepage/opd-reportmaster","icon":"fa fa-print"},
+    { sidebartext: "IPD Reports", url : "/homepage/ipd-reportmaster","icon":"fa fa-print"},
     { sidebartext: "MIS", url : "/homepage/mis-master","icon":"fa fa-life-ring"},
     { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
     { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
@@ -43,11 +43,11 @@ export class LeftsidebarComponent implements OnInit {
    
     this._studentservice.getuserpermission(this.uname)
     .subscribe(data => {
-      this._studentservice.permission = data
+      this.permission = data
       for(let i=0;i<this.ListOfSideBar.length;i++){
-        if(JSON.parse(JSON.stringify(this._studentservice.permission))['Menu'][this.ListOfSideBar[i].sidebartext]['inst'] == 'Y'){
-        this.SideBars.push(this.ListOfSideBar[i]);
-      }
+        if(JSON.parse(JSON.stringify(this.permission))['Menu'][this.ListOfSideBar[i].sidebartext]['inst'] == 'Y'){
+          this.SideBars.push(this.ListOfSideBar[i]);
+        }
       };
     });
   }

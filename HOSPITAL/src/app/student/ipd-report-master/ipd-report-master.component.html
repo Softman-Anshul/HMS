@@ -1,0 +1,55 @@
+<div >
+    <h2 class="card-title">IPD Reports</h2>
+    <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+      <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Date Wise Collection</h2>
+          <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+          <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
+          <button style="font-size:small; margin-left:20px;" (click) = "ipd_Datecollection(vrdt1,vrdt2)" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+  
+      <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Day Wise Collection</h2>
+          <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
+          <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
+          <button style="font-size:small; margin-left:20px;" (click) = "ipd_daycollection(vrdt1,vrdt2)" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+
+      <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Consultant Wise Admit Register</h2>
+          <select style="width:265px ; " class="form-control" [(ngModel)]=doctor>
+            <option value="ALL">ALL</option>
+            <option *ngFor="let students of consulant">
+            {{students.dctName}}
+            </option> 
+          </select> 
+          <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:5px;" class="btn btn-primary" (click) = "ipd_doctoradmitregister(vrdt1,vrdt2,doctor)">OK</button>
+        </div>
+      </div>
+
+      <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Consultant Wise Discharge Register</h2>
+          <select style="width:265px ; " class="form-control" [(ngModel)]=doctor>
+            <option value="ALL">ALL</option>
+            <option *ngFor="let students of consulant">
+            {{students.dctName}}
+            </option> 
+          </select> 
+          <input style="font-size:small; margin-left:5px; width:120px ;" type="date" [(ngModel)]=vrdt1>
+          <input style="font-size:small; margin-left:15px; width:120px ;" type="date" [(ngModel)]=vrdt2>
+          <button style="font-size:small; margin-left:5px;" class="btn btn-primary" (click) = "ipd_doctordischarge(vrdt1,vrdt2,doctor)">OK</button>
+        </div>
+      </div>
+      
+    
+  
+   
+  </div>

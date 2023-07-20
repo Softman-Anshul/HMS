@@ -8,6 +8,8 @@ import { group, company } from '../../students';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { formatDate } from '@angular/common';
 import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
+import { Colors } from 'chart.js';
+import { style } from '@angular/animations';
 
 
 @Component({

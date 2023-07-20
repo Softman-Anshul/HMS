@@ -503,6 +503,7 @@ export class testreport {
     editorICount = 0;
     editorCCount = 0;
     total= 0;
+    isDeleted=false;
 }
 export class userpermission{
 unam="";

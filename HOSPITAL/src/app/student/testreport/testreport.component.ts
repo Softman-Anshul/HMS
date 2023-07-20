@@ -215,4 +215,13 @@ export class TestreportComponent implements OnInit {
     return true
   }
 
+
+  deleteTest(i: number){
+    this.testreport[i].isDeleted = true;
+  }
+
+  checked(i : number) {
+
+  }
+
 }

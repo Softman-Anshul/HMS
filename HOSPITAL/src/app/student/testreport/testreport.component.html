@@ -62,6 +62,7 @@
     <div class="row no-gutters items-group" style="width:90%; height:80%; margin-top: 1vh;">
       <table class="table table-stripped" style="border-color: white;">
         <thead>
+          <th class="signature-field tbd"></th>
           <th class="signature-field">INVESTIGATIONS</th>
           <th class="signature-field">OBSERVED VALUE</th>
           <th class="signature-field">UNIT</th>
@@ -74,10 +75,18 @@
             </tr>
             <ng-container *ngFor="let report of this.testreport; let i = index">
               <ng-container *ngIf="report.testgroup == grp.group_name && report.labid == 0">
-                <tr [attr.data-index]="i"
+                <tr *ngIf="!report.isDeleted"  [attr.data-index]="i"
                   [ngStyle]="{'font-weight': this.testreport[i].Heading == 'MH' ? '500' : (this.testreport[i].Heading == 'SH' && this.testreport[i].subgroup.toLowerCase() == 'yes') ? '400' : 'normal' }">
+                  <td class="tbd">
+                    <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
+                      <a><button class="btn"><i class="fa fa-times" type="button" (click)="deleteTest(i)"></i></button></a>
+                    </ng-container>
+                    <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
+                      <input type="checkbox" (change)="checked(i)">
+                    </ng-container>
+                  </td>
                   <td
-                    [ngStyle]="{'padding-left': this.testreport[i].Heading == 'SH' ? '30px' : this.testreport[i].Heading == 'EH' ? '60px' : '0.5rem'}">
+                    [ngStyle]="{'padding-left': this.testreport[i].Heading == 'SH' ? '30px' : this.testreport[i].Heading == 'EH' ? '60px' : '0.5rem', 'font-weight': this.testreport[i].Heading == 'SH' ? 'normal' : this.testreport[i].Heading == 'EH' ? 'normal' : 'bold'}">
                     {{report.testname}}</td>
                   <ng-container *ngIf="report.Ipet != 'Y';">
                     <td>

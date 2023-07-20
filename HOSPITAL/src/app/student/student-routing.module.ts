@@ -108,6 +108,13 @@ import { TestreportComponent } from './testreport/testreport.component';
 import { IpdEditAfterdischComponent } from './ipd-edit-afterdisch/ipd-edit-afterdisch.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { TestReportComponent } from './test-report/test-report.component';
+import { OpdReportDoctordayComponent } from './opd-report-doctorday/opd-report-doctorday.component';
+import { OpdReportDoctormonthComponent } from './opd-report-doctormonth/opd-report-doctormonth.component';
+import { IpdReportMasterComponent } from './ipd-report-master/ipd-report-master.component';
+import { IpdReportDaycollectionComponent } from './ipd-report-daycollection/ipd-report-daycollection.component';
+import { IpdReportDailycollectionComponent } from './ipd-report-dailycollection/ipd-report-dailycollection.component';
+import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-report-admitregister.component';
+import { MobileHomepageComponent } from './mobile-homepage/mobile-homepage.component';
 
 const routes: Routes = [
 
@@ -119,22 +126,23 @@ const routes: Routes = [
     //IPD
     { path: 'fullpayment/:uhID', component: PatientFullpaymentComponent },
     { path: 'paymentstatus_slip', component: IpdPaymentStatusSlipComponent },
-
+    
 
     //OPD Reporting
     { path: 'opddaysummary/:vrdt1/:vrdt2', component: OPDReportDaysummaryComponent },
     { path: 'opdmonthsummary/:vrdt1/:vrdt2', component: OPDReportMonthlysummaryComponent },
     { path: 'opddoctor/:vrdt1/:vrdt2/:doctor', component: OPDReportDoctorcollectionComponent },
+    { path: 'opddoctorday/:vrdt1/:vrdt2/:doctor', component:OpdReportDoctordayComponent },
+    { path: 'opddoctormonth/:vrdt1/:vrdt2/:doctor', component:OpdReportDoctormonthComponent },
     { path: 'opddoctorsummary/:vrdt1/:vrdt2', component: OPDReportDoctorsummaryComponent },
     { path: 'ropddoctor/:vrdt1/:vrdt2/:doctor', component: OPDReportRdoctorcollectionComponent },
     { path: 'opdrdoctorsummary/:vrdt1/:vrdt2', component: OPDReportRdoctonsummaryComponent },
     { path: 'opdcitysummary/:vrdt1/:vrdt2', component: OPDReportCitysummarynComponent },
     { path: 'opdcity/:vrdt1/:vrdt2/:city', component: OPDReportCityycollectionComponent },
-    { path: 'opdpatientregister/:vrdt1/:vrdt2', component: OPDReportPatientregisterComponent },
+    { path: 'opdpatientregister/:vrdt1/:vrdt2/:doc', component: OPDReportPatientregisterComponent },
+   
     { path: 'opduser/:vrdt1/:vrdt2/:nuname', component: OPDReportUsercollectionComponent },
     { path: 'opdpaymode/:vrdt1/:vrdt2/:paymode', component: OPDReportPaymodecollectionComponent },
-
-
 
     // Test Reporting
     { path: 'daycollection/:vrdt1/:vrdt2', component: ReportDaycollectionComponent },
@@ -154,7 +162,7 @@ const routes: Routes = [
     { path: 'listreport/:id', component: TestreportComponent },
 
     {
-        path: 'homepage', component: HomepageComponent,
+        path: 'homepage', component : HomepageComponent,
         children: [
             {
                 path: '', component: (() => {
@@ -202,6 +210,11 @@ const routes: Routes = [
             { path: 'ipddischarge', component: IPDDISCHARGEComponent },
             { path: 'roomshifting', component: IPDRoomshiftingComponent },
             { path: 'ipdpaymentmode/:id/:dt/:yrs', component: IPDPaymentmodechangeComponent },
+            { path: 'ipd-reportmaster', component: IpdReportMasterComponent },
+            //ipd reports
+            { path: 'ipddatecollection/:vrdt1/:vrdt2', component: IpdReportDaycollectionComponent },
+            { path: 'ipddaycollection/:vrdt1/:vrdt2', component: IpdReportDailycollectionComponent },
+            { path: 'doctoradmitregister/:vrdt1/:vrdt2/:doc', component: IpdReportAdmitregisterComponent },
 
             { path: 'list', component: ListStudentComponent },
             { path: 'newbooking', component: NewBookingComponent },

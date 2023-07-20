@@ -119,6 +119,11 @@ citysummary(vrdt1:any,vrdt2:any){
   let dt2 = this.vrdt2;
 this.router.navigate(['citysummary/' + dt,dt2]);
 }
+Testsummary(vrdt1:any,vrdt2:any){
+  let dt = this.vrdt1;
+  let dt2 = this.vrdt2;
+this.router.navigate(['citysummary/' + dt,dt2]);
+}
 patientregister(vrdt1:any,vrdt2:any){
   let dt = this.vrdt1;
   let dt2 = this.vrdt2;
