@@ -37,6 +37,7 @@ export class RefundComponent implements OnInit {
     this.dialogRef.close();
   }
   onsave(){
+    if (this.validation()) {
     this._studentservice.Saverefund(this.Students)
    .subscribe(data => {
     alert('Records Saved...Thanks');
@@ -46,5 +47,13 @@ export class RefundComponent implements OnInit {
    });
 
   }
+}
+validation(): boolean {
+  if (this.Students.refund == undefined) {
+    alert("Refund Amount is mandatory");
+    return false
+  }
+  return true
+}
   }
 

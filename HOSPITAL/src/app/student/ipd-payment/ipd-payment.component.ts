@@ -100,6 +100,7 @@ export class IPDPaymentComponent implements OnInit {
   }
 
   onsave() {
+    if (this.validation()) {
     this._studentservice.ipd_payment(this.Deposit)
       .subscribe(data => {
 
@@ -109,6 +110,13 @@ export class IPDPaymentComponent implements OnInit {
         this.confirm()
 
       });
-
+    }
+  }
+  validation(): boolean {
+    if (this.Deposit.advanceReceived == 0 || this.Deposit.advanceReceived == undefined) {
+      alert("Amount is mandatory");
+      return false
+    }
+    return true
   }
 }

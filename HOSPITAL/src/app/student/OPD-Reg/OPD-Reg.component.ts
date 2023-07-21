@@ -318,7 +318,7 @@ export class OpdregComponent implements OnInit {
       alert("Patient Name is mandatory");
       return false
     }
-    if (this.OPD1.agey == "" || this.OPD1.agey == undefined) {
+    if (this.OPD1.pntAgeYrs == "" || this.OPD1.pntAgeYrs == undefined) {
       alert("Patient Age is mandatory");
       return false
     }
@@ -328,6 +328,10 @@ export class OpdregComponent implements OnInit {
     }
     if (this.OPD1.caseType == "" || this.OPD1.caseType == undefined) {
       alert("Department is mandatory");
+      return false
+    }
+    if (this.OPD1.dctrVisited == "" || this.OPD1.dctrVisited == undefined) {
+      alert("Consultant is mandatory");
       return false
     }
     if (this.OPD1.isOldPnt == "" || this.OPD1.isOldPnt == undefined) {

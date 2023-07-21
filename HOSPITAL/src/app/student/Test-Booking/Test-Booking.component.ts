@@ -57,6 +57,7 @@ export class NewBookingComponent implements OnInit {
   resultdiscount: number = 0;
   resultdiscountper: number = 0;
   uname = '';
+  allowedSave = false;
 
   ngOnInit(): void {
     //call username 
@@ -72,11 +73,6 @@ export class NewBookingComponent implements OnInit {
         this.Students.Years = data[0].years;
       });
     this.Students.uname = this.uname;
-    //call Consultant
-    this._studentservice.gettableconsultant()
-      .subscribe((data: consulant[]) => {
-        this.consulant = data;
-      });
 
     //paymentmode
     this._studentservice.gettablegroup()
@@ -199,7 +195,6 @@ export class NewBookingComponent implements OnInit {
 
       this._studentservice.Testgetopdreg(routerParams["id"], routerParams["dt"])
         .subscribe((data: any) => {
-
           this.Students.uhID = data[0].uhID;
           this.Students.dcmntNo = routerParams["id"];
           this.Students.pntn = data[0].pntn;
@@ -213,8 +208,9 @@ export class NewBookingComponent implements OnInit {
           this.Students.pntmobile = data[0].pntMobile;
           this.Students.email = data[0].email;
           this.Students.pntcity = data[0].pntCity;
-          this.Students.department = data[0].caseType;
           this.Students.condoctor = data[0].dctrVisited;
+          this.Students.department = data[0].caseType;
+
 
         })
     }
@@ -315,9 +311,14 @@ export class NewBookingComponent implements OnInit {
       alert("City is mandatory");
       return false
     }
+    if (this.Students.department == "" || this.Students.department == undefined) {
+      alert("Department is mandatory");
+      return false
+    }
+   
     return true
   }
-
+ 
   updateTestMaster() {
     this.testmaster = [];
     for (let i = 0; i < this.alltestmaster.length; i++) {
@@ -344,9 +345,22 @@ export class NewBookingComponent implements OnInit {
 
     this.getAmount();
   }
+  validation_add(): boolean {
+    if (this.test.itmName == "" || this.test.itmName == undefined) {
+      alert("TestName is mandatory");
+      return false
+    }
+    if (this.test.itmQty == 0 || this.test.itmQty == undefined) {
+      alert("Qty is mandatory");
+      return false
+    }
+    return true
+  }
   public addItem(): void {
+    if (this.validation_add()) {
     let type = this.test.chtype;
     this.Students.tests.push(this.test)
+    
     this.Students.grandTotal = (+this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
     this.Students.balamt = 0;
     this.getNetAmount()
@@ -356,7 +370,11 @@ export class NewBookingComponent implements OnInit {
     document.getElementById("ItemName")?.focus();
     this.Students.del = "Run"
     this.Students.duerec = "N";
+    // if (this.Students.grandTotal > 0) {
+    //   this.allowedSave = true;
+    // }
   }
+}
   public getAmount(): void {
     this.test.totalAmt = this.test.itmQty * this.test.itmChrgs
   }

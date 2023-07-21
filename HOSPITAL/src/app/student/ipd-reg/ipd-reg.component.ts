@@ -325,7 +325,7 @@ export class IPDRegComponent implements OnInit {
       alert("Patient Name is mandatory");
       return false
     }
-    if (this.OPD1.agey == "" || this.OPD1.agey == undefined) {
+    if (this.OPD1.pntAgeYrs == "" || this.OPD1.pntAgeYrs == undefined) {
       alert("Patient Age is mandatory");
       return false
     }

@@ -147,12 +147,12 @@
         <label>City</label>
       </div>
 
-      <div class="user-box"  >
-        <select (change)="selectdepartment()" [(ngModel)]=Students.department onchange=" this.dataset.chosen = this.value; " >
+      <div class="user-box">
+        <select (change)="selectdepartment()" [(ngModel)]=Students.department onchange=" this.dataset.chosen = this.value; ">
           <option value="" disabled selected>Select</option>
           <option *ngFor="let students of department">
             {{students.caseType}}
-          </option> 
+          </option>
         </select>
         <label>Department</label>
       </div>

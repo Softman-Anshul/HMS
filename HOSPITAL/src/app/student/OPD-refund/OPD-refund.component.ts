@@ -35,6 +35,7 @@ export class OpdrefundComponent implements OnInit {
     this.dialogRef.close();
   }
   onsave(){
+    if (this.validation()) {
     this._studentservice.opdrefund(this.OPD)
    .subscribe(data => {
     alert('Records Saved...Thanks');
@@ -43,5 +44,13 @@ export class OpdrefundComponent implements OnInit {
    window.location.reload();
    });
 
+  }
+  }
+  validation(): boolean {
+    if (this.OPD.refund == undefined) {
+      alert("Refund Amount is mandatory");
+      return false
+    }
+    return true
   }
 }

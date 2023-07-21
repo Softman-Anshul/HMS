@@ -151,48 +151,63 @@ populate(){
            });
     }
   }
-  validation(): boolean{
-    if(this.OPD1.pntn == "" || this.OPD1.pntn == undefined){
+  validation(): boolean {
+    if (this.OPD1.pntn == "" || this.OPD1.pntn == undefined) {
       alert("Patient Title is mandatory");
       return false
     }
-    if(this.OPD1.pntName == "" || this.OPD1.pntName == undefined){
+    if (this.OPD1.pntName == "" || this.OPD1.pntName == undefined) {
       alert("Patient Name is mandatory");
       return false
     }
-    if(this.OPD1.agey == "" || this.OPD1.agey == undefined){
+    if (this.OPD1.pntAgeYrs == "" || this.OPD1.pntAgeYrs == undefined) {
       alert("Patient Age is mandatory");
       return false
     }
-    if(this.OPD1.pntCity == "" || this.OPD1.pntCity == undefined){
+    if (this.OPD1.pntCity == "" || this.OPD1.pntCity == undefined) {
       alert("City is mandatory");
       return false
     }
-    if(this.OPD1.caseType == "" || this.OPD1.caseType == undefined){
+    if (this.OPD1.caseType == "" || this.OPD1.caseType == undefined) {
       alert("Department is mandatory");
       return false
     }
-    if(this.OPD1.isOldPnt == "" || this.OPD1.isOldPnt == undefined){
+    if (this.OPD1.dctrVisited == "" || this.OPD1.dctrVisited == undefined) {
+      alert("Consultant is mandatory");
+      return false
+    }
+    if (this.OPD1.isOldPnt == "" || this.OPD1.isOldPnt == undefined) {
       this.OPD1.isOldPnt = "Y";
-    }   
-    if(this.OPD1.rfrdBy == "" || this.OPD1.rfrdBy == undefined){
+    }
+    if (this.OPD1.rfrdBy == "" || this.OPD1.rfrdBy == undefined) {
       this.OPD1.rfrdBy = "SELF";
-    }   
-    if(this.OPD1.occupation == "" || this.OPD1.occupation == undefined){
+    }
+    if (this.OPD1.occupation == "" || this.OPD1.occupation == undefined) {
       this.OPD1.occupation = "NA";
-    }   
-    if(this.OPD1.paymode == "" || this.OPD1.paymode == undefined){
+    }
+    if (this.OPD1.paymode == "" || this.OPD1.paymode == undefined) {
       this.OPD1.paymode = "CASH";
     }
-    if(this.OPD1.PntType == "" || this.OPD1.PntType == undefined){
+    if (this.OPD1.PntType == "" || this.OPD1.PntType == undefined) {
       this.OPD1.PntType = "General";
     }
-    if(this.OPD1.BloodGroup == "" || this.OPD1.BloodGroup == undefined){
+    if (this.OPD1.BloodGroup == "" || this.OPD1.BloodGroup == undefined) {
       this.OPD1.BloodGroup = "NA";
-    } 
-    if(this.OPD1.dcmntType == "" || this.OPD1.dcmntType == undefined){
+    }
+    if (this.OPD1.dcmntType == "" || this.OPD1.dcmntType == undefined) {
       this.OPD1.dcmntType = "OPD";
-    }   
+    }
+    if (this.OPD1.surgical == "" || this.OPD1.surgical == undefined) {
+      this.OPD1.surgical = "Medical";
+    }
+    if (this.OPD1.cond == "" || this.OPD1.cond == undefined) {
+      this.OPD1.cond = "Normal";
+    }
+    if (this.Ward1.category== "" || this.Ward1.category == undefined) {
+      alert("Room Category is mandatory");
+      return false
+    }
+
     return true
   }
   
