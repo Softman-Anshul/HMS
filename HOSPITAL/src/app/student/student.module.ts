@@ -94,6 +94,8 @@ import { IpdReportMasterComponent } from './ipd-report-master/ipd-report-master.
 import { IpdReportDaycollectionComponent } from './ipd-report-daycollection/ipd-report-daycollection.component';
 import { IpdReportDailycollectionComponent } from './ipd-report-dailycollection/ipd-report-dailycollection.component';
 import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-report-admitregister.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import { QrcodeComponent } from './qrcode/qrcode.component';
 
 
 @NgModule({
@@ -181,7 +183,8 @@ import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-
     IpdReportMasterComponent,
     IpdReportDaycollectionComponent,
     IpdReportDailycollectionComponent,
-    IpdReportAdmitregisterComponent
+    IpdReportAdmitregisterComponent,
+    QrcodeComponent
 
   ],
   imports: [
@@ -196,6 +199,7 @@ import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-
     MaterialExampleModule,
     NgChartsModule,
     AngularEditorModule,
+    QRCodeModule
   ],
   providers: [
     { provide: NgChartsConfiguration, useValue: { generateColors: false }}

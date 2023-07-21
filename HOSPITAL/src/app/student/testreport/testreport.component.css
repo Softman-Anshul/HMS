@@ -278,13 +278,13 @@ body::-webkit-scrollbar {
     }
 
     .user-box-big {
-      width: 42vw;
+      width: 12vw;
       position: relative;
       margin-right: 1vw;
     }
 
     .user-box-big input {
-      width: 42vw;
+      width: 12vw;
       padding: 8px 0;
       font-size: 12px;
       color: gray;
@@ -303,7 +303,17 @@ body::-webkit-scrollbar {
       pointer-events: none;
       transition: .5s;
     }
-    
+    .user-box-big select {
+      width: 12vw;
+      padding: 9px 0;
+      font-size: 14px;
+      color: gray;
+      border: none;
+      border-bottom: 1px solid black;
+      outline: none;
+      background: transparent;
+    }
+
     .user-box-big input:focus ~ label,
     .user-box-big input:valid ~ label {
       top: -20px;

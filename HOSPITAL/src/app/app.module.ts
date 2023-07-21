@@ -71,6 +71,7 @@ import { IpdBillingToolTipComponent } from './student/ipd-billing-tool-tip/ipd-b
 import { ENVIRONMENT_INITIALIZER, importProvidersFrom, inject } from '@angular/core';
 import { DialogService } from './dialog.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { QRCodeModule } from 'angularx-qrcode';
 
 export function initializeDialogService() {
   return () => {
@@ -151,6 +152,7 @@ export function initializeDialogService() {
    BrowserAnimationsModule,
    FormsModule,
    NgChartsModule,
+   QRCodeModule
     ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},{
     provide: ENVIRONMENT_INITIALIZER,

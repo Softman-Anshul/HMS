@@ -9,56 +9,80 @@
   <div class="row" style="margin-top:5vh;">
     <div class="row no-gutters items-group" style="width:90%; ">
       <div class="col">
-        <label style="font-size:medium; " for="pntn">Patient Name</label>
-        <input style="font-size:small; margin-left:8px; border:0; width:30px ; " type="pntn" readonly="true"
-          [(ngModel)]=Students.pntn>
-        <input style="font-size:small; border:0; width:150px ; " type="PntName" readonly="true"
-          [(ngModel)]=Students.PntName>
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">Patient Name</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium;" for="pntg">Guardian</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium;" for="pntage">Age /Gender</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="pntmobile">Mobile</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="condoctor">Referred by</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">{{Students.pntn}} {{Students.PntName}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">{{Students.pntg}} {{Students.Pntgname}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">{{Students.pntage}} {{Students.pntyears}} / {{Students.pntsex}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">{{Students.pntmobile}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; " for="pntn">{{Students.condoctor}}</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <label style="font-size:medium; ">Patient UHID</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">Test Registration No</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">Test Registration Date</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">Test Print Date</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">Lab Register ID</label>
+        </div>
 
-        <label style="font-size:medium; margin-left:170px;" for="uhID">Patient UHID</label>
-        <input style="font-size:small; margin-left:60px;border:0; width:90px ;  " type="uhID" readonly="true"
-          [(ngModel)]=Students.uhID>
-        <br>
-        <label style="font-size:medium;" for="pntage">Age /Gender</label>
-        <input style="font-size:small; margin-left:15px; border:0; width:20px ;" type="pntage" readonly="true"
-          [(ngModel)]=Students.pntage>
-        <input style="font-size:small; margin-left:5px; border:0; width:50px ; " type="pntsex" readonly="true"
-          [(ngModel)]=Students.pntsex>
-        <input style="font-size:small; margin-left:5px; border:0; width:50px ; " type="pntyears" readonly="true"
-          [(ngModel)]=Students.pntyears>
-        <label style="font-size:medium; margin-left:220px;" type="vchrNo">Test Registration No</label>
-        <input style="font-size:small; margin-left:10px; border:0; width:90px ; " readonly="true"
-          [(ngModel)]=Students.vchrNo type="vchrNo">
-
-        <br>
-        <label style="font-size:medium;" for="pntg">S/o,W/o,C/o</label>
-        <input style="font-size:small; margin-left:15px; border:0; width:42px ;  " type="pntg" readonly="true"
-          [(ngModel)]=Students.pntg>
-        <input style="font-size:small; margin-left:5px; border:0; width:150px ; " type="Pntgname" readonly="true"
-          [(ngModel)]=Students.Pntgname>
-        <label style="font-size:medium; margin-left:140px;" for="vchrDate">Test Registration Date</label>
-        <input style="font-size:small; margin-left:5px; border:0; width:90px ; " readonly="true"
-          [(ngModel)]=Students.vchrDate type="Date">
-
-        <br>
-        <label style="font-size:medium; " for="pntmobile">Mobile</label>
-        <input style="font-size:small; margin-left:55px;border:0; width:215px ; " type="pntmobile" readonly="true"
-          [(ngModel)]=Students.pntmobile>
-        <label style="font-size:medium; margin-left:140px;" for="vchrDate">Test Print Date</label>
-        <input style="font-size:small; margin-left:60px; border:0; width:90px ;" readonly="true"
-          [(ngModel)]=Students.vchrDate type="Date">
-
-        <br>
-        <label style="font-size:medium; " for="condoctor">Refby</label>
-        <input style="font-size:small; margin-left:65px; border:0; width:215px ; " type="condoctor" readonly="true"
-          [(ngModel)]=Students.condoctor>
-        <label style="font-size:medium; margin-left:140px;" for="Labid">Lab Register ID</label>
-        <input style="font-size:small; margin-left:55px;border:0; width:90px ; " type="labid"
-          [(ngModel)]=Students.labid>
-
-        <br><br>
+      </div>
+      <div class="col">
+        <div class="row">
+          <label style="font-size:medium; ">{{Students.uhID}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">{{Students.vchrNo}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">{{Students.vchrDate}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">{{Students.vchrDate}}</label>
+        </div>
+        <div class="row">
+          <label style="font-size:medium; ">{{Students.labid}}</label>
+        </div>
+      </div>
+      <div class="col">
+        <app-qrcode [url]="url"></app-qrcode>
       </div>
     </div>
+  </div>
+  <div class="row" style="margin-top:1vh;">
     <div class="row no-gutters items-group" style="width:90%; height:80%; margin-top: 1vh;">
       <table class="table table-stripped" style="border-color: white;">
         <thead>
@@ -75,11 +99,12 @@
             </tr>
             <ng-container *ngFor="let report of this.testreport; let i = index">
               <ng-container *ngIf="report.testgroup == grp.group_name && report.labid == 0">
-                <tr *ngIf="!report.isDeleted"  [attr.data-index]="i"
+                <tr *ngIf="!report.isDeleted" [attr.data-index]="i"
                   [ngStyle]="{'font-weight': this.testreport[i].Heading == 'MH' ? '500' : (this.testreport[i].Heading == 'SH' && this.testreport[i].subgroup.toLowerCase() == 'yes') ? '400' : 'normal' }">
                   <td class="tbd">
                     <ng-container>
-                      <a><button class="btn"><i class="fa fa-times" type="button" (click)="deleteTest(i)"></i></button></a>
+                      <a><button class="btn"><i class="fa fa-times" type="button"
+                            (click)="deleteTest(i)"></i></button></a>
                     </ng-container>
                     <!-- <ng-container *ngIf="this.testreport[i].Heading != 'MH' && report.subgroup.toLowerCase() != 'yes'">
                       <input type="checkbox" (change)="checked(i)">
@@ -90,14 +115,18 @@
                     {{report.testname}}</td>
                   <ng-container *ngIf="report.Ipet != 'Y';">
                     <td>
-                      <div class="user-box" style="margin-left: 3vw;"
+                      <div class="user-box-big" style="margin-left: 3vw;"
                         *ngIf="!(((report.subgroup.toLowerCase() == 'yes') || report.Ipet == 'Y') || report.Wordcode != '')">
-                        <input (keyup)="valueCheck(i)" [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" class="enterValue" type="text" name="" required="" [(ngModel)]=report.value>
+                        <input (keyup)="valueCheck(i)"
+                          [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" class="enterValue"
+                          type="text" name="" required="" [(ngModel)]=report.value>
                         <label></label>
                       </div>
-                      <div class="user-box" style="margin-left: 3vw;">
+                      <div class="user-box-big" style="margin-left: 3vw;">
                         <select class="enterValue" [(ngModel)]=report.value *ngIf="report.Wordcode != ''">
-                          <option (keyup)="valueCheck(i)" [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" *ngFor="let test of labTestWord.get(report.Wordcode)">
+                          <option (keyup)="valueCheck(i)"
+                            [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
+                            *ngFor="let test of labTestWord.get(report.Wordcode)">
                             {{test}}
                           </option>
                         </select>

@@ -23,12 +23,19 @@ export class TestreportComponent implements OnInit {
   labTestWord = new Map<string, string[]>([]);
   uname = '';
   declare editor: Editor;
+  url = '';
+  showQr = false;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
     public dialog: MatDialog,
     private Router: Router
-  ) { }
+  ) {
+    this._studentservice.getuploadPath().subscribe((data: any) => {
+      this.url = data["url"];
+    })
+
+  }
 
   declare group: testgroup[];
   declare groups: testgroup[];
@@ -169,6 +176,8 @@ export class TestreportComponent implements OnInit {
       let body = document.createElement("body")
       body.appendChild(element)
       document.body = body;
+      this._studentservice.uploadReport(document.documentElement.innerHTML, this.url).subscribe((data: any) => {
+      })
       window.print();
       window.location.reload()
     }
@@ -216,19 +225,19 @@ export class TestreportComponent implements OnInit {
   }
 
 
-  removeTest(test : testreport) {
-    if(test.subgroup.toLowerCase() == "yes"){
-      if(test.Heading == "MH") {
+  removeTest(test: testreport) {
+    if (test.subgroup.toLowerCase() == "yes") {
+      if (test.Heading == "MH") {
         test.isDeleted = true;
         this.testreport.forEach(element => {
-          if(element.testid == test.testid && !element.isDeleted){
+          if (element.testid == test.testid && !element.isDeleted) {
             this.removeTest(element)
           }
         });
       } else {
         test.isDeleted = true;
         this.testreport.forEach(element => {
-          if(element.testid == test.testmasterid){
+          if (element.testid == test.testmasterid) {
             this.removeTest(element)
           }
         });
@@ -243,11 +252,11 @@ export class TestreportComponent implements OnInit {
     this.removeTest(this.testreport[i]);
   }
 
-  valueCheck(i: number){
+  valueCheck(i: number) {
     let report = this.testreport[i];
     let normalValues = report.normalvalue.split("-")
-    if(normalValues.length == 2){
-      if( parseInt(report.value) < parseInt(normalValues[0])) {
+    if (normalValues.length == 2) {
+      if (parseInt(report.value) < parseInt(normalValues[0])) {
         report.isNormal = false;
       } else if (parseInt(report.value) > parseInt(normalValues[1])) {
         report.isNormal = false;
@@ -256,7 +265,7 @@ export class TestreportComponent implements OnInit {
       }
 
     } else if (normalValues.length == 1) {
-      if(report.value != report.normalvalue){
+      if (report.value != report.normalvalue) {
         report.isNormal = false;
       } else {
         report.isNormal = true;
