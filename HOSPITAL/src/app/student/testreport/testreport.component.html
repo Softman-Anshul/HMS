@@ -8,7 +8,7 @@
 
   <div class="row" style="margin-top:5vh;">
     <div class="row no-gutters items-group" style="width:90%; ">
-      <div class="col">
+      <div class="col-2">
         <div class="row">
           <label style="font-size:medium; " for="pntn">Patient Name</label>
         </div>
@@ -25,7 +25,7 @@
           <label style="font-size:medium; " for="condoctor">Referred by</label>
         </div>
       </div>
-      <div class="col">
+      <div class="col-5">
         <div class="row">
           <label style="font-size:medium; " for="pntn">{{Students.pntn}} {{Students.PntName}}</label>
         </div>
@@ -33,10 +33,12 @@
           <label style="font-size:medium; " for="pntn">{{Students.pntg}} {{Students.Pntgname}}</label>
         </div>
         <div class="row">
-          <label style="font-size:medium; " for="pntn">{{Students.pntage}} {{Students.pntyears}} / {{Students.pntsex}}</label>
+          <label style="font-size:medium; " for="pntn">{{Students.pntage}} {{Students.pntyears}} /
+            {{Students.pntsex}}</label>
         </div>
         <div class="row">
           <label style="font-size:medium; " for="pntn">{{Students.pntmobile}}</label>
+          <label style="font-size:medium; " for="pntn" *ngIf="Students.pntmobile == ''">-</label>
         </div>
         <div class="row">
           <label style="font-size:medium; " for="pntn">{{Students.condoctor}}</label>
@@ -77,9 +79,7 @@
           <label style="font-size:medium; ">{{Students.labid}}</label>
         </div>
       </div>
-      <div class="col">
-        <app-qrcode [url]="url"></app-qrcode>
-      </div>
+
     </div>
   </div>
   <div class="row" style="margin-top:1vh;">
@@ -123,10 +123,10 @@
                         <label></label>
                       </div>
                       <div class="user-box-big" style="margin-left: 3vw;">
-                        <select class="enterValue" [(ngModel)]=report.value *ngIf="report.Wordcode != ''">
-                          <option (keyup)="valueCheck(i)"
-                            [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
-                            *ngFor="let test of labTestWord.get(report.Wordcode)">
+                        <select [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
+                          (change)="valueCheck(i)" class="enterValue" [(ngModel)]=report.value
+                          *ngIf="report.Wordcode != ''">
+                          <option *ngFor="let test of labTestWord.get(report.Wordcode)">
                             {{test}}
                           </option>
                         </select>
@@ -180,6 +180,34 @@
       <br><br>
       <br>
       <br>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div style="margin-left: 25%;">
+          <img src="assets\sig.jpg" style="width:120px;" id="icon" alt="User Icon" />
+          <p>Dr. Paramvir Kaur</p>
+          <p>MD. PATHOLOGY</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div style="margin-left: 10%;">
+          <app-qrcode [url]="url"></app-qrcode>
+        </div>
+      </div>
+
+      <div class="col">
+        <div style="margin-left: 10%;">
+          <img src="assets\sig1.jpg" style="width:120px;" id="icon" alt="User Icon" />
+          <p>Dr. Anil Rastogi</p>
+          <p>MBBS, D.R.R.D.(Radiologist)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <br><br><br><br><br><br>
+
     </div>
 
   </div>

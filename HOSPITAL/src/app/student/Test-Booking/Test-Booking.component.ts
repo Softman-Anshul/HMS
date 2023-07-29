@@ -172,7 +172,7 @@ export class NewBookingComponent implements OnInit {
           this.Students.pntcity = data[0].pntCity;
           this.Students.department = data[0].caseType;
           this.Students.condoctor = data[0].dctrVisited;
-
+          this.Students.condition = data[0].cond;
         })
     }
     else if (routerParams["ty"] == "IPD") {
@@ -210,6 +210,7 @@ export class NewBookingComponent implements OnInit {
           this.Students.pntcity = data[0].pntCity;
           this.Students.condoctor = data[0].dctrVisited;
           this.Students.department = data[0].caseType;
+          this.Students.condition = data[0].cond;
 
 
         })

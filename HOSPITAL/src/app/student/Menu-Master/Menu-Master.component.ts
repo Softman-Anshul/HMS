@@ -151,7 +151,7 @@ export class EdittStudentComponent implements OnInit {
   }
 
   gotoTestMaster() {
-    this.router.navigate(['homepage/test']);
+    this.router.navigate(['homepage/test-master']);
   }
 
 }

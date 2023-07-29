@@ -240,7 +240,7 @@ const routes: Routes = [
             { path: 'mis-master', component: MisMasterComponent },
             { path: 'Account', component: MenuAccountComponent },
             { path: "testggroup", component: MasterTestGroupComponent },
-            { path: "test", component: MasterTestComponent },
+            { path: "test-master", component: MasterTestComponent },
             { path: "result/:id", component: TestReportComponent },
             { path: "resultold/:id", component: TestresultComponent },
             

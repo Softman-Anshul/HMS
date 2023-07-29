@@ -1,30 +1,134 @@
 <div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
     <div>
-    <div class ="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
-        <div class ="col">
-            <p style="font-size: 18px;">Test Master</p>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col-2">
+                <p style="font-size: 18px;">Test Master</p>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="user-box-small">
+                <input type="text" [(ngModel)]=testmasterm.Testid>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-primary" (click)="reload()" style="width: 5vw; margin-top: 1vh;">Refresh</button>
+            </div>
+            <div class="col-2 " hidden="true">
+                <div class="user-box ">
+                    <input type="text" name="" required="">
+                    <label>TestName</label>
+                </div>
+            </div>
 
-    <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
-        <div class="user-box col-2"  >
-            <input type="text" name="" required="" >
-            <label>Test Id</label>
         </div>
-        <div class="user-box col-2"  >
-            <input type="text" name="" required="" >
-            <label>Department</label>
-        </div>
-        <div class="user-box" >
-            <input type="text" name="" required=""  style="width: 14vw;" >
-            <label>Group</label>
-        </div>
-        <div class = "col-1" style="margin-left: 4vw;">
-            <button class="btn btn-primary" style="width: 5vw; margin-top: 1vh;" >Add</button>
-        </div>
-      
-    </div>    
 
-    <div class = "row" style="padding-left: 1vw; margin-top: 1vh;">
+        <div class="row" style="margin-top: 1vh;">
+            <div class="user-box-small">
+                <input type="text" name="" required="">
+                <label>Test Code</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="" required="">
+                <label>TestName</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 1vh;">
+            <div class="user-box-small">
+                <input type="text" name="" required="">
+                <label>Test Rate</label>
+            </div>
+
+            <div class = "col" >
+            <div class="user-box">
+                <select [(ngModel)]=groupname >
+                  <option >Select</option>
+                  <option *ngFor="let grp of group">
+                    {{grp.group_name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+         </div>
+        <div class="row" style="margin-top: 3vh;">
+            <div class="user-box-small">
+                <select>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+                <label>SubTest</label>
+            </div>
+
+            <div class="user-box">
+                <select >
+                    <option value="N">Numeric</option>
+                    <option value="W">Word</option>
+                    <option value="P">Profile</option>
+                </select>
+                <label>TestType</label>
+            </div>
+        </div>
+
+        <ng-container>
+            <div class="row" style="margin-top: 3vh;">
+                <div class="user-box-small">
+                    <input type="text" name="" required="">
+                    <label>Sno</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="">
+                    <label>Sub Test Name</label>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3vh;">
+                <div class="user-box-small">
+                    <input type="text" name="" required="">
+                    <label>Unit</label>
+                </div>
+                <div class="user-box-small">
+                    <input type="text" name="" required="">
+                    <label>Normal</label>
+                </div>
+                <div class="user-box-small">
+                    <input type="text" name="" required="">
+                    <label>Male</label>
+                </div>
+                <div class="user-box-small">
+                    <input type="text" name="" required="">
+                    <label>Female</label>
+                </div>
+                <button class="btn btn-primary" style="width:2vw; margin-top: 1vh;">+</button>
+            </div>
+        </ng-container>
+        <div class="row" style="margin-top:1vw ;">
+            <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler">
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>TestSubName</th>
+                        <th>Unit</th>
+                        <th>Normal</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Remark</th>
+                        <th>WCode</th>
+                        <th>intp</th>
+                        <th>Comt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i=index;">
+                        <td> {{i + 1}}</td>
+                        <td> {{i + 1}}</td>
+                        <td> {{i + 1}}</td>
+                        <td> {{i + 1}}</td>
+                        <td> {{i + 1}}</td>
+                        <td> {{i + 1}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+
     </div>
-</div>

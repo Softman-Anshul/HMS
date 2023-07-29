@@ -44,6 +44,10 @@ body {
     height: 14.8cm;  
   }
 
+  label {
+    padding: 0;
+  }
+
   .items-group {
     border-style: solid;
     border-color: black;

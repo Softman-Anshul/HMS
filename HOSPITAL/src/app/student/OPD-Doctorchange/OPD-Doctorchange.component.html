@@ -1,8 +1,8 @@
 <div class="row" >
-    <div class="col" id="printsection">
+    <div class="col" style="margin-left: 50px;" id="printsection">
            <h2>Consultant Change </h2>
            <div class="user-box">
-            <select (change)="selectdepartment()" [(ngModel)]=OPD.caseType
+            <select  (change)="selectdepartment()" [(ngModel)]=OPD.caseType
               onchange=" this.dataset.chosen = this.value; ">
               <option value="" disabled selected>Select</option>
               <option *ngFor="let students of department">
@@ -22,13 +22,13 @@
               <label>Consultant</label>
             </div>
               <br>
-            <label style="font-size:medium; margin-left:15px;" for="refund">OPD Amount</label>
+            <label style="font-size:medium;" for="refund">OPD Amount</label>
            <input style="font-size:small; margin-left:15px; width:50px ;" [(ngModel)]=OPD.amt  type="amt" >
 
-           <label style="font-size:medium; margin-left:15px;" for="srvcTax">Discount Amount</label>
+           <label style="font-size:medium; margin-left:5px;" for="srvcTax">Discount Amount</label>
            <input style="font-size:small; margin-left:5px; width:50px ;" (ngModelChange)="getNetAmountByPercent($event)"  [(ngModel)]=OPD.discount   type="discount" >
            <br>
-           <label style="font-size:medium; margin-left:15px;" for="srvcTax">Refund Amt</label>
+           <label style="font-size:medium;" for="srvcTax">Refund Amt</label>
            <input style="font-size:small; margin-left:22px; width:50px ;"  (ngModelChange)="getNetAmountByPercentr($event)"  [(ngModel)]=OPD.refund   type="refund" >
 
            <label style="font-size:medium; margin-left:15px;" for="srvcTax">Net Amount</label>
@@ -36,7 +36,7 @@
             <br><br>
 
             <br><br><br><br>
-            <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
+            <input style="font-size:small; color: white; background-color: darkslategrey; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
             <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >
             
             <input style="font-size:small; color: white; background-color: darkslategrey; width:40px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs" >

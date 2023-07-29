@@ -1,5 +1,5 @@
 <div>
-  <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+  <div class="row" style="margin-top: 4vh; font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
     <div class="col">
       <p style="font-size: 18px;">IPD Billing</p>
     </div>
@@ -143,7 +143,7 @@
 
   </div>
 
-  <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
+  <div style="margin-left: 30px; margin-top:1vh;border: none; border-top: 0px solid gray;">
     <div class="row" style="padding-top: 2vh;">
       <div class="user-box">
         <input  [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName" onchange=" this.dataset.chosen = this.value;" list="dep" />
@@ -225,8 +225,8 @@
   <div style="margin-top:1vh;border: none; border-top: 0px solid gray;">
     <div class="row" style="padding-top: 2vh;">
       <div class="col-7">
-      <button class="btn btn-success" *ngIf="allowedSave" (click)="onsave()">SAVE</button>
-      <button style="margin-left: 10px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+      <button style="margin-left: 30px;" class="btn btn-success" *ngIf="allowedSave" (click)="onsave()">SAVE</button>
+      <button style="margin-left: 3px;" class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
 
       </div>
       <div class="col-4">

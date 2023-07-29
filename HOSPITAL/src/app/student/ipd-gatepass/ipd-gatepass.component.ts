@@ -38,7 +38,7 @@ export class IpdGatepassComponent implements OnInit {
 
  this.dcmntNo = dcmntNo;
  //patient information
- this._studentservice.getipdreg(dcmntNo,dt)
+ this._studentservice.getipdreg1(dcmntNo,dt)
  .subscribe((data:any) => {
   this.OPD = data[0];
   });

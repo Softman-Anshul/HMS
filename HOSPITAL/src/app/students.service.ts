@@ -448,6 +448,14 @@ export class StudentsService {
   gettestname() {
     return this.http.get<group>(this.cdn + '/Hospital/GetTestName.php');
   }
+  getmaxtestid()
+  {
+   return this.http.get<number> (this.cdn + '/Hospital/TestMaxtestid.php');
+  }
+  gettestnamebygname(group:any)
+  {
+    return this.http.get<group>(this.cdn + '/Hospital/GetTestNamebygroup.php?id=' + group);
+  }
   testratechange(testname: any) {
     return this.http.put(this.cdn + '/Hospital/TestRateupdate.php', testname, { responseType: 'text' });
   }

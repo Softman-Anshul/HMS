@@ -80,6 +80,12 @@ export class IPDDISCHARGEComponent implements OnInit {
         }
       });
   }
+  emercer() {
+    let dcmntNo = this.selected.dcmntNo;
+    let dt = this.selected.opdDate;
+    this.router.navigate(['/homepage/emer_certificate/', dcmntNo, dt]);
+
+  }
   searchdirect() {
     this._studentservice.ipdsearch_discharge(this.search, this.vrdt1, this.vrdt2, 'Direct')
       .subscribe((data: OPD[]) => {
@@ -150,6 +156,12 @@ export class IPDDISCHARGEComponent implements OnInit {
     else {
       alert("Sorry ! No need for Certificate")
     }
+  }
+  gatepass() {
+    let dcmntNo = this.selected.dcmntNo;
+    let dt = this.selected.opdDate;
+    let uhID = this.selected.uhID;
+    this.router.navigate(['homepage/gatepass/', dcmntNo, dt, uhID]);
   }
   dischargecard(): void {
     const dialogRef = this.dialog.open(IpdDischargecardComponent, {

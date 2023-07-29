@@ -1,8 +1,8 @@
-<h2>IPD Payment Received</h2>
+<h2 style=" margin-left: 30px;">IPD Payment Received</h2>
 <div class="row" >
-  <div class="col-4" id="printsection">
+  <div class="col-4" id="printsection" >
 
-  <label style="font-size:medium; " >P.Type</label>
+  <label style="font-size:medium; margin-left: 30px;" >P.Type</label>
         <select  style="margin-left: 35px; width:90px ;"  [(ngModel)]=Deposit.reason>
           <option value="Payment">Payment</option>
           <option value="Refund">Refund</option>
@@ -10,7 +10,7 @@
   </div>
 
   <div class="col-4" id="printsection">
-    <label   style="font-size:medium;" for="condoctor">Deposit</label>
+    <label   style="font-size:medium; " for="condoctor">Deposit</label>
     <input  style="font-size:small; margin-left:25px; width:90px ; " disabled="true" [(ngModel)]=totalnetamt >
     </div>
   
@@ -18,10 +18,10 @@
 
 <div class="row" >
     <div class="col-4" id="printsection">
-           <label style="font-size:medium; " for="refund">Received</label>
+           <label style="font-size:medium;  margin-left: 30px;" for="refund">Received</label>
            <input style="font-size:small; margin-left:20px; width:90px ;" [(ngModel)]=Deposit.advanceReceived  type="text" >
 
-           <label style="font-size:medium; " >Date</label>
+           <label style="font-size:medium;  margin-left: 30px;" >Date</label>
            <input style="font-size:small; margin-left:50px; width:90px ;" [(ngModel)]=Deposit.ipdDate disabled="true"  type="Date" >
 
     </div>
@@ -33,12 +33,12 @@
           </option> 
         </select> 
 
-        <label style="font-size:medium; " for="refund">Narration</label>
+        <label style="font-size:medium;  margin-left: 60px; " for="refund">Narration</label>
         <input style="font-size:small; margin-left:20px; width:120px ;" [(ngModel)]=Deposit.narration  type="text" >
 
 
     </div>
-    <div class = "col">
+    <div class = "col" style="margin-left: 30px;">
             <br><br><br><br>
             <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
             <input style="font-size:small; color: white; background-color: darkslategrey;  width:350px ; height: 40px;" disabled="true" [(ngModel)]=OPD.pntName type="pntName"  >

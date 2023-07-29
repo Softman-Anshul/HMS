@@ -290,6 +290,7 @@ export class IPDRegComponent implements OnInit {
 
   }
 
+  
   onSubmit() {
     if (this.validation()) {
       const routerParams = this.routes.snapshot.params;

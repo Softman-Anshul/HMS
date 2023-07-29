@@ -39,7 +39,7 @@
           <tr>
             <th ></th>
             <th >SN</th>
-            <th >FileNo</th>
+            <th >IPD</th>
             <th >UHID</th>
             <th >PT</th>
             <th >Patient</th>
@@ -62,7 +62,7 @@
         <tbody>
         <tr *ngFor="let students of OPD let i=index;"  on-mouseover="loaddata(students,$event)" class="CellWithComment"  style="text-align:center;"  >
           <td><input name="options" ng-control="options" type="radio" [value]="students"  [(ngModel)]=selected></td>
-          <td style="width: 7px;"> {{i + 1}}</td>
+          <td > {{i + 1}}</td>
           <td>{{students.dcmntNo}}</td>
           <td>{{students.uhID}}</td>
           <td >{{students.pntn}}</td>

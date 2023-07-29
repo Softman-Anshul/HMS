@@ -2,7 +2,7 @@
 <h2>Pathology Result</h2>
 <div class="col-12 text-right" style="padding:1vw;">
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" >Delete Result</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" >Send Report</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="sampledate()">Sample Date</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="testdetails()" >Details</button>
     <br/> <br/> 
   <div class="input-group">
@@ -29,18 +29,15 @@
       <tr>
           <th></th>
           <th scope="col" style="width:40px;text-align: center ; ">RNo</th>
-          <th scope="col" style="width:50px;text-align: center ; ">UHID</th>
-          <th scope="col" style="width:50px;text-align: center ; ">Date</th>
-          <th scope="col" style="width:30px;text-align: center ; ">Title</th>
+          <th scope="col" style="width:50px;text-align: center ; ">TYPE</th>
+          <th scope="col" style="width:50px;text-align: center ; ">RegDate</th>
+          <th scope="col" style="width:50px;text-align: center ; ">Time</th>
+          <th scope="col" style="width:30px;text-align: center ; ">T</th>
           <th scope="col" style="width:120px;text-align: center ; ">Patient</th>
-          <th scope="col" style="width:50px;text-align: center ; ">Mobile</th>
+          <th scope="col" style="width:50px;text-align: center ; ">AGE</th>
           <th scope="col" style="width:90px;text-align: center ; ">Consultant</th>
           <th scope="col" style="width:70px;text-align: center ; ">Print</th>
-          <th scope="col" style="width:70px;text-align: center ; ">BillAmt</th>
-          <th scope="col" style="width:70px;text-align: center ; ">DiscAmt</th>
-          <th scope="col" style="width:70px;text-align: center ; ">Refund</th>
-          <th scope="col" style="width:70px;text-align: center ; ">Balamt</th>
-          <th scope="col" style="width:70px;text-align: center ; ">RecAmt</th>
+          <th scope="col" style="width:70px;text-align: center ; ">Cond.</th>
           <th scope="col" style="width:70px;text-align: center ; ">Action</th>
   
         </tr>
@@ -49,18 +46,16 @@
         <tr *ngFor="let students of Students " >
           <td><input name="options" ng-control="options" type="radio" [value]="students" [(ngModel)]=selected ></td>
           <td>{{students.vchrNo}}</td>
-          <td>{{students.uhID}}</td>
+          <td>{{students.dcmntType}}</td>
           <td style="width:110px ;">{{students.vchrDate}}</td>
+          <td>{{students.vchrTime}}</td>
           <td>{{students.pntn}}</td>
           <td>{{students.PntName}}</td>
-          <td>{{students.pntmobile}}</td>
+          <td>{{students.pntage}}/{{students.pntyears}}/{{students.pntsex}}</td>
           <td style="width:110px ;">{{students.condoctor}}</td>
           <td>{{students.prnyes}}</td>
-          <td>{{students.grandTotal}}</td>
-          <td>{{students.discountAmt}}</td>
-          <td>{{students.refund}}</td>
-          <td>{{students.balamt}} {{students.duerec}}</td>
-          <td>{{students.recamt}}</td>
+          <td>{{students.condition}}</td>
+          
   
           <div class="btn-group" role="group" >
             <td > <a><button class="btn"><i class="fa fa-file" type="button" matTooltip="Result" (click)="result(students.vchrNo)"  ></i> </button> </a> </td>

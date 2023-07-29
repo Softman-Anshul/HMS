@@ -1,20 +1,20 @@
-<h2>Room Shifting</h2>
+<h2 type="margin-top:3vh">Room Shifting</h2>
 <div class="row" >
     
     <div class = "col-5">
-        <label  style="margin-top:1vw ;">WardName </label>
-        <select style="width:280px ;" class="form-control" (change)="selectWard()" [(ngModel)]=Ward1.category >
+        <label  style="margin-top:1vw; margin-left: 30px;">WardName </label>
+        <select style="width:280px; margin-left: 30px;" class="form-control" (change)="selectWard()" [(ngModel)]=Ward1.category >
           <option>--Select--</option>    
           <option *ngFor="let room of Ward" >
             {{room.category}}
           </option> 
         </select> 
 <div>
-        <label  style="margin-top:2vw ;">RoomNo </label>
-        <label  style=" margin-left:35px ; ">Bed NO</label>
+        <label  style="margin-top:2vw ; margin-left: 30px;">RoomNo </label>
+        <label  style=" margin-left:35px ; margin-left: 30px;">Bed NO</label>
     </div>
     <div>
-        <select style="width:60px ;" [(ngModel)]=Ward1.roomNo >
+        <select style="width:60px ;margin-left: 30px;" [(ngModel)]=Ward1.roomNo >
             <option *ngFor="let room of room"  >
               {{room.roomNo}}
             </option> 
@@ -27,7 +27,7 @@
           </select> 
         </div>
 
-          <div style="margin-top: 20px;">
+          <div style="margin-top: 20px; margin-left: 30px;">
           <button  class="btn btn-success" (click)="onsave()">SAVE</button>
             <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
         </div>

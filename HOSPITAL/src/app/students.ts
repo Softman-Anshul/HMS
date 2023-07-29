@@ -233,6 +233,7 @@ export class Students {
     duerec="N";
     tests: Test[]=[];
     labid=0;
+    condition="";
     report: testreport[]=[];
 }
 export class Test {
@@ -421,6 +422,20 @@ export class OPD {
     Statusdate:billheading[]=[];
     distime:billheading[]=[];
     vchrNo:billheading[]=[];
+}
+export class testmasterm {
+    Testid="";
+    testgroup="";
+    TestName="";
+    Testcode="";
+    TestType="1";
+    subgroup="No";
+    unit="Unit";
+    ReportDays=1;
+    Price=0;
+    Remarks="N";
+    printseprate="No";
+    tests: testmasterd[]=[];
 }
 
 export class testmaster {

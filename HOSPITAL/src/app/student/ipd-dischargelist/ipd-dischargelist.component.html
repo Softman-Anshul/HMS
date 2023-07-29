@@ -7,8 +7,12 @@
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="certificate()" >Certificate</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="MLC()"   >MLC</button>
 
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="gatepass()" >Gate Pass</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="emercer()"  >Emergency Certificate</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="sticker()" >Sticker</button>
+        <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >MRD</button> -->
     <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >TPA / Ayushman</button> -->
+
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="dischargecard()" >Discharge Card</button>
     <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >File Document</button> -->
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="fullpayment()"  >Full Payment</button>
@@ -23,7 +27,9 @@
       <option value="Consultant">Consultant</option>
       <option value="Department">Department</option>
       <option value="Dues">Dues</option>
-      <option value="Type">Type</option>
+      <option value="PType">PType</option>
+      <option value="PStatus">PStatus</option>
+
     </select>
     <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt1 >
     <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt2 >

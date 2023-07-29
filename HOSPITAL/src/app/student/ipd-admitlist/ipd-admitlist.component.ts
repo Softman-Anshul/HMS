@@ -87,7 +87,7 @@ export class IPDADMITLISTComponent implements OnInit {
   }
   payment() {
     const dialogRef = this.dialog.open(IPDPaymentComponent, {
-      height: '550px', width: '650px',
+      height: '550px', width: '850px',
       data: { OPD: this.selected },
 
     });

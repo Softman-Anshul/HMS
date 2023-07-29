@@ -285,7 +285,7 @@ body::-webkit-scrollbar {
 
     .user-box-big input {
       width: 12vw;
-      padding: 8px 0;
+      padding: 0;
       font-size: 12px;
       color: gray;
       border: none;
@@ -305,7 +305,7 @@ body::-webkit-scrollbar {
     }
     .user-box-big select {
       width: 12vw;
-      padding: 9px 0;
+      padding: 0;
       font-size: 14px;
       color: gray;
       border: none;

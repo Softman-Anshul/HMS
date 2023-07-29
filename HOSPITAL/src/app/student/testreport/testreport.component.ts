@@ -266,6 +266,7 @@ export class TestreportComponent implements OnInit {
 
     } else if (normalValues.length == 1) {
       if (report.value != report.normalvalue) {
+        console.log("not normal")
         report.isNormal = false;
       } else {
         report.isNormal = true;

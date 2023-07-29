@@ -203,7 +203,8 @@ export class OpdregComponent implements OnInit {
     this._studentservice.getopdconsultant(this.OPD1.caseType)
       .subscribe((data: any) => {
         this.consulant = data;
-        this.consultantChange(null)
+        this.OPD1.dctrVisited = this.consulant[0].dctName;
+        this.consultantChange(this.OPD1.dctrVisited)
       });
   }
 
@@ -212,9 +213,6 @@ export class OpdregComponent implements OnInit {
     //   return
     // }
     let doc = this.OPD1.dctrVisited
-    if (event != null) {
-      doc = event.target.value
-    }
     for (let i = 0; i < this.consulant.length; i++) {
       if (this.consulant[i].dctName == doc) {
         let expiry = new Date(this.OPD1.opdDate);

@@ -182,6 +182,16 @@ result(vchrNo:any):void{
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
+  sampledate(): void {
+    const dialogRef = this.dialog.open(TestdetailsComponent, {
+      height:'200px', width: '200px',
+      data: {students:this.selected},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
  
 }
 
