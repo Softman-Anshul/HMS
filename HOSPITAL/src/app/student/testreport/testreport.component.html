@@ -2,6 +2,8 @@
 <div style="margin-left: 50vw;">
   <button (click)="save()" style="width: 4vw;">Save</button>
   <button (click)="printReport()" style="width: 4vw; margin-left: 1vw;">Print</button>
+  <button (click)="sendReport()" style="width: 4vw; margin-left: 1vw;" *ngIf="Students.pntmobile != ''">Send</button>
+
 </div>
 
 <div id="print" style="background-color: white;">
@@ -115,23 +117,27 @@
                     {{report.testname}}</td>
                   <ng-container *ngIf="report.Ipet != 'Y';">
                     <td>
-                      <div class="user-box-big" style="margin-left: 3vw;"
-                        *ngIf="!(((report.subgroup.toLowerCase() == 'yes') || report.Ipet == 'Y') || report.Wordcode != '')">
-                        <input (keyup)="valueCheck(i)"
-                          [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}" class="enterValue"
-                          type="text" name="" required="" [(ngModel)]=report.value>
-                        <label></label>
-                      </div>
-                      <div class="user-box-big" style="margin-left: 3vw;">
-                        <select [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
-                          (change)="valueCheck(i)" class="enterValue" [(ngModel)]=report.value
-                          *ngIf="report.Wordcode != ''">
-                          <option *ngFor="let test of labTestWord.get(report.Wordcode)">
-                            {{test}}
-                          </option>
-                        </select>
-                        <label></label>
-                      </div>
+                      <label class="val" style="display: none;font-size:medium; " for="pntn"
+                        [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '600' : '100'}">{{report.value}}</label>
+                      <ng-container *ngIf="!print">
+                        <div class="no-val user-box-big" style="margin-left: 3vw;"
+                          *ngIf="!(((report.subgroup.toLowerCase() == 'yes') || report.Ipet == 'Y') || report.Wordcode != '')">
+                          <input (keyup)="valueCheck(i)"
+                            [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
+                            class="enterValue" type="text" name="" required="" [(ngModel)]=report.value>
+                          <label></label>
+                        </div>
+                        <div class="user-box-big" style="margin-left: 3vw;">
+                          <select [ngStyle]="{'font-weight': !this.testreport[i].isNormal ? '1000' : '100'}"
+                            (change)="valueCheck(i)" class="enterValue" [(ngModel)]=report.value
+                            *ngIf="report.Wordcode != ''">
+                            <option *ngFor="let test of labTestWord.get(report.Wordcode)">
+                              {{test}}
+                            </option>
+                          </select>
+                          <label></label>
+                        </div>
+                      </ng-container>
                     </td>
                     <td>{{report.subunit}}</td>
                     <td>{{report.normalvalue}}</td>

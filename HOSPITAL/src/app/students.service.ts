@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, Ward } from './students';
 import { Students } from './students';
 import { consulant } from './students';
@@ -448,12 +448,10 @@ export class StudentsService {
   gettestname() {
     return this.http.get<group>(this.cdn + '/Hospital/GetTestName.php');
   }
-  getmaxtestid()
-  {
-   return this.http.get<number> (this.cdn + '/Hospital/TestMaxtestid.php');
+  getmaxtestid() {
+    return this.http.get<number>(this.cdn + '/Hospital/TestMaxtestid.php');
   }
-  gettestnamebygname(group:any)
-  {
+  gettestnamebygname(group: any) {
     return this.http.get<group>(this.cdn + '/Hospital/GetTestNamebygroup.php?id=' + group);
   }
   testratechange(testname: any) {
@@ -686,7 +684,26 @@ export class StudentsService {
   }
 
   uploadReport(html: string, url: string) {
-    return this.http.post(this.cdn + '/Hospital/pdfUpload.php' , {"html" : btoa(html) , "path" : url, "length" : html.length } )
+    return this.http.post(this.cdn + '/Hospital/pdfUpload.php', { "html": btoa(html), "path": url, "length": html.length })
+  }
+
+  sendWhatsappMessage(to: string, link: string,caption: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer EAALoXszCdXsBOZCfjoVi9cMJTi43ZBVzkCVayLiGHtNf4Yev33ARKbAklJsYppkXMS8II3cKDFpgRBgloj9d7HIASRqf9kbQ0ApRlrrMkbHETiKh86nTrevx3FQQm2F1ZADFu6yZBYmAM4t8iIFeXY9RH3UCi7FZCZAvX5plM7qdpoUUtJz5HHn9wVPJdrsW1w`
+    })
+    let req = {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "91" + to,
+      "type": "document",
+      "document": {
+        "link": link,
+        "filename": "Report.html",
+        "caption": caption,
+      }
+    }
+    return this.http.post("https://graph.facebook.com/v17.0/111695448676861/messages", req,{headers: headers});
   }
 
   getuploadPath() {

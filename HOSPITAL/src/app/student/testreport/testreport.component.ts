@@ -25,6 +25,7 @@ export class TestreportComponent implements OnInit {
   declare editor: Editor;
   url = '';
   showQr = false;
+  print=false;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -151,7 +152,77 @@ export class TestreportComponent implements OnInit {
     });;
   }
 
+  sendReport(){
+    this.print = true;
+
+    const lables = document.getElementsByClassName("val");
+    for (let i = 0; i < lables.length; i++) {
+      let e = lables.item(i)
+      if (e != null) {
+        e.setAttribute("style", "display:block !important;" + e.getAttribute("style"))
+      }
+    }
+
+    const inputs = document.getElementsByClassName("no-val");
+    for (let i = 0; i < inputs.length; i++) {
+      let e = inputs.item(i)
+      if (e != null) {
+        e.setAttribute("style", "display:none;" + e.getAttribute("style"))
+      }
+    }
+
+    let classes = document.getElementsByClassName("enterValue")
+
+    for (let i = 0; i < classes.length; i++) {
+      let e = classes.item(i)
+      if (e != null) {
+        e.setAttribute("style", "border:0px;" + e.getAttribute("style"))
+      }
+    }
+
+    let dclasses = document.getElementsByClassName("tbd")
+
+    for (let i = 0; i < dclasses.length; i++) {
+      let e = dclasses.item(i)
+      if (e != null) {
+        e.setAttribute("style", "display:none")
+      }
+    }
+
+    const element = document.getElementById("print")
+    if (element != null) {
+      let body = document.createElement("body")
+      body.appendChild(element)
+      document.body = body;
+      this._studentservice.uploadReport(document.documentElement.innerHTML, this.url).subscribe((data: any) => {
+      })
+      this._studentservice.sendWhatsappMessage("9997576627", this.url, this.Students.uhID + "-" + this.Students.PntName).subscribe((data: any) => {
+        window.location.reload()
+      })
+
+    }
+
+  }
+
   printReport() {
+
+    this.print = true;
+
+    const lables = document.getElementsByClassName("val");
+    for (let i = 0; i < lables.length; i++) {
+      let e = lables.item(i)
+      if (e != null) {
+        e.setAttribute("style", "display:block !important;" + e.getAttribute("style"))
+      }
+    }
+
+    const inputs = document.getElementsByClassName("no-val");
+    for (let i = 0; i < inputs.length; i++) {
+      let e = inputs.item(i)
+      if (e != null) {
+        e.setAttribute("style", "display:none;" + e.getAttribute("style"))
+      }
+    }
 
     const classes = document.getElementsByClassName("enterValue")
 
