@@ -30,13 +30,13 @@ export class PatholgoyreportComponent implements OnInit {
   key = '';
   uname = ''
   declare permission : JSON
-  declare shownewbooking : boolean
-  declare editbooking : boolean
-  declare deletebooking : boolean
-  declare paymode : boolean
-  declare Receiptsbooking : boolean
-  declare Billingbooking : boolean
-  declare Refundbooking : boolean
+  declare showdelresult : boolean
+  declare showtestsample : boolean
+  declare showdetails : boolean
+  declare showsearch : boolean
+  declare showreport : boolean
+  declare showreportprint : boolean
+  declare showwhatsapp : boolean
   
   constructor(private _studentservice:StudentsService,
     private router: Router,
@@ -60,36 +60,24 @@ export class PatholgoyreportComponent implements OnInit {
      this.router.navigate(['']);
    }
         
-    //call permission    
-    this._studentservice.getuserpermission(this.uname)
-        .subscribe(data => {
-          this.permission = data
-          this.shownewbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["inst"] == "Y";
-          // this.editbooking    = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["edt"] == "Y";
-          // this.deletebooking  = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["del"] == "Y";
-          this.paymode        = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Paymode"]["inst"] == "Y";
-          this.Refundbooking  = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Refund"]["inst"] == "Y";
-          this.Receiptsbooking= JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Receipts"]["inst"] == "Y";
-          this.Billingbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Billing"]["inst"] == "Y";
- 
-          //check key
-          this._studentservice.getCompany()
-            .subscribe((data:any) => {
-              this.key = data[0].Comp_key;
-              var dd = this.key.charAt(0) + this.key.charAt(7);
-              var MM = this.key.charAt(12) + this.key.charAt(21);
-              var yyyy = this.key.charAt(24) + this.key.charAt(6);
-              var sdt =  new Date(Date.parse(20 + yyyy + "-" + MM + "-" + dd));
-              var cdt = new Date();
-              if(sdt > cdt){
-                this.shownewbooking = false;
-                this.editbooking = false;
-                this.deletebooking = false;
-              }
-             
-          });
-  
-    });
+    //call permission
+this._studentservice.getuserpermission(this.uname)
+.subscribe(data => {
+  this._studentservice.permission = data
+  if (this._studentservice.checkPermission("Menu", "Pathology", "inst") ) {
+
+   this.showdelresult = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Delete Result"]["inst"] == "Y";
+   this.showtestsample = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Test Sample"]["inst"] == "Y";
+   this.showdetails = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Test Details"]["inst"] == "Y";
+   this.showreport = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Report Genrate"]["inst"] == "Y";
+   this.showreportprint = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Reprint Report"]["inst"] == "Y";
+   this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Search"]["inst"] == "Y";
+   this.showwhatsapp = JSON.parse(JSON.stringify(this._studentservice.permission))["Pathology"]["Whatsapp Report"]["inst"] == "Y";
+  }
+  else{
+    this.router.navigate(['/homepage/main'])
+  }
+});
     
   
 }
@@ -192,7 +180,21 @@ result(vchrNo:any):void{
     dialogRef.afterClosed().subscribe(result => {
     });
   }
- 
+
+  deleteresult(){
+  alert("Pending")
+  }
+
+  Whatsapp() : void{
+      const dialogRef = this.dialog.open(TestdetailsComponent, {
+        height:'400px', width: '400px',
+        data: {students:this.selected},
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+      });
+    }
+  
 }
 
 

@@ -1,22 +1,20 @@
 <!-- CSS only -->
 <div class="col-12 text-right" >
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill2()">Bill Print</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill3()">Bill Print(Advance)</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="bill4()">Bill Print(Full)</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="paymentdetails()">Payment Details</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="certificate()" >Certificate</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="MLC()"   >MLC</button>
-
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="gatepass()" >Gate Pass</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="emercer()"  >Emergency Certificate</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="sticker()" >Sticker</button>
-        <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >MRD</button> -->
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showbillprint" (click)="bill2()">Bill Print</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showbilladvance" (click)="bill3()">Bill Print(Advance)</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showbillpdetails" (click)="bill4()">Bill Print(Full)</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showpaymentdetails" (click)="paymentdetails()">Payment Details</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showcertificate" (click)="certificate()" >Certificate</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showmlc" (click)="MLC()"   >MLC</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showgatepass" (click)="gatepass()" >Gate Pass</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showecert" (click)="emercer()"  >Emergency Certificate</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  *ngIf = "showsticker" (click)="sticker()" >Sticker</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  *ngIf = "showdischargecard" (click)="dischargecard()" >Discharge Card</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showfullpayment" (click)="fullpayment()"  >Full Payment</button>
+    <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >MRD</button> -->
     <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >TPA / Ayushman</button> -->
-
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  (click)="dischargecard()" >Discharge Card</button>
     <!-- <button style="margin-right: 1%;" class="btn btn-primary btn-rounded"  >File Document</button> -->
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="fullpayment()"  >Full Payment</button>
-
+  
 </div>
 <div class="input-group">
     <select type="text" style=" font-size:small; margin-left:2px; width:90px ;"  [(ngModel)]=Choice>
@@ -34,7 +32,7 @@
     <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt1 >
     <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt2 >
     <input  style="font-size:small; margin-left:5px;" type="search" class="form-control rounded" (keyup)="searchdirect()" [(ngModel)]=search />
-    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" (click)="searchquery()">Search</button>
+    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" *ngIf = "showsearch" (click)="searchquery()">Search</button>
   </div>
 <div>
 <table  class="table table-bordered table-striped ">
@@ -59,7 +57,7 @@
         <th >Years</th>
         <th >FOC</th>
         <th >AdjustAmt</th>
-        <th >Action</th>
+        <th *ngIf = "showedit">Action</th>
       </tr>
     </thead>
     <tr *ngFor="let students of OPD let i=index;" style="text-align:center;" >
@@ -77,13 +75,13 @@
       <td>{{students.dctrVisited}}</td>
       <td>{{students.rfrdBy}}</td>
       <td>{{students.grandTotal}}</td>
-      <td><a style="font-size:medium; cursor: pointer; color: blue;" (click) ="Dueamt(students)" >{{students.paydue}}</a></td>
+      <td><a style="font-size:medium; cursor: pointer; color: blue;" *ngIf = "showduerec" (click) ="Dueamt(students)" >{{students.paydue}}</a></td>
       <td>{{students.PntType}}</td>
       <td >{{students.Years}}</td>
       <td >{{students.foc}}</td>
       <td>{{students.satelment}}</td>
       <div class="btn-group" role="group" >
-      <td > <a><button  class="btn" (click) ="edit(students)" ><i  class="fa fa-edit" type="button" ></i> </button></a></td>
+      <td *ngIf = "showedit"> <a><button  class="btn" (click) ="edit(students)" ><i  class="fa fa-edit" type="button" ></i> </button></a></td>
       </div>
     </tr>
     <td ></td>

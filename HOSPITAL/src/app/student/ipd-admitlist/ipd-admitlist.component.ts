@@ -39,6 +39,31 @@ export class IPDADMITLISTComponent implements OnInit {
   hoverDcmntNo = "";
   hoverUhID = "";
 
+  uname = ''
+  declare permission: JSON
+  declare showregistration: boolean
+  declare showipdedit: boolean
+  declare showpaydetails: boolean
+  declare showpayreceived: boolean
+  declare showtestbooking: boolean
+  declare showbilling: boolean
+  declare showdischarge: boolean
+  declare showroomshift: boolean
+  declare showfiledocument: boolean
+  declare showmlc: boolean
+  declare showdischargecard: boolean
+  declare showEcertificate: boolean
+  declare showfullpayment: boolean
+  declare showsticker: boolean
+  declare showgatepass: boolean
+  declare showreportrec: boolean
+  declare showconchange: boolean
+  declare showbloodtrans: boolean
+  declare showdueslip: boolean
+  declare showdischargecert: boolean
+  declare showsearch: boolean
+  declare showcondchange: boolean
+
   constructor(private _studentservice: StudentsService,
     private router: Router,
     public dialog: MatDialog
@@ -53,6 +78,49 @@ export class IPDADMITLISTComponent implements OnInit {
     .subscribe((data:OPD[]) => {
       this.OPD= data;
   });
+
+  //call username 
+  this.uname = this._studentservice.getUsername();
+  if (this.uname == '') {
+    
+    this.router.navigate(['']);
+    
+  }
+//call permission
+this._studentservice.getuserpermission(this.uname)
+.subscribe(data => {
+  this._studentservice.permission = data
+  if (this._studentservice.checkPermission("Menu", "IPD Admit", "inst") ) {
+
+   this.showregistration = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Registration"]["inst"] == "Y";
+   this.showipdedit = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Registration"]["edt"] == "Y";
+   this.showpaydetails = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Payment Details"]["inst"] == "Y";
+   this.showpayreceived = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["IPD Receive"]["inst"] == "Y";
+   this.showtestbooking = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Testbooking"]["inst"] == "Y";
+   this.showbilling = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["IPD Billing"]["inst"] == "Y";
+   this.showdischarge = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["IPD Discharge"]["inst"] == "Y";
+   this.showroomshift = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["RoomShifting"]["inst"] == "Y";
+   this.showfiledocument = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["IPD File"]["inst"] == "Y";
+   this.showmlc = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["MLC"]["inst"] == "Y";
+   this.showdischargecard = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Discharge Card"]["inst"] == "Y";
+   this.showEcertificate = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Emergency Certificate"]["inst"] == "Y";
+   this.showfullpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Fullpayment"]["inst"] == "Y";
+   this.showsticker = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Sticker"]["inst"] == "Y";
+   this.showgatepass = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["GatePass"]["inst"] == "Y";
+   this.showreportrec = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Report Received"]["inst"] == "Y";
+   this.showconchange = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Doctor Change"]["inst"] == "Y";
+   this.showbloodtrans = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Blood Transfusion"]["inst"] == "Y";
+   this.showdueslip = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Due Slip"]["inst"] == "Y";
+   this.showdischargecert = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["Discharge Certificate"]["inst"] == "Y";
+   this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Admit"]["IPD Search"]["inst"] == "Y";
+   
+  }
+  else{
+    this.router.navigate(['/homepage/main'])
+  }
+});
+
+
 
   }
   loaddata(students: any, event: any) {

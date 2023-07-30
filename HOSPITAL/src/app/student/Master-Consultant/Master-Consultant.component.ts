@@ -52,25 +52,25 @@ export class AddStudentComponent implements OnInit {
     this.uname = this._studentservice.getUsername();
 
     //call permission
-    if (this._studentservice.permission != undefined) {
-      if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst")) {
-        this.router.navigate([''])
-      }
-      this.insert = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
-      this.edit = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
-      this.delete = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
-    } else {
-      this._studentservice.getuserpermission(this.uname)
-        .subscribe(data => {
-          this._studentservice.permission = data
-          if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst") || !this._studentservice.checkPermission("Menu", "Master", "inst")) {
-            this.router.navigate(['/homepage/main'])
-          }
-          this.insert = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
-          this.edit = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
-          this.delete = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
-        });
-    }
+    // if (this._studentservice.permission != undefined) {
+    //   if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst")) {
+    //     this.router.navigate([''])
+    //   }
+    //   this.insert = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
+    //   this.edit = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
+    //   this.delete = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
+    // } else {
+    //   this._studentservice.getuserpermission(this.uname)
+    //     .subscribe(data => {
+    //       this._studentservice.permission = data
+    //       if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst") || !this._studentservice.checkPermission("Menu", "Master", "inst")) {
+    //         this.router.navigate(['/homepage/main'])
+    //       }
+    //       this.insert = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["inst"] == "Y";
+    //       this.edit = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["edt"] == "Y";
+    //       this.delete = JSON.parse(JSON.stringify(this._studentservice.permission))["Consultant"]["Consultant-Master"]["del"] == "Y";
+    //     });
+    // }
 
 
     this._studentservice.gettableconsultant()

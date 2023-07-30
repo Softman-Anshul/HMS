@@ -26,6 +26,10 @@ export class EdittStudentComponent implements OnInit {
   declare Showshift: boolean
   declare Showtestrate: boolean
   declare Showward: boolean
+  declare showdischargeheading:boolean
+  declare showdischargetemplate:boolean
+  declare showtestgroup:boolean
+  declare showtestmaster:boolean
 
   Mobile = false;
 
@@ -44,29 +48,13 @@ export class EdittStudentComponent implements OnInit {
     }
 
     //call permission
-    if (this._studentservice.permission != undefined) {
-      if (!this._studentservice.checkPermission("Menu", "Master", "inst")) {
-        this.router.navigate([''])
-      }
-      this.ShowConsultant = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Consultant Master"]["inst"] == "Y";
-      this.ShowrConsultant = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Referral Master"]["inst"] == "Y";
-      this.ShowDepartment = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Department Master"]["inst"] == "Y";
-      this.Showpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Payment Mode"]["inst"] == "Y";
-      this.ShowOutsideLab = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["OutsideLab Master"]["inst"] == "Y";
-      this.ShowCity = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["City Master"]["inst"] == "Y";
-      this.ShowCharges = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Charges Master"]["inst"] == "Y";
-      this.ShowPanel = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Panel Master"]["inst"] == "Y";
-      this.Showshift = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Shift Master"]["inst"] == "Y";
-      this.Showtestrate = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Rate Change"]["inst"] == "Y";
-      this.Showward = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Ward Master"]["inst"] == "Y";
-
-    } else {
-      this._studentservice.getuserpermission(this.uname)
+    this._studentservice.getuserpermission(this.uname)
         .subscribe(data => {
           this._studentservice.permission = data
           if (!this._studentservice.checkPermission("Menu", "Master", "inst")) {
             this.router.navigate(['/homepage/main'])
           }
+          else{
           this.ShowConsultant = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Consultant Master"]["inst"] == "Y";
           this.ShowrConsultant = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Referral Master"]["inst"] == "Y";
           this.ShowDepartment = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Department Master"]["inst"] == "Y";
@@ -74,15 +62,18 @@ export class EdittStudentComponent implements OnInit {
           this.ShowOutsideLab = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["OutsideLab Master"]["inst"] == "Y";
           this.ShowCity = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["City Master"]["inst"] == "Y";
           this.ShowCharges = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Charges Master"]["inst"] == "Y";
-          this.ShowPanel = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Panel Master"]["inst"] == "Y";
+          // this.ShowPanel = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Panel Master"]["inst"] == "Y";
           this.Showshift = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Shift Master"]["inst"] == "Y";
-          this.Showtestrate = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Rate Change"]["inst"] == "Y";
           this.Showward = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Ward Master"]["inst"] == "Y";
+          this.Showtestrate = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Rate Change"]["inst"] == "Y";
+          this.showdischargeheading = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Discharge Card Heading"]["inst"] == "Y";
+          this.showdischargetemplate = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Discharge Card Template"]["inst"] == "Y";
+          this.showtestgroup = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Group Master"]["inst"] == "Y";
+          this.showtestmaster = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Master"]["inst"] == "Y";
+
+          }
         });
     }
-
-
-  };
 
   onSubmitconsultant() {
     this.router.navigate(['homepage/add']);

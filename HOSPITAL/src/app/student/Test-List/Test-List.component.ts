@@ -77,33 +77,38 @@ export class ListStudentComponent implements OnInit {
 
     //call permission    
     this._studentservice.getuserpermission(this.uname)
-      .subscribe(data => {
-        this.permission = data
-        this.shownewbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["inst"] == "Y";
-        // this.editbooking    = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["edt"] == "Y";
-        // this.deletebooking  = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Booking"]["del"] == "Y";
-        this.paymode = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Paymode"]["inst"] == "Y";
-        this.Refundbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Refund"]["inst"] == "Y";
-        this.Receiptsbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Receipts"]["inst"] == "Y";
-        this.Billingbooking = JSON.parse(JSON.stringify(this.permission))["TestBooking"]["Billing"]["inst"] == "Y";
+    .subscribe(data => {
+      this._studentservice.permission = data
+      if (this._studentservice.checkPermission("Menu", "TEST", "inst") ) {
 
-        //check key
-        this._studentservice.getCompany()
-          .subscribe((data: any) => {
-            this.key = data[0].Comp_key;
-            var dd = this.key.charAt(0) + this.key.charAt(7);
-            var MM = this.key.charAt(12) + this.key.charAt(21);
-            var yyyy = this.key.charAt(24) + this.key.charAt(6);
-            var sdt = new Date(Date.parse(20 + yyyy + "-" + MM + "-" + dd));
-            var cdt = new Date();
-            if (sdt > cdt) {
-              this.shownewbooking = false;
-              this.editbooking = false;
-              this.deletebooking = false;
-            }
+        this.shownewbooking = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Booking"]["inst"] == "Y";
+        this.editbooking    = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Booking"]["edt"] == "Y";
+        this.deletebooking  = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Booking"]["del"] == "Y";
+        this.paymode = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Paymode"]["inst"] == "Y";
+        this.Refundbooking = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Refund"]["inst"] == "Y";
+        this.Receiptsbooking = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Receipts"]["inst"] == "Y";
+        this.Billingbooking = JSON.parse(JSON.stringify(this._studentservice.permission))["TestBooking"]["Billing"]["inst"] == "Y";
 
-          });
+        // //check key
+        // this._studentservice.getCompany()
+        //   .subscribe((data: any) => {
+        //     this.key = data[0].Comp_key;
+        //     var dd = this.key.charAt(0) + this.key.charAt(7);
+        //     var MM = this.key.charAt(12) + this.key.charAt(21);
+        //     var yyyy = this.key.charAt(24) + this.key.charAt(6);
+        //     var sdt = new Date(Date.parse(20 + yyyy + "-" + MM + "-" + dd));
+        //     var cdt = new Date();
+        //     if (sdt > cdt) {
+        //       this.shownewbooking = false;
+        //       this.editbooking = false;
+        //       this.deletebooking = false;
+        //     }
 
+        //   });
+        }
+        else{
+          this.router.navigate(['/homepage/main'])
+        }
       });
 
 

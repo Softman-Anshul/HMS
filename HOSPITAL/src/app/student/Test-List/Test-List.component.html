@@ -1,10 +1,10 @@
 <!-- CSS only -->
 <h2>TEST STATUS</h2>
 <div class="col-12 text-right" style="padding:1vw;">
-  <button style="margin-right: 1%; " class="btn btn-primary btn-rounded"  (click)="newbooking()"  >NewBooking</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPage()" *ngIf="Receiptsbooking">Receipts</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPageb()" *ngIf="Billingbooking">Billing</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialog()" *ngIf="Refundbooking">Refund</button>
+  <button style="margin-right: 1%; " class="btn btn-primary btn-rounded" (click)="newbooking()"   *ngIf="shownewbooking"   >NewBooking</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPage()"     *ngIf="Receiptsbooking">Receipts</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="printPageb()"    *ngIf="Billingbooking">Billing</button>
+  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialog()"    *ngIf="Refundbooking">Refund</button>
   <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="openDialogpay()" *ngIf="paymode">Paymode</button>
 
   <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" (click)="testdetails()" >Details</button>
@@ -46,7 +46,7 @@
         <th scope="col" style="width:70px;text-align: center ; ">Refund</th>
         <th scope="col" style="width:70px;text-align: center ; ">Balamt</th>
         <th scope="col" style="width:70px;text-align: center ; ">RecAmt</th>
-        <th scope="col" style="width:70px;text-align: center ; ">Action</th>
+        <th *ngIf = "editbooking || deletebooking" scope="col" style="width:70px;text-align: center ; ">Action</th>
 
       </tr>
     </thead>
@@ -69,13 +69,14 @@
         <td>{{students.recamt}}</td>
 
         <div class="btn-group" role="group" >
-        <td > <a><button class="btn"><i class="fa fa-edit" type="button" matTooltip="Edit" (click)="onEdit(students)"  ></i> </button></a> </td>
-        <td > <a><button class="btn"><i class="fa fa-trash" type="button" matTooltip="Delete" (click)="delete(students)"  ></i> </button> </a> </td>
+        <td *ngIf="editbooking"> <a ><button class="btn"><i class="fa fa-edit" type="button" matTooltip="Edit" (click)="onEdit(students)"  ></i> </button></a> </td>
+        <td *ngIf="deletebooking"> <a><button class="btn"><i class="fa fa-trash" type="button" matTooltip="Delete" (click)="delete(students)"  ></i> </button> </a> </td>
 
         </div>
       </tr>
     </tbody>
     <td ></td>
+                <td ></td>
                 <td ></td>
                 <td ></td>
                 <td ></td>
