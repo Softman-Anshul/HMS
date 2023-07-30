@@ -666,7 +666,10 @@ export class StudentsService {
   getAllTestGroups() {
     return this.http.get<testgroup[]>(this.cdn + '/Hospital/Group_list.php');
   }
-
+  gettableWord()
+  {
+   return this.http.get<Wordname[]> (this.cdn + '/Hospital/Wordname_list.php');
+  }
   getOpdDetails(from: string, to: string) {
     return this.http.get<any>(this.cdn + '/Hospital/opdDashBoard.php?from=' + from + "&to=" + to);
   }

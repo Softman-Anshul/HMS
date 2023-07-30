@@ -7,7 +7,7 @@
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showrefund" (click)="openDialogrefund()" >Refund</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showpayment" (click)="openDialogpmode()">Paymode Change</button>
     <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showdoctor" (click)="openDialogdoctor()">Consultant Change</button>
-    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showdoctor" (click)="Medicalcerficate()">Medical Certificate</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf = "showmedical" (click)="Medicalcerficate()">Medical Certificate</button>
     <div class="input-group" style="padding-top: 1vh;">
         <select type="text" style=" font-size:small; margin-left:2px; width:90px ;"  [(ngModel)]=Choice>
           <option value="ALL">ALL</option>
@@ -45,7 +45,7 @@
             <th >Refund</th>
             <th >RecAmt</th>
             <th >PMode</th>
-            <th >Action</th>
+            <th  *ngIf = "delregistration || editregistration" >Action</th>
           </tr>
         </thead>
         <tbody>
@@ -68,11 +68,11 @@
             <td>{{students.paymode}}</td>
 
             <div class="btn-group" role="group" >
-              <button class="btn btn-primary btn-rounded" (click)="testbooking(students.dcmntNo,students.uhID)" >Test</button>
-              <button class="btn btn-primary btn-rounded" (click)="admitpatient(students.dcmntNo,students.opdDate)" >Admit</button>
+              <button *ngIf = "showtest" class="btn btn-primary btn-rounded" (click)="testbooking(students.dcmntNo,students.uhID)" >Test</button>
+              <button *ngIf = "showadmit" class="btn btn-primary btn-rounded" (click)="admitpatient(students.dcmntNo,students.opdDate)" >Admit</button>
             <!-- <td *ngIf = "editregistration"> <a><button  class="btn"><i class="fa fa-edit" type="button"(click)="onEdit(students.uhID,students.opdDate)"></i> </button></a></td> -->
             <td *ngIf = "delregistration"><a><button class="btn"><i class="fa fa-trash" type="button" (click)="delete(students)"  ></i> </button></a></td>
-            <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students)"></i> </button></a></td>
+            <td *ngIf = "editregistration"> <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students)"></i> </button></a></td>
 
             <!-- <button class="btn btn-primary btn-rounded" (click)="EMR(students.dcmntNo,students.opdDate)" >OPD</button> -->
             </div>

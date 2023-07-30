@@ -1,24 +1,24 @@
 <div on-mouseover="hideTooltip()">
 <div class="col-12 text-right">
-     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary" (click)="newreg()"        >Add Registration</button>
-     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="paymentdetails()">Payment Details</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="payment()"       >Payment Received</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="testbooking()"   >TestBooking</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="billing()"       >Billing</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="billdischarge()" >Discharge</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="roomshifting()"  >Room Shifting</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="Document()"      >File Document</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="MLC()"      >MLC</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="dischargecard()" >Discharge Card</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="emercer()"  >Emergency Certificate</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="fullpayment()"  >Full Payment</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="sticker()" >Sticker</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="gatepass()" >Gate Pass</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="reportrec()" >Report Received</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="doctorchange()">Consultant Change</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-info "  >Blood Transfusion</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="paymentstatus()">Due Slip</button>
-    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " (click)="discertificate()">Discharge Certificate</button>
+     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary" *ngIf = "showregistration" (click)="newreg()"        >Add Registration</button>
+     <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showpaydetails" (click)="paymentdetails()">Payment Details</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showpayreceived" (click)="payment()"       >Payment Received</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showtestbooking" (click)="testbooking()"   >TestBooking</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showbilling" (click)="billing()"       >Billing</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showdischarge" (click)="billdischarge()" >Discharge</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showroomshift" (click)="roomshifting()"  >Room Shifting</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showfiledocument" (click)="Document()"      >File Document</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showmlc" (click)="MLC()"      >MLC</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showdischargecard" (click)="dischargecard()" >Discharge Card</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showEcertificate" (click)="emercer()"  >Emergency Certificate</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showfullpayment" (click)="fullpayment()"  >Full Payment</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showsticker" (click)="sticker()" >Sticker</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showgatepass" (click)="gatepass()" >Gate Pass</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showreportrec" (click)="reportrec()" >Report Received</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showconchange" (click)="doctorchange()">Consultant Change</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-info "  *ngIf = "showbloodtrans"  >Blood Transfusion</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showdueslip" (click)="paymentstatus()">Due Slip</button>
+    <button style="margin-right: 1%;  width: 150px !important;" class="btn btn-primary " *ngIf = "showdischargecert" (click)="discertificate()">Discharge Certificate</button>
 </div>
 <div class="input-group"  >
     <select type="text" style=" font-size:small; margin-left:15px; width:90px ;"  [(ngModel)]=Choice>
@@ -30,8 +30,8 @@
       <option value="Ward">Ward</option>
       <option value="Type">Type</option>
     </select>
-    <input  style="font-size:small; margin-left:5px;" type="search" class="form-control rounded" (keyup)="searchdirect()" [(ngModel)]=search />
-    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" (click)="searchquery()">Search</button>
+    <input  style="font-size:small; margin-left:5px;" type="search" class="form-control rounded"  (keyup)="searchdirect()" [(ngModel)]=search />
+    <button  style="font-size:small; margin-left:5px; " class="btn btn-success" *ngIf = "showsearch" (click)="searchquery()">Search</button>
   </div>
 <div>
     <table  class="table table-bordered table-striped " style="padding-left: 0%;" >
@@ -56,7 +56,7 @@
             <th >RNo</th>
             <th >BN</th>
             <th >Condition</th>
-            <th >Action</th>
+            <th *ngIf = "showipdedit">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -82,7 +82,7 @@
          
           <td><a style="font-size:small; cursor: pointer; color: blue;" (click) ="statuschange(students)" >{{students.cond}}</a></td>
           <div class="btn-group" role="group" >
-          <td > <a><button  class="btn" ><i  class="fa fa-edit" type="button" (click)="edit(students.dcmntNo,students.uhID)"></i> </button></a></td>
+          <td *ngIf = "showipdedit"> <a><button  class="btn" ><i  class="fa fa-edit" type="button"  (click)="edit(students.dcmntNo,students.uhID)"></i> </button></a></td>
           </div>
         </tr>
         </tbody>

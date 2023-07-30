@@ -25,6 +25,24 @@ export class IPDDISCHARGEComponent implements OnInit {
   billamt = 0;
   dueamt=0;
 
+  uname = ''
+  declare permission: JSON
+  declare showbillprint: boolean
+  declare showbilladvance: boolean
+  declare showbillpdetails: boolean
+  declare showpaymentdetails : boolean
+  declare showcertificate: boolean
+  declare showmlc: boolean
+  declare showgatepass: boolean
+  declare showecert: boolean
+  declare showsticker: boolean
+  declare showdischargecard: boolean
+  declare showfullpayment: boolean
+  declare showsearch: boolean
+  declare showduerec: boolean
+  declare showedit: boolean
+
+
   constructor(private _studentservice: StudentsService,
     private router: Router,
     public dialog: MatDialog
@@ -45,6 +63,42 @@ export class IPDDISCHARGEComponent implements OnInit {
          
         }
       });
+
+ //call username 
+ this.uname = this._studentservice.getUsername();
+ if (this.uname == '') {
+   
+   this.router.navigate(['']);
+   
+ }
+//call permission
+this._studentservice.getuserpermission(this.uname)
+.subscribe(data => {
+ this._studentservice.permission = data
+ if (this._studentservice.checkPermission("Menu", "IPD Discharge", "inst") ) {
+
+  this.showbillprint = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Bill Print"]["inst"] == "Y";
+  this.showbilladvance = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Bill Print Advance"]["inst"] == "Y";
+  this.showbillpdetails = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Bill Print Details"]["inst"] == "Y";
+  this.showpaymentdetails = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Payment Details"]["inst"] == "Y";
+  this.showcertificate = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Discharge Certificate"]["inst"] == "Y";
+  this.showmlc = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["MLC"]["inst"] == "Y";
+  this.showgatepass = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["GatePass"]["inst"] == "Y";
+  this.showecert = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Emergency Certificate"]["inst"] == "Y";
+  this.showsticker = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Sticker"]["inst"] == "Y";
+  this.showdischargecard = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Discharge Card"]["inst"] == "Y";
+  this.showfullpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Full Payment"]["inst"] == "Y";
+  this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Search"]["inst"] == "Y";
+  this.showduerec = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["Due Receive"]["inst"] == "Y";
+  this.showedit = JSON.parse(JSON.stringify(this._studentservice.permission))["IPD Discharge"]["IPD Edit"]["inst"] == "Y";
+
+  
+ }
+ else{
+   this.router.navigate(['/homepage/main'])
+ }
+});
+
   }
   bill2() {
     let billno = this.selected.vchrNo;

@@ -26,6 +26,11 @@ export class IPDPaymentdetailsComponent implements OnInit {
   declare time :string;
   declare selected:IPDPAYMENT;
 
+  declare permission: JSON
+  declare showprint: boolean
+  declare showpaymode: boolean
+  declare showdelete: boolean
+
   constructor( private _studentservice:StudentsService,
     private routes : ActivatedRoute,
     private Router :Router, 
@@ -38,29 +43,42 @@ export class IPDPaymentdetailsComponent implements OnInit {
     this.Deposit.uhID = this.OPD.uhID;
     }
   ngOnInit(): void {
-      //call username 
-      this.uname = this._studentservice.getUsername();
-      if(this.uname == '')
-      {
-        this.Router.navigate(['']);
-      }
-     
+    //call username 
+    this.uname = this._studentservice.getUsername();
+    if (this.uname == '') {
+      
+      this.Router.navigate(['']);
+      
+    }
 
-       const routerParams = this.routes.snapshot.params;
-       this._studentservice.getipdpaymentdetails(this.OPD.dcmntNo,this.OPD.uhID)
-       .subscribe((data:IPDPAYMENT[]) => {
-       this.Details= data;
+    const routerParams = this.routes.snapshot.params;
+    this._studentservice.getipdpaymentdetails(this.OPD.dcmntNo,this.OPD.uhID)
+    .subscribe((data:IPDPAYMENT[]) => {
+    this.Details= data;
 
-       for(let i=0;i<this.Details.length;i++){
-        this.totalrecamt +=  parseInt(this.Details[i].advanceReceived.toString());
-        this.totalrefund +=  parseInt(this.Details[i].Refundpayment.toString());
-       }
-       this.totalnetamt = this.totalrecamt - this.totalrefund;
-    });
+    for(let i=0;i<this.Details.length;i++){
+     this.totalrecamt +=  parseInt(this.Details[i].advanceReceived.toString());
+     this.totalrefund +=  parseInt(this.Details[i].Refundpayment.toString());
+    }
+    this.totalnetamt = this.totalrecamt - this.totalrefund;
+ });
 
+      //call permission
+      this._studentservice.getuserpermission(this.uname)
+      .subscribe(data => {
+        this._studentservice.permission = data
+        if (this._studentservice.checkPermission("IPD Admit", "Payment Details", "inst") ) {
 
-     }
-    
+        this.showprint = JSON.parse(JSON.stringify(this._studentservice.permission))["Payment Details"]["Receipt Print"]["inst"] == "Y";
+         this.showpaymode = JSON.parse(JSON.stringify(this._studentservice.permission))["Payment Details"]["Paymode Change"]["inst"] == "Y";
+        this.showdelete = JSON.parse(JSON.stringify(this._studentservice.permission))["Payment Details"]["Receipt Delete"]["inst"] == "Y";
+        }
+        else{
+          this.Router.navigate(['/homepage/main'])
+        }
+      });
+
+    }    
      onClick(): void {
       this.dialogRef.close();
      }

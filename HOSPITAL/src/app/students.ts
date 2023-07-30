@@ -471,7 +471,8 @@ export class testmasterd {
 
 }
 export class testname{
-    "Testcode":string;    
+    "Testcode":string;
+    "testgroup":string;    
     "TestName":string;
     "Price":string;
 }

@@ -14,7 +14,7 @@
             </div>
             <div class="col-2 " hidden="true">
                 <div class="user-box ">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testname.TestName>
                     <label>TestName</label>
                 </div>
             </div>
@@ -23,24 +23,24 @@
 
         <div class="row" style="margin-top: 1vh;">
             <div class="user-box-small">
-                <input type="text" name="" required="">
+                <input type="text" name="" required="" [(ngModel)]=testname.Testcode>
                 <label>Test Code</label>
             </div>
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="" required="" [(ngModel)]=testname.TestName>
                 <label>TestName</label>
             </div>
         </div>
 
         <div class="row" style="margin-top: 1vh;">
             <div class="user-box-small">
-                <input type="text" name="" required="">
+                <input type="text" name="" required="" [(ngModel)]=testname.Price>
                 <label>Test Rate</label>
             </div>
 
             <div class = "col" >
             <div class="user-box">
-                <select [(ngModel)]=groupname >
+                <select [(ngModel)]=testname.testgroup >
                   <option >Select</option>
                   <option *ngFor="let grp of group">
                     {{grp.group_name}}
@@ -51,8 +51,8 @@
 
          </div>
         <div class="row" style="margin-top: 3vh;">
-            <div class="user-box-small">
-                <select>
+            <div class="user-box-small" >
+                <select [(ngModel)]=testmasterm.subgroup>
                     <option value="No">No</option>
                     <option value="Yes">Yes</option>
                 </select>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="user-box">
-                <select >
+                <select [(ngModel)]=testmasterd.Remark>
                     <option value="N">Numeric</option>
                     <option value="W">Word</option>
                     <option value="P">Profile</option>
@@ -72,33 +72,40 @@
         <ng-container>
             <div class="row" style="margin-top: 3vh;">
                 <div class="user-box-small">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.testorder>
                     <label>Sno</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.TestsubName>
                     <label>Sub Test Name</label>
                 </div>
-            </div>
-            <div class="row" style="margin-top: 3vh;">
                 <div class="user-box-small">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.SubUnit>
                     <label>Unit</label>
                 </div>
                 <div class="user-box-small">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.normalvalue>
                     <label>Normal</label>
                 </div>
                 <div class="user-box-small">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.male>
                     <label>Male</label>
                 </div>
                 <div class="user-box-small">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" [(ngModel)]=testmasterd.female>
                     <label>Female</label>
                 </div>
-                <button class="btn btn-primary" style="width:2vw; margin-top: 1vh;">+</button>
-            </div>
+                <div class="user-box-small" >
+                    <select [(ngModel)]=testmasterd.Wordcode >
+                      <option ng-value="NR">NR</option>
+                      <option *ngFor="let test of Wordname "  >
+                        {{test.Wordcode}}
+                      </option>
+                    </select>
+                  </div>
+                <button class="btn btn-primary" style="width:2vw; margin-top: 1vh;" (click)="addItem()">+</button>
+            </div>            
+
         </ng-container>
         <div class="row" style="margin-top:1vw ;">
             <table class="table table-bordered" ng-app="myapp" ng-controlier="Mycontroler">
@@ -117,13 +124,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let i=index;">
-                        <td> {{i + 1}}</td>
-                        <td> {{i + 1}}</td>
-                        <td> {{i + 1}}</td>
-                        <td> {{i + 1}}</td>
-                        <td> {{i + 1}}</td>
-                        <td> {{i + 1}}</td>
+                    <tr *ngFor="let test of list let i=index;">
+                        <td> {{test.testorder}}</td>
+                        <td> {{test.TestsubName}}</td>
+                        <td> {{test.SubUnit}}</td>
+                        <td> {{test.normalvalue}}</td>
+                        <td> {{test.male}}</td>
+                        <td> {{test.female}}</td>
+                        <td></td>
+                        <td>{{test.Wordcode}}</td>
                     </tr>
                 </tbody>
 

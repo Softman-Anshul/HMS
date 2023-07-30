@@ -36,6 +36,9 @@ export class OpdlistComponent implements OnInit {
   declare showpayment: boolean
   declare showdoctor: boolean
   declare showsearch: boolean
+  declare showtest: boolean
+  declare showadmit: boolean
+  declare showmedical: boolean
   totalamt = 0;
   totaldis = 0;
   totalrefund = 0;
@@ -51,6 +54,14 @@ export class OpdlistComponent implements OnInit {
     //call Date
     this.vrdt1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
     this.vrdt2 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0];
+   
+     //call username 
+     this.uname = this._studentservice.getUsername();
+     if (this.uname == '') {
+       
+       this.router.navigate(['']);
+       
+     }
 
     this._studentservice.getopd(this.vrdt1)
       .subscribe((data: OPD[]) => {
@@ -62,49 +73,32 @@ export class OpdlistComponent implements OnInit {
           this.totalrecamt += parseInt(this.OPD[i].srvcTax.toString());
         }
       });
-
-    //call username 
-    this.uname = this._studentservice.getUsername();
-    if (this.uname == '') {
-      this.router.navigate(['']);
-    }
-
-
-    //call permission
-    if (this._studentservice.permission != undefined) {
-      if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst")) {
-        this.router.navigate([''])
-      }
-      this.registration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] == "Y";
-      //  this.editregistration = JSON.parse(JSON.stringify(this.permission))["OPD"]["Registration"]["edt"] == "Y";
-      this.delregistration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["del"] == "Y";
-      this.showrecipts = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Receipts"]["inst"] == "Y";
-      this.showparcha = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Parcha"]["inst"] == "Y";
-      this.showrefund = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Refund"]["inst"] == "Y";
-      this.showpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Paymode Change"]["inst"] == "Y";
-      this.showdoctor = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Doctor Change"]["inst"] == "Y";
-      this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["OPD Search"]["inst"] == "Y";
-
-    } else {
+      //call permission
       this._studentservice.getuserpermission(this.uname)
-        .subscribe(data => {
-          this._studentservice.permission = data
-          if (!this._studentservice.checkPermission("Master", "Consultant Master", "inst") || !this._studentservice.checkPermission("Menu", "Master", "inst")) {
-            this.router.navigate(['/homepage/main'])
-          }
-          this.registration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] == "Y";
-          //  this.editregistration = JSON.parse(JSON.stringify(this.permission))["OPD"]["Registration"]["edt"] == "Y";
-          this.delregistration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["del"] == "Y";
-          this.showrecipts = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Receipts"]["inst"] == "Y";
-          this.showparcha = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Parcha"]["inst"] == "Y";
-          this.showrefund = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Refund"]["inst"] == "Y";
-          this.showpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Paymode Change"]["inst"] == "Y";
-          this.showdoctor = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Doctor Change"]["inst"] == "Y";
-          this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["OPD Search"]["inst"] == "Y";
+      .subscribe(data => {
+        this._studentservice.permission = data
+        if (this._studentservice.checkPermission("Menu", "OPD", "inst") ) {
 
-        });
-    }
+         this.registration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["inst"] == "Y";
+         this.editregistration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["edt"] == "Y";
+        this.delregistration = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Registration"]["del"] == "Y";
 
+        this.showrecipts = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Receipts"]["inst"] == "Y";
+
+        this.showparcha = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Parcha"]["inst"] == "Y";
+        this.showrefund = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Refund"]["inst"] == "Y";
+        this.showpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Paymode Change"]["inst"] == "Y";
+        this.showdoctor = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Doctor Change"]["inst"] == "Y";
+        this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["OPD Search"]["inst"] == "Y";
+
+        this.showtest = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Test Booking"]["inst"] == "Y";
+        this.showadmit = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Admit Patient"]["inst"] == "Y";
+        }
+        else{
+          this.router.navigate(['/homepage/main'])
+        }
+      });
+  
   }
 
   openDialogrefund(): void {
