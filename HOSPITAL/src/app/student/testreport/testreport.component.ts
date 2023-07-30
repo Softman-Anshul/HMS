@@ -25,7 +25,7 @@ export class TestreportComponent implements OnInit {
   declare editor: Editor;
   url = '';
   showQr = false;
-  print=false;
+  print = false;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -152,7 +152,7 @@ export class TestreportComponent implements OnInit {
     });;
   }
 
-  sendReport(){
+  sendReport() {
     this.print = true;
 
     const lables = document.getElementsByClassName("val");
@@ -195,9 +195,10 @@ export class TestreportComponent implements OnInit {
       body.appendChild(element)
       document.body = body;
       this._studentservice.uploadReport(document.documentElement.innerHTML, this.url).subscribe((data: any) => {
-      })
-      this._studentservice.sendWhatsappMessage("9997576627", this.url, this.Students.uhID + "-" + this.Students.PntName).subscribe((data: any) => {
-        window.location.reload()
+        console.log(data);
+        this._studentservice.sendWhatsappMessage("9997576627", this.url, this.Students.uhID + "-" + this.Students.PntName).subscribe((data: any) => {
+          window.location.reload()
+        })
       })
 
     }
