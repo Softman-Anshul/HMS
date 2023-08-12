@@ -18,12 +18,12 @@
 
       </thead>
       <tbody>
-                  <tr *ngFor="let user of userpermission">
+                  <tr *ngFor="let user of userperm">
                     <td>{{user.mainmenu}}</td>
                     <td>{{user.submenu}}</td>
-                    <td><input name="inst" type="checkbox" [(ngModel)]="user.inst" ></td>
-                    <td><input name="edt" type="checkbox" [(ngModel)]="user.edt" ></td>
-                    <td><input name="del" type="checkbox" [(ngModel)]="user.del" ></td>
+                    <td><input name="inst" type="checkbox" [(ngModel)]="user.instcheck" [disabled]="user.inst =='X'"></td>
+                    <td><input name="edt" type="checkbox" [(ngModel)]="user.edtcheck" [disabled]="user.edt =='X'"></td>
+                    <td><input name="del" type="checkbox" [(ngModel)]="user.delcheck" [disabled]="user.del =='X'"></td>
                   </tr>
       </tbody>
     </table>

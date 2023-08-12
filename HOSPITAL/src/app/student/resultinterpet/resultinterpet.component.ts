@@ -32,6 +32,6 @@ export class ResultinterpetComponent implements OnInit {
   }
 
   save(event:any):void{
-    this.testreport.interpet = event
+    this.testreport._interpet = event
   }
 }

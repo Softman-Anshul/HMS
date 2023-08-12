@@ -3,7 +3,7 @@ import { StudentsService } from '../../students.service';
 import {Router, Params, ActivatedRoute, RouterPreloader} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { BackupdatabaseComponent } from '../Control-Backupdatabase/Control-Backupdatabase.component';
-import {login1,userpermission} from '../../students';
+import {login1} from '../../students';
 
 @Component({
   selector: 'app-control',
@@ -59,7 +59,7 @@ this._studentservice.getuserpermission(this.uname)
       this.showprofile = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Profile Change"]["inst"] == "Y";
       this.showsetup = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Control Setup"]["inst"] == "Y";
       this.showpatient = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Patient Information Change"]["inst"] == "Y";
-      this.showbackup = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Backup"]["inst"] == "Y";
+      this.showbackup = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Copy and Delete Permission"]["inst"] == "Y";
       this.showpassword = JSON.parse(JSON.stringify(this._studentservice.permission))["Controls"]["Password Change"]["inst"] == "Y";
     }
     else{
@@ -83,33 +83,31 @@ this._studentservice.getuserpermission(this.uname)
   setup(){
     this.router.navigate(['homepage/setup']);
   }
+  smssetup(){
+    this.router.navigate(['homepage/smssetup']);
+  }
  patientchange(){
     this.router.navigate(['homepage/patientchange']);
   }
-//    this.router.navigate(['homepage/Backup']);
-  backupdatabase(): void {
-    const dialogRef = this.dialog.open(BackupdatabaseComponent, {
-      height:'450px', width: '550px',
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
   passwordchange(pass:any){
-    alert("Thanks")
-    window.location.reload();
-    this.router.navigate(['homepage/control']);
+   alert("Thanks")
     this._studentservice.passwordchange(this.uname,pass)
     .subscribe((data:any) => {
     });
   }
   pchange(pass1:any){
     alert("Thanks")
-    window.location.reload();
-    this.router.navigate(['homepage/control']);
-
     this._studentservice.passwordchange(this.selectedUser,pass1)
     .subscribe((data:any) => {
+    });
+  }
+  copydeleteuser(): void {
+    const dialogRef = this.dialog.open(BackupdatabaseComponent, {
+      height:'450px', width: '550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
     });
   }
 }

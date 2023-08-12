@@ -1,0 +1,228 @@
+<div class="row">
+  <div [formGroup]="loginForm">
+    <label style="font-size:medium; margin-left:50%;">Password</label>
+    <input style="font-size:small; margin-left:1%; width:50px ;" type="password" formControlName="password">
+    <button style="font-size:small; margin-left:1%;" class="btn btn-success"
+      (click)="tooletageedit(this.loginForm.get('password')?.value)">Show</button>
+  </div>
+</div>
+<!-- *ngIf="showMesave" -->
+<div class="row">
+  <div class="col-4">
+    <h3 style="font-weight: bold;">SMS Panel</h3>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: bold;">Whatsapp Panel</h3>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-3">
+    <span>OPD SMS (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.popd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>OPD Whatsapp (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.popd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>OPD SMS (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dopd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>OPD Whatsapp (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dopd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>OPD SMS (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ropd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>OPD Whatsapp (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ropd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row" style="margin-top: 2vh;">
+  <div class="col-3">
+    <span>IPD SMS (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.pipd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>IPD Whatsapp (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.pipd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>IPD SMS (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dipd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+  <div class="col-3">
+    <span>IPD Whatsapp (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dipd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>IPD SMS (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ripd_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>IPD Whatsapp (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ripd_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+
+<div class="row" style="margin-top: 2vh;">
+  <div class="col-3">
+    <span>Test SMS (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ptest_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>Test Whatsapp (Patient)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.ptest_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>Test SMS (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dtest_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>Test Whatsapp (Doctor)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.dtest_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+
+</div>
+
+<div class="row" style="margin-top: 1vh;">
+  <div class="col-3">
+    <span>Test SMS (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.rtest_sms>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <span>Test Whatsapp (Referral)</span>
+  </div>
+  <div class="col-1">
+    <select style="width:60px ;" [(ngModel)]=SMS1.rtest_wapp>
+      <option value="N">N</option>
+      <option value="Y">Y</option>
+    </select>
+  </div>
+
+</div>
+
+<button style="font-size:small; width: 8%; margin-left:60%; margin-top: 4vh;" class="btn btn-success"
+  (click)="submit()">Save</button>

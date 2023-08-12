@@ -115,6 +115,15 @@ import { IpdReportDaycollectionComponent } from './ipd-report-daycollection/ipd-
 import { IpdReportDailycollectionComponent } from './ipd-report-dailycollection/ipd-report-dailycollection.component';
 import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-report-admitregister.component';
 import { MobileHomepageComponent } from './mobile-homepage/mobile-homepage.component';
+import { IpdPackageinformationComponent } from './ipd-packageinformation/ipd-packageinformation.component';
+import { IpdBloodconsentComponent } from './ipd-bloodconsent/ipd-bloodconsent.component';
+import { MisDailyAcitiySummaryallheadComponent } from './mis-daily-acitiy-summaryallhead/mis-daily-acitiy-summaryallhead.component';
+import { MisDailyAcitiyDetailsConsultantComponent } from './mis-daily-acitiy-details-consultant/mis-daily-acitiy-details-consultant.component';
+import { MisDailyAcitiySummaryConsultantComponent } from './mis-daily-acitiy-summary-consultant/mis-daily-acitiy-summary-consultant.component';
+import { MisDailyAcitiyHeadsummaryConsultantComponent } from './mis-daily-acitiy-headsummary-consultant/mis-daily-acitiy-headsummary-consultant.component';
+import { ControlSetupSmswhatsappComponent } from './control-setup-smswhatsapp/control-setup-smswhatsapp.component';
+import { ControlPayrollComponent } from './Menu-payroll/Menu-payroll.component';
+import { PayrollEmpmasterComponent } from './payroll-empmaster/payroll-empmaster.component';
 
 const routes: Routes = [
 
@@ -211,6 +220,7 @@ const routes: Routes = [
             { path: 'roomshifting', component: IPDRoomshiftingComponent },
             { path: 'ipdpaymentmode/:id/:dt/:yrs', component: IPDPaymentmodechangeComponent },
             { path: 'ipd-reportmaster', component: IpdReportMasterComponent },
+
             //ipd reports
             { path: 'ipddatecollection/:vrdt1/:vrdt2', component: IpdReportDaycollectionComponent },
             { path: 'ipddaycollection/:vrdt1/:vrdt2', component: IpdReportDailycollectionComponent },
@@ -226,6 +236,11 @@ const routes: Routes = [
 
             { path: 'Pathology', component: PatholgoyreportComponent },
 
+            //payroll
+            { path: 'payroll', component:ControlPayrollComponent },
+            { path: 'Employeemaster', component:PayrollEmpmasterComponent },
+
+
             { path: 'ipddischarge', component: IPDDISCHARGEComponent },
 
             { path: 'control', component: ControlComponent },
@@ -236,6 +251,7 @@ const routes: Routes = [
             { path: 'patientchange', component: PatientinformationchangeComponent },
             { path: 'Backup', component: BackupdatabaseComponent },
             { path: 'setup', component: ControlSetupComponent },
+            { path: 'smssetup', component:ControlSetupSmswhatsappComponent },
 
             { path: 'mis-master', component: MisMasterComponent },
             { path: 'Account', component: MenuAccountComponent },
@@ -259,12 +275,19 @@ const routes: Routes = [
             { path: 'dailyacitivy-Heads/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsComponent },
             { path: 'dailyacitivy-Headsday/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsumdayComponent },
             { path: 'dailyacitivy-Headssummonth/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadmonthComponent },
+            { path: 'dailyacitivy-monthsummaryallheads/:vrdt1/:vrdt2', component:MisDailyAcitiySummaryallheadComponent },
+
+            { path: 'dailyacitivy-details-consultant/:vrdt1/:vrdt2/:doc1', component:MisDailyAcitiyDetailsConsultantComponent },
+            { path: 'dailyacitivy-HeadSummary-consultant/:vrdt1/:vrdt2/:doc1', component:MisDailyAcitiyHeadsummaryConsultantComponent },
+            { path: 'dailyacitivy-Summary-consultant/:vrdt1/:vrdt2/:doc1', component:MisDailyAcitiySummaryConsultantComponent },
+
             { path: 'opdreceipt/:id/:opdDate', component: OpdreciptsComponent },
             { path: 'opdparcha/:id/:opdDate', component: OpdparchaComponent },
             //COMPLETE FILES
             { path: 'admitticket/:dcmntNo/:dt', component: FILEAdmittricketComponent },
             { path: 'genconsent/:dcmntNo/:dt', component: FILEGenConsentFormComponent },
-
+            { path: 'package/:dcmntNo/:dt', component:IpdPackageinformationComponent },
+            { path: 'bloodconsent/:dcmntNo/:dt', component:IpdBloodconsentComponent },
 
 
             { path: 'dischargereport/:ipdno/:uhid/:dt/:category/:roomNo/:Bedno', component: IpdDischargecardReportComponent },

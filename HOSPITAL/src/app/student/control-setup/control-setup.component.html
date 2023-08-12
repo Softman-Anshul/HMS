@@ -1,14 +1,28 @@
-<h2 >Control Setup General</h2>
-<div class="page-content">
-        <div class="row">
-                <div class ="col-sm-4">
-                                <span >Top City</span>
-                                <select style="width:230px ;" class="form-control" [(ngModel)]=search>
-                                    <option *ngFor="let city of Cityname">
-                                      {{city.citynam}}
-                                    </option> 
-                                  </select>
-                                <button style="font-size: small; width:55px ; " (click)="submit()" type="submit" class="btn btn-primary" >OK</button>
-                </div>
-        </div>
-</div>
+<form class="form">
+  <div class="row">
+    <div [formGroup]="loginForm">
+      <a class="navbar-brand">Contol Setting</a>
+
+      <label style="font-size:medium; margin-left:50%;">Password</label>
+      <input style="font-size:small; margin-left:1%; width:50px ;" type="password" formControlName="password">
+      <button style="font-size:small; margin-left:1%;" class="btn btn-success"
+        (click)="tooletageedit(this.loginForm.get('password')?.value)">Show</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="showMesave">
+    <div class="col">
+      <span>Top City</span>
+      <select style="width:230px ;" class="form-control" [(ngModel)]=search>
+        <option *ngFor="let city of Cityname">
+          {{city.citynam}}
+        </option>
+      </select>
+      <button style="font-size: small; width:55px ; " (click)="submit()" type="submit"
+        class="btn btn-primary">OK</button>
+    </div>
+
+  </div>
+
+
+</form>

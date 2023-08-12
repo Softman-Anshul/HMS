@@ -1,0 +1,66 @@
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="opdlist()">Close</button>
+</div>
+
+<div id="print" style="background-color: white;">
+    
+    <app-report-PageHeading></app-report-PageHeading>
+
+    <h4 style="margin-left: 20px; font-weight: bold; margin-top: 4vh;">Summary for All Heads from {{fromdt | date :'dd/MM/yyyy'}}
+        To {{todt | date :'dd/MM/yyyy'}}
+        <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
+    </h4>
+
+    <table class="table" >
+        <thead>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Heads</th>
+           
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Apr</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">May</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Jun</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">jul</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Aug</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Sep</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Oct</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Nov</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Dec</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Jan</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Feb</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Mar</th>
+    </thead>
+            <tbody>
+                    <tr *ngFor="let list of Students">
+                      <td>{{list.paymode}}</td>
+                     
+                      <td style="text-align: right">{{list.balamt}}</td>
+                      <td style="text-align: right">{{list.recamt}}</td>
+                      <td style="text-align: right">{{list.billamt}}</td>
+                      <td style="text-align: right">{{list.disp}}</td>
+                      <td style="text-align: right">{{list.typeno}}</td>
+                      <td style="text-align: right">{{list.pntage}}</td>
+                      <td style="text-align: right">{{list.ipdno}}</td>
+                      <td style="text-align: right">{{list.Sno}}</td>
+                      <td style="text-align: right">{{list.vchrNo}}</td>
+                      <td style="text-align: right">{{list.grandTotal}}</td>
+                      <td style="text-align: right">{{list.discountAmt}}</td>
+                      <td style="text-align: right">{{list.refund}}</td>
+                    </tr>
+                  </tbody>
+        <td style="text-align: right ; font-weight: bold; ">TOTAL</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totalapr}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totalmay}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totaljun}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totaljul}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totalaug}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totalsep}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totaloct}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totalnov}}</td>
+        <td style="text-align:right ;  font-weight: bold;">{{totaldec}}</td>
+        <td style="text-align: right ;  font-weight: bold;">{{totaljan}}</td>
+        <td style="text-align: right ;  font-weight: bold;">{{totalfeb}}</td>
+        <td style="text-align: right ;  font-weight: bold;">{{totalmar}}</td>
+ 
+    </table>
+
+</div>

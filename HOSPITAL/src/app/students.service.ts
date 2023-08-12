@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, Ward } from './students';
+import { allheadsummary, billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, Ward } from './students';
 import { Students } from './students';
 import { consulant } from './students';
 import { department } from './students';
@@ -19,6 +19,7 @@ import { roomshift } from './students';
 import { disheading } from './students';
 import { ToWords } from 'to-words';
 import { discardtemp } from './students';
+import { SMS } from './students';
 
 
 
@@ -32,8 +33,8 @@ export class StudentsService {
   constructor(private http: HttpClient) { }
 
   //for login   
-  // cdn = "http://krishna.softmansystem.com"
-  cdn = "http://silversoft.softmansystem.com"
+  //  cdn = "http://krishna.softmansystem.com"
+     cdn = "http://silversoft.softmansystem.com"
 
 
 
@@ -139,6 +140,29 @@ export class StudentsService {
   ipd_insert(OPD1: any) {
     return this.http.post(this.cdn + '/Hospital/pntinfo_ipd_insert.php', OPD1, { responseType: 'text' });
   }
+  copyuser(choice:any,choice1:any,choice2: any) {
+    return this.http.get<OPD>(this.cdn + '/Hospital/User_copydelete.php?choice=' + choice + '&choice1=' + choice1 + '&choice2=' + choice2);
+  }
+  //SMS CONTROL
+  sms_list() {
+    return this.http.get<SMS[]>(this.cdn + '/Hospital/Control_smssetting.php');
+  }
+  sms_save(SMS1:any) {
+    return this.http.post(this.cdn + '/Hospital/SMS_update.php', SMS1, { responseType: 'text' });
+  }
+  //After Discharge
+  ipd_payment_afterdischarge(Details: any,OPD:any) {
+    return this.http.post(this.cdn + '/Hospital/ipd_payment_after_discharge.php', {"Details":Details,"OPD":OPD}, { responseType: 'text' });
+  }
+  ipd_bill_afterdischarge(heads: any) {
+    return this.http.post(this.cdn + '/Hospital/ipd_bill_afterdischarge.php', heads, { responseType: 'text' });
+  }
+  ipd_billdetails_afterdischarge(heads: any,OPD:any) {
+    return this.http.post(this.cdn + '/Hospital/ipd_billdetails_afterdischarge.php', {"Details":heads,"OPD":OPD}, { responseType: 'text' });
+  }
+
+
+
   ipd_update(OPD1: any) {
     return this.http.post(this.cdn + '/Hospital/pntinfo_ipd_update.php', OPD1, { responseType: 'text' });
   }
@@ -491,11 +515,20 @@ export class StudentsService {
   misdailyacticity(vrdt1: string, vrdt2: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-details.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
   }
+  misdailyacticity_conssultant(vrdt1: string, vrdt2: string,doctor:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-details_consultant.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doctor=' + doctor);
+  }
   mispaymodeacticity(vrdt1: string, vrdt2: string, doc1: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-paymode.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
   }
   missummaryacticity(vrdt1: string, vrdt2: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-summary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  }
+  missummaryallheadacticity(vrdt1: string, vrdt2: string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  }
+  misconsultant_allheads(vrdt1: string, vrdt2: string) {
+    return this.http.get<allheadsummary[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary_consultant.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
   }
   misheadsacticity(vrdt1: string, vrdt2: string, doc1: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Heads.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
@@ -507,7 +540,6 @@ export class StudentsService {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Headsmonthly.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
   }
   //  OPD reporting
-
   gettableopddaycollection(vrdt1: string, vrdt2: string) {
     return this.http.get<OPD[]>(this.cdn + '/Hospital/Report_opd_daycollection.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
   }
@@ -557,6 +589,7 @@ export class StudentsService {
   //  Test reporting
   gettabledaycollection(vrdt1: string, vrdt2: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_daycollection.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+    
   }
   gettabledaysummary(vrdt1: string, vrdt2: string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_daysummary.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
@@ -708,11 +741,69 @@ export class StudentsService {
     }
     return this.http.post("https://graph.facebook.com/v17.0/111695448676861/messages", req,{headers: headers});
   }
-
   getuploadPath() {
     return this.http.get(this.cdn + '/Hospital/qrcodelink.php')
   }
-
+//OPD
+  send_popdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dopdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_ropdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  //whatsapp
+  send_popdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dopdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_ropdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  //IPD
+  send_pipdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dipdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_ripdSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  //whatsapp
+  send_pipdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dipdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_ripdwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  //TEST
+  send_ptestSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dtestSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_rtestSms(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  //whatsapp
+  send_ptestwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_dtestwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
+  send_rtestwapp(mobile:any) {
+    return this.http.get('http://146.88.24.53/api/mt/SendSMS?user=DR.ANSH&password=ABC@789&senderid=ANSHAG&channel=Trans&DCS=8&flashsms=0&number=' + mobile + '&route=06&peid=1501628890000035363&DLTTemplateId=1507164197989624773&text=डॉ॰अंशु अग्रवाल क्लिनिक में परामर्श कल के लिए है।कॉल करे 7055243005')
+  }
 
   getUsername() {
     var cookies = document.cookie.split(";");

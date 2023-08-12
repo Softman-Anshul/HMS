@@ -7,7 +7,6 @@ import { LeftsidebarComponent } from './leftsidebar/leftsidebar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {StudentRoutingModule} from './student-routing.module'
 import { ReactiveFormsModule } from '@angular/forms';
-import { NewBookingComponent } from './Test-Booking/Test-Booking.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { RefundComponent } from './TEST-Refund/TEST-Refund.component';
 import { TestdepartmentComponent } from './Master-Department/Master-Department.component';
@@ -96,7 +95,12 @@ import { IpdReportDailycollectionComponent } from './ipd-report-dailycollection/
 import { IpdReportAdmitregisterComponent } from './ipd-report-admitregister/ipd-report-admitregister.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { QrcodeComponent } from './qrcode/qrcode.component';
-
+import { IpdPackageinformationComponent } from './ipd-packageinformation/ipd-packageinformation.component';
+import { IpdBloodconsentComponent } from './ipd-bloodconsent/ipd-bloodconsent.component';
+import { MisDailyAcitiySummaryallheadComponent } from './mis-daily-acitiy-summaryallhead/mis-daily-acitiy-summaryallhead.component';
+import { MisDailyAcitiyDetailsConsultantComponent } from './mis-daily-acitiy-details-consultant/mis-daily-acitiy-details-consultant.component';
+import { MisDailyAcitiySummaryConsultantComponent } from './mis-daily-acitiy-summary-consultant/mis-daily-acitiy-summary-consultant.component';
+import { MisDailyAcitiyHeadsummaryConsultantComponent } from './mis-daily-acitiy-headsummary-consultant/mis-daily-acitiy-headsummary-consultant.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +109,6 @@ import { QrcodeComponent } from './qrcode/qrcode.component';
     ListStudentComponent,
     LeftsidebarComponent,
     HomepageComponent,
-    NewBookingComponent,
     RefundComponent,
     TestdepartmentComponent,
     TestgroupComponent,
@@ -139,6 +142,12 @@ import { QrcodeComponent } from './qrcode/qrcode.component';
     MisDailyAcitiySummaryComponent,
     MisDailyAcitiyHeadsumdayComponent,
     MisDailyAcitiyHeadmonthComponent,
+    MisDailyAcitiySummaryallheadComponent,
+    
+    MisDailyAcitiyDetailsConsultantComponent,
+    MisDailyAcitiySummaryConsultantComponent,
+    MisDailyAcitiyHeadsummaryConsultantComponent,
+    
     ReportCitycollectionComponent,
     ReportCitysummaryComponent,
     ReportPatientwiseComponent,
@@ -184,7 +193,10 @@ import { QrcodeComponent } from './qrcode/qrcode.component';
     IpdReportDaycollectionComponent,
     IpdReportDailycollectionComponent,
     IpdReportAdmitregisterComponent,
-    QrcodeComponent
+    QrcodeComponent,
+    IpdBloodconsentComponent,
+    IpdPackageinformationComponent,
+   
 
   ],
   imports: [

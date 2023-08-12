@@ -16,7 +16,9 @@ export class ReciptsComponent implements OnInit {
   add="";
   city="";
   phone="";
-  profle="";
+  profle = "";
+  email = "";
+  website= "";
 
 
   constructor( private _studentservice:StudentsService,
@@ -32,7 +34,6 @@ export class ReciptsComponent implements OnInit {
     this._studentservice.gettablebyid(routerParams['id'])
     .subscribe((data:any) => {
       this.Students = data[0];
-
       
     this._studentservice.getTestdetails(this.Students.vchrNo,this.Students.vchrDate)
     .subscribe((data:any) => {
@@ -48,6 +49,8 @@ export class ReciptsComponent implements OnInit {
   this.add = data[0].Comp_add;
   this.city = data[0].Comp_city;
   this.phone = data[0].Comp_Phon;
+  this.email = data[0].email;
+  this.website = data[0].website;
   this.profle = data[0].profle;
 
   });

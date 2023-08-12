@@ -58,12 +58,14 @@ export class IpdEditAfterdischComponent implements OnInit {
     this._studentservice.getCompany()
       .subscribe((data: any) => {
         this.OPD1.Years = data[0].years;
-       });
+        this.heads.Years = this.OPD1.Years;
+      });
 
     this.OPD1.payment = "Y";
     this.OPD1.dctrPrscrptn = "NA";
     this.OPD1.nature = "IPD";
     this.OPD1.dcmntType = "IPD";
+
 
 
     //paymentmode
@@ -105,9 +107,8 @@ export class IpdEditAfterdischComponent implements OnInit {
       });
 
 
-    this._studentservice.getipdreg(this.OPD1.dcmntNo, this.OPD1.opdDate)
+    this._studentservice.getipdreg1(this.OPD1.dcmntNo, this.OPD1.opdDate)
       .subscribe((data: any) => {
-        console.log(data)
         this.OPD1 = data[0]
         this.OPD1.dcmntType = "IPD";
         //call Consultant
@@ -116,19 +117,19 @@ export class IpdEditAfterdischComponent implements OnInit {
             this.consulant = data;
           });
 
-          this._studentservice.getipdbilldetailsdischarge(this.vchrNo, this.OPD1.Years)
+        this._studentservice.getipdbilldetailsdischarge(this.vchrNo, this.OPD1.Years)
           .subscribe((data: any) => {
             this.heads.tests = data;
-              this.heads.tests = data;
-              this.heads.vchrNo = data[0].vchrNo;
+            this.heads.tests = data;
+            this.heads.vchrNo = data[0].vchrNo;
 
-              for (let i = 0; i < this.heads.tests.length; i++) {
-                this.heads.grandTotal += parseInt(this.heads.tests[i].totalAmt.toString());
-              }
+            for (let i = 0; i < this.heads.tests.length; i++) {
+              this.heads.grandTotal += parseInt(this.heads.tests[i].totalAmt.toString());
+            }
 
-              if (this.heads.tests.length > 0) {
-                this.allowedSave = true;
-              }
+            if (this.heads.tests.length > 0) {
+              this.allowedSave = true;
+            }
 
             //call roomhistory
             this._studentservice.getshifttable(this.OPD1.dcmntNo, this.OPD1.uhID)
@@ -243,6 +244,7 @@ export class IpdEditAfterdischComponent implements OnInit {
   }
 
   public addItem(): void {
+
     this.heads.tests.push(this.details)
     if (this.heads.tests.length > 0) {
       this.allowedSave = true;
@@ -298,7 +300,7 @@ export class IpdEditAfterdischComponent implements OnInit {
     this.heads1.paydue = this.billamt - this.totalnetamt;
   }
 
-  updateBill(){
+  updateBill() {
     this.totalrecamt = 0;
     this.totalrefund = 0;
     for (let i = 0; i < this.Details.length; i++) {
@@ -309,26 +311,45 @@ export class IpdEditAfterdischComponent implements OnInit {
     this.updatePayment();
   }
 
-  addFoc(){
-    if(this.totalrecamt <= 0){
+  addFoc() {
+    if (this.totalrecamt <= 0) {
       alert("FOC not allowed")
     }
     this.heads1.foc = this.heads1.paydue
     this.heads1.paydue = 0
   }
 
-  addSet(){
+  addSet() {
     this.heads1.set = this.heads1.paydue
     this.heads1.paydue = 0
   }
 
-  updateAll(){
-    console.log(this.OPD1)
+  updateAll() {
+    this.OPD1.corrtime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
+    const routerParams = this.routes.snapshot.params;
+    this._studentservice.ipd_update(this.OPD1)
+      .subscribe(data => {
+        this._studentservice.ipd_payment_afterdischarge(this.Details, this.OPD1)
+          .subscribe(data => {
+            this._studentservice.ipd_bill_afterdischarge(this.heads1)
+              .subscribe(data => {
+
+                this._studentservice.ipd_billdetails_afterdischarge(this.heads, this.OPD1)
+                  .subscribe(data => {
+
+                  });
+              });
+          });
+      });
+    alert("Thanks")
+    // });
+
+    // console.log(this.OPD1)
     console.log(this.Ward1)
-    console.log(this.heads)
-    console.log(this.heads1)
-    console.log(this.billamt)
-    console.log(this.Details)
-    
+    // console.log(this.heads)
+    // console.log(this.heads1.tests)
+    // console.log(this.billamt)
+    //   console.log(this.Details)
+
   }
 }

@@ -156,7 +156,7 @@ this._studentservice.getuserpermission(this.uname)
   }
   paymentdetails() {
     const dialogRef = this.dialog.open(IPDPaymentdetailsComponent, {
-      height: '650px', width: '650px',
+      height: '650px', width: '850px',
       data: { OPD: this.selected },
     });
 
@@ -169,11 +169,12 @@ this._studentservice.getuserpermission(this.uname)
     }
     else {
       const dialogRef = this.dialog.open(IpdDueListComponent, {
-        height: '500px', width: '650px',
+        height: '500px', width: '750px',
         data: { OPD: students },
       });
 
       dialogRef.afterClosed().subscribe(result => {
+        window.location.reload();
       });
     }
   }

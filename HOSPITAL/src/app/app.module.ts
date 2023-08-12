@@ -72,6 +72,12 @@ import { ENVIRONMENT_INITIALIZER, importProvidersFrom, inject } from '@angular/c
 import { DialogService } from './dialog.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { QRCodeModule } from 'angularx-qrcode';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoaderComponent } from './student/loader/loader.component';
+import { NewBookingComponent } from './student/Test-Booking/Test-Booking.component';
+import { ControlSetupSmswhatsappComponent } from './student/control-setup-smswhatsapp/control-setup-smswhatsapp.component';
+import { ControlPayrollComponent } from './student/Menu-payroll/Menu-payroll.component';
+import { PayrollEmpmasterComponent } from './student/payroll-empmaster/payroll-empmaster.component';
 
 export function initializeDialogService() {
   return () => {
@@ -141,7 +147,12 @@ export function initializeDialogService() {
     IPDDisccertificateComponent,
     PatholgoyreportComponent,
     IpdBillingToolTipComponent,
-
+    LoaderComponent,
+    NewBookingComponent,
+    ControlSetupSmswhatsappComponent,
+    ControlPayrollComponent,
+    PayrollEmpmasterComponent,
+    
     ],
   imports: [
     BrowserModule,
@@ -152,7 +163,8 @@ export function initializeDialogService() {
    BrowserAnimationsModule,
    FormsModule,
    NgChartsModule,
-   QRCodeModule
+   QRCodeModule,
+   MatProgressSpinnerModule
     ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},{
     provide: ENVIRONMENT_INITIALIZER,

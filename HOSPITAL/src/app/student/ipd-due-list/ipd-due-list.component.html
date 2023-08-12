@@ -1,4 +1,4 @@
-<h2>IPD Due Payment Received</h2>
+<h2 style="margin-top: 2vh; margin-left: 20%;">IPD Due Payment Received</h2>
 <div class="row" >
     <div class = "col">
             <input style="font-size:small; color: white; background-color: darkslategrey;  margin-left:15px; width:50px ; height: 40px; " disabled="true" [(ngModel)]=OPD.pntn type="pntn"  >
@@ -26,10 +26,10 @@
         </div>
 
        
-        <div class="row">
+        <div style="margin-left: 30%;" class="row">
             <div>
                 <label style="font-size:medium; " type="dcmntno"  >Due Amt</label>
-                <input style="font-size:small; margin-left:30px; width:110px ; " disabled="true" [(ngModel)]=OPD.paydue  >
+                <input style="font-size:small; margin-left:30px; width:110px ; " disabled="true" [(ngModel)]=OPD._dueamt  >
             </div>
 
                     <div>
@@ -61,5 +61,7 @@
 
 </div>
 <br>
-<button  class="btn btn-success" (click)="onsave()">SAVE</button>
+<button  style="margin-left: 40%;" class="btn btn-success" (click)="onsave()">SAVE</button>
 <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
+
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

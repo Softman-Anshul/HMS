@@ -38,6 +38,7 @@ export class IPDRegComponent implements OnInit {
   ptype = "General"
   type = "OPD";
   isOpd = true;
+  resourcesLoaded=true;
 
   constructor(private _studentservice: StudentsService,
     private router: Router,
@@ -75,7 +76,6 @@ export class IPDRegComponent implements OnInit {
       });
     this.OPD1.payment = "Y";
     this.OPD1.dctrPrscrptn = "NA";
-    this.OPD1.nature = "IPD";
     this.OPD1.dcmntType = "IPD";
 
     //paymentmode
@@ -117,6 +117,8 @@ export class IPDRegComponent implements OnInit {
           this.Ward1.ipdno = this.OPD1.dcmntNo;
           this.Deposit.ipdNo = this.OPD1.dcmntNo;
         });
+        this.OPD1.nature = "IPD";
+  
       this.Deposit.reason = "Payment";
       //call Recno for payment
       this._studentservice.paymentrecno()
@@ -140,12 +142,14 @@ export class IPDRegComponent implements OnInit {
       this.Deposit.rectime = this.OPD1.opdTime;
     }
     else {
+      //FROM OPD
       if (this.dcmntType == undefined) {
         this._studentservice.getipdreg(this.dcmntNo, this.opdDate)
           .subscribe((data: any) => {
             this.OPD1 = data[0]
             this.OPD1.dcmntType = "IPD";
-
+            this.OPD1.srvcTax = 0;
+            this.OPD1.amt = 0;
             this.Deposit.reason = "Payment";
             this.Ward1.uhid = this.OPD1.uhID;
             this.Deposit.uhID = this.OPD1.uhID;
@@ -292,6 +296,7 @@ export class IPDRegComponent implements OnInit {
 
   
   onSubmit() {
+    this.resourcesLoaded = false;
     if (this.validation()) {
       const routerParams = this.routes.snapshot.params;
       this._studentservice.ipd_insert(this.OPD1)
@@ -301,7 +306,40 @@ export class IPDRegComponent implements OnInit {
 
               this._studentservice.ipd_payment(this.Deposit)
                 .subscribe(data => {
+                  this.resourcesLoaded = true;
                   if (this.Deposit.advanceReceived == 0) {
+                    this._studentservice.sms_list()
+                    .subscribe(data => {
+                      //sms  
+                      if(data[0].pipd_sms == "Y")
+                      {
+                        this._studentservice.send_pipdSms(this.OPD1.pntMobile).subscribe();
+                      }
+                      else if(data[0].dipd_sms == "Y")
+                      {
+                        this._studentservice.send_dipdSms(this.OPD1.pntMobile).subscribe();
+                      }
+                      else if(data[0].ripd_sms == "Y")
+                      {
+                        this._studentservice.send_ripdSms(this.OPD1.pntMobile).subscribe();
+                      }
+                      //whatsapp
+                      if(data[0].pipd_wapp == "Y")
+                      {
+                        this._studentservice.send_pipdwapp(this.OPD1.pntMobile).subscribe();
+                      }
+                      else if(data[0].dipd_wapp == "Y")
+                      {
+                        this._studentservice.send_dipdwapp(this.OPD1.pntMobile).subscribe();
+                      }
+                      else if(data[0].ripd_wapp == "Y")
+                      {
+                        this._studentservice.send_ripdwapp(this.OPD1.pntMobile).subscribe();
+                      }
+            
+                    })
+
+
                     alert("Thanks....Admit Patient")
                     window.location.reload();
                   }
@@ -315,6 +353,8 @@ export class IPDRegComponent implements OnInit {
                 });
             });
         });
+    } else {
+      this.resourcesLoaded = true;
     }
   }
   validation(): boolean {

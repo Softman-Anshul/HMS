@@ -99,5 +99,12 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
       window.location.reload()
     }
   }
+  
+  opdlist(){
+    this.Router.navigate(['homepage/mis-master/']);
+  }
 
+}
+function forEach(headingMap: Map<string, boolean>) {
+  throw new Error('Function not implemented.');
 }

@@ -149,8 +149,7 @@
 
       <div class="user-box">
         <select (change)="selectdepartment()" [(ngModel)]=Students.department onchange=" this.dataset.chosen = this.value; ">
-          <option value="" disabled selected>Select</option>
-          <option *ngFor="let students of department">
+          <option *ngFor="let students of department" [selected]="students.isSelected == true">
             {{students.caseType}}
           </option>
         </select>
@@ -159,7 +158,6 @@
       
       <div style="margin-left: 1vw;" class="user-box-big"  >
         <select [(ngModel)]=Students.condoctor onchange=" this.dataset.chosen = this.value; " >
-          <option value="" disabled selected>Select</option>
           <option *ngFor="let students of consulant">
             {{students.dctName}}
           </option> 
@@ -305,3 +303,4 @@
     </div>
   </div>
 </div>
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

@@ -33,6 +33,7 @@ export class IPDBillingComponent implements OnInit {
   declare alltestmaster: testmaster[];
   dueAmount = 0;
   allowedSave = false;
+  resourcesLoaded = true;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -117,7 +118,6 @@ export class IPDBillingComponent implements OnInit {
                 this.dueAmount = 0;
               } else {
                 this.dueAmount = 0;
-                console.log(data1);
                 for (let i = 0; i < data1.length; i++) {
                   this.dueAmount += parseInt(data1[i].balamt.toString());
                 }
@@ -214,6 +214,7 @@ export class IPDBillingComponent implements OnInit {
   }
 
   onsave() {
+    this.resourcesLoaded = false;
     const routerParams = this.routes.snapshot.params;
     this._studentservice.createbilling(this.heads)
       .subscribe(data => {
@@ -224,6 +225,7 @@ export class IPDBillingComponent implements OnInit {
             defaultConfirmData.message = "Do you want to print Estimate Bill?"
             this.confirm()
           });
+          
       });
   }
 

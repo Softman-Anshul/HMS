@@ -32,6 +32,6 @@ export class ResultcommentComponent implements OnInit {
   }
 
   save(event:any):void{
-    this.testreport.comments = event
+    this.testreport._comments = event
   }
 }

@@ -39,6 +39,7 @@ export class NewBookingComponent implements OnInit {
   declare search: string;
   declare testtype: string[];
   isTypeSelected = false;
+  resourcesLoaded = true;
 
   constructor
     (private _studentservice: StudentsService,
@@ -80,11 +81,6 @@ export class NewBookingComponent implements OnInit {
         this.group = data;
       });
 
-    //call Department
-    this._studentservice.gettabledepart()
-      .subscribe((data: department[]) => {
-        this.department = data;
-      });
 
     //call labname
     this._studentservice.gettablelabname()
@@ -109,6 +105,12 @@ export class NewBookingComponent implements OnInit {
       });
 
     if (routerParams["id"] == undefined) {
+      //call Department
+      this._studentservice.gettabledepart()
+        .subscribe((data: department[]) => {
+          this.department = data;
+        });
+
       this.Students.uname = this.uname;
       this.test.uname = this.uname;
       //direct patient 
@@ -173,6 +175,20 @@ export class NewBookingComponent implements OnInit {
           this.Students.department = data[0].caseType;
           this.Students.condoctor = data[0].dctrVisited;
           this.Students.condition = data[0].cond;
+
+          //call Department
+          this._studentservice.gettabledepart()
+            .subscribe((depdata: department[]) => {
+              this.department = depdata;
+              this.department.forEach(element => {
+                if(element.caseType == data[0].caseType){
+                  element.isSelected = true;
+                }
+              });
+              this.selectdepartment(data[0].dctrVisited);
+            });
+
+
         })
     }
     else if (routerParams["ty"] == "IPD") {
@@ -195,6 +211,7 @@ export class NewBookingComponent implements OnInit {
 
       this._studentservice.Testgetopdreg(routerParams["id"], routerParams["dt"])
         .subscribe((data: any) => {
+          console.log(data)
           this.Students.uhID = data[0].uhID;
           this.Students.dcmntNo = routerParams["id"];
           this.Students.pntn = data[0].pntn;
@@ -208,9 +225,21 @@ export class NewBookingComponent implements OnInit {
           this.Students.pntmobile = data[0].pntMobile;
           this.Students.email = data[0].email;
           this.Students.pntcity = data[0].pntCity;
-          this.Students.condoctor = data[0].dctrVisited;
           this.Students.department = data[0].caseType;
+          this.Students.condoctor = data[0].dctrVisited;
           this.Students.condition = data[0].cond;
+
+          //call Department
+          this._studentservice.gettabledepart()
+            .subscribe((depdata: department[]) => {
+              this.department = depdata;
+              this.department.forEach(element => {
+                if(element.caseType == data[0].caseType){
+                  element.isSelected = true;
+                }
+              });
+              this.selectdepartment(data[0].dctrVisited);
+            });
 
 
         })
@@ -225,6 +254,17 @@ export class NewBookingComponent implements OnInit {
               this.Students.tests = data
             })
 
+            //call Department
+          this._studentservice.gettabledepart()
+          .subscribe((depdata: department[]) => {
+            this.department = depdata;
+            this.department.forEach(element => {
+              if(element.caseType == data[0].caseType){
+                element.isSelected = true;
+              }
+            });
+            this.selectdepartment(data[0].dctrVisited);
+          });
         })
     }
   }
@@ -249,6 +289,7 @@ export class NewBookingComponent implements OnInit {
 
 
   onSubmit() {
+    this.resourcesLoaded = false;
     if (this.validation()) {
       const routerParams = this.routes.snapshot.params;
 
@@ -257,11 +298,44 @@ export class NewBookingComponent implements OnInit {
           .subscribe(data => {
             this._studentservice.createbookingd(this.Students)
               .subscribe(data => {
+
+                this._studentservice.sms_list()
+                .subscribe(data => {
+                  //sms  
+                  if(data[0].ptest_sms == "Y")
+                  {
+                    this._studentservice.send_ptestSms(this.Students.pntmobile).subscribe();
+                  }
+                  else if(data[0].dtest_sms == "Y")
+                  {
+                    this._studentservice.send_dtestSms(this.Students.pntmobile).subscribe();
+                  }
+                  else if(data[0].rtest_sms == "Y")
+                  {
+                    this._studentservice.send_rtestSms(this.Students.pntmobile).subscribe();
+                  }
+                  //whatsapp
+                  if(data[0].ptest_wapp == "Y")
+                  {
+                    this._studentservice.send_ptestwapp(this.Students.pntmobile).subscribe();
+                  }
+                  else if(data[0].dtest_wapp == "Y")
+                  {
+                    this._studentservice.send_dtestwapp(this.Students.pntmobile).subscribe();
+                  }
+                  else if(data[0].rtest_wapp == "Y")
+                  {
+                    this._studentservice.send_rtestwapp(this.Students.pntmobile).subscribe();
+                  }
+        
+                })
+
                 defaultConfirmData.cancel = this.cancel
                 defaultConfirmData.title = "Print Receipts"
                 defaultConfirmData.message = "Do you want to print receipts?"
+                this.resourcesLoaded = true;
                 this.confirm()
-               });
+              });
           });
       }
       else if (routerParams["ty"] == "OPD") {
@@ -272,6 +346,7 @@ export class NewBookingComponent implements OnInit {
                 defaultConfirmData.cancel = this.cancel1
                 defaultConfirmData.title = "Print Receipt"
                 defaultConfirmData.message = "Do you want to print receipt?"
+                this.resourcesLoaded = true;
                 this.confirm1()
               });
           });
@@ -284,11 +359,14 @@ export class NewBookingComponent implements OnInit {
                 defaultConfirmData.cancel = this.cancel
                 defaultConfirmData.title = "Print Receipt"
                 defaultConfirmData.message = "Do you want to print receipt?"
+                this.resourcesLoaded = true;
                 this.confirm1()
               });
 
           });
       }
+    } else {
+      this.resourcesLoaded = true;
     }
   }
 
@@ -316,10 +394,10 @@ export class NewBookingComponent implements OnInit {
       alert("Department is mandatory");
       return false
     }
-   
+
     return true
   }
- 
+
   updateTestMaster() {
     this.testmaster = [];
     for (let i = 0; i < this.alltestmaster.length; i++) {
@@ -359,23 +437,23 @@ export class NewBookingComponent implements OnInit {
   }
   public addItem(): void {
     if (this.validation_add()) {
-    let type = this.test.chtype;
-    this.Students.tests.push(this.test)
-    
-    this.Students.grandTotal = (+this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
-    this.Students.balamt = 0;
-    this.getNetAmount()
-    this.test = new Test()
-    this.test.chtype = type;
-    this.isTypeSelected = true;
-    document.getElementById("ItemName")?.focus();
-    this.Students.del = "Run"
-    this.Students.duerec = "N";
-    // if (this.Students.grandTotal > 0) {
-    //   this.allowedSave = true;
-    // }
+      let type = this.test.chtype;
+      this.Students.tests.push(this.test)
+
+      this.Students.grandTotal = (+this.Students.grandTotal + this.test.totalAmt) - this.Students.discountAmt
+      this.Students.balamt = 0;
+      this.getNetAmount()
+      this.test = new Test()
+      this.test.chtype = type;
+      this.isTypeSelected = true;
+      document.getElementById("ItemName")?.focus();
+      this.Students.del = "Run"
+      this.Students.duerec = "N";
+      // if (this.Students.grandTotal > 0) {
+      //   this.allowedSave = true;
+      // }
+    }
   }
-}
   public getAmount(): void {
     this.test.totalAmt = this.test.itmQty * this.test.itmChrgs
   }
@@ -453,13 +531,18 @@ export class NewBookingComponent implements OnInit {
       });
 
   }
-  selectdepartment() {
+  selectdepartment(dr: any = undefined) {
     //call Consultant
     this._studentservice.getopdconsultant(this.Students.department)
       .subscribe((data: any) => {
         this.consulant = data;
+        this.Students.condoctor = this.consulant[0].dctName
+        if (dr != undefined) {
+          this.Students.condoctor = dr;
+        }
       });
   }
+
   patienttypevalidation() {
     if (this.Students.dcmntType == "Direct") {
       //call uhid

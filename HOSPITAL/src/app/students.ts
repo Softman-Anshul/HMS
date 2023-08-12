@@ -88,6 +88,79 @@ export class discard {
     opdrationdt="";
 
 }
+export class SMS {
+    popd_sms="";
+    dopd_sms="";
+    ropd_sms="";
+    pipd_sms="";
+    dipd_sms="";
+    ripd_sms="";
+    ptest_sms="";
+    dtest_sms="";
+    rtest_sms="";
+    popd_wapp="";
+    dopd_wapp="";
+    ropd_wapp="";
+    pipd_wapp="";
+    dipd_wapp="";
+    ripd_wapp="";
+    ptest_wapp="";
+    dtest_wapp="";
+    rtest_wapp=""
+    
+}
+export class employeemaster {
+    staffid =0;
+	Empcode ="";
+	Mr ="";
+	staffname ="";
+	dob ="";
+	age =0;
+	gender ="";
+	category ="";
+	mstatus ="";
+	Father_nam ="";
+	mother_nam ="";
+	spouse_nam ="";
+	Currentadd ="";
+	Currentcity ="";
+	cpin=0;
+	Currentmobile =0;
+	Whatsappno =0;
+	emailid ="";
+	Permanentadd ="";
+	Parmanentcity ="";
+	ppin =0;
+	Parmanentmobile =0;
+	Nominee ="";
+	relation ="";
+	jobtype ="";
+	departid ="";
+	desig ="";
+	doj ="";
+	empstatus ="";
+	doend ="";
+	dutytime =0;
+	dutyfrom ="";
+	salary =0;
+	reportto ="";
+	BankName ="";
+	BankAcno ="";
+	LastWorking ="";
+	Lastworkingcity ="";
+	LastWorkingLeft ="";
+	EsicNo =0
+	UANNo ="";
+	pfper =0;
+	pancarno ="";
+	aadharno=0;
+	dlno ="";
+	photo ="";
+	leaveallow =0;
+	bloodgroup ="";
+	esic =0
+
+}
 export class City {
     cityid="";
     citynam="";
@@ -236,6 +309,7 @@ export class Students {
     condition="";
     report: testreport[]=[];
 }
+
 export class Test {
 itmName = "";
 itmChrgs=0;
@@ -326,6 +400,7 @@ export class department {
     "caseID":any;
     "caseType":string;
     "dprtmnt":string;
+    "isSelected":boolean=false;
 }
 export class group {
     "payid":any;
@@ -409,7 +484,7 @@ export class OPD {
     cardrelation="";
     cardissuedt="";
     cardexpdt="";
-
+    _dueamt=0;
     
     category: Ward[]=[];
     roomNo: Ward[]=[];
@@ -508,6 +583,8 @@ export class testreport {
     formula="";
     interpet="";
     comments="";
+    _interpet="";
+    _comments="";
     Ipet="";
     comt="";
     Wordcode="";
@@ -553,4 +630,21 @@ export class test {
     test_name: string = "";
     value_type: string = "";
     test_group: string = "";
+}
+
+export class allheadsummary {
+    dcmnttype: string = "";
+    doctor: string = "";
+    Jan = 0;
+    Feb = 0;
+    Mar = 0;
+    Apr = 0;
+    May = 0;
+    Jun = 0;
+    Jul = 0;
+    Aug = 0;
+    Sep = 0;
+    Oct = 0;
+    Nov = 0;
+    Dec = 0;
 }

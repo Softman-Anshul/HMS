@@ -99,7 +99,7 @@ declare delete : boolean
     }) 
   }
   editer(login1:login1):void{
-    this._studentservice.getuserbyid(login1.UID)
+    this._studentservice.getuserbyid(login1.stuserid)
     .subscribe((data:any) => {
      data = data[0]
     this.addForm.patchValue(data);

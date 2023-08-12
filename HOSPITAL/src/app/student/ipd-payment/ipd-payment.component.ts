@@ -20,6 +20,7 @@ export class IPDPaymentComponent implements OnInit {
   totalrecamt = 0;
   totalrefund = 0;
   totalnetamt = 0;
+  resourcesLoaded = true;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -100,16 +101,19 @@ export class IPDPaymentComponent implements OnInit {
   }
 
   onsave() {
+    this.resourcesLoaded = false;
     if (this.validation()) {
     this._studentservice.ipd_payment(this.Deposit)
       .subscribe(data => {
-
+        this.resourcesLoaded = true;
         defaultConfirmData.cancel = this.cancel
         defaultConfirmData.title = "Print Receipts"
         defaultConfirmData.message = "Do you want to print receipts?"
         this.confirm()
 
       });
+    } else {
+      this.resourcesLoaded = true;
     }
   }
   validation(): boolean {

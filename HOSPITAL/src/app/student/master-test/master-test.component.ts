@@ -20,8 +20,8 @@ export class MasterTestComponent implements OnInit {
   declare Wordname:Wordname[];
   groupname ='';
   declare group:testgroup[];
-  testname = new testname();
-  list : testmasterd[] = [];
+  testname = new testname();  
+ 
 
   constructor(
       private _studentservice:StudentsService,
@@ -75,7 +75,10 @@ reload(){
   window.location.reload();
 }
 public addItem(): void {
-  this.list.push(this.testmasterd);
+  this.testmasterm.tests.push(this.testmasterd);
   this.testmasterd = new testmasterd();
+}
+onsubmit(){
+  console.log(this.testmasterm)
 }
 }

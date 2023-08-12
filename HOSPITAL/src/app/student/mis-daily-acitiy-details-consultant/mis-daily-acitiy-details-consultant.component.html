@@ -1,0 +1,124 @@
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="opdlist()">Close</button>
+</div>
+
+<div id="print" style="background-color: white; width: auto; ">
+
+        <app-report-PageHeading></app-report-PageHeading>
+
+        <h4 style="margin-left: 20px; font-weight: bold; margin-top: 2vh; ">Consultant Daily Activity Details Report from {{fromdt | date :'dd/MM/yyyy'}} To
+        {{todt | date :'dd/MM/yyyy'}}
+        <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
+    </h4>
+
+    <table class="table table-bordered " style="font-size:smaller;">
+        <thead>
+            <!-- <th style="text-align: center ;">SN</th> -->
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Date</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Rec.No</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Time</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">UHID</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Patient</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Consultant</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Paymode</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Narration</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Uname</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">BillAmt</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Disc.</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Refund</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Bal. Amt</th>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Rec. Amt</th>
+            
+        </thead>
+
+        <tbody>
+            <ng-container *ngFor="let heading1 of headingMap1 | keyvalue">
+                <tr style="font-size: large; font-weight: bold;">
+                    <td colspan="12" style="text-align: center;"><b>{{heading1.key}}</b></td>
+                </tr>
+                <ng-container *ngFor="let heading of headingMap.get(heading1.key) ">
+                    <tr style="font-size: large; font-weight: bold;">
+                        <td colspan="12" style="text-align: center;" ><b>{{heading}}</b></td>
+                    </tr>
+                <ng-container *ngFor="let students of Students let i=index" >
+                    <ng-container *ngIf="students.condoctor == heading1.key && students.Reporttype == heading ">
+
+<!--             
+                    <ng-container *ngIf="students.Reporttype == heading.key "> -->
+
+                        <tr> 
+                            <!-- <td style="width:30px;">{{i + 1}}</td> -->
+                            <td style="font-size: large; width:80px ;">{{students.vchrDate | date :'dd/MM/yyyy' }}</td>
+                            <td style="font-size: large; width:50px; ">{{students.vchrNo}}</td>
+                            <td style="font-size: large; width:50px; ">{{students.vchrTime}}</td> 
+                            <td style="font-size: large; width:50px; ">{{students.uhID}}</td>
+                            <td style="font-size: large; width:120px;">{{students.PntName}}</td>
+                            <td style="font-size: large; width:140px ; ;">{{students.condoctor}}</td>
+                            <td style="font-size: large; width:40px; text-align:right ; ">{{students.paymode}}</td>
+                            <td style="font-size: large; width:60px; text-align: right ; ">{{students.narration}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ; ">{{students.uname}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ;">{{students.grandTotal}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ;">{{students.discountAmt}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ;">{{students.refund}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ;">{{students.balamt}}</td>
+                            <td style="font-size: large; width:40px; text-align: right ;">{{students.recamt}}</td>
+                           
+
+                        </tr>
+                    </ng-container>
+                    </ng-container>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-size: medium; text-align: center ; font-weight: bold; ">HEAD TOTAL</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{typewiseTotal.get(heading1.key)?.get(heading)?.get('headwiseTotal')}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{typewiseTotal.get(heading1.key)?.get(heading)?.get('headwiseTotaldis')}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{typewiseTotal.get(heading1.key)?.get(heading)?.get('headwiseTotalrefund')}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{typewiseTotal.get(heading1.key)?.get(heading)?.get('headwiseTotalbal')}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{typewiseTotal.get(heading1.key)?.get(heading)?.get('headwiseTotalnet')}}</td>
+                </tr>
+                </ng-container>
+          
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-size: medium; text-align: center ; font-weight: bold; ">CONSULTANT TOTAL</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{headwiseTotal.get(heading1.key)}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{headwiseTotaldis.get(heading1.key)}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{headwiseTotalrefund.get(heading1.key)}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{headwiseTotalbal.get(heading1.key)}}</td>
+                    <td style="font-size: large; text-align: right; font-weight: bold;">{{headwiseTotalnet.get(heading1.key)}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+        <td style="font-size: medium; text-align: right; font-weight: bold; ">GRAND TOTAL</td>
+        <td style="font-size: large; text-align: right; font-weight: bold;">{{totalgamt}}</td>
+        <td style="font-size: large; text-align: right;  font-weight: bold;">{{totaldamt}}</td>
+        <td style="font-size: large; text-align: right; font-weight: bold;">{{totalramt}}</td>
+        <td style="font-size: large; text-align: right; font-weight: bold;">{{totalbal}}</td>
+        <td style="font-size: large; text-align: right; font-weight: bold;">{{totalnamt}}</td>
+    </table>
+
+</div>

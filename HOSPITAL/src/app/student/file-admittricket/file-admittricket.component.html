@@ -7,139 +7,120 @@
     <h2 style="text-align: center;">ADMIT TICKET</h2>
     <div class="row">
         <div class="col" style="margin-top: 5vh;">
-            <label style="font-size:medium;  margin-left:20px;" type="dcmntno">FileNo</label>
-            <input style="font-size:small; margin-left:30px; width:50px ; border:none ; " readonly="true"
+            <label style="font-size:large; font-weight: bold; margin-left:20px;" type="dcmntno">FileNo</label>
+            <input style="font-size:large; margin-left:30px; width:50px ; border:none ; " readonly="true"
                 [(ngModel)]=dcmntNo>
-            <label style="font-size:medium; margin-left:10px;" for="uhID">UHID</label>
-            <input style="font-size:small; margin-left:5px; width:75px ;border:none ; " readonly="true"
+            <label style="font-size:large; font-weight: bold; margin-left:10px;" for="uhID">UHID</label>
+            <input style="font-size:large; margin-left:5px; width:75px ;border:none ; " readonly="true"
                 [(ngModel)]=OPD.uhID>
             <input hidden="true" style="font-size:small; margin-left:5px; width:75px ;border:none ; " readonly="true"
                 [(ngModel)]=OPD.uhID>
 
-            <label style="font-size:medium; margin-left:10px;" for="uhID">Patient Type</label>
-            <input style="font-size:small; margin-left:5px; width:95px ;border:none ; " readonly="true"
+            <label style="font-size:large; font-weight: bold; margin-left:10px;" for="uhID">Patient Type</label>
+            <input style="font-size:large; margin-left:5px; width:95px ;border:none ; " readonly="true"
                 [(ngModel)]=OPD.PntType>
 
             <br>
-            <label style="font-size:medium;  margin-left:20px;" type="dcmntno">Patient Name</label>
+            <label style="font-size:large;  font-weight: bold; margin-left:20px;" type="dcmntno">Patient Name</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:15px; width:50px ; "
                 readonly="true" [(ngModel)]=OPD.pntn type="pntn">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:550px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:550px ; "
                 [(ngModel)]=OPD.pntName readonly="true">
 
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:40px ; "
                 [(ngModel)]=OPD.pntAgeYrs readonly="true">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:60px ; "
                 [(ngModel)]=OPD.pntSex readonly="true">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:90px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:75px ; "
                 [(ngModel)]=OPD.agey readonly="true">
 
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
+            <label style="font-size:large; font-weight: bold; margin-left:20px;" for="pntg">Guardian</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:45px; width:55px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:50px; width:50px ; "
                 [(ngModel)]=OPD.pntg readonly="true">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:730px ;  "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:730px ;  "
                 [(ngModel)]=OPD.pntGrdn readonly="true">
 
 
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">Address</label>
+            <label style="font-size:large; font-weight: bold; margin-left:20px;" for="pntg">Address</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:790px ; margin-left:55px; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:780px ; margin-left:55px; "
                 [(ngModel)]=OPD.pntAdrs1 readonly="true">
 
 
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">City</label>
+            <label style="font-size:large; font-weight: bold; margin-left:20px;" for="pntg">City</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:450px ; margin-left:85px; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:450px ; margin-left:90px; "
                 [(ngModel)]=OPD.pntCity readonly="true">
 
-            <label style="font-size:medium; margin-left:15px;" for="pntg">Mobile</label>
+            <label style="font-size:large; font-weight: bold; margin-left:15px;" for="pntg">Mobile</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:260px ; margin-left:15px; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:250px ; margin-left:15px; "
                 [(ngModel)]=OPD.pntMobile readonly="true">
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">Occupation</label>
+            <label style="font-size:large; font-weight: bold; margin-left:20px;">D.O.A.</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:360px ; margin-left:30px; "
-                [(ngModel)]=OPD.occupation readonly="true">
-
-            <label style="font-size:medium; margin-left:5px;" for="pntg">Married/Unmarried</label>
-            <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; width:270px ; margin-left:15px; "
-                [(ngModel)]=OPD.maritalstatus readonly="true">
-            <br>
-
-            <label style="font-size:medium; margin-left:20px;">D.O.A.</label>
-            <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:65px; width:95px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:70px; width:155px ; "
                 [(ngModel)]=OPD.opdDate type="Date" readonly="true">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:365px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:305px ; "
                 [(ngModel)]=OPD.opdTime readonly="true">
 
-            <label style="font-size:medium; margin-left:5px;">D.O.D.</label>
+            <label style="font-size:large; font-weight: bold; margin-left:5px;">D.O.D.</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:95px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:125px ; "
                 [(ngModel)]=vchrDate type="Date">
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:175px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:5px; width:135px ; "
                 [(ngModel)]=vchrTime>
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="condoctor">Diagnosis</label>
+            <label style="font-size:large;font-weight: bold;  margin-left:20px;" for="condoctor">Diagnosis</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:40px; width:790px ;  "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:40px; width:790px ;  "
                 [(ngModel)]=OPD.Dignosis>
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="condoctor">Consultant</label>
+            <label style="font-size:large; font-weight: bold; margin-left:20px;" for="condoctor">Consultant</label>
             <b><input
-                    style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:35px; width:400px ; "
+                    style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap; margin-left:35px; width:400px ; "
                     [(ngModel)]=OPD.dctrVisited readonly="true"></b>
 
-            <label style="font-size:medium; margin-left:5px;" for="condoctor">Ref Doctor</label>
+            <label style="font-size:large; font-weight: bold; margin-left:5px;" for="condoctor">Ref Doctor</label>
             <input
-                style="font-size:small; border-left: none;border-right: none;border-top: none;border-bottom:1cap;margin-left:5px; width:310px ; "
+                style="font-size:large; border-left: none;border-right: none;border-top: none;border-bottom:1cap;margin-left:5px; width:290px ; "
                 [(ngModel)]=OPD.rfrdBy readonly="true">
             <br><br>
-            <label style="margin-left: 40px;"> मै स्वैच्छा से और अपने परिजनों की राय से ये धोषणा करता हूॅ कि मै अपने
-                मरीज के लिए अस्पताल द्धारा निर्घारित जांच व इलाज कराने के लिए </label>
-            <label style="margin-left: 40px;">स्वैच्छा से तैयार हूॅ । अस्पताल या उसके कर्मचारी जॉच व इलाज के सम्बन्ध में
-                व उसके दौरान किसी भी खतरे के लिए उत्तरदायी नही होंगे मैने इस </label>
-            <label style="margin-left: 40px;">मामले में अपने द्वारा पूछे हुए सारे प्रशनो के सन्तुष्टीजनक उत्तर पा लिए
-                हैं । मुझे समझा दिया गया है क् िउपरोक्त इलाज के दौरान अन्य बीमारियां </label>
-            <label style="margin-left: 40px;">भी पाई जा सकती है जिसके इलाज की यदि आवश्यकता है तो मैं डाक्टर को इस
-                सम्बन्ध में अपने मरीज के हित में जो भी उपयुक्त हो करने का </label>
-            <label style="margin-left: 40px;">अधिकार देता हॅू । इलाज के नतीजे के वारे में कोई गारन्टी मुझसे नही की गई है
-                तथा मै यह भी समझता हॅू कि मेरे मरीज के पूरे इलाज के लिए </label>
-            <label style="margin-left: 40px;">उसी समय या बाद में किसी अन्य इलाज की आवश्यकता भी हो सकती है जिसके लिए मैं
+            <label style="font-size: large; width: 90%; margin-left: 40px; text-align: justify;"> मै स्वैच्छा से और अपने परिजनों की राय से ये धोषणा करता हूॅ कि मै अपने
+                मरीज के लिए अस्पताल द्धारा निर्घारित जांच व इलाज कराने के लिए स्वैच्छा से तैयार हूॅ । अस्पताल या उसके कर्मचारी जॉच व इलाज के सम्बन्ध में
+                व उसके दौरान किसी भी खतरे के लिए उत्तरदायी नही होंगे मैने इस मामले में अपने द्वारा पूछे हुए सारे प्रशनो के सन्तुष्टीजनक उत्तर पा लिए
+                हैं । मुझे समझा दिया गया है क् िउपरोक्त इलाज के दौरान अन्य बीमारियां भी पाई जा सकती है जिसके इलाज की यदि आवश्यकता है तो मैं डाक्टर को इस
+                सम्बन्ध में अपने मरीज के हित में जो भी उपयुक्त हो करने का अधिकार देता हॅू । इलाज के नतीजे के वारे में कोई गारन्टी मुझसे नही की गई है
+                तथा मै यह भी समझता हॅू कि मेरे मरीज के पूरे इलाज के लिए उसी समय या बाद में किसी अन्य इलाज की आवश्यकता भी हो सकती है जिसके लिए मैं
                 तैयार हॅू ।</label>
 
             <br><br>
-            <label style="margin-left: 40px;"> मुझे मेरे मरीज की नाजुक हालत के वारे में पूरी तरह बता दिया गया है । मै
-                तमाम हालात को देखते हुये अपनी पुरी जिम्मेदारी पर मरीज का इलाज </label>
-            <label style="margin-left: 40px;">कराने को तैयार हुॅ । </label>
+            <label style="font-size: large; width: 90%; margin-left: 40px; text-align: justify;"> मुझे मेरे मरीज की नाजुक हालत के वारे में पूरी तरह बता दिया गया है । मै
+                तमाम हालात को देखते हुये अपनी पुरी जिम्मेदारी पर मरीज का इलाज कराने को तैयार हुॅ । </label>
 
             <br><br>
-            <label style="margin-left: 40px;"> मुझे अपने मरीज के सम्बन्ध मे अस्पताल के किसी भी चिकित्सक एवं कर्मचारी से
+            <label style="font-size: large; width: 90%; margin-left: 40px; text-align: justify;"> मुझे अपने मरीज के सम्बन्ध मे अस्पताल के किसी भी चिकित्सक एवं कर्मचारी से
                 कोई शिकायत नही है । </label>
 
             <br><br>
-            <label style="margin-left: 40px;"> मै मेरे मरीज की हालत से पूर्ण रूप से सन्तुष्ट हूॅ और किसी प्रकार की
-                कानूनी कार्यवाही अमान्य होगी ।
-                मै मेरे मरीज की छूटटी से पहले विल का </label>
-            <label style="margin-left: 40px;">भूगतान कर दूॅगा । </label>
+            <label style="font-size: large; width: 90%; margin-left: 40px; text-align: justify;"> मै मेरे मरीज की हालत से पूर्ण रूप से सन्तुष्ट हूॅ और किसी प्रकार की
+                कानूनी कार्यवाही अमान्य होगी । मै मेरे मरीज की छूटटी से पहले विल का  भूगतान कर दूॅगा । </label>
 
             <br><br><br><br>
-            <b><label style="margin-left: 40px;">Signature of Patient / Thumb Impression </label>
-                <label style="margin-left: 180px;">Signature of Garduian / Thumb Impression </label></b>
+            <b><label style="font-size: large; margin-left: 40px;">Signature of Patient / Thumb Impression </label>
+                <label style="font-size: large; margin-left: 180px;">Signature of Garduian / Thumb Impression </label></b>
 
         </div>
     </div>

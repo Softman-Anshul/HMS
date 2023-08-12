@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import {Router,ActivatedRoute} from '@angular/router';
 import {City} from '../../students';
+import { company } from '../../students';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-control-setup',
@@ -11,6 +13,13 @@ import {City} from '../../students';
 export class ControlSetupComponent implements OnInit {
   declare Cityname :City[];
   declare search:string;
+  company = new company();
+  uname = '';
+  loginForm= new FormGroup({
+      password: new FormControl()
+  });
+
+  showMesave:boolean=false;
 
   constructor(private _studentservice:StudentsService,
     private router: Router,) { }
@@ -33,4 +42,14 @@ export class ControlSetupComponent implements OnInit {
 
 }
 
+tooletageedit(password: any){
+  if(password == "india")
+  {
+    this.showMesave=true;
+  }
+  else{
+    alert("Wrong Password")
+    this.showMesave=false;
+    }
+}
 }

@@ -21,7 +21,7 @@
                 </div>
                 <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
                         <div class="cardbody">
-                                <h2 class="card-title">Key Updata</h2>
+                                <h2 class="card-title">Key Update</h2>
                                 <p class="card-text">Enter the Valid key provide by vendor</p>
                                 <button class="btn btn-primary" *ngIf="showkey" (click)="keyupdate()">NEW</button>
                         </div>
@@ -42,26 +42,27 @@
                 </div>
                 <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
                         <div class="cardbody">
+                                <h2 class="card-title">SMS/Whatsapp Setup</h2>
+                                <p class="card-text">SMS/Whatsapp Setting as Patient</p>
+                                <button class="btn btn-primary" *ngIf="showsetup" (click)="smssetup()">NEW</button>
+                        </div>
+                </div>
+
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
                                 <h2 class="card-title">Patient Information Change</h2>
                                 <p class="card-text">Enter the Valid key provide by vendor</p>
                                 <button class="btn btn-primary" *ngIf="showpatient" (click)="patientchange()">NEW</button>
                         </div>
                 </div>   
 
-                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
-                        <div class="cardbody">
-                                <h2 class="card-title">Backup</h2>
-                                <p class="card-text">Backup your Database</p>
-                                <button class="btn btn-info" *ngIf="showbackup" (click)="backupdatabase()">NEW</button>
-                        </div>
-
-                </div>    
+               
                 
                 <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
                         <div class="cardbody">
                                 <h2 class="card-title">Current Password Change</h2>
                                 <input style="font-size:small; margin-left:15px; width:120px ;" type="password" [(ngModel)]=pass >
-                                <button style="margin-left:10px ;" class="btn btn-info" (click)="passwordchange(pass)">Change</button>
+                                <button style="margin-left:10px ;" class="btn btn-primary" (click)="passwordchange(pass)">Change</button>
                         </div>
 
                 </div>    
@@ -69,16 +70,25 @@
                 <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
                         <div class="cardbody">
                                 <select style="width: 60%;"  [(ngModel)]="selectedUser">
+                                        <option>Select</option>
                                         <option *ngFor="let users of login1" >
                                          {{users.stuserid}}
                                         </option> 
                                       </select>
                                 <h2 class="card-title">Password Change</h2>
                                 <input style="font-size:small;width:120px ;" type="password" [(ngModel)]=pass1 >
-                                <button style="margin-left:10px ;" class="btn btn-info" *ngIf="showpassword" (click)="pchange(pass1)">Change</button>
+                                <button style="margin-left:10px ;" class="btn btn-primary" *ngIf="showpassword" (click)="pchange(pass1)">Change</button>
                         </div>
 
                 </div>   
+                <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+                        <div class="cardbody">
+                                <h2 class="card-title">Copy / Delete Permission</h2>
+                                <p class="card-text">Copy and  Delete  all Permission from one user to new user</p>
+                                <button class="btn btn-primary" *ngIf="showbackup" (click)="copydeleteuser()">NEW</button>
+                        </div>
+
+                </div>    
 
         </div>
 

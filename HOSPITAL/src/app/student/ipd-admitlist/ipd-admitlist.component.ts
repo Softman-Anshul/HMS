@@ -146,7 +146,7 @@ this._studentservice.getuserpermission(this.uname)
     let dt = uhID;
     let ty = "IPD";
     const dialogRef = this.dialog.open(IpdRegEditComponent, {
-      height: '450px', width: '1500px',
+      height: '650px', width: '1500px',
       data: { OPD: dcmntNo, OPD2: uhID, OPD3: ty },
     });
 

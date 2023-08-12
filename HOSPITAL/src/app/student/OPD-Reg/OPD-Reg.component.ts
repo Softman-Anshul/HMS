@@ -1,15 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { StudentsService } from '../../students.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { City } from '../../students';
+import { City, } from '../../students';
 import { consulant } from '../../students';
 import { Students, OPD, department } from '../../students';
-import { group, company } from '../../students';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { formatDate } from '@angular/common';
+import { group, company,SMS  } from '../../students';
+import { formatDate} from '@angular/common';
 import { defaultConfirmData, needConfirmation } from 'src/app/confirm-dialog/confirm-dialog.decorator';
-import { Colors } from 'chart.js';
-import { style } from '@angular/animations';
 
 
 @Component({
@@ -37,6 +34,8 @@ export class OpdregComponent implements OnInit {
   isOpd = true;
   ty = '';
   type = "";
+  resourcesLoaded = true;
+  declare opdsms: SMS[];
 
   constructor(private _studentservice: StudentsService,
     private router: Router,
@@ -293,18 +292,54 @@ export class OpdregComponent implements OnInit {
     let id = this.OPD1.dcmntNo;
     let opdDate = this.OPD1.opdDate;
     this.router.navigate(['homepage/opdreceipt/' + id, opdDate]);
+
+    
 }
 
 
   onSubmit() {
+    this.resourcesLoaded = false;
     if (this.validation()) {
       this._studentservice.opd_insert(this.OPD1)
         .subscribe(data => { 
+          this._studentservice.sms_list()
+        .subscribe(data => {
+          //sms  
+          if(data[0].popd_sms == "Y")
+          {
+            this._studentservice.send_popdSms(this.OPD1.pntMobile).subscribe();
+          }
+          else if(data[0].dopd_sms == "Y")
+          {
+            this._studentservice.send_dopdSms(this.OPD1.pntMobile).subscribe();
+          }
+          else if(data[0].ropd_sms == "Y")
+          {
+            this._studentservice.send_ropdSms(this.OPD1.pntMobile).subscribe();
+          }
+          //whatsapp
+          if(data[0].popd_wapp == "Y")
+          {
+            this._studentservice.send_popdwapp(this.OPD1.pntMobile).subscribe();
+          }
+          else if(data[0].dopd_wapp == "Y")
+          {
+            this._studentservice.send_dopdwapp(this.OPD1.pntMobile).subscribe();
+          }
+          else if(data[0].ropd_wapp == "Y")
+          {
+            this._studentservice.send_ropdwapp(this.OPD1.pntMobile).subscribe();
+          }
+
+        })
+          this.resourcesLoaded = true;
           defaultConfirmData.cancel = this.cancel
           defaultConfirmData.title = "Print Receipts"
           defaultConfirmData.message = "Do you want to print receipts?"
-          this.confirm()
+          this.confirm();
         });
+    } else {
+      this.resourcesLoaded = true;
     }
   }
   validation(): boolean {

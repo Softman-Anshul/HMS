@@ -66,7 +66,8 @@
         <div class="row" style="padding-left: 1vw;padding-top: 3vh;">
           <!-- row 2 -->
           <div class="user-box">
-            <input style="font-weight:bolder;" type="text" name="" required="" [(ngModel)]=OPD1.pntMobile [maxLength]="10">
+            <input style="font-weight:bolder;" type="text" name="" required="" [(ngModel)]=OPD1.pntMobile
+              [maxLength]="10">
             <label>Mobile</label>
           </div>
           <div class="user-box">
@@ -199,7 +200,8 @@
 
     <div class="row" style="padding-left: 1vw; margin-top: 3vh;">
       <div class="user-box">
-        <input style="font-weight:bolder;" [(ngModel)]=OPD1.rfrdBy list="charge" onchange="this.dataset.chosen = this.value;  ">
+        <input style="font-weight:bolder;" [(ngModel)]=OPD1.rfrdBy list="charge"
+          onchange="this.dataset.chosen = this.value;  ">
         <datalist id="charge">
           <option *ngFor="let rstudents of rconsulant">
             {{rstudents.dctName}}
@@ -209,23 +211,25 @@
       </div>
 
       <div class="user-box">
-        <input style="font-weight:bolder;" type="text" name="" (ngModelChange)="getNetAmount($event)" required="" [(ngModel)]=OPD1.amt>
+        <input style="font-weight:bolder;" type="text" name="" (ngModelChange)="getNetAmount($event)" required=""
+          [(ngModel)]=OPD1.amt>
         <label>Amt</label>
       </div>
 
       <div class="user-box-small">
-        <input style="font-weight:bolder;" type="text" (ngModelChange)="getNetAmountByPercent($event)" placeholder="%" type="text"
-          [(ngModel)]=OPD1.disp>
+        <input style="font-weight:bolder;" type="text" (ngModelChange)="getNetAmountByPercent($event)" placeholder="%"
+          type="text" [(ngModel)]=OPD1.disp>
         <label>Disc %</label>
       </div>
 
       <div class="user-box">
-        <input style="font-weight:bolder;" type="text" (ngModelChange)="getNetAmountWithDisc($event)" [(ngModel)]=OPD1.discount>
+        <input style="font-weight:bolder;" type="text" (ngModelChange)="getNetAmountWithDisc($event)"
+          [(ngModel)]=OPD1.discount>
         <label>Disc Amt</label>
       </div>
 
       <div class="user-box">
-        <input style="font-weight:lighter"type="text" name="" required="" [(ngModel)]=OPD1.srvcTax>
+        <input style="font-weight:lighter" type="text" name="" required="" [(ngModel)]=OPD1.srvcTax>
         <label>Net Amt</label>
       </div>
 
@@ -312,3 +316,6 @@
         (click)="onSubmit()">SAVE</button>
 
     </div>
+  </div>
+</div>
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

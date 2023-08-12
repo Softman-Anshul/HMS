@@ -1,0 +1,39 @@
+<div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <h2 style="font-weight: bold;" >Payroll Master</h2>
+      </div>
+    </nav>
+    <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+      <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Employee Master</h2>
+          <p class="card-text">Create New Employee for Salary</p>
+          <button class="btn btn-primary" (click)="EmplyeeMaster()">NEW</button>
+        </div>
+      </div>
+      <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Attendance</h2>
+          <p class="card-text">Daily Attendance of Emmployee</p>
+          <button class="btn btn-primary">NEW</button>
+        </div>
+      </div>
+      <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Monthly Attendance</h2>
+          <p class="card-text">Mohtly Attendance Sheets</p>
+          <button class="btn btn-primary">NEW</button>
+        </div>
+      </div>
+      <div class="card1 " [ngClass]="Mobile ? 'columnCard':''">
+        <div class="cardbody">
+          <h2 class="card-title">Monthly Salary</h2>
+          <p class="card-text">Monthly Salary Sheet</p>
+          <button class="btn btn-primary" >NEW</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>

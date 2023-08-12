@@ -30,6 +30,7 @@ export class OpdreciptsComponent implements OnInit {
     this._studentservice.getopdregRecp(routerParams["id"], routerParams["opdDate"])
       .subscribe((data: any) => {
         this.OPD = data[0];
+        this.OPD.narration = "For Consultancy Charges" 
       });
 
     //call company

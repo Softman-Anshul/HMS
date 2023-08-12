@@ -18,6 +18,8 @@ export class IPDPaymentreceiptComponent implements OnInit {
   city="";
   phone="";
   profle="";
+  email = "";
+  website= "";
 
   constructor(private _studentservice:StudentsService,
     private routes : ActivatedRoute,
@@ -51,6 +53,8 @@ export class IPDPaymentreceiptComponent implements OnInit {
     this.add = data[0].Comp_add;
     this.city = data[0].Comp_city;
     this.phone = data[0].Comp_Phon;
+    this.email = data[0].email;
+    this.website = data[0].website;
     this.profle = data[0].profle;
 
     });

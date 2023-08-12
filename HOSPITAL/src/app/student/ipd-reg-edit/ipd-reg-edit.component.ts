@@ -203,11 +203,7 @@ populate(){
     if (this.OPD1.cond == "" || this.OPD1.cond == undefined) {
       this.OPD1.cond = "Normal";
     }
-    if (this.Ward1.category== "" || this.Ward1.category == undefined) {
-      alert("Room Category is mandatory");
-      return false
-    }
-
+    
     return true
   }
   

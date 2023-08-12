@@ -70,3 +70,5 @@
             <button  class="btn btn-danger btn-rounded" (click)="onNoClick()">Discard</button>
         </div>
 </div>
+
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

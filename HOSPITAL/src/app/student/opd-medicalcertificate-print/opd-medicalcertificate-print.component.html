@@ -3,87 +3,85 @@
 <div class="col" style="text-align:right">
     <button (click)="printComponent()">Print</button>
 </div>
-<div id="print" style="background-color: white;">
+<div id="print" style="background-color: white;  ">
     <div class="row">
-        <div class="items-group" style="margin-top: 2vh; margin-left: 40px; width: 90%;">
+        <div class="items-group" style="margin-top: 4vh; margin-left: 40px; width: 90%;">
             <div class="col">
-                <div class="disclaimer signature-field">
                     <app-report-PageHeading></app-report-PageHeading>
-                </div>
-                <div style="text-align: center;">
-                    <label style="font-size:medium; " type="dcmntno">Cert.No</label>
+                <div >
+                    <label style="font-size:large; font-weight: bold; " type="dcmntno">Cert.No</label>
                     <input
-                        style="font-size:medium; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; "
+                        style="font-size:large; margin-left:30px; width:50px ; border:none ;color: black; background-color: white; "
                         readonly="true" [(ngModel)]=cer1.recno>
-                    <b><label style="width: 350px; font-size: larger; ">MEDICAL CERTIFICATE</label></b>
-                    <label style="font-size:medium; margin-left:30px;" for="uhID">Cert.Date</label>
+                    <b><label style="width: 350px; margin-left: 10%; font-size:x-large; ">MEDICAL CERTIFICATE</label></b>
+                    <label style="font-size:large; font-weight: bold; margin-left:30px;" for="uhID">Cert.Date</label>
                     <input
-                        style="font-size:medium; margin-left:5px; width:95px ;border:none ;color: black; background-color: white; "
+                        style="font-size:large;  margin-left:5px; width:125px ;border:none ;color: black; background-color: white; "
                         disabled="true" [(ngModel)]=cer1.issuedt type="date">
 
                     <br><br>
-                    <b><label style="width: 620px;font-size: larger; ">TO WHOM SO EVER IT MAY CONCERN</label></b>
+                    <b><label style="margin-left: 24%;  width: 420px;font-size: larger; ">TO WHOM SO EVER IT MAY CONCERN</label></b>
                     <br>
                 </div>
             </div>
             <br>
-            <label style="font-size:larger;  margin-left:60px;" type="dcmntno">Certify that </label>
+            <label style="font-size:larger;  margin-left:90px;" type="dcmntno">Certify that </label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; "
+                style="font-weight: bold; border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; margin-left:15px; width:50px ; color: black; background-color: white; "
                 readonly="true" [(ngModel)]=OPD.pntn>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:medium; width:240px ;color: black; background-color: white; "
+                style="font-weight: bold; border-top: none; border-right: none; border-left: none; border-bottom:1cap;font-size:large; width:290px ;color: black; background-color: white; "
                 [(ngModel)]=OPD.pntName readonly="true">
             <label
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  margin-left:30px;"
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large;  margin-left:30px;"
                 type="dcmntno">Age </label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:10px; width:40px ;color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; margin-left:10px; width:40px ;color: black; background-color: white; "
                 [(ngModel)]=OPD.pntAgeYrs readonly="true">
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium;  width:60px ;color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large;  width:60px ;color: black; background-color: white; "
                 [(ngModel)]=OPD.pntSex readonly="true">
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:60px ; color: black; background-color: white;"
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:150px ; color: black; background-color: white;"
                 [(ngModel)]=OPD.agey readonly="true">
 
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">Guardian</label>
+            <label style="font-size:large; margin-left:40px;" for="pntg">Guardian</label>
             <u><input
-                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; margin-left:15px; width:50px ; color: black; background-color: white; "
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; margin-left:15px; width:50px ; color: black; background-color: white; "
                     [(ngModel)]=OPD.pntg readonly="true">
                 <input
-                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:520px ; color:black; background-color: white; "
+                    style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:690px ; color:black; background-color: white; "
                     [(ngModel)]=OPD.pntGrdn readonly="true"></u>
 
 
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">is /was Suffering from </label>
+            <label style="font-size:large; margin-left:40px;" for="pntg">is /was Suffering from </label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:480px ; margin-left:20px; color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:620px ; margin-left:20px; color: black; background-color: white; "
                 readonly="true" [(ngModel)]=cer1.dignos>
             <br><br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">He / She has been / had been advised to take
+            <label style="font-size:large; margin-left:40px;" for="pntg">He / She has been / had been advised to take
                 complete bed rest</label>
             <br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">From Date</label>
+            <label style="font-size:large; margin-left:40px;" for="pntg">From Date</label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:250px ; margin-left:45px;color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:250px ; margin-left:45px;color: black; background-color: white; "
                 disabled="true" [(ngModel)]=cer1.fromdt type="date">
-            <label style="font-size:medium; margin-left:15px;" for="pntg">To</label>
+            <label style="font-size:large; margin-left:15px;" for="pntg">To</label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:145px ; margin-left:15px;color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:145px ; margin-left:15px;color: black; background-color: white; "
                 readonly="true" [(ngModel)]=cer1.todt>
             <br><br>
-            <label style="font-size:medium; margin-left:20px;" for="pntg">He / She is now fit to rssume his / her duty
+            <label style="font-size:large; margin-left:40px;" for="pntg">He / She is now fit to rssume his / her duty
                 from </label>
             <input
-                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:medium; width:150px ; margin-left:45px;color: black; background-color: white; "
+                style="border-top: none; border-right: none; border-left: none; border-bottom:1cap; font-size:large; width:150px ; margin-left:45px;color: black; background-color: white; "
                 disabled="true" [(ngModel)]=cer1.fromdt type="date">
-            <label style="font-size:medium; margin-left:5px;" for="pntg">Onwards </label>
-            <br><br><br>
-            <label style="font-size:medium;margin-left: 30px;" for="pntg">Pt's Signature Attested</label>
-            <label style="font-size:medium; margin-left: 390px;" for="pntg">Signature</label>
+            <label style="font-size:large; margin-left:5px;" for="pntg">Onwards </label>
+            <br><br><br><br>
+            <label style="font-weight: bold; font-size:large;margin-left: 30px;" for="pntg">Pt's Signature Attested</label>
+            <label style="font-weight: bold;  font-size:large; margin-left: 390px;" for="pntg">Signature</label>
 
         </div>
     </div>

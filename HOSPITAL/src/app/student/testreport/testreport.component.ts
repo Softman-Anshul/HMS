@@ -95,6 +95,22 @@ export class TestreportComponent implements OnInit {
       this._studentservice.getresulttable(this.Students.vchrNo, this.Students.vchrDate).subscribe((data: any) => {
         this.testreport = data;
 
+        this.testreport.forEach(element => {
+          
+          try {
+            element._comments = atob(element.comments)
+          } catch {
+            element._comments = ""
+          }
+
+          try {
+            element._interpet = atob(element.interpet)
+          } catch {
+            element._interpet = ""
+          }
+
+        });
+
         this.group.forEach(grp => {
           for (let i = 0; i < this.testreport.length; i++) {
             if (this.testreport[i].testgroup == grp.group_name && this.testreport[i].labid == 0) {
@@ -112,6 +128,17 @@ export class TestreportComponent implements OnInit {
               element.value = JSON.parse(JSON.stringify(data))[element.testname.trim()]['value'];
               element.interpet = data[element.testname.trim()]['interpet'];
               element.comments = data[element.testname.trim()]['comments'];
+              try {
+                element._comments = atob(element.comments)
+              } catch {
+                element._comments = ""
+              }
+    
+              try {
+                element._interpet = atob(element.interpet)
+              } catch {
+                element._interpet = ""
+              }
             }
             this.valueCheck(i);
           };
@@ -266,6 +293,14 @@ export class TestreportComponent implements OnInit {
 
 
   save() {
+
+    this.testreport.forEach(element => {
+          
+        element.comments = btoa(element._comments)
+
+        element.interpet = btoa(element._interpet)
+
+    });
     this.Students.report = this.testreport
     if (this.validate()) {
       this._studentservice.savereport(this.Students)

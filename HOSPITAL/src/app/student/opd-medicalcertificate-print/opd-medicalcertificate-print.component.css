@@ -46,7 +46,7 @@ body {
   .items-group {
     border-style: solid;
     border-color: black;
-    border-width: 1pt 1pt 1pt 1pt;
+    border-width: 4pt 4pt 4pt 4pt;
     border-radius: 5pt;
     padding: 3pt 3pt 3pt 3pt;
     margin-left:40px ;

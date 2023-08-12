@@ -23,13 +23,15 @@ export class MisMasterComponent implements OnInit {
   declare choice5: string;
   list1: string[] = [];
   list2: string[] = [];
-
+  
   editable: boolean = false;
   SelectedFieldList = ["PaymentMode", "Head Wise Details", "Head Wise Daily", "Head Wise Monthly"];
   declare group: group[];
   declare rconsulant: consulant[];
   OPD1 = new OPD();
   list: string[] = [];
+  declare showdailyactivityreport:  boolean
+  declare showdailyactivitydoctor:  boolean
 
   constructor(private _studentservice: StudentsService,
     private router: Router) { }
@@ -53,6 +55,22 @@ export class MisMasterComponent implements OnInit {
     if (this.uname == '') {
       this.router.navigate(['']);
     }
+    //call permission
+this._studentservice.getuserpermission(this.uname)
+.subscribe(data => {
+  this._studentservice.permission = data
+  if (this._studentservice.checkPermission("Menu", "MIS", "inst") ) {
+
+      this.showdailyactivityreport = JSON.parse(JSON.stringify(this._studentservice.permission))["MIS Reports"]["Daily Activity Report"]["inst"] == "Y";
+      this.showdailyactivitydoctor = JSON.parse(JSON.stringify(this._studentservice.permission))["MIS Reports"]["Daily Activity Consultant"]["inst"] == "Y";
+      
+    }
+    else{
+      this.router.navigate(['/homepage/main'])
+    }
+
+    });
+  
     this._studentservice.gettablegroup()
       .subscribe((data: group[]) => {
         this.list = [];
@@ -84,29 +102,6 @@ export class MisMasterComponent implements OnInit {
         });
     }
   }
-  changedata1() {
-    this.list2 = []
-    if (this.choice4 == "PaymentMode") {
-      this._studentservice.gettablegroup()
-        .subscribe((data: group[]) => {
-          this.list2 = [];
-          data.forEach(element => {
-            this.list2.push(element.paymode);
-          });
-        });
-    }
-    else if (this.choice4 == "Head Wise Details" || this.choice4 == "Head Wise Daily"
-      || this.choice4 == "Head Wise Monthly") {
-      this._studentservice.gettabletesthead()
-        .subscribe((data: any[]) => {
-          this.list2 = [];
-          data.forEach(element => {
-            this.list2.push(element["type"]);
-          });
-        });
-    }
-  }
-
   changedata_Consulant() {
     this.list1 = [];
     if (this.choice2 == "Consulant") {
@@ -117,12 +112,58 @@ export class MisMasterComponent implements OnInit {
           });
         });
     }
+    else if (this.choice2 == "ALL")
+    {
+      this.choice3 = "ALL"
+      // this.list1.push("ALL")
+    }
   }
+  changedata1() {
+    this.list2 = []
+    if (this.choice4 == "PaymentMode") {
+      this._studentservice.gettablegroup()
+        .subscribe((data: group[]) => {
+          this.list2 = [];
+          data.forEach(element => {
+            this.list2.push(element.paymode);
+          });
+          this.choice5 = this.list2[0];
+        });
+    }
+    else if(this.choice4 == "Details"){
+     this.list2.push("All");
+
+     this.choice5 = this.list2[0];
+    }
+    else if(this.choice4 == "Head Wise Summary"){
+      this.list2.push("All");
+ 
+      this.choice5 = this.list2[0];
+     }
+    else if(this.choice4 == "Summary"){
+      this.list2.push("All");
+ 
+      this.choice5 = this.list2[0];
+     }
+    else if (this.choice4 == "Head Wise Details" || this.choice4 == "Head Wise Daily"
+      || this.choice4 == "Head Wise Monthly") {
+      this._studentservice.gettabletesthead()
+        .subscribe((data: any[]) => {
+          this.list2 = [];
+          data.forEach(element => {
+            this.list2.push(element["type"]);
+          });
+          this.choice5 = this.list2[0];
+        });
+    }
+  }
+
+  
   dailyreport(vrdt1: any, vrdt2: any, choice: any, choice1: any) {
     let dt = this.vrdt1;
     let dt2 = this.vrdt2;
-    let doc = this.choice;
-    let doc1 = this.choice1;
+    let doc = this.choice; //Select Item
+    let doc1 = this.choice1; //Heads
     if (doc == undefined) {
       alert("Sorry ! Please Select Choice")
     }
@@ -145,6 +186,9 @@ export class MisMasterComponent implements OnInit {
       else if (doc == "Head Wise Monthly") {
         this.router.navigate(['/homepage/dailyacitivy-Headssummonth/' + dt, dt2, doc1]);
       }
+      else if (doc == "Monthly Summary All Heads") {
+        this.router.navigate(['/homepage/dailyacitivy-monthsummaryallheads/' + dt, dt2]);
+      }
     }
   }
 
@@ -153,27 +197,40 @@ export class MisMasterComponent implements OnInit {
     let dt2 = this.vrdt2;
     let doc = this.choice2; // All or consultant
     let doc1 = this.choice3; // Consultant names
-    let doc2 = this.choice4; //Details, Paymode etc
-    let doc3 = this.choice5; // value
+    let doc2 = this.choice4; //Details, select item
+    let doc3 = this.choice5; // Heads
+    console.log(doc,doc1,doc2,doc3)
     if (doc == undefined || doc2 == undefined ) {
       alert("Sorry ! Please Select Choice")
     }
     else {
       if (doc == "ALL") {
         if(doc2 == "Details"){
-          if(doc3 == "ALL"){
-           alert("ist choice")
-
+          if(doc3 == "All"){
+            this.router.navigate(['/homepage/dailyacitivy-details-consultant/' + dt, dt2,doc1]);
           }
         }
-      }
-      else if (doc == "Consulant") {
-        if(doc2 == "Details"){
-          alert("DOC = Consultant + Details")
+        else if(doc2 == "Head Wise Summary"){
+          if(doc3 == "All"){
+            this.router.navigate(['/homepage/dailyacitivy-HeadSummary-consultant/' + dt, dt2,doc1]);
           }
-          else if(doc2 == "Summary"){
-            alert("DOC = Consulant + Summary")
+        }
+        else if(doc2 == "Summary"){
+            if(doc3 == "All"){
+              this.router.navigate(['/homepage/dailyacitivy-Summary-consultant/' + dt, dt2,doc1]);
             }
+          }
+
+        }
+      
+      
+      //for consultant wise Reports
+      if (doc == "Consulant") {
+        if(doc2 == "Details"){
+          if(doc3 == "All"){
+            this.router.navigate(['/homepage/dailyacitivy-details-consultant/' + dt, dt2,doc1]);
+          }
+          }
       }
     }
   }

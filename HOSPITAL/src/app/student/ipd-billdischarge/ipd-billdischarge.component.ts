@@ -28,7 +28,8 @@ export class IPDBilldischargeComponent implements OnInit {
   totalnetamt = 0;
   allowedSave = false;
   dueAmount = 0;
-
+  resourcesLoaded=true;
+  
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
     private Router: Router,
@@ -181,7 +182,9 @@ export class IPDBilldischargeComponent implements OnInit {
     this.onNoClick();
   }
   onsave() {
+    this.resourcesLoaded = false;
     if (this.heads.Status == "") {
+      this.resourcesLoaded = true;
       alert("Result Must be Entered....Sorry !! ")
     }
     else {
@@ -192,6 +195,7 @@ export class IPDBilldischargeComponent implements OnInit {
               defaultConfirmData.cancel = this.cancel
             defaultConfirmData.title = "Print Bill"
             defaultConfirmData.message = "Do you want to print Bill?"
+            this.resourcesLoaded = true;
             this.confirm()
             });
         });

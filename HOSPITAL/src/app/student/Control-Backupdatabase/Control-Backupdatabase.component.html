@@ -1,13 +1,29 @@
-<h2>Backup Database</h2>
-<label  for="dcmntno">Backup Path</label>
-<label for="input-folder-1">Upload File From Folder</label>
-<div class="file-loading">
-    <input id="input-folder-1" type="file" webkitdirectory>
+<div>
+    <h2 style="margin-top: 4vh; margin-left: 20%;" class="card-title">User (Copy / Delete) Permission</h2>
+    <div class="card-group" [ngClass]="Mobile ? 'columnCardGroup' : 'rowCardGroup'">
+        <div class="card1" [ngClass]="Mobile ? 'columnCard':''">
+            <div class="cardbody">
+                <select style="width:260px ;" class="form-control" (change)="changedata()" [(ngModel)]=choice>
+                    <option value="Delete User">Delete User</option>
+                    <option value="Copy User">Copy User</option>
+                </select>
+                <select style="width:260px ;" class="form-control" [(ngModel)]=choice1   *ngIf="list.length > 0" >
+                    <option disabled>--Copy From User--</option>
+                    <option *ngFor="let element of list">
+                      {{element}}
+                    </option> 
+                    </select>
+
+                    <select style="width:260px ;" class="form-control" [(ngModel)]=choice2   *ngIf="list1.length > 0" >
+                        <option disabled>--To User--</option>
+                        <option *ngFor="let element of list1">
+                          {{element}}
+                        </option> 
+                        </select>
+
+                <button style="font-size:small; margin-top: 2vh; margin-left:10px;" (click)=useraction(choice,choice1,choice2)
+                    class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
 </div>
-<script>
-$(document).ready(function() {
-    $("#input-folder-1").fileinput({
-        browseLabel: 'Select Folder...'
-    });
-});
-</script>

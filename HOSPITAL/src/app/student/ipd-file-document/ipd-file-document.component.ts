@@ -32,9 +32,22 @@ export class IpdFileDocumentComponent implements OnInit {
   this.dialogRef.close();
   }
   genconsent(){
-    let dcmntNo = this.OPD.dcmntNo;
+  let dcmntNo = this.OPD.dcmntNo;
   let dt =   this.OPD.opdDate;
   this.Router.navigate(['/homepage/genconsent/' , dcmntNo,dt]);
   this.dialogRef.close();
+  }
+  package(){
+    let dcmntNo = this.OPD.dcmntNo;
+    let dt =   this.OPD.opdDate;
+    this.Router.navigate(['/homepage/package/' , dcmntNo,dt]);
+    this.dialogRef.close();
+  }
+  bloodconsent(){
+    let dcmntNo = this.OPD.dcmntNo;
+    let dt =   this.OPD.opdDate;
+    this.Router.navigate(['/homepage/bloodconsent/' , dcmntNo,dt]);
+    this.dialogRef.close();
+
   }
 }

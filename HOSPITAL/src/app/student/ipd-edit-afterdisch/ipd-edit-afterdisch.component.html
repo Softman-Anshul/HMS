@@ -23,6 +23,10 @@
                             <input type="text" name="" required="" disabled="true" [(ngModel)]=OPD1.uhID>
                             <label>UHID</label>
                         </div>
+                        <div class="user-box-small">
+                            <input type="text" name="" required="" disabled="true" [(ngModel)]=heads.Years>
+                            <label>Years</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,6 +167,20 @@
             <label>RefConsultant</label>
         </div>
 
+          <div class="user-box">
+            <select [(ngModel)]=OPD1.surgical onchange=" this.dataset.chosen = this.value; ">
+              <option value="" disabled selected>Select</option>
+              <option value="Medical">Medical</option>
+              <option value="Surgical">Surgical</option>
+            </select>
+            <label>Type</label>
+          </div>
+
+    </div>
+
+
+
+    <div class="row" style="margin-top:1vw ;padding-left: 1vw;">
         <div class="user-box-small">
             <input type="date" name="" required="" [(ngModel)]=OPD1.opdDate>
             <label>Admit Date</label>
@@ -181,6 +199,14 @@
         <div class="user-box-small">
             <input type="text" name="" required="" [(ngModel)]=heads1.distime>
             <label>Dis Time</label>
+        </div>
+
+        <div class="user-box-small">
+            <input type="text" name="" required="" [(ngModel)]=heads1.vchrNo>
+        </div>
+
+        <div class="user-box-small">
+            <input type="text" name="" required="" [(ngModel)]=heads1.vchrDate>
         </div>
     </div>
 
@@ -239,7 +265,7 @@
     <div style="padding-left: 1vw;margin-top:1vh;border: none; border-top: 0px solid gray;">
         <div class="row" style="padding-top: 2vh;">
             <div class="user-box">
-                <select [(ngModel)]=test.itmName (change)="selectTest()" id="ItemName"
+                <select [(ngModel)]=details.itmName (change)="selectTest()" id="ItemName"
                     onchange=" this.dataset.chosen = this.value; ">
                     <option value="" disabled selected>Select</option>
                     <option *ngFor="let test of testmaster">
@@ -336,11 +362,11 @@
                 <label>Discount</label>
             </div>
             <div class="user-box-small">
-                <input type="text" name="" required="" disabled [(ngModel)]=billamt (change)="updatePayment()">
+                <input type="text" name="" required=""  [(ngModel)]=billamt (change)="updatePayment()">
                 <label>Bill Amount</label>
             </div>
             <div class="user-box-small">
-                <input type="text" name="" required="" disabled [(ngModel)]=totalnetamt (change)="updatePayment()">
+                <input type="text" name="" required=""  [(ngModel)]=totalnetamt (change)="updatePayment()">
                 <label>Advance</label>
             </div>
             <div class="user-box-small">
@@ -349,13 +375,13 @@
             </div>
             <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh; margin-right: 1vw;" (click)="addFoc()">=></button>
             <div class="user-box-small">
-                <input type="text" name="" required="" disabled [(ngModel)]=heads1.foc>
+                <input type="text" name="" required=""  [(ngModel)]=heads1.foc>
                 <label>FOC Amt</label>
             </div>
             <button class="btn btn-primary" style="width: 3vw; margin-top: 1vh; margin-right: 1vw;" (click)="addSet()">=></button>
             <div class="user-box-small">
-                <input type="text" name="" required="" disabled [(ngModel)]=heads1.set>
-                <label>Set Amt</label>
+                <input type="text" name="" required=""  [(ngModel)]=heads1.set>
+                <label>Set. Amt</label>
             </div>
 
         </div>

@@ -238,3 +238,4 @@
   </div>
   <app-ipd-billing-tool-tip id="tool-tip" style="display: none;" [x] = "'131'" [y] = "'121'" [hoverDcmntNo]="OPD.dcmntNo.toString()" [hoverUhID]="OPD.uhID.toString()" [flag]="true"></app-ipd-billing-tool-tip>
 </div>
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

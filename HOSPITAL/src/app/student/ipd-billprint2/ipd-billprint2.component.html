@@ -5,202 +5,225 @@
 
 <div id="print" style="background-color: white;">
   <div class="row">
-    <div class="col" id="printsection" style="margin-top: 5vw; margin-left: 30px;">
-      <img src="assets\logo.jpg" style="width:80px;" id="icon" alt="User Icon" />
+    <div class="col-2" id="printsection" style="margin-top: 3vw; margin-left: 30px;">
+        <img src="assets\logo.jpg" style="width:120px;" id="icon" alt="User Icon" />
     </div>
     <div class="col">
-      <h3 style="margin-top: 5vw; font-weight: bold; font-size: larger; height: 4px;">{{company}}</h3>
-      <h4 style="height: 4px;">{{add}}</h4>
-      <h4 style="height: 4px;">{{city}}</h4>
-      <h4>{{phone}}</h4>
+        <h5 style="font-size:40px; text-align: center;  font-weight: bolder; margin-top: 3vw;">{{company}}</h5>
+        <h5 style="text-align: center; font-weight: bold;">{{add}}</h5>
+        <h5 style="text-align: center;  font-weight: bold;">{{city}}</h5>
+        <h5 style="text-align: center;  font-weight: bold;">{{phone}}</h5>
     </div>
-  </div>
-  <div class="disclaimer signature-field">
-  </div>
-
-  <div class="row" style="text-align: center;">
-    <h2
-      style="text-align: center; margin-top: 1vw; font-size:xx-large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; ">
-      IPD BILL</h2>
-  </div>
-  <div class="row" style="margin-left: 30px;">
-    <div class="col-7">
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px; ">Patient Name</label>
-        <input
-          style="font-size:medium;   margin-left:15px; width:40px ; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.pntn type="pntn">
-        <input
-          style="font-size:medium; margin-left:5px; width:230px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntName type="pntName">
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Age/Gender</label>
-        <input
-          style="margin-left: 25px; font-size:medium; width:30px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntAgeYrs type="pntAgeYrs">
-        <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntSex type="pntSex">
-        <input style="font-size:medium; width:60px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.agey type="agey">
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Guardian</label>
-        <input
-          style="font-size:medium; margin-left:50px; width:45px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntg type="pntg">
-        <input
-          style="font-size:medium; margin-left:5px; width:250px ; border:none ;color: black; background-color: white;"
-          [(ngModel)]=OPD.pntGrdn type="pntGrdn">
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px;">Address</label>
-        <input
-          style="font-size:medium; margin-left:55px; width:155px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntAdrs1>
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px;">District</label>
-        <input
-          style="font-size:medium; margin-left:65px; width:155px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntCity>
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold; margin-left:15px; ">Mobile</label>
-        <input
-          style="font-size:medium; margin-left:70px; width:155px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.pntMobile>
-      </div>
-
-      <div>
-        <strong><label style="font-size:medium; font-weight: bold; margin-left:15px; ">Consultant</label></strong>
-        <input
-          style="font-weight: bold; width:210px ; margin-left:40px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.dctrVisited>
-      </div>
-
-
+</div>
+<div class="row" style="border-top: solid black 1pt;border-bottom: solid black 1pt;">
+    <div>
+        <h2
+            style="font-weight:bolder; text-align: center; margin-left: 20px; margin-top: 1vw; font-size:xx-large;  ">
+            IPD FINAL BILL</h2>
     </div>
-    <div class="col-5">
-      <div>
-        <label style="font-size:medium; font-weight: bold;">BillNo/DT</label>
-        <input
-          style="font-size:medium; width:60px ; margin-left:15px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=heads1.vchrNo type="text">
-        <input style="font-size:medium; width:115px ; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=heads1.vchrDate type="date">
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold;">Admit Date</label>
-        <input
-          style="font-size:medium; width:110px ; margin-left:65px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.opdDate type="date">
-        <input style="font-size:medium; width:75px ; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.opdTime>
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold;">Discharge Date</label>
-        <input
-          style="font-size:medium; width:105px ; margin-left:40px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=heads1.Statusdate type="date">
-        <input style="font-size:medium; width:75px ; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=heads1.distime>
-      </div>
-
-
-      <div>
-        <label style="font-size:medium; font-weight: bold;">File-No</label>
-        <input
-          style="font-size:medium; margin-left:35px; width:45px ; border:none ;color: black; background-color: white; "
-          [(ngModel)]=OPD.dcmntNo>
-        <label style="font-size:medium; margin-left:20px;">UHID</label>
-        <input
-          style="font-size:medium; width:40px ; margin-left: 25px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.uhID>
-      </div>
-
-      <div>
-        <input
-          style="font-size:medium; width:210px ; margin-left:2px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=Ward1.rCat>
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold;">RoomNo</label>
-        <input
-          style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=Ward1.roomNo>
-        <label style="font-size:medium; font-weight: bold; margin-left:40px;">BedNo</label>
-        <input
-          style="font-size:medium; width:40px ; margin-left: 5px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=Ward1.bedno>
-      </div>
-
-      <div>
-        <label style="font-size:medium; font-weight: bold;">Patient Type</label>
-        <input
-          style="font-size:medium; width:210px ; margin-left:60px; border:none ;color: black; background-color: white; "
-          disabled="true" [(ngModel)]=OPD.PntType>
-      </div>
-
+</div>
+  <div class="row" style="margin-top: 1vw; border-bottom: solid black 1pt; font-size: large;">
+    <div class="col">
+        <div class="row">
+            <div class="col" style="margin-left: 1vw; max-width: 20%;">
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%; ">Name</label>
+                </div>
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%;">Age/Gender</label>
+                </div>
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%;">Guardian</label>
+                </div>
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%;">Address</label>
+                </div>
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%;">City</label>
+                </div>
+                <div class="row">
+                    <label style=" font-weight: bold; margin-left:2%;">Phone</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntn}} {{OPD.pntName}}</label>
+                </div>
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntAgeYrs}} {{OPD.agey}} /
+                        {{OPD.pntSex}}</label>
+                </div>
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntg}} {{OPD.pntGrdn}}</label>
+                </div>
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntAdrs1}}</label>
+                </div>
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntCity}}</label>
+                </div>
+                <div class="row">
+                    <label style=" margin-left:2vw; ">{{OPD.pntMobile}}</label>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class="table table-bordered border-primary" style="margin-left:20px ; width: 92%; font-size:smaller; ">
+    <div class="col">
+      <div class="row">
+          <div class="col" style="margin-left: 0vw; max-width: 30%;">
+              <div class="row">
+                  <label style=" font-weight: bold; ">Admit Date</label>
+              </div>
+              <div class="row">
+                <label style=" font-weight: bold; ">Discharge Date</label>
+            </div>
+              <div class="row">
+                  <label style=" font-weight: bold; ">File No</label>
+              </div>
+              <div class="row">
+                  <label style=" font-weight: bold; ">Ward</label>
+              </div>
+              <div class="row">
+                  <label style=" font-weight: bold; ">Room No</label>
+              </div>
+              <div class="row">
+                <label style=" font-weight: bold; ">Consultant</label>
+            </div>
+          </div>
+          <div class="col">
+                  <div class="row">
+                  <div class="col" style="max-width: 38vw;">
+                      <label style=" margin-left:1vw; " >{{OPD.opdDate | date:'dd-MM-yyyy'}}</label>
+                  </div>
+                  <div class="col" style="max-width: 5vw;">
+                      <label style=" font-weight: bold; margin-left:2vw; ">Time</label>
+                  </div>
+                  <div class="col">
+                      <label style=" margin-left:2vw; ">{{OPD.opdTime}}</label>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col" style="max-width:38vw;">
+                    <label style=" margin-left:1vw; ">{{heads1.Statusdate | date:'dd-MM-yyyy'}}</label>
+                </div>
+                <div class="col" style="max-width: 5vw;">
+                    <label style=" font-weight: bold; margin-left:2vw; ">Time</label>
+                </div>
+                <div class="col">
+                    <label style=" margin-left:2vw; ">{{heads1.distime}}</label>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col" style="max-width: 25vw;">
+                  <label style=" margin-left:1vw; ">{{OPD.dcmntNo}}</label>
+                </div>
+              <div class="col" style="max-width: 5vw;">
+                <label style=" font-weight: bold; margin-left:2vw; ">UHID</label>
+            </div>
+            <div class="col">
+                  <label style=" margin-left:2vw; ">{{OPD.uhID}}</label>
+              </div>
+            </div>
+
+              <div class="row">
+                  <label style=" margin-left:1vw; ">{{Ward1.rCat}}</label>
+              </div>
+              <div class="row">
+                  <div class="col" style="max-width: 25vw;">
+                      <label style=" margin-left:1vw; ">{{Ward1.roomNo}}</label>
+                  </div>
+                  <div class="col" style="max-width: 5vw;">
+                      <label style=" font-weight: bold; margin-left:2vw; ">BNo</label>
+                  </div>
+                  <div class="col">
+                      <label style=" margin-left:2vw; ">{{Ward1.bedno}}</label>
+                  </div>
+              </div>
+              <div class="row">
+                <label style=" margin-left:1vw; ">{{OPD.dctrVisited}}</label>
+            </div>
+            <div class="row">
+              <label style=" margin-left:1vw; ">{{OPD.caseType}}</label>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row" style="border-bottom: solid black 1pt;">
+    <table class="table table-bordered border-primary" style="margin-left:20px ; width: 92%; font-size:large; ">
       <thead>
         <tr>
-          <th style="font-size:large;">SNo</th>
-          <th style="font-size:large;">Description</th>
-          <th style="font-size:large;">Qty</th>
-          <th style="font-size:large;">Duration</th>
-          <th style="font-size:large;">Rate</th>
-          <th style="font-size:large;">Dis%</th>
-          <th style="font-size:large;">DicAmt</th>
-          <th style="font-size:large;padding-right:20px ;">Amount</th>
+          <th style="background-color:darkgray !important; color:black; font-size:large;">SNo</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Description</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Qty</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Duration</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Rate</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Disc.%</th>
+          <th style="background-color:darkgray!important; color:black; font-size:large;">Disc. Amt.</th>
+          <th style="background-color:darkgray !important; color:black; font-size:large; padding-right:20px ;">Amount</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of heads.tests let i=index;">
           <td style="width:30px;">{{i+1}}</td>
           <td style="width:250px;">{{item.itmName}}</td>
-          <td style="width:40px ;">{{item.itmQty}}</td>
+          <td style="width:40px; text-align: right;">{{item.itmQty}}</td>
           <td style="width:20px ;">{{item.Remark}}</td>
-          <td style="width:40px;">{{item.itmChrgs}}</td>
-          <td style="width:30px;">{{item.disp}}</td>
-          <td style="width:40px; ">{{item.itmDiscntPrsnt}}</td>
-          <td style="width:40px; ">{{item.totalAmt}}</td>
+          <td style="width:40px;text-align: right;">{{item.itmChrgs}}</td>
+          <td style="width:30px;text-align: right;">{{item.disp}}</td>
+          <td style="width:40px;text-align: right; ">{{item.itmDiscntPrsnt}}</td>
+          <td style="width:40px; text-align: right;">{{item.totalAmt}}</td>
         </tr>
       </tbody>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>      
+      <td style="text-align: left; font-weight: bold; ">Total</td>
+        <td style="text-align: right;">{{heads.grandTotal}}</td>
+        <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>     
+        <td style="text-align: left ; font-weight: bold; ">Discount</td>
+        <td style="text-align: right;">{{heads1.discountAmt}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>     
+          <td style="text-align:left; font-weight: bold; ">Bill Amt.</td>
+          <td style="text-align: right; ">{{billamt}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>     
+            <td style="text-align:left; font-weight: bold; ">Payment</td>
+            <td style="text-align: right; ">{{heads1.adv}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>     
+              <td style="text-align:left; font-weight: bold; ">Due Amt.</td>
+              <td style="text-align: right; ">{{heads1.paydue}}</td>
+            </tr>
     </table>
-
-    <div>
-      <label style="margin-left:670px;">Total</label>
-      <input style="margin-left:70px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads.grandTotal>
-    </div>
-
-    <div>
-      <label style="margin-left:670px;">Discount</label>
-      <input style="margin-left:45px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads1.discountAmt>
-    </div>
-
-    <div>
-      <label style="margin-left:670px;">Bill Amount</label>
-      <input style="margin-left:25px ; width:90px; " readonly="true" type="text" [(ngModel)]=billamt>
-    </div>
-
-    <div>
-      <label style="margin-left:670px;">Advance</label>
-      <input style="margin-left:45px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads1.adv>
-    </div>
-    <div>
-      <label style="margin-left:670px;">Due Amount</label>
-      <input style="margin-left:20px ; width:90px; " readonly="true" type="text" [(ngModel)]=heads1.paydue>
-    </div>
-
   </div>
 </div>

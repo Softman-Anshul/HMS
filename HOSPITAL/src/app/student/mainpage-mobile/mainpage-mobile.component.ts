@@ -26,8 +26,9 @@ export class MainpageMobileComponent implements OnInit {
     { sidebartext: "IPD Reports", url: "/homepage/ipd-reportmaster", "icon": "fa fa-print" },
     { sidebartext: "MIS", url: "/homepage/mis-master", "icon": "fa fa-life-ring" },
     { sidebartext: "Pathology", url : "/homepage/Pathology","icon":"fa fa-text-width"},
-    { sidebartext: "Account", url : "/homepage/Account","icon":"fa fa-life-ring"},
-    { sidebartext: "Controls", url: "control", "icon": "fa fa-wrench", }
+    { sidebartext: "Controls", url : "control","icon":"fa fa-wrench",} ,
+    { sidebartext: "Payroll", url : "payroll","icon":"fa fa-wrench",} 
+
 
   ];
   SideBars: sidebar[] = [];

@@ -14,7 +14,7 @@
             </div>
             <div class="col-2 " hidden="true">
                 <div class="user-box ">
-                    <input type="text" name="" required="" [(ngModel)]=testname.TestName>
+                    <input type="text" name="" required="" [(ngModel)]=testmasterm.TestName>
                     <label>TestName</label>
                 </div>
             </div>
@@ -23,24 +23,24 @@
 
         <div class="row" style="margin-top: 1vh;">
             <div class="user-box-small">
-                <input type="text" name="" required="" [(ngModel)]=testname.Testcode>
+                <input type="text" name="" required="" [(ngModel)]=testmasterm.Testcode>
                 <label>Test Code</label>
             </div>
             <div class="user-box">
-                <input type="text" name="" required="" [(ngModel)]=testname.TestName>
+                <input type="text" name="" required="" [(ngModel)]=testmasterm.TestName>
                 <label>TestName</label>
             </div>
         </div>
 
         <div class="row" style="margin-top: 1vh;">
             <div class="user-box-small">
-                <input type="text" name="" required="" [(ngModel)]=testname.Price>
+                <input type="text" name="" required="" [(ngModel)]=testmasterm.Price>
                 <label>Test Rate</label>
             </div>
 
             <div class = "col" >
             <div class="user-box">
-                <select [(ngModel)]=testname.testgroup >
+                <select [(ngModel)]=testmasterm.testgroup >
                   <option >Select</option>
                   <option *ngFor="let grp of group">
                     {{grp.group_name}}
@@ -98,7 +98,7 @@
                 <div class="user-box-small" >
                     <select [(ngModel)]=testmasterd.Wordcode >
                       <option ng-value="NR">NR</option>
-                      <option *ngFor="let test of Wordname "  >
+                      <option *ngFor="let test of Wordname " ng-value="test.Wordcode" >
                         {{test.Wordcode}}
                       </option>
                     </select>
@@ -124,20 +124,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let test of list let i=index;">
+                    <tr *ngFor="let test of testmasterm.tests let i=index;">
                         <td> {{test.testorder}}</td>
                         <td> {{test.TestsubName}}</td>
                         <td> {{test.SubUnit}}</td>
                         <td> {{test.normalvalue}}</td>
                         <td> {{test.male}}</td>
                         <td> {{test.female}}</td>
-                        <td></td>
+                        <td> {{test.Remark}}</td>
                         <td>{{test.Wordcode}}</td>
+                        <td> {{test.Ipet}}</td>
+                        <td> {{test.comments}}</td>
+
                     </tr>
                 </tbody>
 
             </table>
         </div>
-
+        <button class="btn btn-primary" style="width:10vw; margin-top: 1vh;" (click)="onsubmit()">Save</button>
 
     </div>

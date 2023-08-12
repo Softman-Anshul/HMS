@@ -44,6 +44,7 @@ export class OpdlistComponent implements OnInit {
   totalrefund = 0;
   totalbalamt = 0;
   totalrecamt = 0;
+  resourcesLoaded = true;
 
   constructor(private _studentservice: StudentsService,
     private router: Router,
@@ -89,6 +90,8 @@ export class OpdlistComponent implements OnInit {
         this.showrefund = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Refund"]["inst"] == "Y";
         this.showpayment = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Paymode Change"]["inst"] == "Y";
         this.showdoctor = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Doctor Change"]["inst"] == "Y";
+        this.showmedical = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Medical Certificate"]["inst"] == "Y";
+
         this.showsearch = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["OPD Search"]["inst"] == "Y";
 
         this.showtest = JSON.parse(JSON.stringify(this._studentservice.permission))["OPD"]["Test Booking"]["inst"] == "Y";
@@ -129,36 +132,44 @@ export class OpdlistComponent implements OnInit {
 
   @needConfirmation()
   confirm(students: any) {
+    this.resourcesLoaded = false;
     this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
       .subscribe(data => {
         this.OPD = this.OPD.filter(u => u !== students);
+        this.resourcesLoaded = true;
         window.location.reload();
       })
   }
 
   @needConfirmation()
   confirm1(students: any) {
+    this.resourcesLoaded = false;
     this._studentservice.deleteopd(students.dcmntNo, students.opdDate, students.dcmntType)
       .subscribe(data => {
         this.OPD = this.OPD.filter(u => u !== students);
+        this.resourcesLoaded = true;
         window.location.reload();
       })
   }
 
 
   delete(students: any): void {
+    this.resourcesLoaded = false;
     if (students.opdDate == formatDate(new Date(), 'yyyy-MM-dd', 'en_US').split('T')[0]) {
       defaultConfirmData.title = "Delete"
       defaultConfirmData.message = "Are you sure you want to delete?"
+      this.resourcesLoaded = true;
       this.confirm(students)
     }
     else {
       if (JSON.parse(JSON.stringify(this.permission))["Backdate"]["opd_Delete"]["inst"] == "") {
+        this.resourcesLoaded = true;
         alert("You are not Authorized for backdate delete")
       }
       else {
         defaultConfirmData.title = "Delete"
         defaultConfirmData.message = "Are you sure you want to delete?"
+        this.resourcesLoaded = true;
         this.confirm1(students)
       }
     }

@@ -72,6 +72,7 @@ export class IPDBillprint2Component implements OnInit {
         this._studentservice.getipdbillheadingdischarge(billno, yrs)
           .subscribe((data: any) => {
             this.heads1 = data[0];
+         
             this.billamt = this.heads1.grandTotal - this.heads1.discountAmt;
           });
 

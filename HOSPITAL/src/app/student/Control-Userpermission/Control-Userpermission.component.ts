@@ -10,6 +10,7 @@ import {login1,userpermission} from '../../students';
 })
 export class UserPermissionComponent implements OnInit {
   declare userpermission :userpermission[];
+  declare userperm :userpermission[];
   declare search:string;
   declare selected : userpermission;
   declare login1 : login1[];
@@ -35,15 +36,57 @@ export class UserPermissionComponent implements OnInit {
     this._studentservice.userpermissionForUser(this.selectedUser)
     .subscribe((data:any) => {
       this.userpermission = data;
+      this.userperm = this.userpermission;
+      this.userperm.forEach(element => {
+        if(element.inst.toUpperCase() == "Y"){
+          element.instcheck = true;
+        } else {
+          element.instcheck = false;
+        }
+        if(element.edt.toUpperCase() == "Y"){
+          element.edtcheck = true;
+        } else {
+          element.edtcheck = false;
+        }
+        if(element.del.toUpperCase() == "Y"){
+          element.delcheck = true;
+        } else {
+          element.delcheck = false;
+        }
+      });
     });
 
      
     });
   }
   onSubmit(){
-    this._studentservice.saveuserpermission(this.userpermission,this.selectedUser)
+     this.userperm.forEach(element => {
+      if(!element.instcheck){
+        element.inst = 'N'
+      } else if (element.inst.toUpperCase() == 'X'){
+        element.inst = 'X'
+      } else {
+        element.inst = 'Y'
+      }
+      if(!element.delcheck){
+        element.del = 'N'
+      }else if (element.del.toUpperCase() == 'X'){
+        element.del = 'X'
+      } else {
+        element.del = 'Y'
+      }
+      if(!element.delcheck){
+        element.edt = 'N'
+      }else if (element.del.toUpperCase() == 'X'){
+        element.del = 'X'
+      } else {
+        element.del = 'Y'
+      }
+     })
+    this._studentservice.saveuserpermission(this.userperm,this.selectedUser)
     .subscribe((data:any) => {
       alert("Thanks");
+      window.location.reload();
     });
   }
   searchquery(){
@@ -54,6 +97,24 @@ export class UserPermissionComponent implements OnInit {
     this._studentservice.userpermissionForUser(this.selectedUser)
     .subscribe((data:any) => {
      this.userpermission = data;
+     this.userperm = this.userpermission;
+     this.userperm.forEach(element => {
+       if(element.inst.toUpperCase() == "Y"){
+         element.instcheck = true;
+       } else {
+         element.instcheck = false;
+       }
+       if(element.edt.toUpperCase() == "Y"){
+         element.edtcheck = true;
+       } else {
+         element.edtcheck = false;
+       }
+       if(element.del.toUpperCase() == "Y"){
+         element.delcheck = true;
+       } else {
+         element.delcheck = false;
+       }
+     });
     });
 
   }

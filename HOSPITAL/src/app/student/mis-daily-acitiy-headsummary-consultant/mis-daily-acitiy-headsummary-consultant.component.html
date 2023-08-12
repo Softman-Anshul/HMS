@@ -1,0 +1,48 @@
+<div class="col" style="text-align:right">
+    <button (click)="printComponent()">Print</button>
+    <button (click)="opdlist()">Close</button>
+</div>
+
+<div id="print" style="background-color: white; width: auto; ">
+
+    <app-report-PageHeading></app-report-PageHeading>
+
+    <h4 style="margin-left: 20px; font-weight: bold; margin-top: 2vh; ">Consultant Daily Activity Head Wise Summary
+        Report from {{fromdt | date :'dd/MM/yyyy'}} To
+        {{todt | date :'dd/MM/yyyy'}}
+        <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
+    </h4>
+
+    <table class="table table-bordered " style="font-size:smaller; width: 90%;">
+        <thead>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Doctor</th>    
+            <ng-container *ngFor="let dcmt of sortDcmt() ">
+                <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">{{dcmt}}</th>    
+            </ng-container>
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Total</th>    
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let heading1 of headingMap1 | keyvalue">
+                <tr style="font-size: large;">
+                    <td >{{heading1.key}}</td>
+                    <ng-container *ngFor="let dcmt of sortDcmt() ">
+                        <td>
+                            {{checkIfNull(heading1.key,dcmt,'headwiseTotalnet')}}
+                        </td>
+                    </ng-container>
+                    <td style="font-weight: 600;">{{headwiseTotalnet.get(heading1.key)}}</td>
+                </tr>
+            </ng-container>
+            <tr style="font-size: large;">
+                <td style="font-weight: 600;">Total</td>
+                <ng-container *ngFor="let dcmt of sortDcmt() ">
+                    <td style="font-weight: 600;">
+                        {{this.finalTotal.get(dcmt)}}
+                    </td>
+                </ng-container>
+                <td></td>
+            </tr>
+    </tbody>
+    </table>
+
+</div>

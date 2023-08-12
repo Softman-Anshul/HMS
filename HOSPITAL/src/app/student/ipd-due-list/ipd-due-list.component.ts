@@ -21,6 +21,7 @@ export class IpdDueListComponent implements OnInit {
   totalrecamt = 0;
   totalrefund = 0;
   totalnetamt = 0;
+  resourcesLoaded = true;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -74,30 +75,45 @@ export class IpdDueListComponent implements OnInit {
   }
 
   cancel(router: Router) {
+    window.location.reload()
+  }
+
+  @needConfirmation()
+  confirm() {
     let id = this.Deposit.recno;
     let dt = this.Deposit.ipdDate;
     let yrs = this.Deposit.Years;
     let dcmntno = this.OPD.dcmntNo;
     let uhid = this.OPD.uhID;
     this.Router.navigate(['homepage/ipdreceipt/' + id, dt, yrs, dcmntno, uhid]);
+
   }
 
-  @needConfirmation()
-  confirm() {
-    window.location.reload()
+  validation(){
+    if(Number(this.Deposit.advanceReceived) + Number(this.Deposit.Refundpayment) != Number(this.OPD._dueamt)) {
+      return false;
+    }
+    return true;
   }
 
   onsave() {
-    this._studentservice.ipd_dueupdate(this.Deposit)
-      .subscribe(data => {
-        this._studentservice.ipd_payment(this.Deposit)
-          .subscribe(data => {
-            defaultConfirmData .cancel = this.cancel
+    this.resourcesLoaded = false;
+    if (this.validation()) {
+      this._studentservice.ipd_dueupdate(this.Deposit)
+        .subscribe(data => {
+          this._studentservice.ipd_payment(this.Deposit)
+            .subscribe(data => {
+              defaultConfirmData.cancel = this.cancel
               defaultConfirmData.title = "Print Receipts"
               defaultConfirmData.message = "Do you want to print receipts?"
+              this.resourcesLoaded = true;
               this.confirm()
-          });
-      });
+            });
+        });
+    } else {
+      this.resourcesLoaded = true;
+      alert("Total Payment is greater than due amount")
+    }
   }
 
   public discount(): void {
