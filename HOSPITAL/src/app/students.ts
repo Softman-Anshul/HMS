@@ -649,3 +649,144 @@ export class allheadsummary {
     Nov = 0;
     Dec = 0;
 }
+
+export class Employee {
+    staffid = "";
+    Empcode = "";
+    Mr = "";
+    staffname = "";
+    dob = "";
+    age = "";
+    gender = "";
+    category = "";
+    mstatus = "";
+    Father_nam = "";
+    mother_nam = "";
+    spouse_nam = "";
+    Currentadd = "";
+    Currentcity = "";
+    cpin = "";
+    Currentmobile = "";
+    Whatsappno = "";
+    emailid = "";
+    Permanentadd = "";
+    Parmanentcity = "";
+    ppin = "";
+    Parmanentmobile = "";
+    Nominee = "";
+    relation = "";
+    jobtype = "";
+    departid = "";
+    desig = "";
+    doj = "";
+    empstatus = "";
+    doend = "";
+    dutytime = "";
+    dutyfrom = "";
+    salary = "";
+    reportto = "";
+    BankName = "";
+    BankAcno = "";
+    LastWorking = "";
+    Lastworkingcity = "";
+    LastWorkingLeft = "";
+    EsicNo = "";
+    UANNo = "";
+    pfper = "";
+    pancarno = "";
+    aadharno = "";
+    dlno = "";
+    leaveallow = "";
+    bloodgroup = "";
+    esic = "";
+    isNewEmp = false;
+}
+
+export class attend {
+    empcode = "";
+    one = "";
+    two = "";
+    three = "";
+    four = "";
+    five = "";
+    six = "";
+    seven = "";
+    eight = "";
+    nine = "";
+    ten = "";
+    eleven = "";
+    tweleve = "";
+    thirteen = "";
+    fourteen = "";
+    fiveteen = "";
+    sixteen = "";
+    seventeen = "";
+    eightteen = "";
+    nineteen = "";
+    twenty = "";
+    twentyone = "";
+    twentytwo = "";
+    twentythree = "";
+    twentyfour = "";
+    twentyfive = "";
+    twentysix = "";
+    twentyseven = "";
+    twentyeight = "";
+    twentynine = "";
+    thirty = "";
+    thirtyone = "";
+    total = "";
+    mon = "";
+    years = "";
+    comp = "";
+    outdoor = "";
+}
+
+export class salary {
+    attend : attend[] = [];
+    employee: Employee[] = [];
+    breakup : salarybreakup[] = [];
+    deductions : deduction[] = [];
+    value : salaryvalue[] = [];
+}
+
+export class salarybreakup {
+    company = "";
+    empcode = "";
+    heading = "";
+    amt : Number = 0;
+}
+
+export class deduction {
+    decid = "";
+    decname = "";
+    dectype = "";
+    amt : Number = 0;
+}
+
+export class salaryvalue {
+    company = "";
+    empcode = "";
+    heading = "";
+    amt : Number = 0;
+    type = "";
+    mon : Number = 0;
+    years : Number = 0;
+
+}
+
+export class seperate {
+    attend : attend[] = [];
+    value : salaryvalue[] = [];
+    employee: Employee[] = [];
+    breakup : salarybreakup[] = [];
+    deductions : deduction[] = [];
+}
+
+export class allsalary {
+    empsalary = new salary();
+    finalsalary: salarybreakup[] = [];
+    finaldeductions: salarybreakup[] = [];
+    total = 0;    
+  }
+  

@@ -2,19 +2,13 @@
 <h2>STAFF STATUS</h2>
 <div class="col text-right" style="padding:1vw;">
   <button style="margin-right: 1%; " class="btn btn-primary " *ngIf="registration" (click)="newreg()">Add
-    Registration</button>
+    Employee</button>
   <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showrecipts"
-    (click)="openDialogreceipts()">Receipts</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showparcha"
-    (click)="openDialogparcha()">Parcha</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showrefund"
-    (click)="openDialogrefund()">Refund</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showpayment"
-    (click)="openDialogpmode()">Paymode Change</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showdoctor"
-    (click)="openDialogdoctor()">Consultant Change</button>
-  <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showmedical"
-    (click)="Medicalcerficate()">Medical Certificate</button>
+    (click)="addAttendance()">Add Attendance</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showrecipts"
+    (click)="generateSalary()">Generate Salary</button>
+    <button style="margin-right: 1%;" class="btn btn-primary btn-rounded" *ngIf="showrecipts"
+    (click)="employeeSeperation()">Employee Seperation</button>
   <div class="input-group" style="padding-top: 1vh;">
     <select type="text" style=" font-size:small; margin-left:2px; width:90px ;" [(ngModel)]=Choice>
       <option value="ALL">ALL</option>
@@ -27,8 +21,6 @@
       <option value="Emergency">Emergency</option>
 
     </select>
-    <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt1>
-    <input style="font-size:small; margin-left:5px; width:100px ;" type="date" [(ngModel)]=vrdt2>
     <input style="font-size:small; margin-left:5px;" type="search" class="form-control rounded" (keyup)="searchdirect()"
       [(ngModel)]=search />
     <button style="font-size:small; margin-left:5px; " class="btn btn-success" *ngIf="showsearch"
@@ -39,60 +31,52 @@
   <thead class="cf" style="color:white; font-family: Arial, Helvetica, sans-serif;">
     <tr>
       <th></th>
-      <th>SNo</th>
-      <th>OPDNo</th>
-      <th>UHID</th>
-      <th>OPD..Date</th>
-      <th>Time</th>
-      <th>T</th>
-      <th>Patient</th>
+      <th>EmpCode</th>
+      <th>Title</th>
+      <th>Name</th>
       <th>Age</th>
-      <th>Years</th>
-      <th>Sex</th>
-      <th>Consutlant</th>
-      <th>Amt</th>
-      <th>Disc</th>
-      <th>Refund</th>
-      <th>RecAmt</th>
-      <th>PMode</th>
-      <th>Uname</th>
+      <th>Gender</th>
+      <th>Category</th>
+      <th>JobType</th>
+      <th>Desig</th>
+      <th>EmpStatus</th>
       <th *ngIf="delregistration || editregistration">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let students of OPD let i=index ">
-      <td><input name="options" ng-control="options" type="radio" [value]="students" [(ngModel)]=selected></td>
-      <td>{{i + 1}}</td>
-      <td>{{students.dcmntNo}}</td>
-      <td>{{students.uhID}}</td>
-      <td>{{students.opdDate}}</td>
-      <td>{{students.opdTime}}</td>
-      <td>{{students.pntn}}</td>
-      <td>{{students.pntName}}</td>
-      <td>{{students.pntAgeYrs}}</td>
-      <td>{{students.agey}}</td>
-      <td>{{students.pntSex}}</td>
-      <td>{{students.dctrVisited}}</td>
-      <td>{{students.amt}}</td>
-      <td>{{students.discount}}</td>
-      <td>{{students.refund}}</td>
-      <td>{{students.srvcTax}}</td>
-      <td>{{students.paymode}}</td>
-      <td>{{students.uname}}</td>
-
-      <div class="btn-group" role="group">
+    <tr *ngFor="let employee of Employees let i=index ">
+      <td><input name="options" ng-control="options" type="radio" [value]="employee" [(ngModel)]=selected></td>
+      <td>{{employee.Empcode}}</td>
+      <td>{{employee.Mr}}</td>
+      <td>{{employee.staffname}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.gender}}</td>
+      <td>{{employee.category}}</td>
+      <td>{{employee.jobtype}}</td>
+      <td>{{employee.desig}}</td>
+      <td>{{employee.empstatus}}</td>
+      <td>
+        <div class="row" style="padding-left: 5px;">
+          <div class="col" style="padding: 0;">
+            <a *ngIf="delregistration"><button class="btn"><i class="fa fa-trash" type="button"
+                  (click)="delete(employee)"></i> </button></a>
+          </div>
+          <div class="col" style="padding: 0;">
+            <a *ngIf="editregistration"><button class="btn"><i class="fa fa-edit" type="button"
+                  (click)="edit(employee)"></i> </button></a>
+          </div>
+        </div>
+      </td>
+      <!-- <div class="btn-group" role="group">
         <button *ngIf="showtest" class="btn btn-primary btn-rounded"
           (click)="testbooking(students.dcmntNo,students.uhID)">Test</button>
         <button *ngIf="showadmit" class="btn btn-primary btn-rounded"
           (click)="admitpatient(students.dcmntNo,students.opdDate)">Admit</button>
-        <!-- <td *ngIf = "editregistration"> <a><button  class="btn"><i class="fa fa-edit" type="button"(click)="onEdit(students.uhID,students.opdDate)"></i> </button></a></td> -->
         <td *ngIf="delregistration"><a><button class="btn"><i class="fa fa-trash" type="button"
                 (click)="delete(students)"></i> </button></a></td>
         <td *ngIf="editregistration"> <a><button class="btn"><i class="fa fa-edit" type="button"
                 (click)="edit(students)"></i> </button></a></td>
-
-        <!-- <button class="btn btn-primary btn-rounded" (click)="EMR(students.dcmntNo,students.opdDate)" >OPD</button> -->
-      </div>
-  </table>
+      </div> -->
+</table>
 
 <app-loader *ngIf="!resourcesLoaded"></app-loader>

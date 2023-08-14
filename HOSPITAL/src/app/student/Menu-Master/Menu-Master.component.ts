@@ -70,7 +70,6 @@ export class EdittStudentComponent implements OnInit {
           this.showdischargetemplate = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Discharge Card Template"]["inst"] == "Y";
           this.showtestgroup = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Group Master"]["inst"] == "Y";
           this.showtestmaster = JSON.parse(JSON.stringify(this._studentservice.permission))["Master"]["Test Master"]["inst"] == "Y";
-
           }
         });
     }

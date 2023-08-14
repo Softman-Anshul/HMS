@@ -124,6 +124,10 @@ import { MisDailyAcitiyHeadsummaryConsultantComponent } from './mis-daily-acitiy
 import { ControlSetupSmswhatsappComponent } from './control-setup-smswhatsapp/control-setup-smswhatsapp.component';
 import { ControlPayrollComponent } from './Menu-payroll/Menu-payroll.component';
 import { PayrollEmpmasterComponent } from './payroll-empmaster/payroll-empmaster.component';
+import { PayrollEmployeeRegComponent } from './payroll-employee-reg/payroll-employee-reg.component';
+import { PayrollEmployeeAttendanceComponent } from './payroll-employee-attendance/payroll-employee-attendance.component';
+import { PayrollEmployeeSalaryComponent } from './payroll-employee-salary/payroll-employee-salary.component';
+import { PayrollEmployeeSeperationComponent } from './payroll-employee-seperation/payroll-employee-seperation.component';
 
 const routes: Routes = [
 
@@ -306,6 +310,11 @@ const routes: Routes = [
             { path: 'receipts/:id', component: ReciptsComponent },
             { path: 'receiptsb/:id', component: ReciptsBillComponent },
 
+            //PAYROLL
+            { path: 'empreg', component: PayrollEmployeeRegComponent },
+            { path: 'attendance', component: PayrollEmployeeAttendanceComponent },
+            { path: 'salary', component: PayrollEmployeeSalaryComponent },
+            { path: 'seperation', component: PayrollEmployeeSeperationComponent },
 
         ]
     }

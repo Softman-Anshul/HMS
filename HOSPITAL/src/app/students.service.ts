@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { allheadsummary, billdetails, billheading, IPDPAYMENT, login1, Test, testgroup, Ward } from './students';
+import { allheadsummary, attend, billdetails, billheading, Employee, IPDPAYMENT, login1, salary, salarybreakup, salaryvalue, seperate, Test, testgroup, Ward } from './students';
 import { Students } from './students';
 import { consulant } from './students';
 import { department } from './students';
@@ -719,6 +719,65 @@ export class StudentsService {
   uploadReport(html: string, url: string) {
     return this.http.post(this.cdn + '/Hospital/pdfUpload.php', { "html": btoa(html), "path": url, "length": html.length })
   }
+
+
+  //Payroll
+  getAllEmployee() {
+    return this.http.get<Employee[]>(this.cdn + '/Hospital/GetAllEmployee.php');
+  }
+
+  deleteEmployee(employee : Employee) {
+    return this.http.get<any>(this.cdn + '/Hospital/DeleteEmployee.php?empcode='+employee.Empcode);
+  }
+
+  getEmployee(empcode : string) {
+    return this.http.get<any>(this.cdn + '/Hospital/GetEmployee.php?empcode='+empcode);
+  }
+
+  getMaxEmpCode() {
+    return this.http.get<any>(this.cdn + '/Hospital/GetMaxEmpCode.php');
+  }
+
+  saveEmployee(employee : Employee) {
+    return this.http.post(this.cdn + '/Hospital/SaveEmployee.php',employee, { responseType: 'text' });
+  }
+
+  getSalaryStructure() {
+    return this.http.get<any>(this.cdn + '/Hospital/GetSalaryStructure.php');
+  }
+
+  getSalaryBreakup(empcode : string) {
+    return this.http.get<salarybreakup[]>(this.cdn + '/Hospital/GetSalaryBreakup.php?empcode=' + empcode);
+  }
+
+  getAttendance(month:number,year:number,maxDay : number) {
+    return this.http.get<attend[]>(this.cdn + '/Hospital/GetAttendance.php?month=' + month + '&year=' + year + '&max=' + maxDay);
+  }
+
+  saveAttendance(attendance : attend[]) {
+    return this.http.post(this.cdn + '/Hospital/SaveAttendance.php' , attendance, { responseType: 'text' });
+  }
+
+  getSalary(month:number,year:number,empcode : string) {
+    return this.http.get<salary>(this.cdn + '/Hospital/GetSalary.php?month=' + month + '&year=' + year + '&empcode=' + empcode);
+  }
+
+  getAllSalary(month:number,year:number,max : number) {
+    return this.http.get<Map<string,salary>>(this.cdn + '/Hospital/GetSalaryForAll.php?month=' + month + '&year=' + year + '&max=' + max);
+  }
+
+  saveSalary(salary : salarybreakup[]) {
+    return this.http.post(this.cdn + '/Hospital/SaveSalary.php',salary, { responseType: 'text' });
+  }
+
+  saveSalaryValue(salary : salaryvalue[]) {
+    return this.http.post(this.cdn + '/Hospital/SaveSalaryValue.php',salary, { responseType: 'text' });
+  }
+
+  getEmployeeSeperation(month:number,year:number,maxDay : number,empcode : string) {
+    return this.http.get<seperate>(this.cdn + '/Hospital/GetEmpSeperation.php?month=' + month + "&year=" + year + "&max=" + maxDay + "&empcode=" + empcode);
+  }
+
 
   sendWhatsappMessage(to: string, link: string,caption: string) {
     const headers = new HttpHeaders({

@@ -1,0 +1,132 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col-6">
+                <p style="font-size: 18px;">Employee Attendance</p>
+            </div>
+            <div class="col-2">
+                <div class="user-box">
+                    <select [(ngModel)]=month>
+                        <option value=1>Jan</option>
+                        <option value=2>Feb</option>
+                        <option value=3>Mar</option>
+                        <option value=4>Apr</option>
+                        <option value=5>May</option>
+                        <option value=6>Jun</option>
+                        <option value=7>Jul</option>
+                        <option value=8>Aug</option>
+                        <option value=9>Sep</option>
+                        <option value=10>Oct</option>
+                        <option value=11>Nov</option>
+                        <option value=12>Dec</option>
+                    </select>
+                    <label>Month</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="user-box">
+                    <select [(ngModel)]=year>
+                        <option value=2023>2023</option>
+                        <option value=2024>2024</option>
+                    </select>
+                    <label>Year</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <button style="width:10vw ;" type="submit" class="btn btn-success" (click)="getAttendance()">Get
+                    Attendance</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 3vh;">
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Emp Code</th>
+                    <th>Name</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>13</th>
+                    <th>14</th>
+                    <th>15</th>
+                    <th>16</th>
+                    <th>17</th>
+                    <th>18</th>
+                    <th>19</th>
+                    <th>20</th>
+                    <th>21</th>
+                    <th>22</th>
+                    <th>23</th>
+                    <th>24</th>
+                    <th>25</th>
+                    <th>26</th>
+                    <th>27</th>
+                    <th>28</th>
+                    <th>29</th>
+                    <th>30</th>
+                    <th>31</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let record of attendance">
+                    <td style="min-width: 6vw;">{{ record.empcode }}</td>
+                    <td style="min-width: 20vw;">{{ empMap.get(record.empcode) }}</td>
+                    <td><input type="text" [(ngModel)]="record.one" name="one" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.two" name="two" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.three" name="three" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.four" name="four" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.five" name="five" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.six" name="six" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.seven" name="seven" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.eight" name="eight" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.nine" name="nine" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.ten" name="ten" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.eleven" name="eleven" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.tweleve" name="twelve" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.thirteen" name="thirteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.fourteen" name="fourteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.fiveteen" name="fifteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.sixteen" name="sixteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.seventeen" name="seventeen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.eightteen" name="eighteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.nineteen" name="nineteen" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.twenty" name="twenty" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyone" name="twentyone" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.twentytwo" name="twentytwo" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.twentythree" name="twentythree" style="max-width: 2vw;">
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.twentyfour" name="twentyfour" style="max-width: 2vw;">
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.twentyfive" name="twentyfive" style="max-width: 2vw;">
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.twentysix" name="twentysix" style="max-width: 2vw;"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyseven" name="twentyseven" style="max-width: 2vw;">
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.twentyeight" name="twentyeight" style="max-width: 2vw;" >
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.twentynine" name="twentynine" style="max-width: 2vw;"  [disabled]="record.twentynine == null">
+                    </td>
+                    <td><input type="text" [(ngModel)]="record.thirty" name="thirty" style="max-width: 2vw;"  [disabled]="record.thirty == null"></td>
+                    <td><input type="text" [(ngModel)]="record.thirtyone" name="thirtyone" style="max-width: 2vw;"  [disabled]="record.thirtyone == null"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row" style="margin-top: 3vh;">
+        <button style="width:10vw ;" type="submit" class="btn btn-success" (click)="save()">Save</button>
+    </div>
+</div>
+
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

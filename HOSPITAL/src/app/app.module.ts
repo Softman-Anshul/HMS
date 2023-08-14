@@ -78,6 +78,10 @@ import { NewBookingComponent } from './student/Test-Booking/Test-Booking.compone
 import { ControlSetupSmswhatsappComponent } from './student/control-setup-smswhatsapp/control-setup-smswhatsapp.component';
 import { ControlPayrollComponent } from './student/Menu-payroll/Menu-payroll.component';
 import { PayrollEmpmasterComponent } from './student/payroll-empmaster/payroll-empmaster.component';
+import { PayrollEmployeeRegComponent } from './student/payroll-employee-reg/payroll-employee-reg.component';
+import { PayrollEmployeeAttendanceComponent } from './student/payroll-employee-attendance/payroll-employee-attendance.component';
+import { PayrollEmployeeSalaryComponent } from './student/payroll-employee-salary/payroll-employee-salary.component';
+import { PayrollEmployeeSeperationComponent } from './student/payroll-employee-seperation/payroll-employee-seperation.component';
 
 export function initializeDialogService() {
   return () => {
@@ -152,7 +156,11 @@ export function initializeDialogService() {
     ControlSetupSmswhatsappComponent,
     ControlPayrollComponent,
     PayrollEmpmasterComponent,
-    
+    PayrollEmployeeRegComponent,
+    PayrollEmployeeAttendanceComponent,
+    PayrollEmployeeSalaryComponent,
+    PayrollEmployeeSeperationComponent,
+
     ],
   imports: [
     BrowserModule,

@@ -1,0 +1,139 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col-6">
+                <p style="font-size: 18px;">Employee Salary</p>
+            </div>
+            <div class="col-2">
+                <div class="user-box">
+                    <select [(ngModel)]=month>
+                        <option value=1>Jan</option>
+                        <option value=2>Feb</option>
+                        <option value=3>Mar</option>
+                        <option value=4>Apr</option>
+                        <option value=5>May</option>
+                        <option value=6>Jun</option>
+                        <option value=7>Jul</option>
+                        <option value=8>Aug</option>
+                        <option value=9>Sep</option>
+                        <option value=10>Oct</option>
+                        <option value=11>Nov</option>
+                        <option value=12>Dec</option>
+                    </select>
+                    <label>Month</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="user-box">
+                    <select [(ngModel)]=year>
+                        <option value=2023>2023</option>
+                        <option value=2024>2024</option>
+                    </select>
+                    <label>Year</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <button style="width:10vw ;" type="submit" class="btn btn-success" (click)="generateSalary()">Get
+                    Salary</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!allemp">
+        <div class="row" style="margin-top: 3vh;">
+            <table class="table table-bordered table-striped table-condensed cf" style="width: 100%;">
+                <thead>
+                    <th colspan="2" style="background-color: black; color: white; text-align: center;">Salary
+                    </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td
+                            style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                            Head</td>
+                        <td
+                            style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                            Value</td>
+                    </tr>
+                    <ng-container *ngFor="let head of finalsalary ">
+                        <tr>
+                            <td>
+                                {{head.heading}}
+                            </td>
+                            <td>
+                                <div class="user-box" style="margin-left: 2vw;">
+                                    <input type="text" name="" required="" [(ngModel)]=head.amt
+                                        (ngModelChange)="calculateFinalTotal(this)">
+                                    <label></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <ng-container *ngFor="let head of finaldeductions ">
+                        <tr>
+                            <td>
+                                {{head.heading}}
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col" style="font-size: large; max-width: 1vw;">-</div>
+                                    <div class="col" class="user-box" style="margin-left: 1vw;">
+                                        <input type="text" name="" required="" [(ngModel)]=head.amt
+                                            (ngModelChange)="calculateFinalTotal(this)">
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr>
+                        <td>Total</td>
+                        <td>
+                            <div style="margin-left: 2vw; font-weight: 600;">{{total}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="margin-top: 3vh;">
+            <button style="width:10vw ;" type="submit" class="btn btn-success" (click)="save()">Save</button>
+        </div>
+    </div>
+    <div *ngIf="allemp">
+        <div class="row" style="margin-top: 3vh;">
+            <table class="table table-bordered table-striped table-condensed cf" style="width: 100%;">
+                <thead>
+                    <th>EmpCode</th>
+                    <th>Name</th>
+                    <ng-container *ngFor="let header of allheaders">
+                        <th>{{header}}</th>
+                    </ng-container>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let e of allsalary | keyvalue">
+                        <tr>
+                            <td>{{e.key}}</td>
+                            <td>{{e.value.empname}}</td>
+                            <ng-container *ngFor="let header of allheaders">
+                                <ng-container *ngFor="let sal of e.value.finalsalary">
+                                    <ng-container *ngIf="sal.heading==header">
+                                        <td style="text-align: right; width: 10vw;">{{sal.amt}}</td>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngFor="let sal of e.value.finaldeductions">
+                                    <ng-container *ngIf="sal.heading==header">
+                                        <td style="text-align: right; width: 5vw;">{{sal.amt}}</td>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                            <td style="text-align: right;width: 10vw; font-weight: 600;">{{e.value.total}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

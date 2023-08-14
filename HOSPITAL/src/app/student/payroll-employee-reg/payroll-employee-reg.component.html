@@ -1,0 +1,232 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col">
+                <p style="font-size: 18px;">Employee Registration</p>
+            </div>
+        </div>
+        <div>
+            <div class="row" style="padding-left: 1vw; margin-top: 1vh;">
+                <div class="user-box-small">
+                    <input type="text" name="" required="" disabled="true" [(ngModel)]=employee.Empcode>
+                    <label>EmpCode</label>
+                </div>
+                <div class="user-box-small">
+                    <select [(ngModel)]=employee.Mr>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Mst">Mst</option>
+                        <option value="Dr">Dr</option>
+                    </select>
+                    <label>Title</label>
+                </div>
+                <div class="user-box-big">
+                    <input style="font-weight:bolder;" type="text" name="" required="" [(ngModel)]=employee.staffname>
+                    <label>Employee Name</label>
+                </div>
+                <div class="user-box">
+                    <input type="date" name="" required="" [(ngModel)]=employee.dob (change)="calculateAge()">
+                    <label>D.O.B.</label>
+                </div>
+                <div class="user-box-small">
+                    <input type="text" name="" required="" [(ngModel)]=employee.age>
+                    <label>Age</label>
+                </div>
+                <div class="user-box">
+                    <select [(ngModel)]=employee.gender>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <label>Gender</label>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 1vw; margin-top: 2vh;">
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.category>
+                    <label>Category</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.mstatus>
+                    <label>Marital Status</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.Father_nam>
+                    <label>Father Name</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.mother_nam>
+                    <label>Mother Name</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.spouse_nam>
+                    <label>Spouse Name</label>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 1vw; margin-top: 2vh;">
+                <div class="user-box-big1">
+                    <input type="text" name="" required="" [(ngModel)]=employee.Currentadd>
+                    <label>Current Address</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.Currentcity>
+                    <label>Current City</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="" [(ngModel)]=employee.cpin>
+                    <label>Pin Code</label>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 1vw; margin-top: 2vh;">
+            </div>
+            <div class="row" style="padding-left: 1vw; margin-top: 2vh;">
+                <div class="col">
+                    <table class="table table-bordered table-striped table-condensed cf" style="width: 100%;">
+                        <thead>
+                            <th colspan="2" style="background-color: black; color: white; text-align: center;">Salary
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                                    Head</td>
+                                <td
+                                    style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                                    Value</td>
+                            </tr>
+                            <ng-container *ngFor="let head of salary | keyvalue">
+                                <tr>
+                                    <td [ngStyle]="{'font-weight': (head.key == 'Total') ? '600' : '100'}">
+                                        {{head.key}}
+                                    </td>
+                                    <td [ngStyle]="{'font-weight': (head.key == 'Total') ? '600' : '100'}">
+                                        <div class="user-box">
+                                            <input type="text" name="" required="" [ngModel]=head.value
+                                                (change)="salarychange(head.key,head.value,$event)">
+                                            <label></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <tr>
+                                <td [ngStyle]="{'font-weight': '600'}">
+                                    Total
+                                </td>
+                                <td [ngStyle]="{'font-weight': '600'}">
+                                    <div class="user-box">
+                                        <input type="text" name="" required="" [ngModel]=employee.salary>
+                                        <label></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col" style="padding-left: 2vw;">
+                    <div class="row">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.Currentmobile>
+                            <label>Current Mobile</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.Whatsappno>
+                            <label>Whatsapp No</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.Parmanentmobile>
+                            <label>Alternative Mobile</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.emailid>
+                            <label>Email</label>
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.Nominee>
+                            <label>Nominee</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.relation>
+                            <label>Relation</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.jobtype>
+                            <label>Job Type</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.departid>
+                            <label>Depart Id</label>
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.desig>
+                            <label>Designation</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="date" name="" required="" [(ngModel)]=employee.doj>
+                            <label>D.O.J.</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.empstatus>
+                            <label>Emp Status</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.leaveallow>
+                            <label>Leave Allowed</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.aadharno>
+                            <label>Aadhar No</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.pancarno>
+                            <label>Pan No</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.EsicNo>
+                            <label>Esic No</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.UANNo>
+                            <label>UAN No</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.esic>
+                            <label>Esic %</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="" [(ngModel)]=employee.pfper>
+                            <label>PF %</label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2vh;">
+                        <button style="width:120px ;" type="submit" class="btn btn-success"
+                        (click)="onSubmit()">SAVE</button>                
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-loader *ngIf="!resourcesLoaded"></app-loader>

@@ -1,0 +1,160 @@
+<div style="border-style: 0px solid; height: 100%; border-radius: 5px; border-width: 1px;">
+    <div>
+        <div class="row" style="font-family: 'Source Sans Pro';font-weight: 600; color: black;padding-left: 1vw;">
+            <div class="col-6">
+                <p style="font-size: 18px;">Employee Seperation</p>
+            </div>
+            <div class="col-3">
+                <div class="user-box">
+                    <input type="date" name="" required="" [(ngModel)]="lwd" >
+                    <label>L.W.D</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <button style="width:120px ;" type="submit" class="btn btn-success"
+                (click)="getSeperation()">Get Data</button>                
+            </div>
+        </div>
+        <div class="row" style="margin-top: 3vh;">
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Employee Code</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                        <th>19</th>
+                        <th>20</th>
+                        <th>21</th>
+                        <th>22</th>
+                        <th>23</th>
+                        <th>24</th>
+                        <th>25</th>
+                        <th>26</th>
+                        <th>27</th>
+                        <th>28</th>
+                        <th>29</th>
+                        <th>30</th>
+                        <th>31</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let record of seperation.attend">
+                        <td>{{ record.empcode }}</td>
+                        <td><input type="text" [(ngModel)]="record.one" name="one" style="max-width: 2vw;"  [disabled]="record.one == null"></td>
+                        <td><input type="text" [(ngModel)]="record.two" name="two" style="max-width: 2vw;"  [disabled]="record.two == null"></td>
+                        <td><input type="text" [(ngModel)]="record.three" name="three" style="max-width: 2vw;"  [disabled]="record.three == null"></td>
+                        <td><input type="text" [(ngModel)]="record.four" name="four" style="max-width: 2vw;"  [disabled]="record.four == null"></td>
+                        <td><input type="text" [(ngModel)]="record.five" name="five" style="max-width: 2vw;"  [disabled]="record.five == null"></td>
+                        <td><input type="text" [(ngModel)]="record.six" name="six" style="max-width: 2vw;"  [disabled]="record.six == null"></td>
+                        <td><input type="text" [(ngModel)]="record.seven" name="seven" style="max-width: 2vw;"  [disabled]="record.seven == null"></td>
+                        <td><input type="text" [(ngModel)]="record.eight" name="eight" style="max-width: 2vw;"  [disabled]="record.eight == null"></td>
+                        <td><input type="text" [(ngModel)]="record.nine" name="nine" style="max-width: 2vw;"  [disabled]="record.nine == null"></td>
+                        <td><input type="text" [(ngModel)]="record.ten" name="ten" style="max-width: 2vw;"  [disabled]="record.ten == null"></td>
+                        <td><input type="text" [(ngModel)]="record.eleven" name="eleven" style="max-width: 2vw;"  [disabled]="record.eleven == null"></td>
+                        <td><input type="text" [(ngModel)]="record.tweleve" name="twelve" style="max-width: 2vw;"  [disabled]="record.tweleve == null"></td>
+                        <td><input type="text" [(ngModel)]="record.thirteen" name="thirteen" style="max-width: 2vw;"  [disabled]="record.thirteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.fourteen" name="fourteen" style="max-width: 2vw;"  [disabled]="record.fourteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.fiveteen" name="fifteen" style="max-width: 2vw;"  [disabled]="record.fiveteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.sixteen" name="sixteen" style="max-width: 2vw;"  [disabled]="record.sixteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.seventeen" name="seventeen" style="max-width: 2vw;"  [disabled]="record.seventeen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.eightteen" name="eighteen" style="max-width: 2vw;"  [disabled]="record.eightteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.nineteen" name="nineteen" style="max-width: 2vw;"  [disabled]="record.nineteen == null"></td>
+                        <td><input type="text" [(ngModel)]="record.twenty" name="twenty" style="max-width: 2vw;"  [disabled]="record.twenty == null"></td>
+                        <td><input type="text" [(ngModel)]="record.twentyone" name="twentyone" style="max-width: 2vw;"  [disabled]="record.twentyone == null"></td>
+                        <td><input type="text" [(ngModel)]="record.twentytwo" name="twentytwo" style="max-width: 2vw;"  [disabled]="record.twentytwo == null"></td>
+                        <td><input type="text" [(ngModel)]="record.twentythree" name="twentythree" style="max-width: 2vw;"  [disabled]="record.twentythree == null"
+                        ></td>
+                        <td><input type="text" [(ngModel)]="record.twentyfour" name="twentyfour" style="max-width: 2vw;"  [disabled]="record.twentyfour == null"
+                        ></td>
+                        <td><input type="text" [(ngModel)]="record.twentyfive" name="twentyfive" style="max-width: 2vw;"  [disabled]="record.twentyfive == null"
+                        ></td>
+                        <td><input type="text" [(ngModel)]="record.twentysix" name="twentysix" style="max-width: 2vw;"  [disabled]="record.twentysix == null"></td>
+                        <td><input type="text" [(ngModel)]="record.twentyseven" name="twentyseven" style="max-width: 2vw;"  [disabled]="record.twentyseven == null"
+                        ></td>
+                        <td><input type="text" [(ngModel)]="record.twentyeight" name="twentyeight" style="max-width: 2vw;"  [disabled]="record.twentyeight == null"
+                        ></td>
+                        <td><input type="text" [(ngModel)]="record.twentynine" name="twentynine" style="max-width: 2vw;"  [disabled]="record.twentynine == null">
+                        </td>
+                        <td><input type="text" [(ngModel)]="record.thirty" name="thirty" style="max-width: 2vw;"  [disabled]="record.thirty == null"></td>
+                        <td><input type="text" [(ngModel)]="record.thirtyone" name="thirtyone" style="max-width: 2vw;"  [disabled]="record.thirtyone == null"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="row" style="margin-top: 3vh;">
+            <table class="table table-bordered table-striped table-condensed cf" style="width: 100%;">
+                <thead>
+                    <th colspan="2" style="background-color: black; color: white; text-align: center;">Salary
+                    </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td
+                            style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                            Head</td>
+                        <td
+                            style="background-color:darkgray !important; color:black; font-size:small; text-align: center ;">
+                            Value</td>
+                    </tr>
+                    <ng-container *ngFor="let head of finalsalary ">
+                        <tr>
+                            <td>
+                                {{head.heading}}
+                            </td>
+                            <td>
+                                <div class="user-box" style="margin-left: 2vw;">
+                                    <input type="text" name="" required="" [(ngModel)]=head.amt
+                                        (ngModelChange)="calculateFinalTotal()">
+                                    <label></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <ng-container *ngFor="let head of finaldeductions ">
+                        <tr>
+                            <td>
+                                {{head.heading}}
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col" style="font-size: large; max-width: 1vw;">-</div>
+                                    <div class="col" class="user-box" style="margin-left: 1vw;">
+                                        <input type="text" name="" required="" [(ngModel)]=head.amt
+                                            (ngModelChange)="calculateFinalTotal()">
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr>
+                        <td>Total</td>
+                        <td>
+                            <div style="margin-left: 2vw; font-weight: 600;">{{total}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="margin-top: 3vh;">
+            <button style="width:10vw ;" type="submit" class="btn btn-success" (click)="save()">Save</button>
+        </div>    
+    </div>
+</div>
