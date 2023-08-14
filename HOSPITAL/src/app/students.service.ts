@@ -33,8 +33,8 @@ export class StudentsService {
   constructor(private http: HttpClient) { }
 
   //for login   
-  //  cdn = "http://krishna.softmansystem.com"
-     cdn = "http://silversoft.softmansystem.com"
+   cdn = "http://krishna.softmansystem.com"
+    //  cdn = "http://silversoft.softmansystem.com"
 
 
 
@@ -154,15 +154,12 @@ export class StudentsService {
   ipd_payment_afterdischarge(Details: any,OPD:any) {
     return this.http.post(this.cdn + '/Hospital/ipd_payment_after_discharge.php', {"Details":Details,"OPD":OPD}, { responseType: 'text' });
   }
-  ipd_bill_afterdischarge(heads: any) {
-    return this.http.post(this.cdn + '/Hospital/ipd_bill_afterdischarge.php', heads, { responseType: 'text' });
+  ipd_bill_afterdischarge(heads: any,OPD:any) {
+    return this.http.post(this.cdn + '/Hospital/ipd_bill_afterdischarge.php', {"Details":heads,"Ward1":OPD}, { responseType: 'text' });
   }
   ipd_billdetails_afterdischarge(heads: any,OPD:any) {
     return this.http.post(this.cdn + '/Hospital/ipd_billdetails_afterdischarge.php', {"Details":heads,"OPD":OPD}, { responseType: 'text' });
   }
-
-
-
   ipd_update(OPD1: any) {
     return this.http.post(this.cdn + '/Hospital/pntinfo_ipd_update.php', OPD1, { responseType: 'text' });
   }
@@ -512,32 +509,32 @@ export class StudentsService {
     return this.http.get<Students[]>(this.cdn + '/Hospital/patientfullpayment.php?&uhID=' + uhID);
   }
   //  Mis reporting
-  misdailyacticity(vrdt1: string, vrdt2: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-details.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  misdailyacticity(vrdt1: string, vrdt2: string,user:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-details.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&user=' + user);
   }
   misdailyacticity_conssultant(vrdt1: string, vrdt2: string,doctor:string) {
     return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-details_consultant.php?&vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doctor=' + doctor);
   }
-  mispaymodeacticity(vrdt1: string, vrdt2: string, doc1: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-paymode.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
+  mispaymodeacticity(vrdt1: string, vrdt2: string, doc1: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-paymode.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1 + '&doc5=' + doc5);
   }
-  missummaryacticity(vrdt1: string, vrdt2: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-summary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  missummaryacticity(vrdt1: string, vrdt2: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-summary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc5=' + doc5);
   }
-  missummaryallheadacticity(vrdt1: string, vrdt2: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  missummaryallheadacticity(vrdt1: string, vrdt2: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc5=' + doc5);
   }
-  misconsultant_allheads(vrdt1: string, vrdt2: string) {
-    return this.http.get<allheadsummary[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary_consultant.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2);
+  misconsultant_allheads(vrdt1: string, vrdt2: string,doc : string) {
+    return this.http.get<allheadsummary[]>(this.cdn + '/Hospital/Report_Mis-DA-allheadsummary_consultant.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc=' + doc);
   }
-  misheadsacticity(vrdt1: string, vrdt2: string, doc1: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Heads.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
+  misheadsacticity(vrdt1: string, vrdt2: string, doc1: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Heads.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1 + '&doc5=' + doc5);
   }
-  misheadsdailyacticity(vrdt1: string, vrdt2: string, doc1: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Headsdaily.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
+  misheadsdailyacticity(vrdt1: string, vrdt2: string, doc1: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Headsdaily.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1 + '&doc5=' + doc5);
   }
-  misheadsmonthacticity(vrdt1: string, vrdt2: string, doc1: string) {
-    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Headsmonthly.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1);
+  misheadsmonthacticity(vrdt1: string, vrdt2: string, doc1: string,doc5:string) {
+    return this.http.get<Students[]>(this.cdn + '/Hospital/Report_Mis-DA-Headsmonthly.php?vrdt1=' + vrdt1 + '&vrdt2=' + vrdt2 + '&doc1=' + doc1 + '&doc5=' + doc5);
   }
   //  OPD reporting
   gettableopddaycollection(vrdt1: string, vrdt2: string) {

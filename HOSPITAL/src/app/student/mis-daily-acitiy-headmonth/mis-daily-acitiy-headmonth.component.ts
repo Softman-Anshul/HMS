@@ -24,6 +24,7 @@ export class MisDailyAcitiyHeadmonthComponent implements OnInit {
   headingMap = new Map<string, boolean>();
   heading1 = "";
   groups = [];
+  fromuser="";
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -44,8 +45,8 @@ export class MisDailyAcitiyHeadmonthComponent implements OnInit {
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
     this.paymode = routerParams["doc1"];
-
-    this._studentservice.misheadsmonthacticity(routerParams["vrdt1"], routerParams["vrdt2"], routerParams["doc1"])
+    this.fromuser = routerParams["doc5"];
+    this._studentservice.misheadsmonthacticity(routerParams["vrdt1"], routerParams["vrdt2"], routerParams["doc1"], routerParams["doc5"])
       .subscribe((data: Students[]) => {
         this.Students = data;
 

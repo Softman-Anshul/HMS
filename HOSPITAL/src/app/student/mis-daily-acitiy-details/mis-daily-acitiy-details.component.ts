@@ -30,6 +30,7 @@ export class MisDailyAcitiyDetailsComponent implements OnInit {
   headwiseTotalrefund = new Map();
   headwiseTotalbal = new Map();
   headwiseTotalnet = new Map();
+  fromuser="";
 
   constructor( private _studentservice:StudentsService,
     private routes : ActivatedRoute,
@@ -50,7 +51,8 @@ export class MisDailyAcitiyDetailsComponent implements OnInit {
    const routerParams = this.routes.snapshot.params;
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
-    this._studentservice.misdailyacticity(routerParams["vrdt1"],routerParams["vrdt2"])
+    this.fromuser = routerParams["doc5"]
+    this._studentservice.misdailyacticity(routerParams["vrdt1"],routerParams["vrdt2"],routerParams["doc5"])
     .subscribe((data:Students[]) => {
     this.Students= data;
 

@@ -327,16 +327,19 @@ export class IpdEditAfterdischComponent implements OnInit {
   updateAll() {
     this.OPD1.corrtime = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" });
     const routerParams = this.routes.snapshot.params;
+    //Patient Information
     this._studentservice.ipd_update(this.OPD1)
       .subscribe(data => {
+        //Payment 
         this._studentservice.ipd_payment_afterdischarge(this.Details, this.OPD1)
           .subscribe(data => {
-            this._studentservice.ipd_bill_afterdischarge(this.heads1)
+            //Bill heading and Room History
+            this._studentservice.ipd_bill_afterdischarge(this.heads1,this.Ward1)
               .subscribe(data => {
-
+                //bill Details
                 this._studentservice.ipd_billdetails_afterdischarge(this.heads, this.OPD1)
                   .subscribe(data => {
-
+                   
                   });
               });
           });

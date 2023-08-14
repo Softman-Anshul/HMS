@@ -27,7 +27,7 @@ export class MisDailyAcitiySummaryallheadComponent {
   totaloct=0;
   totalnov=0;
   totaldec=0;
-
+  fromuser="";
   groups = [];
  
   constructor(private _studentservice: StudentsService,
@@ -47,8 +47,8 @@ export class MisDailyAcitiySummaryallheadComponent {
     const routerParams = this.routes.snapshot.params;
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
-
-    this._studentservice.missummaryallheadacticity(routerParams["vrdt1"], routerParams["vrdt2"])
+    this.fromuser =routerParams["doc5"];
+    this._studentservice.missummaryallheadacticity(routerParams["vrdt1"],routerParams["vrdt2"],routerParams["doc5"])
       .subscribe((data: Students[]) => {
         this.Students = data;
 

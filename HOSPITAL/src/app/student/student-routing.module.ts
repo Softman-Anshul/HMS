@@ -269,13 +269,13 @@ const routes: Routes = [
             { path: 'ipdbill4/:billno/:yrs/:dcmntNo/:uhID', component: IPDBillprint4Component },
 
             //MIS Reporting
-            { path: 'dailyacitivy-details/:vrdt1/:vrdt2', component: MisDailyAcitiyDetailsComponent },
-            { path: 'dailyacitivy-Paymode/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyPaymodeComponent },
-            { path: 'dailyacitivy-Summary/:vrdt1/:vrdt2', component: MisDailyAcitiySummaryComponent },
-            { path: 'dailyacitivy-Heads/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsComponent },
-            { path: 'dailyacitivy-Headsday/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadsumdayComponent },
-            { path: 'dailyacitivy-Headssummonth/:vrdt1/:vrdt2/:doc1', component: MisDailyAcitiyHeadmonthComponent },
-            { path: 'dailyacitivy-monthsummaryallheads/:vrdt1/:vrdt2', component:MisDailyAcitiySummaryallheadComponent },
+            { path: 'dailyacitivy-details/:vrdt1/:vrdt2/:doc5', component: MisDailyAcitiyDetailsComponent },
+            { path: 'dailyacitivy-Paymode/:vrdt1/:vrdt2/:doc1/:doc5', component: MisDailyAcitiyPaymodeComponent },
+            { path: 'dailyacitivy-Summary/:vrdt1/:vrdt2/:doc5', component: MisDailyAcitiySummaryComponent },
+            { path: 'dailyacitivy-Heads/:vrdt1/:vrdt2/:doc1/:doc5', component: MisDailyAcitiyHeadsComponent },
+            { path: 'dailyacitivy-Headsday/:vrdt1/:vrdt2/:doc1/:doc5', component: MisDailyAcitiyHeadsumdayComponent },
+            { path: 'dailyacitivy-Headssummonth/:vrdt1/:vrdt2/:doc1/:doc5', component: MisDailyAcitiyHeadmonthComponent },
+            { path: 'dailyacitivy-monthsummaryallheads/:vrdt1/:vrdt2/:doc5', component:MisDailyAcitiySummaryallheadComponent },
 
             { path: 'dailyacitivy-details-consultant/:vrdt1/:vrdt2/:doc1', component:MisDailyAcitiyDetailsConsultantComponent },
             { path: 'dailyacitivy-HeadSummary-consultant/:vrdt1/:vrdt2/:doc1', component:MisDailyAcitiyHeadsummaryConsultantComponent },

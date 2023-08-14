@@ -53,7 +53,7 @@ export class MisDailyAcitiySummaryConsultantComponent {
     this.todt = routerParams["vrdt2"];
     this.paymode = routerParams["doc1"];
 
-    this._studentservice.misconsultant_allheads(routerParams["vrdt1"], routerParams["vrdt2"])
+    this._studentservice.misconsultant_allheads(routerParams["vrdt1"], routerParams["vrdt2"],routerParams["doc1"])
       .subscribe((data: allheadsummary[]) => {
         this.allheadsummary = data;
         this.sum = new Map<String, allheadsummary>();

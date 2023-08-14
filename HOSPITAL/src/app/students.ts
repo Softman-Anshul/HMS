@@ -207,6 +207,7 @@ export class billheading{
     set=0;
     tests: billdetails[]=[];
     bills:IPDPAYMENT[]=[] ;  
+    category="";
 
 }
 export class billdetails{

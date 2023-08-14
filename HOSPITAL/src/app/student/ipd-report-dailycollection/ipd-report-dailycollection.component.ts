@@ -25,7 +25,7 @@ export class IpdReportDailycollectionComponent implements OnInit {
   headingMap = new Map<string, boolean>();
   heading1 = "";
   groups = [];
-
+  fromuser="";
   
 
 
@@ -47,8 +47,9 @@ export class IpdReportDailycollectionComponent implements OnInit {
   const routerParams = this.routes.snapshot.params;
   this.fromdt = routerParams["vrdt1"];
   this.todt = routerParams["vrdt2"];
+  this.fromuser = routerParams["doc5"];
 
-  this._studentservice.misheadsdailyacticity(routerParams["vrdt1"], routerParams["vrdt2"], "IPD")
+  this._studentservice.misheadsdailyacticity(routerParams["vrdt1"], routerParams["vrdt2"], "IPD", routerParams["doc"])
     .subscribe((data: Students[]) => {
       this.Students = data;
       for (let i = 0; i < this.Students.length; i++) {

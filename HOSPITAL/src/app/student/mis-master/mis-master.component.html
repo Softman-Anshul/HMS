@@ -21,6 +21,13 @@
           </option> 
           </select>
       
+          <select style="width:260px ;" class="form-control" [(ngModel)]=user  >
+            <option>ALL</option>
+            <option *ngFor="let element of list3">
+              {{element}}
+            </option> 
+            </select>
+
         <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt1 >
         <input style="font-size:small; width:100px ;height:30px ;" type="date" [(ngModel)]=vrdt2 >
           <button style="font-size:small; margin-left:10px;" *ngIf="showdailyactivityreport" (click) =dailyreport(vrdt1,vrdt2,choice,choice1) class="btn btn-primary">OK</button>
@@ -46,11 +53,11 @@
             <option value="Details">Details</option>
             <option value="Head Wise Summary">Head Wise Summary</option>
             <option value="Summary">Summary</option>
-            <option value="PaymentMode">PaymentMode</option>
-            <option value="Daywise">Daywise</option>
+            <!-- <option value="Admit"># Admit Patient</option>
+            <option value="Discharge"># Discharge Patient</option>
             <option value="Head Wise Details">Head Wise Details</option>
             <option value="Head Wise Daily">Head Wise Daily</option>
-            <option value="Head Wise Monthly">Head Wise Monthly</option>
+            <option value="Head Wise Monthly">Head Wise Monthly</option> -->
             </select>
       
             <select style="width:260px ;" class="form-control" [(ngModel)]=choice5  [disabled]="list2.length <= 0">

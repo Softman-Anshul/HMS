@@ -35,7 +35,7 @@ export class MisDailyAcitiyHeadsummaryConsultantComponent {
   typewiseTotal = new Map<String, Map<String, Map<String, Number>>>();
   dcmtTypes = new Set<String>();
   finalTotal = new Map<String,Number>();
-
+  grandTotal = 0;
 
   constructor(private _studentservice: StudentsService,
     private routes: ActivatedRoute,
@@ -70,6 +70,8 @@ export class MisDailyAcitiyHeadsummaryConsultantComponent {
           } else {
             this.finalTotal.set(this.Students[i].Reporttype.toString(),Number(this.Students[i].recamt))
           }
+
+          this.grandTotal = this.grandTotal + Number(this.Students[i].recamt)
 
           let list = this.headingMap.get(this.Students[i].condoctor.toString());
 

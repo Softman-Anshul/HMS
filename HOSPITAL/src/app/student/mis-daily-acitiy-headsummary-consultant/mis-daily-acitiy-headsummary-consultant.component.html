@@ -17,30 +17,30 @@
         <thead>
             <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Doctor</th>    
             <ng-container *ngFor="let dcmt of sortDcmt() ">
-                <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">{{dcmt}}</th>    
+                <th style="background-color:darkgray !important; color:black; font-size:large; text-align: right ;">{{dcmt}}</th>    
             </ng-container>
-            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: center ;">Total</th>    
+            <th style="background-color:darkgray !important; color:black; font-size:large; text-align: right ;">Total</th>    
         </thead>
         <tbody>
             <ng-container *ngFor="let heading1 of headingMap1 | keyvalue">
                 <tr style="font-size: large;">
                     <td >{{heading1.key}}</td>
                     <ng-container *ngFor="let dcmt of sortDcmt() ">
-                        <td>
+                        <td style="text-align: right;">
                             {{checkIfNull(heading1.key,dcmt,'headwiseTotalnet')}}
                         </td>
                     </ng-container>
-                    <td style="font-weight: 600;">{{headwiseTotalnet.get(heading1.key)}}</td>
+                    <td style="font-weight: 600;text-align: right;">{{headwiseTotalnet.get(heading1.key)}}</td>
                 </tr>
             </ng-container>
             <tr style="font-size: large;">
                 <td style="font-weight: 600;">Total</td>
                 <ng-container *ngFor="let dcmt of sortDcmt() ">
-                    <td style="font-weight: 600;">
+                    <td style="font-weight: 600; text-align: right;">
                         {{this.finalTotal.get(dcmt)}}
                     </td>
                 </ng-container>
-                <td></td>
+                <td style="font-weight: 600; text-align: right;">{{grandTotal}}</td>
             </tr>
     </tbody>
     </table>

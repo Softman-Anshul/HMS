@@ -18,6 +18,7 @@ export class IpdReportDaycollectionComponent implements OnInit {
   totaldamt=0;
   totalramt=0;
   totalnamt=0;
+  fromuser="";
 
   constructor( private _studentservice:StudentsService,
     private routes : ActivatedRoute,
@@ -37,7 +38,8 @@ export class IpdReportDaycollectionComponent implements OnInit {
    const routerParams = this.routes.snapshot.params;
    this.fromdt = routerParams["vrdt1"];
    this.todt = routerParams["vrdt2"];
-   this._studentservice.misheadsacticity(routerParams["vrdt1"],routerParams["vrdt2"],"IPD")
+   this.fromuser = routerParams["doc5"] ;
+     this._studentservice.misheadsacticity(routerParams["vrdt1"],routerParams["vrdt2"],"IPD",routerParams["doc5"])
    .subscribe((data:Students[]) => {
    this.students= data;
 

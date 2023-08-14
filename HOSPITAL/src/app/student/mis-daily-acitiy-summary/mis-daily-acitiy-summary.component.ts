@@ -25,6 +25,7 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
   headingMap = new Map<string, boolean>();
   heading1 = "";
   groups = [];
+  fromuser="";
 
   headwiseTotal = new Map();
   headwiseTotaldis = new Map();
@@ -50,8 +51,9 @@ export class MisDailyAcitiySummaryComponent implements OnInit {
     const routerParams = this.routes.snapshot.params;
     this.fromdt = routerParams["vrdt1"];
     this.todt = routerParams["vrdt2"];
+    this.fromuser = routerParams["doc5"];
 
-    this._studentservice.missummaryacticity(routerParams["vrdt1"], routerParams["vrdt2"])
+    this._studentservice.missummaryacticity(routerParams["vrdt1"], routerParams["vrdt2"], routerParams["doc5"])
       .subscribe((data: Students[]) => {
         this.Students = data;
 

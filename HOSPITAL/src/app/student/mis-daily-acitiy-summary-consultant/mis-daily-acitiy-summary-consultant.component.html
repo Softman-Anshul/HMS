@@ -8,52 +8,54 @@
 
     <h4 style="margin-left: 20px; font-weight: bold;">Daily Activity Paymode Wise Report from {{fromdt | date
         :'dd/MM/yyyy'}} To {{todt | date :'dd/MM/yyyy'}}
-        <!-- <label style="margin-left: 100px; font-weight:normal;">PAGE NUMBER </label> -->
     </h4>
 
-    <ng-container *ngFor="let heading of consulatants">
+    <table class="table table-bordered border-primary" style="margin-left:10px ; width: 90%; font-size:smaller;">
 
-        <h4 style="margin-left: 20px; font-weight: bold;"> {{heading}} </h4>
-        <table class="table table-bordered border-primary" style="margin-left:10px ; width: 90%; font-size:smaller;">
-            <thead>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Heads</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Jan</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Feb</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Mar</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Apr</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">May</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Jun</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">July</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Aug</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Sep</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Oct</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Nov</th>
-                <th style="background-color:darkgray !important; color:black; font-size:large;">Dec</th>
-            </thead>
+        <tbody>
+            <ng-container *ngFor="let heading of consulatants">
 
-            <tbody>
+                <tr>
+                    <td colspan="13" style="font-size: large; font-weight: bold;"> {{heading}} </td>
+                </tr>
+                <tr>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Heads </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Jan </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Feb </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Mar </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Apr </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">May </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Jun </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">July </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Aug </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Sep </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Oct </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Nov </td>
+                    <td style="background-color:darkgray !important; color:black; font-size:large;text-align: right;">Dec </td>
+                </tr>
+
                 <ng-container *ngFor="let students of allheadsummary let i=index">
                     <ng-container *ngIf="students.doctor == heading ">
                         <tr>
-                            <td style="font-size: large;">{{students.dcmnttype}}</td>
-                            <td style="font-size: large;">{{students.Jan}}</td>
-                            <td style="font-size: large;">{{students.Feb}}</td>
-                            <td style="font-size: large;">{{students.Mar}}</td>
-                            <td style="font-size: large;">{{students.Apr}}</td>
-                            <td style="font-size: large;">{{students.May}}</td>
-                            <td style="font-size: large;">{{students.Jun}}</td>
-                            <td style="font-size: large;">{{students.Jul}}</td>
-                            <td style="font-size: large;">{{students.Aug}}</td>
-                            <td style="font-size: large;">{{students.Sep}}</td>
-                            <td style="font-size: large;">{{students.Oct}}</td>
-                            <td style="font-size: large;">{{students.Nov}}</td>
-                            <td style="font-size: large;">{{students.Dec}}</td>
+                            <td style="font-size: large; text-align: left;">{{students.dcmnttype}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Jan}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Feb}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Mar}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Apr}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.May}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Jun}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Jul}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Aug}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Sep}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Oct}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Nov}}</td>
+                            <td style="font-size: large; text-align: right;">{{students.Dec}}</td>
                         </tr>
                     </ng-container>
                 </ng-container>
-                <tr>
-                    <td style="font-size: large;font-weight: 600;">Total</td>
-                    <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Jan}}</td>
+                <tr style="text-align: right;">
+                    <td style="font-size: large;font-weight: 600; text-align: left;">TOTAL</td>
+                    <td style="font-size: large;font-weight: 600; ">{{sum.get(heading)?.Jan}}</td>
                     <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Feb}}</td>
                     <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Mar}}</td>
                     <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Apr}}</td>
@@ -66,42 +68,34 @@
                     <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Nov}}</td>
                     <td style="font-size: large;font-weight: 600;">{{sum.get(heading)?.Dec}}</td>
                 </tr>
-            </tbody>
-        </table>
-    </ng-container>
-
-    <table class="table table-bordered border-primary" style="margin-left:10px ; width: 90%; font-size:smaller;">
-        <thead>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Heads</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Jan</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Feb</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Mar</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Apr</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">May</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Jun</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">July</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Aug</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Sep</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Oct</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Nov</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Dec</th>
-        </thead>
-        <thead>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">Total</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Jan}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Feb}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Mar}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Apr}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.May}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Jun}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Jul}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Aug}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Sep}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Oct}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Nov}}</th>
-            <th style="background-color:darkgray !important; color:black; font-size:large;">{{this.total.Dec}}</th>
-        </thead>
-
+            </ng-container>
+            <tr>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: left; font-weight: 600;">GRAND TOTAL </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Jan}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Feb}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Mar}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right; font-weight: 600;">
+                    {{this.total.Apr}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.May}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Jun}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Jul}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Aug}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Sep}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Oct}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Nov}} </td>
+                 <td style="background-color:darkgray !important; color:black; font-size:large; text-align: right;font-weight: 600;">
+                    {{this.total.Dec}} </td>        
+            </tr>
+        </tbody>
     </table>
-
 </div>
