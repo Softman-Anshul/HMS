@@ -82,41 +82,35 @@
                 <tr *ngFor="let record of attendance">
                     <td style="min-width: 6vw;">{{ record.empcode }}</td>
                     <td style="min-width: 20vw;">{{ empMap.get(record.empcode) }}</td>
-                    <td><input type="text" [(ngModel)]="record.one" name="one" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.two" name="two" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.three" name="three" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.four" name="four" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.five" name="five" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.six" name="six" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.seven" name="seven" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.eight" name="eight" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.nine" name="nine" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.ten" name="ten" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.eleven" name="eleven" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.tweleve" name="twelve" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.thirteen" name="thirteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.fourteen" name="fourteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.fiveteen" name="fifteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.sixteen" name="sixteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.seventeen" name="seventeen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.eightteen" name="eighteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.nineteen" name="nineteen" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.twenty" name="twenty" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.twentyone" name="twentyone" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.twentytwo" name="twentytwo" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.twentythree" name="twentythree" style="max-width: 2vw;">
-                    </td>
-                    <td><input type="text" [(ngModel)]="record.twentyfour" name="twentyfour" style="max-width: 2vw;">
-                    </td>
-                    <td><input type="text" [(ngModel)]="record.twentyfive" name="twentyfive" style="max-width: 2vw;">
-                    </td>
-                    <td><input type="text" [(ngModel)]="record.twentysix" name="twentysix" style="max-width: 2vw;"></td>
-                    <td><input type="text" [(ngModel)]="record.twentyseven" name="twentyseven" style="max-width: 2vw;">
-                    </td>
-                    <td><input type="text" [(ngModel)]="record.twentyeight" name="twentyeight" style="max-width: 2vw;" >
-                    </td>
-                    <td><input type="text" [(ngModel)]="record.twentynine" name="twentynine" style="max-width: 2vw;"  [disabled]="record.twentynine == null">
-                    </td>
+                    <td><input type="text" [(ngModel)]="record.one" name="one" style="max-width: 2vw;" [disabled]="record.one == null"></td>
+                    <td><input type="text" [(ngModel)]="record.two" name="two" style="max-width: 2vw;" [disabled]="record.two == null"></td>
+                    <td><input type="text" [(ngModel)]="record.three" name="three" style="max-width: 2vw;" [disabled]="record.three == null"></td>
+                    <td><input type="text" [(ngModel)]="record.four" name="four" style="max-width: 2vw;" [disabled]="record.four == null"></td>
+                    <td><input type="text" [(ngModel)]="record.five" name="five" style="max-width: 2vw;" [disabled]="record.five == null"></td>
+                    <td><input type="text" [(ngModel)]="record.six" name="six" style="max-width: 2vw;" [disabled]="record.six == null"></td>
+                    <td><input type="text" [(ngModel)]="record.seven" name="seven" style="max-width: 2vw;" [disabled]="record.seven == null"></td>
+                    <td><input type="text" [(ngModel)]="record.eight" name="eight" style="max-width: 2vw;" [disabled]="record.eight == null"></td>
+                    <td><input type="text" [(ngModel)]="record.nine" name="nine" style="max-width: 2vw;" [disabled]="record.nine == null"></td>
+                    <td><input type="text" [(ngModel)]="record.ten" name="ten" style="max-width: 2vw;" [disabled]="record.ten == null"></td>
+                    <td><input type="text" [(ngModel)]="record.eleven" name="eleven" style="max-width: 2vw;" [disabled]="record.eleven == null"></td>
+                    <td><input type="text" [(ngModel)]="record.tweleve" name="twelve" style="max-width: 2vw;" [disabled]="record.tweleve == null"></td>
+                    <td><input type="text" [(ngModel)]="record.thirteen" name="thirteen" style="max-width: 2vw;" [disabled]="record.thirteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.fourteen" name="fourteen" style="max-width: 2vw;" [disabled]="record.fourteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.fiveteen" name="fifteen" style="max-width: 2vw;" [disabled]="record.fiveteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.sixteen" name="sixteen" style="max-width: 2vw;" [disabled]="record.sixteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.seventeen" name="seventeen" style="max-width: 2vw;" [disabled]="record.seventeen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.eightteen" name="eighteen" style="max-width: 2vw;" [disabled]="record.eightteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.nineteen" name="nineteen" style="max-width: 2vw;" [disabled]="record.nineteen == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twenty" name="twenty" style="max-width: 2vw;" [disabled]="record.twenty == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyone" name="twentyone" style="max-width: 2vw;" [disabled]="record.twentyone == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentytwo" name="twentytwo" style="max-width: 2vw;" [disabled]="record.twentytwo == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentythree" name="twentythree" style="max-width: 2vw;" [disabled]="record.twentythree == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyfour" name="twentyfour" style="max-width: 2vw;" [disabled]="record.twentyfour == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyfive" name="twentyfive" style="max-width: 2vw;" [disabled]="record.twentyfive == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentysix" name="twentysix" style="max-width: 2vw;" [disabled]="record.twentysix == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyseven" name="twentyseven" style="max-width: 2vw;" [disabled]="record.twentyseven == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentyeight" name="twentyeight" style="max-width: 2vw;"  [disabled]="record.twentyeight == null"></td>
+                    <td><input type="text" [(ngModel)]="record.twentynine" name="twentynine" style="max-width: 2vw;"  [disabled]="record.twentynine == null"></td>
                     <td><input type="text" [(ngModel)]="record.thirty" name="thirty" style="max-width: 2vw;"  [disabled]="record.thirty == null"></td>
                     <td><input type="text" [(ngModel)]="record.thirtyone" name="thirtyone" style="max-width: 2vw;"  [disabled]="record.thirtyone == null"></td>
                 </tr>

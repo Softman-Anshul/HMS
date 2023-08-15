@@ -43,8 +43,8 @@ export class PayrollEmployeeAttendanceComponent {
     let totaldays = this.daysInMonth(this.year, this.month)
     this._studentservice.getAttendance(this.month, this.year, totaldays).subscribe((data: attend[]) => {
       this.attendance = data;
+      data.sort((a,b) => a.empcode.localeCompare(b.empcode));
       this._studentservice.getAllEmployee().subscribe((data1: Employee[]) => {
-
         data1.forEach(element => {
           this.empMap.set(element.Empcode,element.staffname);
         });
